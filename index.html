@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wahool SaaS - Live & Affiliate</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <img class="sidebar-logo-w" src="assets/logo-icon.png" alt="Wahool" width="25" height="28">
+    </div>
+    <nav class="sidebar-nav">
+      <div class="sidebar-primary sidebar-primary-live" id="navLive">
+        <a href="#/" class="sidebar-primary-icon" title="Dashboard"><i class="fas fa-th-large"></i><span class="sidebar-tooltip">Dashboard</span></a>
+        <a href="#/" class="sidebar-primary-icon" title="Live Calendar"><i class="fas fa-calendar-alt"></i><span class="sidebar-tooltip">Live Calendar</span></a>
+        <a href="#/" class="sidebar-primary-icon" title="Live Console"><i class="fas fa-tv"></i><span class="sidebar-tooltip">Live Console</span></a>
+        <a href="#/" class="sidebar-primary-icon" title="Live Settings"><i class="fas fa-cog"></i><span class="sidebar-tooltip">Live Settings</span></a>
+        <a href="#/" class="sidebar-primary-icon" title="Live Products"><i class="fas fa-box"></i><span class="sidebar-tooltip">Live Products</span></a>
+        <a href="#/" class="sidebar-primary-icon" title="Merchant Center"><i class="fas fa-store"></i><span class="sidebar-tooltip">Merchant Center</span></a>
+        <a href="#/affiliate/analytics" class="sidebar-primary-icon" data-route="analytics" title="Tenant Center"><i class="fas fa-building"></i><span class="sidebar-tooltip">Tenant Center</span></a>
+      </div>
+      <div class="sidebar-primary sidebar-primary-hosts" id="navHosts">
+        <a href="#/hosts/hourly-pay-rules" class="sidebar-primary-icon" data-route="hourly-pay-rules" title="Hosts - Hourly Pay Rules"><i class="fas fa-clock"></i><span class="sidebar-tooltip">Hourly Pay Rules</span></a>
+      </div>
+      <div class="sidebar-primary sidebar-primary-affiliate" id="navAffiliate">
+        <a href="#/affiliate/discover" class="sidebar-primary-icon" data-route="discover" title="Find Creators"><i class="fas fa-search"></i><span class="sidebar-tooltip">Find Creators</span></a>
+        <a href="#/affiliate/outreach" class="sidebar-primary-icon" data-route="outreach" title="Outreach"><i class="fas fa-envelope"></i><span class="sidebar-tooltip">Outreach</span></a>
+        <a href="#/affiliate/creators" class="sidebar-primary-icon" data-route="creators" title="Creator CRM"><i class="fas fa-users"></i><span class="sidebar-tooltip">Creator CRM</span></a>
+        <a href="#/affiliate/analytics" class="sidebar-primary-icon" data-route="analytics" title="Tenant Center"><i class="fas fa-building"></i><span class="sidebar-tooltip">Tenant Center</span></a>
+      </div>
+      <div class="sidebar-section sidebar-section-live" id="sectionLive">
+        <a href="#/" class="sidebar-primary-icon" title="Profile"><i class="fas fa-user"></i><span class="sidebar-tooltip">Profile</span></a>
+        <a href="#/" class="sidebar-primary-icon" title="Account"><i class="fas fa-cog"></i><span class="sidebar-tooltip">Account</span></a>
+      </div>
+    </nav>
+  </aside>
+
+  <div class="main-wrapper">
+    <header class="top-nav">
+      <div class="top-nav-left">
+        <div class="role-switcher" id="roleSwitcher">
+          <span class="role-switcher-slider" id="roleSwitcherSlider"></span>
+          <button type="button" class="role-switcher-btn" data-role="live">
+            <i class="fas fa-video"></i>
+            <span>Live</span>
+          </button>
+          <button type="button" class="role-switcher-btn" data-role="affiliate">
+            <i class="fas fa-handshake"></i>
+            <span>Affiliate</span>
+          </button>
+        </div>
+      </div>
+      <div class="top-nav-center">
+        <div class="conn-status" id="connStatus">
+          <span class="conn-item conn-ok" data-conn="network" title="Network"><span class="conn-dot"></span>Network</span>
+          <span class="conn-item conn-ok" data-conn="tiktok" title="TikTok"><span class="conn-dot"></span>TikTok</span>
+          <span class="conn-item conn-warn" data-conn="websocket" title="WebSocket"><span class="conn-dot"></span>WebSocket</span>
+          <span class="conn-item conn-ok" data-conn="client" title="Client Socket"><span class="conn-dot"></span>Client</span>
+        </div>
+      </div>
+      <div class="top-nav-right">
+        <a href="#/benefits-store" class="top-nav-store-link" id="navBenefitsStore" title="Benefits Store"><i class="fas fa-store"></i><span id="navBenefitsStoreText">Benefits Store</span></a>
+        <div class="lang-switcher" id="langSwitcher">
+          <button class="lang-trigger" id="langTrigger"><i class="fas fa-globe"></i> <span id="langLabel">EN</span></button>
+          <div class="lang-dropdown lang-dropdown--hidden" id="langDropdown">
+            <button class="lang-option" data-lang="en">English</button>
+            <button class="lang-option" data-lang="zh">简体中文</button>
+          </div>
+        </div>
+        <button class="top-nav-icon" title="Messages"><i class="fas fa-comment"></i></button>
+        <button class="top-nav-icon" title="Profile"><i class="fas fa-user"></i></button>
+      </div>
+    </header>
+    <main class="main-content">
+      <div id="app" class="page-container"></div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
