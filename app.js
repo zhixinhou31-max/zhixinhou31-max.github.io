@@ -254,6 +254,9 @@
       'tc.ha.withdraw_approve_selected': 'Approve selected',
       'tc.ha.withdraw_approve_all_confirm': 'Approve all pending withdrawal requests?',
       'tc.ha.withdraw_approve_selected_confirm': 'Approve selected withdrawal requests?',
+      'tc.ha.withdraw_approve_confirm': 'Please confirm the transfer has been completed before approving this withdrawal request.',
+      'tc.ha.withdraw_reject_confirm': 'Reject this withdrawal request? After rejection, the host/creator can resubmit a new request.',
+      'tc.ha.withdraw_confirm_modal_title': 'Second confirmation',
       'tc.ha.withdraw_approve_all_done': 'All pending withdrawals approved.',
       'tc.ha.withdraw_approve_selected_done': 'Selected withdrawals approved.',
       'tc.ha.preview': 'Preview',
@@ -733,6 +736,9 @@
       'tc.ha.withdraw_approve_selected': '通过已选',
       'tc.ha.withdraw_approve_all_confirm': '确认要批量通过当前筛选条件下的所有待审批提现吗？',
       'tc.ha.withdraw_approve_selected_confirm': '确认通过所选提现申请？',
+      'tc.ha.withdraw_approve_confirm': '请确认已经完成转账后再通过该提现申请。',
+      'tc.ha.withdraw_reject_confirm': '确定要驳回该提现申请吗？驳回后，主播/达人侧可重新发起申请。',
+      'tc.ha.withdraw_confirm_modal_title': '二次确认',
       'tc.ha.withdraw_approve_all_done': '已批量通过所有待审批提现。',
       'tc.ha.withdraw_approve_selected_done': '已通过所选提现申请。',
       'tc.ha.preview': '预览',
@@ -5489,6 +5495,41 @@
       });
       var approveAllBtn = document.getElementById('haApproveAllPending');
       if (approveAllBtn) approveAllBtn.addEventListener('click', function () {
+        // Second confirmation modal for withdraw approval actions
+        var modal = document.getElementById('haWithdrawConfirmModal');
+        if (!modal) {
+          modal = document.createElement('div');
+          modal.id = 'haWithdrawConfirmModal';
+          modal.className = 'modal-overlay';
+          modal.innerHTML = '<div class="modal">' +
+            '<button type="button" class="modal-close" id="haWithdrawConfirmModalClose"><i class="fas fa-times"></i></button>' +
+            '<h3 class="modal-title" id="haWithdrawConfirmModalTitle"></h3>' +
+            '<div class="modal-desc" id="haWithdrawConfirmModalDesc"></div>' +
+            '<div style="display:flex;justify-content:flex-end;gap:var(--space-md);margin-top:var(--space-xl)">' +
+            '<button class="btn btn-secondary" type="button" id="haWithdrawConfirmModalCancel">' + t('common.cancel') + '</button>' +
+            '<button class="btn btn-primary" type="button" id="haWithdrawConfirmModalOk"></button>' +
+            '</div>' +
+            '</div>';
+          document.body.appendChild(modal);
+        }
+        var okBtn = document.getElementById('haWithdrawConfirmModalOk');
+        var cancelBtn = document.getElementById('haWithdrawConfirmModalCancel');
+        var closeBtn = document.getElementById('haWithdrawConfirmModalClose');
+        var descEl = document.getElementById('haWithdrawConfirmModalDesc');
+        var titleEl = document.getElementById('haWithdrawConfirmModalTitle');
+        var openHaWithdrawConfirm = function (desc, okText, onConfirm) {
+          if (titleEl) titleEl.textContent = t('tc.ha.withdraw_confirm_modal_title');
+          if (descEl) descEl.textContent = desc;
+          if (okBtn) okBtn.textContent = okText;
+          if (modal) modal.classList.add('active');
+          if (cancelBtn) cancelBtn.onclick = function () { if (modal) modal.classList.remove('active'); };
+          if (closeBtn) closeBtn.onclick = function () { if (modal) modal.classList.remove('active'); };
+          if (modal) modal.onclick = function (e) { if (e.target === modal && modal) modal.classList.remove('active'); };
+          if (okBtn) okBtn.onclick = function () {
+            if (modal) modal.classList.remove('active');
+            if (typeof onConfirm === 'function') onConfirm();
+          };
+        };
         function wdGetCountry(r) { return r.country || (r.currency === 'CNY' ? 'CN' : r.currency === 'EUR' ? 'DE' : 'US'); }
         var base = haSettleWithdrawCountryFilter ? haSettleWithdrawRequests.filter(function (r) { return wdGetCountry(r) === haSettleWithdrawCountryFilter; }) : haSettleWithdrawRequests;
         var pending = base.filter(function (r) { return r.status === 'pending'; });
@@ -5500,13 +5541,14 @@
         }
         var confirmMsg = selectedIds.length ? t('tc.ha.withdraw_approve_selected_confirm') : t('tc.ha.withdraw_approve_all_confirm');
         var doneMsg = selectedIds.length ? t('tc.ha.withdraw_approve_selected_done') : t('tc.ha.withdraw_approve_all_done');
-        if (!confirm(confirmMsg)) return;
-        haSettleWithdrawRequests.forEach(function (r) {
-          if (toApprove.indexOf(r) !== -1) r.status = 'approved';
+        openHaWithdrawConfirm(confirmMsg, t('tc.ha.approve'), function () {
+          haSettleWithdrawRequests.forEach(function (r) {
+            if (toApprove.indexOf(r) !== -1) r.status = 'approved';
+          });
+          showToast(doneMsg, 'success');
+          renderHaSettle();
+          bindHaSettlementInnerEvents();
         });
-        showToast(doneMsg, 'success');
-        renderHaSettle();
-        bindHaSettlementInnerEvents();
       });
       var table2 = document.querySelector('.ha-settle-table');
       if (!table2) return;
@@ -5515,11 +5557,45 @@
         var reject = e.target.closest('.ha-reject');
         if (approve || reject) {
           var id = (approve || reject).getAttribute('data-id');
-          haSettleWithdrawRequests.forEach(function (r) {
-            if (r.id === id) r.status = approve ? 'approved' : 'rejected';
-          });
-          renderHaSettle();
-          bindHaSettlementInnerEvents();
+          var msg = approve ? t('tc.ha.withdraw_approve_confirm') : t('tc.ha.withdraw_reject_confirm');
+          // Reuse the modal created/initialized by the bulk handler above if possible
+          var modal = document.getElementById('haWithdrawConfirmModal');
+          if (!modal) {
+            // Fallback: if user reaches single approve/reject before bulk init, create it here
+            modal = document.createElement('div');
+            modal.id = 'haWithdrawConfirmModal';
+            modal.className = 'modal-overlay';
+            modal.innerHTML = '<div class="modal">' +
+              '<button type="button" class="modal-close" id="haWithdrawConfirmModalClose"><i class="fas fa-times"></i></button>' +
+              '<h3 class="modal-title" id="haWithdrawConfirmModalTitle"></h3>' +
+              '<div class="modal-desc" id="haWithdrawConfirmModalDesc"></div>' +
+              '<div style="display:flex;justify-content:flex-end;gap:var(--space-md);margin-top:var(--space-xl)">' +
+              '<button class="btn btn-secondary" type="button" id="haWithdrawConfirmModalCancel">' + t('common.cancel') + '</button>' +
+              '<button class="btn btn-primary" type="button" id="haWithdrawConfirmModalOk"></button>' +
+              '</div>' +
+              '</div>';
+            document.body.appendChild(modal);
+          }
+          var okBtn = document.getElementById('haWithdrawConfirmModalOk');
+          var cancelBtn = document.getElementById('haWithdrawConfirmModalCancel');
+          var closeBtn = document.getElementById('haWithdrawConfirmModalClose');
+          var descEl = document.getElementById('haWithdrawConfirmModalDesc');
+          var titleEl = document.getElementById('haWithdrawConfirmModalTitle');
+          if (titleEl) titleEl.textContent = t('tc.ha.withdraw_confirm_modal_title');
+          if (descEl) descEl.textContent = msg;
+          if (okBtn) okBtn.textContent = approve ? t('tc.ha.approve') : t('tc.ha.reject');
+          if (modal) modal.classList.add('active');
+          if (cancelBtn) cancelBtn.onclick = function () { if (modal) modal.classList.remove('active'); };
+          if (closeBtn) closeBtn.onclick = function () { if (modal) modal.classList.remove('active'); };
+          if (modal) modal.onclick = function (e) { if (e.target === modal && modal) modal.classList.remove('active'); };
+          if (okBtn) okBtn.onclick = function () {
+            if (modal) modal.classList.remove('active');
+            haSettleWithdrawRequests.forEach(function (r) {
+              if (r.id === id) r.status = approve ? 'approved' : 'rejected';
+            });
+            renderHaSettle();
+            bindHaSettlementInnerEvents();
+          };
         }
       });
     }
