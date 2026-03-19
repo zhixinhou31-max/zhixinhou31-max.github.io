@@ -2613,6 +2613,25 @@ tr:hover td { background: var(--primary-soft); }
 }
 .or-conflict--hidden { display: none; }
 
+/* Outreach – Sending account verification hint (task creation modal) */
+.or-sender-verify-hint {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  min-height: 38px; /* fixed height to avoid layout jump */
+  margin-top: var(--space-sm);
+  padding: 8px 12px;
+  background: var(--bg-page);
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-sm);
+}
+
+.or-sender-verify-hint-text {
+  font-size: var(--text-sm);
+  color: var(--text-subtext);
+  line-height: 1.4;
+}
+
 /* ========== Template toolbar & filters ========== */
 .tpl-toolbar {
   display: flex;

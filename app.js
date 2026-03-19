@@ -19,7 +19,7 @@
       'nav.find_creators': 'Find Creators', 'nav.outreach': 'Outreach', 'nav.creator_crm': 'Creator CRM',
       'nav.analytics': 'Analytics', 'nav.tenant_center': 'Tenant Center', 'nav.profile': 'Profile', 'nav.account': 'Account',
       // common
-      'common.all': 'All', 'common.cancel': 'Cancel', 'common.edit': 'Edit', 'common.retry': 'Retry', 'common.save': 'Save',
+      'common.all': 'All', 'common.cancel': 'Cancel', 'common.edit': 'Edit', 'common.retry': 'Retry', 'common.save': 'Save', 'common.hint': 'Hint',
       'common.search': 'Search', 'common.reset': 'Reset', 'common.results': 'results',
       'common.name': 'Name', 'common.subject': 'Subject', 'common.creator': 'Creator',
       'common.updated': 'Updated', 'common.actions': 'Actions', 'common.status': 'Status',
@@ -166,6 +166,21 @@
       'outreach.acct.remove_confirm_title': 'Remove email account',
       'outreach.acct.remove_confirm_msg': 'Remove this account? You can add it again later.',
       'outreach.acct.remove_confirm_btn': 'Remove', 'outreach.acct.removed': 'Account removed.',
+      'outreach.acct.badge_verified': 'Verified',
+      'outreach.acct.badge_pending': 'Pending',
+      'outreach.acct.badge_connected': 'Connected',
+      'outreach.acct.meta_verified': 'Can be used to create sending tasks',
+      'outreach.acct.meta_pending': 'Please complete verification in your email inbox before using',
+      'outreach.acct.pending_suffix': ' (Pending)',
+      'outreach.acct.verify_popup_title': 'Sending email pending verification',
+      'outreach.acct.verify_popup_desc': 'Please complete the verification/confirmation in your email inbox. After verification is completed and takes effect, this sending email can be used to create sending tasks.',
+      'outreach.acct.verify_popup_ok': 'Got it',
+      'outreach.acct.toast_sending_pending': 'Sending account added: Pending verification. Please complete confirmation in your email inbox to use it.',
+      'outreach.modal.hint_select_sender': 'Please select a sending email account (Sending).',
+      'outreach.modal.hint_sender_verified': 'This sending email is verified and can be used to create tasks.',
+      'outreach.modal.hint_sender_pending': 'This sending email is not verified. Please complete confirmation in your email inbox before creating tasks.',
+      'outreach.modal.hint_sender_unusable': 'This sending email cannot be used to create tasks.',
+      'outreach.modal.alert_select_verified_sender': 'Please select a verified sending email before creating a task.',
       // dashboard
       'dashboard.title': 'Dashboard',
       'dashboard.desc': 'Live service home. Switch to Affiliate in the top bar to manage creators.',
@@ -629,6 +644,22 @@
       'outreach.acct.remove_confirm_title': '删除邮箱账户',
       'outreach.acct.remove_confirm_msg': '确定要移除此账户吗？之后可再次添加。',
       'outreach.acct.remove_confirm_btn': '删除', 'outreach.acct.removed': '已移除。',
+      'common.hint': '提示',
+      'outreach.acct.badge_verified': '已验证',
+      'outreach.acct.badge_pending': '未验证',
+      'outreach.acct.badge_connected': '已连接',
+      'outreach.acct.meta_verified': '可用于创建发送任务',
+      'outreach.acct.meta_pending': '请到自己的邮箱完成确认后再使用',
+      'outreach.acct.pending_suffix': '（待验证）',
+      'outreach.acct.verify_popup_title': '发送邮箱待验证',
+      'outreach.acct.verify_popup_desc': '请尽快去你刚添加的邮箱完成验证确认。验证完成并生效后，该发送邮箱才会可用于创建发送任务。',
+      'outreach.acct.verify_popup_ok': '我知道了',
+      'outreach.acct.toast_sending_pending': '已添加发送邮箱：待验证（请到自己的邮箱完成确认后使用）',
+      'outreach.modal.hint_select_sender': '请先选择发送邮箱（Sending）。',
+      'outreach.modal.hint_sender_verified': '该发送邮箱已验证，可用于创建任务。',
+      'outreach.modal.hint_sender_pending': '该发送邮箱未验证，请到自己的邮箱完成确认后再创建任务。',
+      'outreach.modal.hint_sender_unusable': '该发送邮箱不可用于创建任务。',
+      'outreach.modal.alert_select_verified_sender': '请选择已验证的发送邮箱后再创建任务。',
       // dashboard
       'dashboard.title': '仪表盘',
       'dashboard.desc': '直播服务首页。在顶部切换到 Affiliate 板块管理达人。',
@@ -1089,8 +1120,8 @@
   var globalTags = ['Beauty', 'Fashion', 'Tech', 'KOL', 'Beta', 'New', 'VIP', 'Micro'];
 
   let emailAccounts = [
-    { id: 'e1', type: 'sending', email: 'outreach@wahool.com', provider: 'SMTP', status: 'connected' },
-    { id: 'e2', type: 'sending', email: 'marketing@wahool.com', provider: 'SMTP', status: 'connected' },
+    { id: 'e1', type: 'sending', email: 'outreach@wahool.com', provider: 'SMTP', status: 'Verified' },
+    { id: 'e2', type: 'sending', email: 'marketing@wahool.com', provider: 'SMTP', status: 'Pending' },
     { id: 'e3', type: 'receiving', email: 'reply@wahool.com', provider: 'IMAP', status: 'connected' }
   ];
 
@@ -2202,13 +2233,30 @@
     var receivingAccounts = emailAccounts.filter(function (a) { return a.type === 'receiving'; });
 
     function accountCard(a) {
-      return '<div class="or-account-card">' +
-        '<div class="or-account-info">' +
-          '<div class="or-account-icon-wrap"><i class="fas ' + (a.type === 'sending' ? 'fa-paper-plane' : 'fa-inbox') + '"></i></div>' +
-          '<div><div class="or-account-email">' + a.email + '</div></div>' +
-        '</div>' +
-        '<button class="btn btn-secondary btn-sm or-remove-account" data-id="' + a.id + '" title="Remove"><i class="fas fa-trash-alt"></i></button>' +
-      '</div>';
+        var badgeHtml = '';
+        var metaText = '';
+        if (a.type === 'sending') {
+          if (a.status === 'Verified') {
+            badgeHtml = '<span class="badge badge-success">' + t('outreach.acct.badge_verified') + '</span>';
+            metaText = t('outreach.acct.meta_verified');
+          } else {
+            badgeHtml = '<span class="badge badge-warning">' + t('outreach.acct.badge_pending') + '</span>';
+            metaText = t('outreach.acct.meta_pending');
+          }
+        } else {
+          badgeHtml = '<span class="badge badge-secondary">' + t('outreach.acct.badge_connected') + '</span>';
+        }
+
+        return '<div class="or-account-card">' +
+          '<div class="or-account-info">' +
+            '<div class="or-account-icon-wrap"><i class="fas ' + (a.type === 'sending' ? 'fa-paper-plane' : 'fa-inbox') + '"></i></div>' +
+            '<div>' +
+              '<div class="or-account-email">' + a.email + '</div>' +
+              '<div class="or-account-meta">' + badgeHtml + (metaText ? '<span>' + metaText + '</span>' : '') + '</div>' +
+            '</div>' +
+          '</div>' +
+          '<button class="btn btn-secondary btn-sm or-remove-account" data-id="' + a.id + '" title="Remove"><i class="fas fa-trash-alt"></i></button>' +
+        '</div>';
     }
 
     return '<div class="or-tab-header"><div><h2 class="or-tab-title">' + t('outreach.acct.title') + '</h2>' +
@@ -2262,6 +2310,17 @@
           '<div style="display:flex;justify-content:flex-end;gap:var(--space-md);margin-top:var(--space-xl)">' +
             '<button class="btn btn-secondary" id="cancelEmail">' + t('common.cancel') + '</button>' +
             '<button class="btn btn-primary" id="confirmEmail"><i class="fas fa-plug"></i> ' + t('outreach.acct.connect') + '</button>' +
+          '</div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="modal-overlay" id="sendingVerifyPopupModal">' +
+        '<div class="modal">' +
+          '<button type="button" class="modal-close" id="closeSendingVerifyPopup"><i class="fas fa-times"></i></button>' +
+          '<h3 class="modal-title">' + t('outreach.acct.verify_popup_title') + '</h3>' +
+          '<p class="modal-desc">' + t('outreach.acct.verify_popup_desc') + '</p>' +
+          '<div style="display:flex;justify-content:flex-end;gap:var(--space-md);margin-top:var(--space-xl)">' +
+            '<button class="btn btn-primary" id="okSendingVerifyPopup">' + t('outreach.acct.verify_popup_ok') + '</button>' +
           '</div>' +
         '</div>' +
       '</div>' +
@@ -2340,7 +2399,11 @@
   function renderOutreachTasks() {
     var sendingAccounts = emailAccounts.filter(function (a) { return a.type === 'sending'; });
     var receivingAccounts = emailAccounts.filter(function (a) { return a.type === 'receiving'; });
-    var sendingOptions = sendingAccounts.map(function (a) { return '<option value="' + a.id + '">' + a.email + '</option>'; }).join('');
+    var sendingOptions = sendingAccounts.map(function (a) {
+      var isVerified = a.status === 'Verified';
+      var suffix = isVerified ? '' : t('outreach.acct.pending_suffix');
+      return '<option value="' + a.id + '"' + (isVerified ? '' : ' disabled') + '>' + a.email + suffix + '</option>';
+    }).join('');
     var replyOptions = receivingAccounts.map(function (a) { return '<option value="' + a.id + '">' + a.email + '</option>'; }).join('');
     var templateOptions = emailTemplates.map(function (tpl) { return '<option value="' + tpl.id + '">' + tpl.name + '</option>'; }).join('');
 
@@ -2398,6 +2461,10 @@
               '<select class="select" id="newTaskSender"><option value="">' + t('outreach.modal.select_sender') + '</option>' + sendingOptions + '</select></div>' +
             '<div class="form-group form-group--half"><label class="form-label">' + t('outreach.modal.reply_to') + '</label>' +
               '<select class="select" id="newTaskReply"><option value="">' + t('outreach.modal.select_reply') + '</option>' + replyOptions + '</select></div>' +
+          '</div>' +
+          '<div class="or-sender-verify-hint" id="newTaskSenderHint" aria-live="polite">' +
+            '<span class="badge badge-neutral">' + t('common.hint') + '</span>' +
+            '<span class="or-sender-verify-hint-text">' + t('outreach.modal.hint_select_sender') + '</span>' +
           '</div>' +
 
           '<div class="form-group"><label class="form-label">' + t('outreach.modal.template') + '</label>' +
@@ -6387,6 +6454,43 @@
         });
       }
 
+      // Sending account verification strong hint + create button enable/disable (UI-only)
+      var newTaskSender = document.getElementById('newTaskSender');
+      var newTaskSenderHint = document.getElementById('newTaskSenderHint');
+      function updateSenderVerifyUI() {
+        var senderId = newTaskSender ? newTaskSender.value : '';
+        var senderAcc = senderId ? emailAccounts.filter(function (a) { return a.id === senderId; })[0] : null;
+        var hintText = '';
+        var badgeHtml = '<span class="badge badge-neutral">' + t('common.hint') + '</span>';
+        var canCreate = false;
+
+        if (!senderId) {
+          hintText = t('outreach.modal.hint_select_sender');
+          canCreate = false;
+        } else if (!senderAcc || senderAcc.type !== 'sending') {
+          hintText = t('outreach.modal.hint_sender_unusable');
+          canCreate = false;
+        } else if (senderAcc.status === 'Verified') {
+          hintText = t('outreach.modal.hint_sender_verified');
+          badgeHtml = '<span class="badge badge-success">' + t('outreach.acct.badge_verified') + '</span>';
+          canCreate = true;
+        } else {
+          hintText = t('outreach.modal.hint_sender_pending');
+          badgeHtml = '<span class="badge badge-warning">' + t('outreach.acct.badge_pending') + '</span>';
+          canCreate = false;
+        }
+
+        if (newTaskSenderHint) {
+          newTaskSenderHint.innerHTML = badgeHtml + '<span class="or-sender-verify-hint-text">' + hintText + '</span>';
+        }
+        if (confirmTask) confirmTask.disabled = !canCreate;
+      }
+      if (newTaskSender) {
+        newTaskSender.addEventListener('change', updateSenderVerifyUI);
+      }
+      // Initialize on modal open
+      updateSenderVerifyUI();
+
       if (confirmTask) confirmTask.addEventListener('click', function () {
         var name = document.getElementById('newTaskName').value.trim();
         var sender = document.getElementById('newTaskSender').value;
@@ -6394,6 +6498,13 @@
         if (!name) { alert('Please enter a task name.'); return; }
         if (!sender) { alert('Please select a sending account.'); return; }
         if (!tpl) { alert('Please select an email template.'); return; }
+
+        // UI safeguard: only allow creation from verified sending accounts
+        var senderAcc = emailAccounts.filter(function (a) { return a.id === sender; })[0];
+        if (!senderAcc || senderAcc.type !== 'sending' || senderAcc.status !== 'Verified') {
+          alert(t('outreach.modal.alert_select_verified_sender'));
+          return;
+        }
 
         var activeAud = document.querySelector('.or-aud-tab--active');
         var audMode = activeAud ? activeAud.getAttribute('data-aud') : 'tags';
@@ -6437,6 +6548,17 @@
 
       function toggleEmailModal(show) { if (emailModal) emailModal.classList.toggle('active', show); }
 
+      var sendingVerifyPopupModal = document.getElementById('sendingVerifyPopupModal');
+      var closeSendingVerifyPopup = document.getElementById('closeSendingVerifyPopup');
+      var okSendingVerifyPopup = document.getElementById('okSendingVerifyPopup');
+      function toggleSendingVerifyPopup(show) {
+        if (!sendingVerifyPopupModal) return;
+        sendingVerifyPopupModal.classList.toggle('active', !!show);
+      }
+      if (closeSendingVerifyPopup) closeSendingVerifyPopup.addEventListener('click', function () { toggleSendingVerifyPopup(false); });
+      if (okSendingVerifyPopup) okSendingVerifyPopup.addEventListener('click', function () { toggleSendingVerifyPopup(false); });
+      if (sendingVerifyPopupModal) sendingVerifyPopupModal.addEventListener('click', function (e) { if (e.target === sendingVerifyPopupModal) toggleSendingVerifyPopup(false); });
+
       if (btnAddEmail) btnAddEmail.addEventListener('click', function () { toggleEmailModal(true); });
       if (closeEmailModal) closeEmailModal.addEventListener('click', function () { toggleEmailModal(false); });
       if (cancelEmail) cancelEmail.addEventListener('click', function () { toggleEmailModal(false); });
@@ -6457,7 +6579,25 @@
           var appPass = document.getElementById('emailAppPassword').value;
           if (!appPass) { alert('Please enter the app password (third-party client security password).'); return; }
         }
-        alert('Email account "' + addr + '" (' + currentEmailType + ') added successfully!');
+        var newId = 'e' + (emailAccounts.length + 1);
+        emailAccounts.push({
+          id: newId,
+          type: currentEmailType,
+          email: addr,
+          provider: currentEmailType === 'sending' ? 'SMTP' : 'IMAP',
+          status: currentEmailType === 'sending' ? 'Pending' : 'connected'
+        });
+
+        document.getElementById('outreachTabBody').innerHTML = renderOutreachTabContent('accounts');
+        bindOutreachTabEvents('accounts');
+
+        if (currentEmailType === 'sending') {
+          // Open the hint popup to remind users to verify in their email inbox.
+          var popup = document.getElementById('sendingVerifyPopupModal');
+          if (popup) popup.classList.add('active');
+        } else {
+          showToast('已添加接收邮箱', 'success');
+        }
         toggleEmailModal(false);
       });
 
