@@ -26,7 +26,7 @@
       'common.yes': 'Yes', 'common.no': 'No', 'common.any': 'Any', 'common.min': 'Min', 'common.max': 'Max',
       // crm
       'crm.title': 'Creator CRM',
-      'crm.desc': 'Manage partners and leads: status, tags, outreach history, samples.',
+      'crm.desc': 'Manage partners and leads: status, tags, outreach history.',
       'crm.btn.add': 'Add creators', 'crm.filter.mine': 'My creators',
       'crm.filter.all_status': 'All status', 'crm.filter.partner': 'Partner',
       'crm.filter.lead': 'Not partnered',
@@ -426,6 +426,10 @@
       'tc.ha.other_rewards_empty': 'No bonuses defined yet.',
       'tc.ha.other_rewards_saved': 'Saved',
       'tc.ha.other_rewards_cannot_delete': 'Can\'t delete—used in a statement',
+      'tc.ha.other_rewards_period_filter': 'Period filter',
+      'tc.ha.other_rewards_export_excel': 'Export Excel',
+      'tc.ha.other_rewards_created_by': 'Created by',
+      'tc.ha.other_rewards_settlement_status': 'Settlement status',
       'tc.ha.custom_entry_creator': 'Creator',
       'tc.ha.custom_entry_title': 'Title',
       'tc.ha.custom_entry_amount': 'Amount',
@@ -507,7 +511,7 @@
       'common.yes': '是', 'common.no': '否', 'common.any': '不限', 'common.min': '最小', 'common.max': '最大',
       // crm
       'crm.title': '达人管理',
-      'crm.desc': '管理合作达人与线索：状态、标签、触达记录、样品。',
+      'crm.desc': '管理合作达人与线索：状态、标签、触达记录。',
       'crm.btn.add': '添加达人', 'crm.filter.mine': '我的达人',
       'crm.filter.all_status': '全部状态', 'crm.filter.partner': '合作中',
       'crm.filter.lead': '未合作',
@@ -908,6 +912,10 @@
       'tc.ha.other_rewards_empty': '暂无预录入奖励。',
       'tc.ha.other_rewards_saved': '已保存',
       'tc.ha.other_rewards_cannot_delete': '已生成结算单，不可删除',
+      'tc.ha.other_rewards_period_filter': '时间段筛选',
+      'tc.ha.other_rewards_export_excel': '导出 Excel',
+      'tc.ha.other_rewards_created_by': '创建人',
+      'tc.ha.other_rewards_settlement_status': '结算状态',
       'tc.ha.custom_entry_creator': 'Creator',
       'tc.ha.custom_entry_title': '名称',
       'tc.ha.custom_entry_amount': '金额',
@@ -3390,9 +3398,15 @@
     var datePart = (sessionStartAt || '').slice(0, 10);
     if (datePart && /^\d{4}-\d{2}-\d{2}$/.test(datePart)) sessionYear = parseInt(datePart.slice(0, 4), 10);
     var matches = rates.filter(function (r) {
+      var dateOk = true;
+      if (datePart && /^\d{4}-\d{2}-\d{2}$/.test(datePart)) {
+        var startOk = !r.effectiveStart || datePart >= r.effectiveStart;
+        var endOk = !r.effectiveEnd || datePart <= r.effectiveEnd;
+        dateOk = startOk && endOk;
+      }
       var yearOk = r.year == null || r.year === '' || r.year === sessionYear;
       if (sessionYear == null) yearOk = true;
-      return yearOk && haSettleRulesTimeInRange(timeStr, r.startTime, r.endTime);
+      return dateOk && yearOk && haSettleRulesTimeInRange(timeStr, r.startTime || '00:00', r.endTime || '23:59');
     });
     if (!matches.length) return rules.hourlyRate || (rates[0] && rates[0].rate) || 0;
     matches.sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); });
@@ -3401,11 +3415,18 @@
   function haSettleRulesGetEffectiveHourlyRowId(referenceDate, rules) {
     if (!rules || !rules.hourlyRates || !rules.hourlyRates.length) return null;
     var ref = referenceDate || new Date();
+    var refDateStr = ref.toISOString().slice(0, 10);
     var timeStr = (ref.getHours() < 10 ? '0' : '') + ref.getHours() + ':' + (ref.getMinutes() < 10 ? '0' : '') + ref.getMinutes();
     var refYear = ref.getFullYear();
     var rates = rules.hourlyRates.filter(function (r) {
+      var dateOk = true;
+      if (refDateStr) {
+        var startOk = !r.effectiveStart || refDateStr >= r.effectiveStart;
+        var endOk = !r.effectiveEnd || refDateStr <= r.effectiveEnd;
+        dateOk = startOk && endOk;
+      }
       var yearOk = r.year == null || r.year === '' || r.year === refYear;
-      return yearOk && haSettleRulesTimeInRange(timeStr, r.startTime, r.endTime);
+      return dateOk && yearOk && haSettleRulesTimeInRange(timeStr, r.startTime || '00:00', r.endTime || '23:59');
     });
     if (!rates.length) return null;
     rates.sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); });
@@ -3733,13 +3754,13 @@
           '<h3 class="ha-rules-title">' + t('tc.ha.rules_v2_title') + '</h3>' +
           '<p class="ha-settle-desc">' + t('tc.ha.rules_v2_desc') + '</p>' +
           '<p class="ha-rules-v2-priority" title="' + t('tc.ha.rules_priority_hint') + '"><i class="fas fa-info-circle"></i> ' + t('tc.ha.rules_priority') + ': ' + t('tc.ha.rules_priority_hint') + '</p>' +
-          '<div class="ha-settle-la-filter ha-settle-la-filter--intro">' +
+          '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-rules-v2-intro">' +
             '<label class="ha-settle-la-filter-label">' + t('tc.ha.rules_country_filter') + '</label>' +
-            '<div class="ha-rules-v2-tabs ha-rules-v2-country-tabs ha-settle-country-tabs">' + countryTabsHtml + '</div>' +
+            '<div class="ha-rules-v2-pill-tabs ha-rules-v2-country-tabs">' + countryTabsHtml + '</div>' +
           '</div>' +
           '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-rules-v2-dim-row">' +
             '<label class="ha-settle-la-filter-label">' + t('tc.ha.rules_v2_dimension') + '</label>' +
-            '<div class="ha-rules-v2-tabs ha-rules-v2-dim-tabs">' + dimTabButtons + '</div>' +
+            '<div class="ha-rules-v2-pill-tabs ha-rules-v2-dim-tabs">' + dimTabButtons + '</div>' +
           '</div>' +
         '</div>' +
         '<div class="ha-rules-v2-tab-content">' +
@@ -3864,13 +3885,11 @@
     if (dimension === 'creator') {
       creatorOpts = (haManageUsers || []).map(function (u) { return '<option value="' + u.id + '">' + (u.name || '#' + u.id) + '</option>'; }).join('');
     }
-    var defaultHourly = [{ id: 'hr1', year: null, startTime: '00:00', endTime: '23:59', rate: 100, createdAt: Date.now() }];
+    var defaultHourly = [{ id: 'hr1', effectiveStart: '', effectiveEnd: '', rate: 100, createdAt: Date.now() }];
     var defaultTiers = [{ id: 't1', min: 0, max: 300, rate: 1.5 }, { id: 't2', min: 300, max: 1500, rate: 3 }, { id: 't3', min: 1500, max: null, rate: 5 }];
     var hourlyRows = defaultHourly.map(function (r) {
       return '<tr class="ha-rules-v2-hourly-row" data-id="' + r.id + '" data-created-at="' + (r.createdAt || Date.now()) + '">' +
-        '<td><input type="number" class="ha-rules-input ha-rules-hourly-year" value="" min="2020" max="2030" step="1" placeholder="' + t('tc.ha.rules_hourly_year_all') + '"></td>' +
-        '<td><input type="time" class="ha-rules-input ha-rules-hourly-start" value="' + (r.startTime || '00:00') + '"></td>' +
-        '<td><input type="time" class="ha-rules-input ha-rules-hourly-end" value="' + (r.endTime || '23:59') + '"></td>' +
+        '<td><div class="ha-rules-cps-effective-inputs"><input type="date" class="ha-rules-input ha-rules-hourly-effective-start" value="' + (r.effectiveStart || '') + '"><span class="ha-rules-cps-effective-sep">–</span><input type="date" class="ha-rules-input ha-rules-hourly-effective-end" value="' + (r.effectiveEnd || '') + '"></div></td>' +
         '<td><input type="number" class="ha-rules-input ha-rules-hourly-rate" value="' + (r.rate || 100) + '" min="0" step="1"> ' + t('tc.ha.rules_hourly_ph') + '</td>' +
         '<td><button type="button" class="btn btn-ghost btn-xs ha-rules-hourly-remove"><i class="fas fa-trash-alt"></i></button></td></tr>';
     }).join('');
@@ -3904,24 +3923,24 @@
         '<div class="ha-rules-block ha-rules-block--inline"><label class="ha-rules-block-label">' + t('tc.ha.rules_currency') + '</label><select class="ha-rules-select ha-rules-v2-currency" id="haRulesV2Currency"><option value="USD">USD</option><option value="CNY">CNY</option><option value="EUR">EUR</option></select></div>' +
       '</div>' +
       '<input type="hidden" id="haRulesV2Country" value="' + (selectedCountry || '') + '">' +
-      '<div class="ha-rules-block">' +
-        '<label class="ha-rules-block-label">' + t('tc.ha.rules_effective_period') + '</label>' +
-        '<div class="ha-rules-cps-effective-inputs">' +
-          '<input type="date" class="ha-rules-input ha-rules-v2-effective-start" id="haRulesV2EffectiveStart">' +
-          '<span class="ha-rules-cps-effective-sep">–</span>' +
-          '<input type="date" class="ha-rules-input ha-rules-v2-effective-end" id="haRulesV2EffectiveEnd">' +
-        '</div>' +
-      '</div>' +
       '<details class="ha-rules-collapse">' +
         '<summary class="ha-rules-collapse-summary">' + t('tc.ha.rules_section_hourly') + '</summary>' +
         '<div class="ha-rules-block ha-rules-collapse-body">' +
-          '<table class="ha-rules-table"><thead><tr><th>' + t('tc.ha.rules_hourly_year') + '</th><th>' + t('tc.ha.rules_hourly_start') + '</th><th>' + t('tc.ha.rules_hourly_end') + '</th><th>' + t('tc.ha.rules_hourly') + '</th><th></th></tr></thead><tbody id="haRulesV2HourlyList">' + hourlyRows + '</tbody></table>' +
+          '<table class="ha-rules-table"><thead><tr><th>' + t('tc.ha.rules_v2_hourly_effective') + '</th><th>' + t('tc.ha.rules_hourly') + '</th><th></th></tr></thead><tbody id="haRulesV2HourlyList">' + hourlyRows + '</tbody></table>' +
           '<button type="button" class="btn btn-ghost btn-sm ha-rules-v2-hourly-add"><i class="fas fa-plus"></i> ' + t('tc.ha.rules_hourly_add') + '</button>' +
         '</div>' +
       '</details>' +
       '<details class="ha-rules-collapse">' +
         '<summary class="ha-rules-collapse-summary">' + t('tc.ha.rules_section_cps') + '</summary>' +
         '<div class="ha-rules-block ha-rules-collapse-body">' +
+          '<div class="ha-rules-block">' +
+            '<label class="ha-rules-block-label">' + t('tc.ha.rules_v2_cps_effective') + '</label>' +
+            '<div class="ha-rules-cps-effective-inputs">' +
+              '<input type="date" class="ha-rules-input ha-rules-v2-cps-effective-start" id="haRulesV2CpsEffectiveStart">' +
+              '<span class="ha-rules-cps-effective-sep">–</span>' +
+              '<input type="date" class="ha-rules-input ha-rules-v2-cps-effective-end" id="haRulesV2CpsEffectiveEnd">' +
+            '</div>' +
+          '</div>' +
           '<div class="ha-rules-cps-mode">' +
             '<label class="ha-rules-cps-mode-opt"><input type="radio" name="haRulesV2CpsMode" value="per_hour" checked> ' + t('tc.ha.rules_cps_mode_per_hour') + '</label>' +
             '<label class="ha-rules-cps-mode-opt"><input type="radio" name="haRulesV2CpsMode" value="per_session"> ' + t('tc.ha.rules_cps_mode_per_session') + '</label>' +
@@ -3940,7 +3959,8 @@
     var createdAtStr = rec.createdAt ? new Date(rec.createdAt).toLocaleString(getLang() === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'short', timeStyle: 'short' }) : '-';
     var m = rec.merchant || {};
     var hourlyRows = (m.hourlyRates || []).map(function (r) {
-      return '<tr><td>' + (r.year != null ? r.year : '—') + '</td><td>' + (r.startTime || '') + '</td><td>' + (r.endTime || '') + '</td><td>' + (r.rate || 0) + ' ' + t('tc.ha.rules_hourly_ph') + '</td></tr>';
+      var rowPeriod = (r.effectiveStart || r.effectiveEnd) ? ((r.effectiveStart || '') + ' – ' + (r.effectiveEnd || '')) : '—';
+      return '<tr><td>' + rowPeriod + '</td><td>' + (r.rate || 0) + ' ' + t('tc.ha.rules_hourly_ph') + '</td></tr>';
     }).join('');
     var tiersRows = (m.cpsTiers || []).map(function (tier) {
       return '<tr><td>' + (tier.min || 0) + '</td><td>' + (tier.max != null ? tier.max : '—') + '</td><td>' + (tier.rate || 0) + ' %</td></tr>';
@@ -3952,7 +3972,7 @@
       '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_v2_cps_effective') + '</label><p>' + (rec.cpsEffectiveStart || '') + ' – ' + (rec.cpsEffectiveEnd || '') + '</p></div>' +
       '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_currency') + '</label><p>' + (m.currency || 'USD') + '</p></div>' +
       '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_hourly_by_period') + '</label>' +
-        '<table class="ha-rules-table"><thead><tr><th>' + t('tc.ha.rules_hourly_year') + '</th><th>' + t('tc.ha.rules_hourly_start') + '</th><th>' + t('tc.ha.rules_hourly_end') + '</th><th>' + t('tc.ha.rules_hourly') + '</th></tr></thead><tbody>' + (hourlyRows || '<tr><td colspan="4">—</td></tr>') + '</tbody></table></div>' +
+        '<table class="ha-rules-table"><thead><tr><th>' + t('tc.ha.rules_v2_hourly_effective') + '</th><th>' + t('tc.ha.rules_hourly') + '</th></tr></thead><tbody>' + (hourlyRows || '<tr><td colspan="2">—</td></tr>') + '</tbody></table></div>' +
       '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_cps') + '</label>' +
         '<table class="ha-rules-table"><thead><tr><th>' + t('tc.ha.rules_cps_min') + '</th><th>' + t('tc.ha.rules_cps_max') + '</th><th>' + t('tc.ha.rules_cps_rate') + '</th></tr></thead><tbody>' + (tiersRows || '<tr><td colspan="3">—</td></tr>') + '</tbody></table></div>' +
       '</div>';
@@ -3960,6 +3980,8 @@
   var haOtherRewardsCountryFilter = '';
   var haOtherRewardsCreatorFilter = '';
   var haOtherRewardsTitleFilter = '';
+  var haOtherRewardsPeriodStartFilter = '';
+  var haOtherRewardsPeriodEndFilter = '';
   function renderHaOtherRewardsPage() {
     haOtherRewardsLoad();
     var countryList = haGetMerchantLiveAccountCountries();
@@ -3972,11 +3994,22 @@
       if (haOtherRewardsCountryFilter && r.country && r.country !== haOtherRewardsCountryFilter) return false;
       if (haOtherRewardsCreatorFilter && (!r.creatorName || r.creatorName.toLowerCase().indexOf(haOtherRewardsCreatorFilter.toLowerCase()) === -1)) return false;
       if (haOtherRewardsTitleFilter && (!r.title || String(r.title).toLowerCase().indexOf(haOtherRewardsTitleFilter.toLowerCase()) === -1)) return false;
+      if (haOtherRewardsPeriodStartFilter || haOtherRewardsPeriodEndFilter) {
+        var rStart = r.periodStart || '';
+        var rEnd = r.periodEnd || '';
+        var fStart = haOtherRewardsPeriodStartFilter || '0000-00-00';
+        var fEnd = haOtherRewardsPeriodEndFilter || '9999-12-31';
+        if (!rStart || !rEnd) return false;
+        if (rEnd < fStart || rStart > fEnd) return false;
+      }
       return true;
     });
     var rowsHtml = filtered.map(function (r) {
       var period = (r.periodStart && r.periodEnd) ? (r.periodStart + ' ~ ' + r.periodEnd) : '-';
       var usedInBatch = haOtherRewardIsUsedInBatch(r.id);
+      var createdByName = r.createdBy && typeof findMemberName === 'function' ? (findMemberName(r.createdBy).name || '-') : '-';
+      var statusText = usedInBatch ? t('tc.ha.settled') : t('tc.ha.unsettled');
+      var statusClass = usedInBatch ? 'ha-bonus-status ha-bonus-status--settled' : 'ha-bonus-status ha-bonus-status--unsettled';
       var deleteBtn = usedInBatch
         ? '<span class="ha-other-reward-remove-disabled" title="' + (t('tc.ha.other_rewards_cannot_delete') || 'Cannot delete: used in settlement batch') + '"><i class="fas fa-trash-alt"></i></span>'
         : '<button type="button" class="btn btn-ghost btn-xs ha-other-reward-remove" data-id="' + (r.id || '') + '"><i class="fas fa-trash-alt"></i></button>';
@@ -3987,31 +4020,40 @@
         '<td>' + (r.currency || '-') + '</td>' +
         '<td>' + period + '</td>' +
         '<td>' + (r.country || '-') + '</td>' +
+        '<td>' + createdByName + '</td>' +
+        '<td><span class="' + statusClass + '">' + statusText + '</span></td>' +
         '<td>' + deleteBtn + '</td>' +
         '</tr>';
     }).join('');
-    if (!rowsHtml) rowsHtml = '<tr><td colspan="7" class="ha-settle-empty ha-rules-empty-state"><div class="ha-rules-empty-inner"><span class="ha-rules-empty-text">' + t('tc.ha.other_rewards_empty') + '</span><button type="button" class="btn btn-ghost btn-sm ha-other-reward-add-inline"><i class="fas fa-plus"></i> ' + t('tc.ha.other_rewards_add') + '</button></div></td></tr>';
+    if (!rowsHtml) rowsHtml = '<tr><td colspan="9" class="ha-settle-empty ha-rules-empty-state"><div class="ha-rules-empty-inner"><span class="ha-rules-empty-text">' + t('tc.ha.other_rewards_empty') + '</span><button type="button" class="btn btn-ghost btn-sm ha-other-reward-add-inline"><i class="fas fa-plus"></i> ' + t('tc.ha.other_rewards_add') + '</button></div></td></tr>';
     return '<div class="ha-other-rewards-page">' +
       '<div class="card ha-settle-card ha-rules-card">' +
         '<div class="ha-settle-intro">' +
           '<h3 class="ha-rules-title">' + t('tc.ha.other_rewards_title') + '</h3>' +
           '<p class="ha-settle-desc">' + t('tc.ha.other_rewards_hint') + '</p>' +
           '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-other-rewards-country-filter">' +
-            '<label class="ha-settle-la-filter-label">' + t('tc.ha.filter_live_account') + ':</label>' +
-            '<div class="ha-settle-country-tabs">' + countryTabsHtml + '</div>' +
+            '<label class="ha-settle-la-filter-label">' + t('tc.ha.filter_live_account') + '</label>' +
+            '<div class="ha-other-rewards-country-tabs">' + countryTabsHtml + '</div>' +
           '</div>' +
-          '<div class="ha-other-rewards-toolbar">' +
+          '<div class="ha-other-rewards-filter-bar">' +
             '<div class="ha-other-rewards-filters">' +
+              '<label class="ha-other-rewards-filter-label">' + t('tc.ha.other_rewards_period_filter') + '</label>' +
+              '<div class="ha-other-rewards-period-inputs">' +
+                '<input type="date" class="ha-rules-input ha-other-reward-filter-period-start" value="' + (haOtherRewardsPeriodStartFilter || '') + '" title="' + t('tc.ha.other_rewards_period_filter') + '">' +
+                '<span class="ha-other-rewards-period-sep">–</span>' +
+                '<input type="date" class="ha-rules-input ha-other-reward-filter-period-end" value="' + (haOtherRewardsPeriodEndFilter || '') + '">' +
+              '</div>' +
               '<input type="text" class="ha-rules-input ha-other-reward-filter-creator" placeholder="' + t('tc.ha.custom_entry_creator') + '..." value="' + (haOtherRewardsCreatorFilter || '') + '">' +
               '<input type="text" class="ha-rules-input ha-other-reward-filter-title" placeholder="' + t('tc.ha.custom_entry_title') + '..." value="' + (haOtherRewardsTitleFilter || '') + '">' +
             '</div>' +
             '<div class="ha-other-rewards-toolbar-actions">' +
+              '<button type="button" class="btn btn-secondary btn-sm ha-other-reward-export-excel"><i class="fas fa-file-export"></i> ' + t('tc.ha.other_rewards_export_excel') + '</button>' +
               '<button type="button" class="btn btn-primary btn-sm ha-other-reward-add"><i class="fas fa-plus"></i> ' + t('tc.ha.other_rewards_add') + '</button>' +
             '</div>' +
           '</div>' +
         '</div>' +
         '<div class="table-wrap ha-rules-override-table-wrap">' +
-          '<table class="ha-rules-table ha-rules-override-table"><thead><tr><th>' + t('tc.ha.custom_entry_creator') + '</th><th>' + t('tc.ha.custom_entry_title') + '</th><th>' + t('tc.ha.custom_entry_amount') + '</th><th>' + t('tc.ha.custom_entry_currency') + '</th><th>' + t('tc.ha.other_rewards_period') + '</th><th>' + t('tc.ha.filter_live_account') + '</th><th></th></tr></thead><tbody id="haOtherRewardsList">' + rowsHtml + '</tbody></table>' +
+          '<table class="ha-rules-table ha-rules-override-table"><thead><tr><th>' + t('tc.ha.custom_entry_creator') + '</th><th>' + t('tc.ha.custom_entry_title') + '</th><th>' + t('tc.ha.custom_entry_amount') + '</th><th>' + t('tc.ha.custom_entry_currency') + '</th><th>' + t('tc.ha.other_rewards_period') + '</th><th>' + t('tc.ha.filter_live_account') + '</th><th>' + t('tc.ha.other_rewards_created_by') + '</th><th>' + t('tc.ha.other_rewards_settlement_status') + '</th><th></th></tr></thead><tbody id="haOtherRewardsList">' + rowsHtml + '</tbody></table>' +
         '</div>' +
       '</div>' +
       '<div class="ha-rules-creator-modal-overlay" id="haOtherRewardModal">' +
@@ -4209,7 +4251,15 @@
     var id = existingId || 'or' + Date.now();
     var existing = (haOtherRewards || []).filter(function (r) { return String(r.id) === String(id); })[0];
     var idx = haOtherRewards.indexOf(existing);
+    var createdBy = (typeof currentUser === 'object' && currentUser && currentUser.id) ? currentUser.id : null;
     var item = { id: id, creatorName: creatorName, title: title, amount: amount, currency: currency, periodStart: periodStart, periodEnd: periodEnd, country: country || null };
+    if (idx >= 0) {
+      if (existing.createdBy != null) item.createdBy = existing.createdBy;
+      if (existing.createdAt != null) item.createdAt = existing.createdAt;
+    } else {
+      item.createdBy = createdBy;
+      item.createdAt = Date.now();
+    }
     if (idx >= 0) haOtherRewards[idx] = item; else haOtherRewards.push(item);
     haOtherRewardsSave();
   }
@@ -4292,13 +4342,13 @@
         '<div class="ha-settle-intro">' +
           '<h3 class="ha-rules-title">' + t('tc.ha.settle_batch_title') + '</h3>' +
           '<p class="ha-settle-desc">' + t('tc.ha.settle_batch_desc') + '</p>' +
-        '<div class="ha-settle-la-filter ha-settle-la-filter--intro">' +
-            '<label class="ha-settle-la-filter-label">' + t('tc.ha.filter_live_account') + ':</label>' +
-            '<div class="ha-settle-country-tabs">' + countryTabsHtml + '</div>' +
+        '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-settle-batch-intro">' +
+            '<label class="ha-settle-la-filter-label">' + t('tc.ha.filter_live_account') + '</label>' +
+            '<div class="ha-settle-batch-country-tabs ha-settle-country-tabs">' + countryTabsHtml + '</div>' +
           '</div>' +
-        '<div class="ha-settle-toolbar">' +
+        '<div class="ha-settle-filter-bar ha-settle-batch-toolbar">' +
             '<div class="ha-settle-toolbar-left"><div class="ha-settle-filter-pills">' + pillsHtml + '</div></div>' +
-            '<div class="ha-settle-toolbar-right"><button type="button" class="btn btn-primary btn-sm ha-settle-generate"><i class="fas fa-plus"></i> Generate</button></div>' +
+            '<div class="ha-settle-toolbar-right"><button type="button" class="btn btn-primary btn-sm ha-settle-generate"><i class="fas fa-plus"></i> ' + t('tc.ha.generate_batch') + '</button></div>' +
           '</div>' +
         '</div>' +
         '<div class="table-wrap ha-settle-table-wrap">' +
@@ -4416,12 +4466,13 @@
         '<div class="ha-settle-intro">' +
           '<h3 class="ha-rules-title">' + t('tc.ha.settle_withdraw_title') + '</h3>' +
           '<p class="ha-settle-desc">' + t('tc.ha.settle_withdraw_desc') + '</p>' +
-          '<div class="ha-settle-la-filter ha-settle-la-filter--intro">' +
-            '<label class="ha-settle-la-filter-label">' + t('tc.ha.filter_live_account') + ':</label>' +
-            '<div class="ha-settle-country-tabs">' + countryTabsHtml + '</div>' +
+          '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-settle-withdraw-intro">' +
+            '<label class="ha-settle-la-filter-label">' + t('tc.ha.filter_live_account') + '</label>' +
+            '<div class="ha-settle-withdraw-country-tabs ha-settle-country-tabs">' + countryTabsHtml + '</div>' +
           '</div>' +
-          '<div class="ha-settle-toolbar">' +
-            '<div class="ha-settle-toolbar-left"><div class="ha-settle-filter-pills">' + pillsHtml + '</div><div class="ha-settle-filter-actions"><button type="button" class="btn btn-primary btn-sm" id="haApproveAllPending"><i class="fas fa-check-double"></i> ' + t('tc.ha.withdraw_approve_all') + '</button><button type="button" class="btn btn-secondary btn-sm" id="haExportPending"><i class="fas fa-file-export"></i> ' + t('tc.ha.export_pending') + '</button></div></div>' +
+          '<div class="ha-settle-filter-bar ha-settle-withdraw-toolbar">' +
+            '<div class="ha-settle-toolbar-left"><div class="ha-settle-filter-pills">' + pillsHtml + '</div></div>' +
+            '<div class="ha-settle-toolbar-right ha-settle-filter-actions"><button type="button" class="btn btn-secondary btn-sm" id="haExportPending"><i class="fas fa-file-export"></i> ' + t('tc.ha.export_pending') + '</button><button type="button" class="btn btn-primary btn-sm" id="haApproveAllPending"><i class="fas fa-check-double"></i> ' + t('tc.ha.withdraw_approve_all') + '</button></div>' +
           '</div>' +
         '</div>' +
         '<div class="table-wrap ha-settle-table-wrap">' +
@@ -4497,10 +4548,10 @@
             '<span>' + t('common.all') + '</span> </label>' +
           '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterSettled === 'yes' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
             '<input type="radio" name="haPastLivesFilterSettled" value="yes"' + (haPastLivesFilterSettled === 'yes' ? ' checked' : '') + '>' +
-            '<span>' + t('tc.ha.stat_confirmed') + '</span> </label>' +
+            '<span>' + t('tc.ha.settled') + '</span> </label>' +
           '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterSettled === 'no' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
             '<input type="radio" name="haPastLivesFilterSettled" value="no"' + (haPastLivesFilterSettled === 'no' ? ' checked' : '') + '>' +
-            '<span>' + t('tc.ha.stat_draft') + '</span> </label>' +
+            '<span>' + t('tc.ha.unsettled') + '</span> </label>' +
         '</div>' +
       '</div>' +
       '<div class="ha-past-lives-filter-actions">' +
@@ -4596,8 +4647,15 @@
     var type1 = haLiveSessionAbnormalType1(s);
     var type2 = haLiveSessionAbnormalType2(s);
     var segs = (s.hostSegments && s.hostSegments.length) ? s.hostSegments.map(function (seg) {
-      return { host: seg.host || '', plannedStartAt: s.startAt, plannedEndAt: s.endAt, actualStartAt: seg.startAt || seg.actualStartAt || '', actualEndAt: seg.endAt || seg.actualEndAt || '' };
-    }) : [{ host: s.creatorName || '', plannedStartAt: s.startAt, plannedEndAt: s.endAt, actualStartAt: s.actualStartAt || '', actualEndAt: s.actualEndAt || '' }];
+      return {
+        host: seg.host || '',
+        plannedStartAt: s.startAt,
+        plannedEndAt: s.endAt,
+        actualStartAt: seg.startAt || seg.actualStartAt || '',
+        actualEndAt: seg.endAt || seg.actualEndAt || '',
+        gmv: seg.gmv != null ? seg.gmv : ''
+      };
+    }) : [{ host: s.creatorName || '', plannedStartAt: s.startAt, plannedEndAt: s.endAt, actualStartAt: s.actualStartAt || '', actualEndAt: s.actualEndAt || '', gmv: '' }];
     var type1Html = type1 ? '<div class="ha-abnormal-modal-section"><h4 class="ha-abnormal-modal-section-title"><i class="fas fa-broadcast-tower"></i> ' + t('tc.ha.abnormal_type1') + '</h4>' +
       '<div class="ha-abnormal-modal-field"><label>' + t('tc.ha.abnormal_th_room') + '</label><input type="text" class="ha-abnormal-modal-room" value="' + (s.roomId || '').replace(/"/g, '&quot;') + '" placeholder="Room ID"></div>' +
       '<div class="ha-abnormal-modal-field"><label>' + t('tc.ha.abnormal_th_start') + '</label><input type="datetime-local" class="ha-abnormal-modal-actual-start" value="' + (s.actualStartAt ? s.actualStartAt.replace(' ', 'T').substr(0, 16) : '') + '"></div>' +
@@ -4607,9 +4665,10 @@
         return '<div class="ha-abnormal-modal-seg" data-idx="' + idx + '">' +
           '<div class="ha-abnormal-modal-seg-planned">' + (seg.host || '') + (seg.plannedStartAt && seg.plannedEndAt ? ' ' + formatLiveStartEnd(seg.plannedStartAt, seg.plannedEndAt) : '') + '</div>' +
           '<div class="ha-abnormal-modal-seg-fields">' +
-          '<input type="text" class="ha-abnormal-modal-seg-host" placeholder="' + t('tc.ha.abnormal_th_host') + '" value="' + (seg.host || seg.creatorName || '').replace(/"/g, '&quot;') + '">' +
-          '<input type="datetime-local" class="ha-abnormal-modal-seg-start" value="' + ((seg.actualStartAt || seg.startAt) ? (seg.actualStartAt || seg.startAt).replace(' ', 'T').substr(0, 16) : '') + '">' +
-          '<input type="datetime-local" class="ha-abnormal-modal-seg-end" value="' + ((seg.actualEndAt || seg.endAt) ? (seg.actualEndAt || seg.endAt).replace(' ', 'T').substr(0, 16) : '') + '">' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.abnormal_th_host') + '</label><input type="text" class="ha-abnormal-modal-seg-host" placeholder="' + t('tc.ha.abnormal_th_host') + '" value="' + (seg.host || seg.creatorName || '').replace(/"/g, '&quot;') + '"></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.abnormal_th_start') + '</label><input type="datetime-local" class="ha-abnormal-modal-seg-start" value="' + ((seg.actualStartAt || seg.startAt) ? (seg.actualStartAt || seg.startAt).replace(' ', 'T').substr(0, 16) : '') + '" title="' + t('tc.ha.abnormal_th_start') + '"></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.abnormal_th_end') + '</label><input type="datetime-local" class="ha-abnormal-modal-seg-end" value="' + ((seg.actualEndAt || seg.endAt) ? (seg.actualEndAt || seg.endAt).replace(' ', 'T').substr(0, 16) : '') + '" title="' + t('tc.ha.abnormal_th_end') + '"></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.past_lives_th_gmv') + '</label><input type="number" class="ha-abnormal-modal-seg-gmv" value="' + (seg.gmv !== '' ? seg.gmv : '') + '" min="0" step="0.01" placeholder="' + t('tc.ha.past_lives_th_gmv') + '"></div>' +
           '<button type="button" class="btn btn-ghost btn-xs ha-abnormal-modal-seg-del"><i class="fas fa-trash"></i></button>' +
           '</div></div>';
       }).join('') + '</div>' +
@@ -4648,7 +4707,9 @@
         var h = (segEl.querySelector('.ha-abnormal-modal-seg-host') || {}).value || '';
         var st = (segEl.querySelector('.ha-abnormal-modal-seg-start') || {}).value || '';
         var en = (segEl.querySelector('.ha-abnormal-modal-seg-end') || {}).value || '';
-        if (h || st || en) segsOut.push({ host: h, actualStartAt: st ? st.replace('T', ' ') : '', actualEndAt: en ? en.replace('T', ' ') : '' });
+        var gmvVal = (segEl.querySelector('.ha-abnormal-modal-seg-gmv') || {}).value || '';
+        var gmv = gmvVal === '' ? null : (parseFloat(gmvVal) || 0);
+        if (h || st || en || gmvVal !== '') segsOut.push({ host: h, actualStartAt: st ? st.replace('T', ' ') : '', actualEndAt: en ? en.replace('T', ' ') : '', gmv: gmv });
       });
       haLiveSessionEdits[sessionId] = haLiveSessionEdits[sessionId] || {};
       if (type1) {
@@ -4660,7 +4721,7 @@
       }
       if (type2 && segsOut.length) {
         haLiveSessionEdits[sessionId].hostSegments = segsOut.map(function (seg) {
-          return { host: seg.host, startAt: seg.actualStartAt, endAt: seg.actualEndAt };
+          return { host: seg.host, startAt: seg.actualStartAt, endAt: seg.actualEndAt, gmv: seg.gmv };
         });
         if (segsOut.length === 1 && segsOut[0].actualStartAt && segsOut[0].actualEndAt) {
           haLiveSessionEdits[sessionId].actualStartAt = segsOut[0].actualStartAt;
@@ -4685,9 +4746,10 @@
         div.className = 'ha-abnormal-modal-seg';
         div.setAttribute('data-idx', String(hostsWrap.querySelectorAll('.ha-abnormal-modal-seg').length));
         div.innerHTML = '<div class="ha-abnormal-modal-seg-planned"></div><div class="ha-abnormal-modal-seg-fields">' +
-          '<input type="text" class="ha-abnormal-modal-seg-host" placeholder="' + t('tc.ha.abnormal_th_host') + '">' +
-          '<input type="datetime-local" class="ha-abnormal-modal-seg-start">' +
-          '<input type="datetime-local" class="ha-abnormal-modal-seg-end">' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.abnormal_th_host') + '</label><input type="text" class="ha-abnormal-modal-seg-host" placeholder="' + t('tc.ha.abnormal_th_host') + '"></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.abnormal_th_start') + '</label><input type="datetime-local" class="ha-abnormal-modal-seg-start" title="' + t('tc.ha.abnormal_th_start') + '"></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.abnormal_th_end') + '</label><input type="datetime-local" class="ha-abnormal-modal-seg-end" title="' + t('tc.ha.abnormal_th_end') + '"></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>' + t('tc.ha.past_lives_th_gmv') + '</label><input type="number" class="ha-abnormal-modal-seg-gmv" min="0" step="0.01" placeholder="' + t('tc.ha.past_lives_th_gmv') + '"></div>' +
           '<button type="button" class="btn btn-ghost btn-xs ha-abnormal-modal-seg-del"><i class="fas fa-trash"></i></button></div>';
         hostsWrap.appendChild(div);
         div.querySelector('.ha-abnormal-modal-seg-del').addEventListener('click', function () { div.remove(); });
@@ -4788,32 +4850,30 @@
             if (!crVals.length) { showToast(t('tc.ha.rules_creator_select_first'), 'warn'); return; }
             creatorId = crVals.map(function (v) { return parseInt(v, 10) || v; });
           }
-          var effectiveStartEl = document.getElementById('haRulesV2EffectiveStart');
-          var effectiveEndEl = document.getElementById('haRulesV2EffectiveEnd');
+          var cpsEffectiveStartEl = document.getElementById('haRulesV2CpsEffectiveStart');
+          var cpsEffectiveEndEl = document.getElementById('haRulesV2CpsEffectiveEnd');
           var currencyEl = document.getElementById('haRulesV2Currency');
-          var effectiveStart = effectiveStartEl && effectiveStartEl.value ? effectiveStartEl.value.trim() : '';
-          var effectiveEnd = effectiveEndEl && effectiveEndEl.value ? effectiveEndEl.value.trim() : '';
-          var hourlyEffectiveStart = effectiveStart;
-          var hourlyEffectiveEnd = effectiveEnd;
-          var cpsEffectiveStart = effectiveStart;
-          var cpsEffectiveEnd = effectiveEnd;
+          var cpsEffectiveStart = cpsEffectiveStartEl && cpsEffectiveStartEl.value ? cpsEffectiveStartEl.value.trim() : '';
+          var cpsEffectiveEnd = cpsEffectiveEndEl && cpsEffectiveEndEl.value ? cpsEffectiveEndEl.value.trim() : '';
           var currency = (currencyEl && currencyEl.value) ? currencyEl.value : 'USD';
           var hourlyRates = [];
           document.querySelectorAll('#haRulesV2HourlyList .ha-rules-v2-hourly-row').forEach(function (row) {
-            var yearEl = row.querySelector('.ha-rules-hourly-year');
-            var startEl = row.querySelector('.ha-rules-hourly-start');
-            var endEl = row.querySelector('.ha-rules-hourly-end');
+            var effectiveStartEl = row.querySelector('.ha-rules-hourly-effective-start');
+            var effectiveEndEl = row.querySelector('.ha-rules-hourly-effective-end');
             var rateEl = row.querySelector('.ha-rules-hourly-rate');
-            var yearVal = yearEl && yearEl.value && yearEl.value.trim() !== '' ? parseInt(yearEl.value.trim(), 10) : null;
-            if (yearVal && (isNaN(yearVal) || yearVal < 2020 || yearVal > 2030)) yearVal = null;
             hourlyRates.push({
               id: row.getAttribute('data-id') || 'hr' + Date.now(),
-              year: yearVal,
-              startTime: startEl && startEl.value ? startEl.value : '00:00',
-              endTime: endEl && endEl.value ? endEl.value : '23:59',
+              effectiveStart: effectiveStartEl && effectiveStartEl.value ? effectiveStartEl.value : '',
+              effectiveEnd: effectiveEndEl && effectiveEndEl.value ? effectiveEndEl.value : '',
               rate: parseFloat(rateEl && rateEl.value) || 0,
               createdAt: parseInt(row.getAttribute('data-created-at'), 10) || Date.now()
             });
+          });
+          var hourlyEffectiveStart = '';
+          var hourlyEffectiveEnd = '';
+          hourlyRates.forEach(function (r) {
+            if (r.effectiveStart && (!hourlyEffectiveStart || r.effectiveStart < hourlyEffectiveStart)) hourlyEffectiveStart = r.effectiveStart;
+            if (r.effectiveEnd && (!hourlyEffectiveEnd || r.effectiveEnd > hourlyEffectiveEnd)) hourlyEffectiveEnd = r.effectiveEnd;
           });
           var cpsTiers = [];
           document.querySelectorAll('#haRulesV2CpsTiers .ha-rules-v2-tier-row').forEach(function (row) {
@@ -4955,7 +5015,7 @@
           tr.className = 'ha-rules-v2-hourly-row ha-rules-hourly-row';
           tr.setAttribute('data-id', id);
           tr.setAttribute('data-created-at', String(Date.now()));
-          tr.innerHTML = '<td><input type="number" class="ha-rules-input ha-rules-hourly-year" value="" min="2020" max="2030" step="1" placeholder="' + t('tc.ha.rules_hourly_year_all') + '"></td><td><input type="time" class="ha-rules-input ha-rules-hourly-start" value="00:00"></td><td><input type="time" class="ha-rules-input ha-rules-hourly-end" value="23:59"></td><td><input type="number" class="ha-rules-input ha-rules-hourly-rate" value="100" min="0" step="1"> ' + t('tc.ha.rules_hourly_ph') + '</td><td><button type="button" class="btn btn-ghost btn-xs ha-rules-hourly-remove"><i class="fas fa-trash-alt"></i></button></td>';
+          tr.innerHTML = '<td><div class="ha-rules-cps-effective-inputs"><input type="date" class="ha-rules-input ha-rules-hourly-effective-start" value=""><span class="ha-rules-cps-effective-sep">–</span><input type="date" class="ha-rules-input ha-rules-hourly-effective-end" value=""></div></td><td><input type="number" class="ha-rules-input ha-rules-hourly-rate" value="100" min="0" step="1"> ' + t('tc.ha.rules_hourly_ph') + '</td><td><button type="button" class="btn btn-ghost btn-xs ha-rules-hourly-remove"><i class="fas fa-trash-alt"></i></button></td>';
           tbody.appendChild(tr);
           tr.querySelector('.ha-rules-hourly-remove').addEventListener('click', function () {
             if (tbody.querySelectorAll('.ha-rules-v2-hourly-row').length > 1) tr.remove();
@@ -4999,6 +5059,22 @@
           bindHaSettlementInnerEvents();
         });
       });
+      var periodStartInput = document.querySelector('.ha-other-reward-filter-period-start');
+      if (periodStartInput) {
+        periodStartInput.addEventListener('change', function () {
+          haOtherRewardsPeriodStartFilter = periodStartInput.value || '';
+          renderHaSettle();
+          bindHaSettlementInnerEvents();
+        });
+      }
+      var periodEndInput = document.querySelector('.ha-other-reward-filter-period-end');
+      if (periodEndInput) {
+        periodEndInput.addEventListener('change', function () {
+          haOtherRewardsPeriodEndFilter = periodEndInput.value || '';
+          renderHaSettle();
+          bindHaSettlementInnerEvents();
+        });
+      }
       var creatorFilterInput = document.querySelector('.ha-other-reward-filter-creator');
       if (creatorFilterInput) {
         creatorFilterInput.addEventListener('input', function () {
@@ -5013,6 +5089,46 @@
           haOtherRewardsTitleFilter = titleFilterInput.value || '';
           renderHaSettle();
           bindHaSettlementInnerEvents();
+        });
+      }
+      var exportExcelBtn = document.querySelector('.ha-other-reward-export-excel');
+      if (exportExcelBtn) {
+        exportExcelBtn.addEventListener('click', function () {
+          haOtherRewardsLoad();
+          var filtered = (haOtherRewards || []).filter(function (r) {
+            if (haOtherRewardsCountryFilter && r.country && r.country !== haOtherRewardsCountryFilter) return false;
+            if (haOtherRewardsCreatorFilter && (!r.creatorName || r.creatorName.toLowerCase().indexOf(haOtherRewardsCreatorFilter.toLowerCase()) === -1)) return false;
+            if (haOtherRewardsTitleFilter && (!r.title || String(r.title).toLowerCase().indexOf(haOtherRewardsTitleFilter.toLowerCase()) === -1)) return false;
+            if (haOtherRewardsPeriodStartFilter || haOtherRewardsPeriodEndFilter) {
+              var rStart = r.periodStart || '';
+              var rEnd = r.periodEnd || '';
+              var fStart = haOtherRewardsPeriodStartFilter || '0000-00-00';
+              var fEnd = haOtherRewardsPeriodEndFilter || '9999-12-31';
+              if (!rStart || !rEnd) return false;
+              if (rEnd < fStart || rStart > fEnd) return false;
+            }
+            return true;
+          });
+          if (!filtered.length) { showToast(t('tc.ha.other_rewards_empty'), 'info'); return; }
+          var headers = [t('tc.ha.custom_entry_creator'), t('tc.ha.custom_entry_title'), t('tc.ha.custom_entry_amount'), t('tc.ha.custom_entry_currency'), t('tc.ha.other_rewards_period'), t('tc.ha.filter_live_account'), t('tc.ha.other_rewards_created_by'), t('tc.ha.other_rewards_settlement_status')];
+          var rows = filtered.map(function (r) {
+            var period = (r.periodStart && r.periodEnd) ? r.periodStart + ' ~ ' + r.periodEnd : '';
+            var createdByName = r.createdBy && typeof findMemberName === 'function' ? (findMemberName(r.createdBy).name || '') : '';
+            var statusText = haOtherRewardIsUsedInBatch(r.id) ? t('tc.ha.settled') : t('tc.ha.unsettled');
+            return [r.creatorName || '', r.title || '', r.amount != null ? r.amount : '', r.currency || '', period, r.country || '', createdByName, statusText];
+          });
+          var csv = [headers.join(','), rows.map(function (row) {
+            return row.map(function (cell) { return '"' + String(cell).replace(/"/g, '""') + '"'; }).join(',');
+          }).join('\n')].join('\n');
+          var bom = '\uFEFF';
+          var blob = new Blob([bom + csv], { type: 'text/csv;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'predefined_bonuses_' + new Date().toISOString().slice(0, 10) + '.csv';
+          a.click();
+          URL.revokeObjectURL(url);
+          showToast(t('tc.ha.other_rewards_export_excel') + ' OK', 'success');
         });
       }
       var addBtn = document.querySelector('.ha-other-reward-add');
