@@ -1,12 +1,14 @@
 # Wahool SaaS - Affiliate 联盟达人板块
 
-与「直播服务」并列的 Affiliate 业务线前端，首版包含：找达人、达人批量触达、达人管理。
+与「直播服务」并列的 Affiliate 业务线前端，首版包含：找达人、达人批量触达、达人管理；同时包含 Tenant Center 里的结算板块（Settlement）。
+其中 Live 板块 & Affiliate 板块共用同一套结算系统（入口在同一处）。
 
 ## 结构
 
 - **index.html**：整体布局、**Role 切换**（直播服务 | Affiliate）、左侧导航。切换为 Affiliate 后一级菜单整体替换为：Find Creators、Outreach、Creator CRM、Analytics（Soon）。
 - **styles.css**：LiveQ 品牌样式与 Role 切换、各页组件样式
 - **app.js**：Role 持久化（localStorage）、Hash 路由及四模块页面渲染与交互
+- **结算板块（Settlement）**：位于 Tenant Center 内的 Host & Affiliate 子菜单（Live / Affiliate 共用）
 
 ## 本地运行
 
@@ -31,6 +33,14 @@ npx serve .
 | `#/affiliate/discover` | Find Creators（找达人） |
 | `#/affiliate/outreach` | Outreach（达人批量触达） |
 | `#/affiliate/analytics` | Analytics（占位，后续版本） |
+
+- **Tenant Center（结算）**：
+
+| 入口 | 路径 |
+|------|------|
+| `#/affiliate/analytics` | Tenant Center > HOST & AFFILIATE > Settlement |
+
+说明：Live 与 Affiliate 角色都可进入同一入口的结算页面。
 
 ## 后续对接
 
