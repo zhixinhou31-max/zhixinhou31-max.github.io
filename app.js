@@ -274,9 +274,13 @@
       'tc.ha.generate_modal_include_other_rewards': 'Bonuses',
       'tc.ha.generate_modal_types_required': 'Select at least one.',
       'tc.ha.generate_date_invalid': 'Start date must be before end date.',
-      'tc.ha.generate_modal_country_scope': 'Country',
-      'tc.ha.generate_modal_country_all': 'All countries',
-      'tc.ha.generate_modal_country_specific': 'Specific country',
+      'tc.ha.generate_modal_live_account': 'Live account',
+      'tc.ha.generate_modal_live_account_all': 'All',
+      'tc.ha.generate_modal_creator': 'Creator',
+      'tc.ha.generate_modal_creator_all': 'All',
+      'tc.ha.generate_modal_optional': '(Optional)',
+      'tc.ha.generate_modal_select_ph': 'Select or search...',
+      'tc.ha.generate_modal_filter_hint': 'Leave optional fields blank to include all eligible data.',
       'tc.ha.bonus_other': 'Bonuses',
       'tc.ha.stat_draft': 'Draft',
       'tc.ha.stat_confirmed': 'Confirmed',
@@ -311,7 +315,7 @@
       'tc.ha.rules_desc': 'Set payout rules for hourly pay and commission. Used when generating statements.',
       'tc.ha.rules_merchant': 'Merchant default',
       'tc.ha.rules_priority': 'Settlement priority',
-      'tc.ha.rules_priority_hint': 'Creator > Live Account',
+      'tc.ha.rules_priority_hint': 'Live Account + Creator > Live Account',
       'tc.ha.rules_dimension_merchant': 'Merchant default',
       'tc.ha.rules_country_filter': 'Country',
       'tc.ha.rules_dimension_live_account': 'Live Account',
@@ -365,7 +369,7 @@
       'tc.ha.rules_cps_effective_end': 'End',
       'tc.ha.rules_cps_effective_hint': 'One period for all tiers. Leave empty for always effective.',
       'tc.ha.rules_v2_title': 'Rules',
-      'tc.ha.rules_v2_desc': 'Create rules by country and period. Records are immutable—create a new one to replace.',
+      'tc.ha.rules_v2_desc': 'Rules are scoped by Live Account and effective period. Optionally limit to specific creators. Records are immutable—create a new one to replace.',
       'tc.ha.rules_v2_create_new': 'Create new',
       'tc.ha.rules_effective_period': 'Effective period',
       'tc.ha.rules_v2_hourly_effective': 'Hourly effective',
@@ -379,12 +383,14 @@
       'tc.ha.rules_v2_created_by': 'Created by',
       'tc.ha.rules_v2_created_at': 'Created at',
       'tc.ha.rules_v2_empty_title': 'No rules yet',
-      'tc.ha.rules_v2_empty': 'Create rules above to set hourly rates and CPS tiers for live accounts or creators.',
+      'tc.ha.rules_v2_empty': 'Create a rule above: pick a Live Account, optionally add creators, then set hourly rates and CPS tiers.',
       'tc.ha.rules_v2_create': 'Create',
       'tc.ha.rules_v2_dimension': 'Dimension',
       'tc.ha.rules_v2_tab_merchant': 'Merchant default',
       'tc.ha.rules_v2_tab_live_account': 'Live Account',
       'tc.ha.rules_v2_tab_creator': 'Creator',
+      'tc.ha.rules_v2_section_subject': 'Scope',
+      'tc.ha.rules_v2_section_currency': 'Currency',
       'tc.ha.rules_v2_history': 'Settings history',
       'tc.ha.rules_v2_status': 'Status',
       'tc.ha.rules_cps_add': 'Add tier',
@@ -394,12 +400,15 @@
       'tc.ha.rules_bonus_default': 'Default',
       'tc.ha.rules_bonus_title': 'Title',
       'tc.ha.rules_bonus_amount': 'Amount',
+      'tc.ha.rules_bonus_note': 'Note',
       'tc.ha.rules_bonus_currency': 'Currency',
       'tc.ha.rules_bonus_add': 'Add reward',
       'tc.ha.rules_creator': 'Creator overrides',
       'tc.ha.rules_creator_hint': 'Override Live Account rules for specific creators.',
       'tc.ha.rules_creator_name': 'Creator',
       'tc.ha.rules_creator_multi_hint': 'Search and add multiple creators as tags',
+      'tc.ha.rules_v2_creators_optional': 'Creators (optional)',
+      'tc.ha.rules_la_creator_hint': 'Leave empty to apply to all creators under this Live Account. Selected creators use this rule and override the account-wide rule.',
       'tc.ha.rules_summary': 'Summary',
       'tc.ha.rules_creator_hourly': 'Hourly',
       'tc.ha.rules_creator_cps': 'CPS tiers',
@@ -455,12 +464,12 @@
       'tc.ha.batch_empty_filtered': 'No statements for this account.',
       'tc.ha.pager_total': 'Total {n}',
       'tc.ha.past_lives_title': 'Live Sessions',
-      'tc.ha.past_lives_desc': 'View all live sessions. Edit GMV and fix sessions with missing data.',
+      'tc.ha.past_lives_desc': 'Review sessions, edit GMV, and fix data issues.',
       'tc.ha.past_lives_filter_host': 'Host',
       'tc.ha.past_lives_filter_room': 'Room ID',
       'tc.ha.past_lives_filter_la': 'Live account',
       'tc.ha.past_lives_filter_date': 'Date range',
-      'tc.ha.past_lives_filter_settled': 'Settlement status',
+      'tc.ha.past_lives_filter_settled': 'Statement status',
       'tc.ha.past_lives_th_schedule_id': 'Schedule ID',
       'tc.ha.past_lives_th_room_id': 'Room ID',
       'tc.ha.past_lives_th_event': 'Event',
@@ -473,7 +482,25 @@
       'tc.ha.past_lives_th_batch_sn': 'Statement #',
       'tc.ha.past_lives_export': 'Export',
       'tc.ha.past_lives_fix_abnormal': 'Fix issues',
-      'tc.ha.past_lives_empty': 'No sessions match filters.',
+      'tc.ha.past_lives_empty': 'No sessions match your filters.',
+      'tc.ha.past_lives_desc_exclude': 'Unsettled, normal sessions are included when you generate a statement. Select rows in the table to exclude or restore. Use filters below to focus on included or excluded sessions.',
+      'tc.ha.past_lives_th_select': 'Select',
+      'tc.ha.past_lives_th_select_title': 'Select rows for bulk exclude or restore.',
+      'tc.ha.past_lives_batch_title': 'Bulk actions',
+      'tc.ha.past_lives_batch_hint': 'Select rows in the table, then choose an action.',
+      'tc.ha.past_lives_batch_aria': 'Bulk actions for statements',
+      'tc.ha.past_lives_batch_disable_title': 'Select at least one row',
+      'tc.ha.past_lives_batch_selected': '{0} selected',
+      'tc.ha.past_lives_batch_exclude': 'Exclude from statement',
+      'tc.ha.past_lives_batch_include': 'Include again',
+      'tc.ha.past_lives_batch_exclude_done': 'Excluded {0} session(s).',
+      'tc.ha.past_lives_batch_include_done': 'Restored {0} session(s).',
+      'tc.ha.past_lives_batch_none_applicable': 'Nothing to update for this selection.',
+      'tc.ha.past_lives_settle_excluded': 'Excluded',
+      'tc.ha.past_lives_filter_stmt_scope': 'Next statement',
+      'tc.ha.past_lives_filter_stmt_all': 'All',
+      'tc.ha.past_lives_filter_stmt_in_scope': 'Included',
+      'tc.ha.past_lives_filter_stmt_excluded': 'Excluded',
       'tc.ha.abnormal_empty': 'No sessions need attention.',
       'tc.ha.settled': 'Settled',
       'tc.ha.unsettled': 'Unsettled',
@@ -760,9 +787,13 @@
       'tc.ha.generate_modal_include_other_rewards': '其他奖励',
       'tc.ha.generate_modal_types_required': '请至少选择一项。',
       'tc.ha.generate_date_invalid': '开始日期不能晚于结束日期。',
-      'tc.ha.generate_modal_country_scope': '国家范围',
-      'tc.ha.generate_modal_country_all': '全部国家',
-      'tc.ha.generate_modal_country_specific': '指定国家',
+      'tc.ha.generate_modal_live_account': '直播账号',
+      'tc.ha.generate_modal_live_account_all': '全部',
+      'tc.ha.generate_modal_creator': '创作者',
+      'tc.ha.generate_modal_creator_all': '全部',
+      'tc.ha.generate_modal_optional': '(可选)',
+      'tc.ha.generate_modal_select_ph': '选择或搜索...',
+      'tc.ha.generate_modal_filter_hint': '可选字段留空则包含全部可结算数据。',
       'tc.ha.bonus_other': '其他奖励',
       'tc.ha.stat_draft': '草稿',
       'tc.ha.stat_confirmed': '已确认',
@@ -797,7 +828,7 @@
       'tc.ha.rules_desc': '配置 Creator 结算计算规则，用于生成结算批次时自动计算时薪和 CPS。',
       'tc.ha.rules_merchant': '商家级默认',
       'tc.ha.rules_priority': '结算优先级',
-      'tc.ha.rules_priority_hint': 'Creator > Live Account',
+      'tc.ha.rules_priority_hint': 'Live Account + Creator > Live Account',
       'tc.ha.rules_dimension_merchant': '商家默认',
       'tc.ha.rules_country_filter': '国家',
       'tc.ha.rules_dimension_live_account': 'Live Account',
@@ -835,6 +866,8 @@
       'tc.ha.rules_creator_empty_hint': '添加主播以覆盖 Live Account 规则。',
       'tc.ha.rules_creator_select_first': '请先选择要添加的主播。',
       'tc.ha.rules_creator_multi_hint': '搜索并添加多个主播标签',
+      'tc.ha.rules_v2_creators_optional': 'Creator（可选）',
+      'tc.ha.rules_la_creator_hint': '不选则对该直播账号下全部 Creator 生效；指定后仅对选中 Creator 生效，且优先于账号级规则。',
       'tc.ha.rules_cps': 'CPS 阶梯',
       'tc.ha.rules_cps_mode_per_hour': '按每小时 GMV',
       'tc.ha.rules_cps_mode_per_session': '按每场总 GMV',
@@ -852,7 +885,7 @@
       'tc.ha.rules_cps_effective_end': '结束',
       'tc.ha.rules_cps_effective_hint': '下方所有阶梯共用此时段，留空表示始终生效。',
       'tc.ha.rules_v2_title': '规则',
-      'tc.ha.rules_v2_desc': '按国家与生效期创建规则记录。记录不可删除；需替换时创建相同生效期的新记录。',
+      'tc.ha.rules_v2_desc': '规则按 Live Account 与生效期配置，可选指定 Creator。记录不可删除；需替换时创建相同生效期的新记录。',
       'tc.ha.rules_v2_create_new': '新建',
       'tc.ha.rules_effective_period': '规则生效期',
       'tc.ha.rules_v2_hourly_effective': '时薪生效期',
@@ -866,12 +899,14 @@
       'tc.ha.rules_v2_created_by': '创建人',
       'tc.ha.rules_v2_created_at': '创建时间',
       'tc.ha.rules_v2_empty_title': '暂无规则',
-      'tc.ha.rules_v2_empty': '在上方创建规则，为直播账号或 Creator 配置时薪与 CPS 阶梯。',
+      'tc.ha.rules_v2_empty': '在上方创建规则：选择直播账号，可选添加 Creator，再配置时薪与 CPS 阶梯。',
       'tc.ha.rules_v2_create': '创建',
       'tc.ha.rules_v2_dimension': '维度',
       'tc.ha.rules_v2_tab_merchant': '商家默认',
       'tc.ha.rules_v2_tab_live_account': '直播账号',
       'tc.ha.rules_v2_tab_creator': 'Creator',
+      'tc.ha.rules_v2_section_subject': '主体',
+      'tc.ha.rules_v2_section_currency': '币种',
       'tc.ha.rules_v2_history': '设置历史',
       'tc.ha.rules_v2_status': '生效状态',
       'tc.ha.rules_cps_add': '新增阶梯',
@@ -881,6 +916,7 @@
       'tc.ha.rules_bonus_default': '默认',
       'tc.ha.rules_bonus_title': '名称',
       'tc.ha.rules_bonus_amount': '金额',
+      'tc.ha.rules_bonus_note': '备注',
       'tc.ha.rules_bonus_currency': '币种',
       'tc.ha.rules_bonus_add': '新增奖励',
       'tc.ha.rules_creator': 'Creator 级覆盖',
@@ -941,12 +977,12 @@
       'tc.ha.batch_empty_filtered': '当前筛选下暂无批次。',
       'tc.ha.pager_total': '共 {n} 条',
       'tc.ha.past_lives_title': '主播直播场次',
-      'tc.ha.past_lives_desc': '查看所有主播直播场次。可修正 GMV、处理异常场次。',
+      'tc.ha.past_lives_desc': '查看场次、编辑 GMV，并处理异常数据。',
       'tc.ha.past_lives_filter_host': '主播名称/ID',
       'tc.ha.past_lives_filter_room': 'Room ID',
       'tc.ha.past_lives_filter_la': '直播账号',
-      'tc.ha.past_lives_filter_date': '直播日期范围',
-      'tc.ha.past_lives_filter_settled': '结算状态',
+      'tc.ha.past_lives_filter_date': '直播日期',
+      'tc.ha.past_lives_filter_settled': '结算单状态',
       'tc.ha.past_lives_th_schedule_id': '排期ID',
       'tc.ha.past_lives_th_room_id': 'Room ID',
       'tc.ha.past_lives_th_event': '排期主题',
@@ -959,7 +995,25 @@
       'tc.ha.past_lives_th_batch_sn': '批次单号',
       'tc.ha.past_lives_export': '导出',
       'tc.ha.past_lives_fix_abnormal': '处理异常',
-      'tc.ha.past_lives_empty': '暂无符合条件的主播直播场次。',
+      'tc.ha.past_lives_empty': '当前筛选下没有场次。',
+      'tc.ha.past_lives_desc_exclude': '未结算且数据正常的场次，生成结算单时会默认计入。在表格中勾选后，可用下方批量操作排除或恢复；「下期结算」筛选可快速查看将计入或已排除的场次。',
+      'tc.ha.past_lives_th_select': '选择',
+      'tc.ha.past_lives_th_select_title': '勾选后可批量排除或恢复计入结算单。',
+      'tc.ha.past_lives_batch_title': '批量操作',
+      'tc.ha.past_lives_batch_hint': '先在表格中勾选场次，再点击右侧按钮。',
+      'tc.ha.past_lives_batch_aria': '结算单批量操作',
+      'tc.ha.past_lives_batch_disable_title': '请先勾选至少一场',
+      'tc.ha.past_lives_batch_selected': '已选 {0} 场',
+      'tc.ha.past_lives_batch_exclude': '排除出结算单',
+      'tc.ha.past_lives_batch_include': '恢复计入',
+      'tc.ha.past_lives_batch_exclude_done': '已排除 {0} 场。',
+      'tc.ha.past_lives_batch_include_done': '已恢复 {0} 场。',
+      'tc.ha.past_lives_batch_none_applicable': '当前选择没有可更新的场次。',
+      'tc.ha.past_lives_settle_excluded': '不计入',
+      'tc.ha.past_lives_filter_stmt_scope': '下期结算',
+      'tc.ha.past_lives_filter_stmt_all': '全部',
+      'tc.ha.past_lives_filter_stmt_in_scope': '将计入',
+      'tc.ha.past_lives_filter_stmt_excluded': '已排除',
       'tc.ha.abnormal_empty': '暂无异常场次。',
       'tc.ha.settled': '已结算',
       'tc.ha.unsettled': '未结算',
@@ -3257,11 +3311,18 @@
       roomId: e.roomId != null ? e.roomId : s.roomId,
       hostSegments: (e.hostSegments && e.hostSegments.length) ? e.hostSegments : (s.hostSegments && s.hostSegments.length ? s.hostSegments : null),
       hostUnconfirmed: s.hostUnconfirmed,
+      excludeFromSettlement: !!e.excludeFromSettlement,
       _hostIndex: s._hostIndex,
       _liveIndex: s._liveIndex,
       _batch: s._batch,
       _host: s._host
     };
+  }
+  function haPastLivesSessionEligibleForExclude(s) {
+    var m = typeof s.excludeFromSettlement !== 'undefined' ? s : haGetSessionWithEdits(s);
+    if (m.settled) return false;
+    if (haLiveSessionIsAbnormal(m)) return false;
+    return true;
   }
   function haGetLiveAccountCountry(username) {
     var u = (haManageUsers || []).filter(function (x) {
@@ -3277,6 +3338,11 @@
   var haSettleBatchCountryFilter = undefined;
   var haSettleBatchDetailId = null;
   var haBatchDetailSettleType = 'hourly';
+  // Settlement detail host drawer (performance: render details only when opened)
+  var haBatchDetailDrawerHostMap = {};
+  var haBatchDetailDrawerCurrency = 'USD';
+  // Track current opened host for drawer type-switching.
+  var haBatchDetailDrawerActiveHostIdx = null;
   var haSettleWithdrawFilter = 'pending';
   var haSettleWithdrawCountryFilter = undefined;
   var haPastLivesFilterHost = '';
@@ -3285,6 +3351,7 @@
   var haPastLivesFilterDateStart = '';
   var haPastLivesFilterDateEnd = '';
   var haPastLivesFilterSettled = '';
+  var haPastLivesFilterStmtScope = '';
   var haPastLivesView = 'list';
   var haSettleWithdrawRequests = [
     { id: 'WD-1001', host: 'Maribel Maldonado', handle: '@homechef_mike', paypalName: 'Maribel Maldonado', paypalContact: 'maribel@example.com', amount: 820, currency: 'USD', country: 'US', createdAt: '2024-02-16 10:20', status: 'pending' },
@@ -3327,7 +3394,10 @@
   }
   function haFormatAmount(amount, currency) {
     if (amount == null || isNaN(amount)) return '—';
-    var n = Number(amount).toLocaleString(undefined, { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+    var num = Number(amount);
+    // UI 口径：两位小数，四舍五入；同时输出千分位分隔
+    var rounded = Math.round((num + Number.EPSILON) * 100) / 100;
+    var n = rounded.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 });
     if (currency === 'CNY') return '¥' + n;
     if (currency === 'EUR') return '€' + n;
     return '$' + n;
@@ -3432,11 +3502,14 @@
     rates.sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); });
     return rates[0].id || null;
   }
+  function haSettleRulesV2CountryMatches(r, country) {
+    return r.country == null || r.country === '' || r.country === country;
+  }
   function haSettleRulesV2GetRecord(country, sessionDateStr, type) {
     if (!country || !sessionDateStr || !/^\d{4}-\d{2}-\d{2}$/.test(sessionDateStr)) return null;
     haSettleRulesV2Load();
     var list = (haSettleRulesV2 || []).filter(function (r) {
-      if (r.country !== country) return false;
+      if (!haSettleRulesV2CountryMatches(r, country)) return false;
       var dim = r.dimension || 'merchant';
       if (dim !== 'merchant') return false;
       if (type === 'hourly') {
@@ -3472,23 +3545,41 @@
     }
     var isHourly = type === 'hourly';
     var merchantRec = (haSettleRulesV2 || []).filter(function (r) {
-      if (r.country !== country) return false;
+      if (!haSettleRulesV2CountryMatches(r, country)) return false;
       if ((r.dimension || 'merchant') !== 'merchant') return false;
       return matchDate(r, isHourly);
     }).sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); })[0];
     var laRec = laNorm ? (haSettleRulesV2 || []).filter(function (r) {
-      if (r.country !== country) return false;
+      if (!haSettleRulesV2CountryMatches(r, country)) return false;
       if ((r.dimension || '') !== 'live_account') return false;
       var rLa = (r.liveAccountUsername || '').replace(/^@/, '');
       if (rLa !== laNorm) return false;
-      return matchDate(r, isHourly);
+      if (!matchDate(r, isHourly)) return false;
+      if (r.creatorIds && r.creatorIds.length) return false;
+      if (r.byCreator && Object.keys(r.byCreator).length) return false;
+      return true;
     }).sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); })[0] : null;
     var crRec = creatorId != null ? (haSettleRulesV2 || []).filter(function (r) {
-      if (r.country !== country) return false;
-      if ((r.dimension || '') !== 'creator') return false;
-      var rId = r.creatorId;
-      if (rId != null && String(rId) !== String(creatorId)) return false;
-      return matchDate(r, isHourly);
+      if (!haSettleRulesV2CountryMatches(r, country)) return false;
+      if (!matchDate(r, isHourly)) return false;
+      if ((r.dimension || '') === 'live_account') {
+        var rLa = (r.liveAccountUsername || '').replace(/^@/, '');
+        if (!laNorm || rLa !== laNorm) return false;
+        if (r.creatorIds && r.creatorIds.length) {
+          return r.creatorIds.some(function (id) { return String(id) === String(creatorId); });
+        }
+        if (r.byCreator && (r.byCreator[creatorId] || r.byCreator[String(creatorId)])) return true;
+        return false;
+      }
+      if ((r.dimension || '') === 'creator') {
+        var rLa2 = (r.liveAccountUsername || '').replace(/^@/, '');
+        if (rLa2 && laNorm && rLa2 !== laNorm) return false;
+        var rId = r.creatorId;
+        if (rId != null && String(rId) === String(creatorId)) return true;
+        if (r.byCreator && (r.byCreator[creatorId] || r.byCreator[String(creatorId)])) return true;
+        return false;
+      }
+      return false;
     }).sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); })[0] : null;
     var merchant = (merchantRec && merchantRec.merchant) ? merchantRec.merchant : {};
     var byLiveAccount = {};
@@ -3564,15 +3655,23 @@
     if (includeOtherRewards) haOtherRewardsLoad();
     var startTs = startDate ? new Date(startDate + 'T00:00:00').getTime() : 0;
     var endTs = endDate ? new Date(endDate + 'T23:59:59').getTime() : 0;
-    var countryFilter = opts.country || null;
+    var liveAccountFilters = (opts.liveAccountUsernames || []).map(function (la) { return (la || '').replace(/^@/, ''); }).filter(Boolean);
+    var creatorFilters = (opts.creatorNames || []).map(function (n) { return (n || '').trim(); }).filter(Boolean);
     var sessionsInRange = haLiveSessions.filter(function (s) {
-      var t = s.startAt ? new Date(s.startAt).getTime() : 0;
+      var merged = haGetSessionWithEdits(s);
+      if (merged.excludeFromSettlement) return false;
+      var t = merged.startAt ? new Date(merged.startAt).getTime() : 0;
       if (t < startTs || t > endTs) return false;
-      if (countryFilter && s.country !== countryFilter) return false;
+      if (liveAccountFilters.length) {
+        var sLa = (merged.liveAccountUsername || '').replace(/^@/, '');
+        if (liveAccountFilters.indexOf(sLa) === -1) return false;
+      }
+      if (creatorFilters.length && creatorFilters.indexOf((merged.creatorName || '').trim()) === -1) return false;
       return true;
     });
     var byLa = {};
     sessionsInRange.forEach(function (s) {
+      s = haGetSessionWithEdits(s);
       var la = (s.liveAccountUsername || '').replace(/^@/, '') || 'unknown';
       var country = s.country || haGetLiveAccountCountry(la) || 'US';
       if (!byLa[la]) byLa[la] = { country: country, byCreator: {} };
@@ -3627,8 +3726,6 @@
     var batches = [];
     Object.keys(byLa).forEach(function (la) {
       var group = byLa[la];
-      var groupCountry = group.country || (group.currency === 'CNY' ? 'CN' : group.currency === 'EUR' ? 'DE' : 'US');
-      if (countryFilter && groupCountry !== countryFilter) return;
       var hostList = group.hosts;
       var byHandle = {};
       hostList.forEach(function (h) {
@@ -3724,44 +3821,16 @@
     } catch (e) {}
   }
   var haSettleRulesV2SelectedId = null;
-  var haSettleRulesV2ActiveTab = 'live_account';
-  var haSettleRulesV2CountryFilter = null;
   function renderHaSettleRulesV2() {
     haSettleRulesV2Load();
-    var countryList = haGetMerchantLiveAccountCountries();
-    if (!countryList.length) countryList = ['US', 'CN', 'DE'];
-    if (haSettleRulesV2CountryFilter === null || countryList.indexOf(haSettleRulesV2CountryFilter) === -1) {
-      haSettleRulesV2CountryFilter = countryList[0];
-    }
-    var country = haSettleRulesV2CountryFilter;
-    var countryTabsHtml = countryList.map(function (c) {
-      return '<button type="button" class="ha-settle-country-tab ha-rules-v2-country-tab' + (country === c ? ' ha-settle-country-tab--active' : '') + '" data-rules-v2-country="' + c + '">' + haCountryLabelWithFlag(c) + '</button>';
-    }).join('');
-    var tab = haSettleRulesV2ActiveTab || 'live_account';
-    if (tab === 'merchant') { tab = 'live_account'; haSettleRulesV2ActiveTab = 'live_account'; }
-    var dimTabs = [
-      { id: 'live_account', label: t('tc.ha.rules_v2_tab_live_account') },
-      { id: 'creator', label: t('tc.ha.rules_v2_tab_creator') }
-    ];
-    var dimTabButtons = dimTabs.map(function (tb) {
-      return '<button type="button" class="ha-settle-country-tab ha-rules-v2-dim-tab' + (tab === tb.id ? ' ha-settle-country-tab--active' : '') + '" data-rules-v2-tab="' + tb.id + '">' + tb.label + '</button>';
-    }).join('');
-    var createForm = renderHaSettleRulesV2CreateForm(tab, country);
-    var historyTable = renderHaSettleRulesV2HistoryTable(tab, country);
+    var createForm = renderHaSettleRulesV2CreateForm();
+    var historyTable = renderHaSettleRulesV2HistoryTable();
     return '<div class="ha-settle-content ha-rules-v2-page">' +
       '<div class="card ha-settle-card ha-rules-card">' +
         '<div class="ha-settle-intro">' +
           '<h3 class="ha-rules-title">' + t('tc.ha.rules_v2_title') + '</h3>' +
           '<p class="ha-settle-desc">' + t('tc.ha.rules_v2_desc') + '</p>' +
           '<p class="ha-rules-v2-priority" title="' + t('tc.ha.rules_priority_hint') + '"><i class="fas fa-info-circle"></i> ' + t('tc.ha.rules_priority') + ': ' + t('tc.ha.rules_priority_hint') + '</p>' +
-          '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-rules-v2-intro">' +
-            '<label class="ha-settle-la-filter-label">' + t('tc.ha.rules_country_filter') + '</label>' +
-            '<div class="ha-rules-v2-pill-tabs ha-rules-v2-country-tabs">' + countryTabsHtml + '</div>' +
-          '</div>' +
-          '<div class="ha-settle-la-filter ha-settle-la-filter--intro ha-rules-v2-dim-row">' +
-            '<label class="ha-settle-la-filter-label">' + t('tc.ha.rules_v2_dimension') + '</label>' +
-            '<div class="ha-rules-v2-pill-tabs ha-rules-v2-dim-tabs">' + dimTabButtons + '</div>' +
-          '</div>' +
         '</div>' +
         '<div class="ha-rules-v2-tab-content">' +
           '<div class="ha-rules-v2-create-section">' + createForm + '</div>' +
@@ -3777,9 +3846,15 @@
     var dim = record.dimension || 'merchant';
     var cfg = null;
     if (dim === 'merchant') cfg = record.merchant;
-    else if (dim === 'live_account' && record.byLiveAccount) {
-      var laKey = record.liveAccountUsername || Object.keys(record.byLiveAccount)[0];
-      cfg = laKey ? record.byLiveAccount[laKey] : null;
+    else if (dim === 'live_account') {
+      var hasScopedCreators = (record.creatorIds && record.creatorIds.length) || (record.byCreator && Object.keys(record.byCreator).length);
+      if (record.byLiveAccount && !hasScopedCreators) {
+        var laKey = record.liveAccountUsername || Object.keys(record.byLiveAccount)[0];
+        cfg = laKey ? record.byLiveAccount[laKey] : null;
+      } else if (record.byCreator) {
+        var keys = Object.keys(record.byCreator);
+        cfg = keys.length ? (record.byCreator[keys[0]] || record.byCreator[String(keys[0])]) : null;
+      }
     } else if (dim === 'creator' && record.byCreator) {
       var crKey = record.creatorId != null ? record.creatorId : Object.keys(record.byCreator)[0];
       cfg = crKey != null ? (record.byCreator[crKey] || record.byCreator[String(crKey)]) : null;
@@ -3809,13 +3884,40 @@
     });
     return '<div class="ha-rules-summary-tiers">' + blocks.join('') + '</div>';
   }
-  function renderHaSettleRulesV2HistoryTable(dimension, country) {
-    dimension = dimension || 'merchant';
+  function haRulesV2HistorySubjectLabel(r) {
+    var dim = r.dimension || 'merchant';
+    var la = (r.liveAccountUsername || '').replace(/^@/, '') || '—';
+    function nameForCreatorId(id) {
+      var u = (haManageUsers || []).filter(function (x) { return String(x.id) === String(id); })[0];
+      return u ? (u.name || ('#' + id)) : ('#' + id);
+    }
+    if (dim === 'creator') {
+      if (r.creatorId != null) {
+        var single = nameForCreatorId(r.creatorId);
+        return la !== '—' ? (la + ' · ' + single) : single;
+      }
+      if (r.byCreator && Object.keys(r.byCreator).length) {
+        var cids = Object.keys(r.byCreator);
+        var cnames = cids.map(function (id) { return nameForCreatorId(id); }).join(', ');
+        return la !== '—' ? (la + ' · ' + cnames) : cnames;
+      }
+    }
+    if (dim === 'live_account') {
+      var idList = [];
+      if (r.creatorIds && r.creatorIds.length) idList = r.creatorIds.slice();
+      else if (r.byCreator && Object.keys(r.byCreator).length) idList = Object.keys(r.byCreator);
+      if (idList.length) {
+        var names = idList.map(function (id) { return nameForCreatorId(id); }).join(', ');
+        return la + ' · ' + names;
+      }
+      return la;
+    }
+    return r.country || la || '—';
+  }
+  function renderHaSettleRulesV2HistoryTable() {
     var filtered = (haSettleRulesV2 || []).filter(function (r) {
       var dim = r.dimension || 'merchant';
-      if (dim !== dimension) return false;
-      if (country && r.country !== country) return false;
-      return true;
+      return dim === 'live_account' || dim === 'creator';
     });
     var sorted = filtered.slice().sort(function (a, b) { return (b.createdAt || 0) - (a.createdAt || 0); });
     if (!sorted.length) {
@@ -3825,27 +3927,41 @@
         '<p class="ha-rules-empty-desc">' + t('tc.ha.rules_v2_empty') + '</p>' +
       '</div>';
     }
-    var showCountryCol = !country;
     var baseCols = [t('tc.ha.rules_v2_subject'), t('tc.ha.rules_v2_hourly_summary'), t('tc.ha.rules_v2_cps_summary'), t('tc.ha.rules_effective_period'), t('tc.ha.rules_v2_status'), t('tc.ha.rules_v2_meta')];
-    var cols = dimension === 'merchant' && !showCountryCol ? baseCols.slice(1) : baseCols;
+    var cols = baseCols;
     var headerRow = '<tr>' + cols.map(function (c) { return '<th>' + c + '</th>'; }).join('') + '</tr>';
     var rows = sorted.map(function (r) {
       var creatorName = r.createdBy ? findMemberName(r.createdBy).name : '-';
       var createdAtStr = r.createdAt ? new Date(r.createdAt).toLocaleString(getLang() === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'short', timeStyle: 'short' }) : '-';
-      var hourlyPeriod = (r.hourlyEffectiveStart || r.hourlyEffectiveEnd) ? ((r.hourlyEffectiveStart || '') + ' – ' + (r.hourlyEffectiveEnd || '')) : '—';
-      var cpsPeriod = (r.cpsEffectiveStart || r.cpsEffectiveEnd) ? ((r.cpsEffectiveStart || '') + ' – ' + (r.cpsEffectiveEnd || '')) : '—';
-      var statusRaw = (r.status != null && r.status !== '') ? String(r.status) : '';
-      var statusVal = statusRaw ? (function () {
+      var todayStr = new Date().toISOString().slice(0, 10);
+      function inEffectiveRange(start, end) {
+        return (!start || todayStr >= start) && (!end || todayStr <= end);
+      }
+      var hourlyActive = inEffectiveRange(r.hourlyEffectiveStart, r.hourlyEffectiveEnd);
+      var cpsActive = inEffectiveRange(r.cpsEffectiveStart, r.cpsEffectiveEnd);
+      var statusRaw = '';
+      if (hourlyActive || cpsActive) {
+        statusRaw = getLang() === 'zh' ? '生效' : 'Active';
+      } else {
+        var starts = [];
+        if (r.hourlyEffectiveStart) starts.push(r.hourlyEffectiveStart);
+        if (r.cpsEffectiveStart) starts.push(r.cpsEffectiveStart);
+        if (starts.length) {
+          var minStart = starts.slice().sort()[0];
+          statusRaw = todayStr < minStart ? (getLang() === 'zh' ? '待生效' : 'Pending') : (getLang() === 'zh' ? '已失效' : 'Expired');
+        } else {
+          statusRaw = getLang() === 'zh' ? '已失效' : 'Expired';
+        }
+      }
+      var statusVal = (statusRaw ? (function () {
         var s = statusRaw.toLowerCase();
         var cls = 'ha-rules-v2-status-badge';
         if (s === 'active' || s === '生效') cls += ' ha-rules-v2-status-badge--active';
         else if (s === 'pending' || s === '待生效') cls += ' ha-rules-v2-status-badge--pending';
         else if (s === 'expired' || s === '已失效') cls += ' ha-rules-v2-status-badge--expired';
         return '<span class="' + cls + '">' + statusRaw + '</span>';
-      })() : '—';
-      var dimCol = dimension === 'live_account' ? (r.liveAccountUsername || '—') :
-        dimension === 'creator' ? ((function () { var u = (haManageUsers || []).filter(function (x) { return x.id === r.creatorId; })[0]; return u ? u.name : ('#' + r.creatorId); })()) : (r.country || '—');
-      var subjectVal = showCountryCol && dimCol ? (dimCol + ' · ' + (r.country || '—')) : (dimCol || r.country || '—');
+      })() : '—');
+      var subjectVal = haRulesV2HistorySubjectLabel(r);
       var effectivePeriod = (r.hourlyEffectiveStart || r.hourlyEffectiveEnd || r.cpsEffectiveStart || r.cpsEffectiveEnd)
         ? ((r.hourlyEffectiveStart || r.cpsEffectiveStart || '') + ' – ' + (r.hourlyEffectiveEnd || r.cpsEffectiveEnd || ''))
         : '—';
@@ -3853,9 +3969,7 @@
       var cfg = haRulesV2GetConfig(r);
       var hourlyVal = haRulesV2FormatHourlySummary(cfg);
       var cpsVal = haRulesV2FormatCpsSummary(cfg);
-      var cells = showCountryCol
-        ? [subjectVal, hourlyVal, cpsVal, effectivePeriod, statusVal, metaVal]
-        : (dimension === 'merchant' ? [hourlyVal, cpsVal, effectivePeriod, statusVal, metaVal] : [subjectVal, hourlyVal, cpsVal, effectivePeriod, statusVal, metaVal]);
+      var cells = [subjectVal, hourlyVal, cpsVal, effectivePeriod, statusVal, metaVal];
       return '<tr>' + cells.map(function (cell) {
         var content = (typeof cell === 'string' && cell.indexOf('<') !== -1) ? cell : (cell || '—');
         return '<td>' + content + '</td>';
@@ -3863,28 +3977,17 @@
     }).join('');
     return '<div class="ha-rules-v2-history-table-wrap"><table class="ha-rules-table ha-rules-v2-history-table"><thead>' + headerRow + '</thead><tbody>' + rows + '</tbody></table></div>';
   }
-  function renderHaSettleRulesV2CreateForm(dimension, country) {
-    dimension = dimension || 'merchant';
-    var countryList = haGetMerchantLiveAccountCountries();
-    if (!countryList.length) countryList = ['US', 'CN', 'DE'];
-    var selectedCountry = country || countryList[0];
-    var countryOpts = countryList.map(function (c) { return '<option value="' + c + '"' + (c === selectedCountry ? ' selected' : '') + '>' + c + '</option>'; }).join('');
-    var liveAccountOpts = '';
+  function renderHaSettleRulesV2CreateForm() {
+    var laUsers = [];
+    (haManageUsers || []).forEach(function (u) {
+      var la = u.liveAccount;
+      if (la && la.username) {
+        var un = (la.username + '').replace(/^@/, '');
+        if (laUsers.indexOf(un) === -1) laUsers.push(un);
+      }
+    });
+    var liveAccountOpts = '<option value="">' + t('tc.ha.rules_live_account_select') + '</option>' + laUsers.map(function (un) { return '<option value="' + un + '">' + un + '</option>'; }).join('');
     var creatorOpts = '';
-    if (dimension === 'live_account') {
-      var laUsers = [];
-      (haManageUsers || []).forEach(function (u) {
-        var la = u.liveAccount;
-        if (la && la.username) {
-          var un = (la.username + '').replace(/^@/, '');
-          if (laUsers.indexOf(un) === -1) laUsers.push(un);
-        }
-      });
-      liveAccountOpts = '<option value="">' + t('tc.ha.rules_live_account_select') + '</option>' + laUsers.map(function (un) { return '<option value="' + un + '">' + un + '</option>'; }).join('');
-    }
-    if (dimension === 'creator') {
-      creatorOpts = (haManageUsers || []).map(function (u) { return '<option value="' + u.id + '">' + (u.name || '#' + u.id) + '</option>'; }).join('');
-    }
     var defaultHourly = [{ id: 'hr1', effectiveStart: '', effectiveEnd: '', rate: 100, createdAt: Date.now() }];
     var defaultTiers = [{ id: 't1', min: 0, max: 300, rate: 1.5 }, { id: 't2', min: 300, max: 1500, rate: 3 }, { id: 't3', min: 1500, max: null, rate: 5 }];
     var hourlyRows = defaultHourly.map(function (r) {
@@ -3900,29 +4003,28 @@
         '<td><input type="number" class="ha-rules-input ha-rules-cps-rate" value="' + tier.rate + '" min="0" max="100" step="0.1"> %</td>' +
         '<td><button type="button" class="btn btn-ghost btn-xs ha-rules-tier-remove"><i class="fas fa-trash-alt"></i></button></td></tr>';
     }).join('');
-    var dimBlock = '';
-    if (dimension === 'live_account') {
-      dimBlock = '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_v2_tab_live_account') + '</label><select class="ha-rules-select ha-rules-v2-live-account" id="haRulesV2LiveAccount">' + liveAccountOpts + '</select></div>';
-    } else if (dimension === 'creator') {
-      dimBlock =
-        '<div class="ha-rules-block ha-rules-block--full">' +
-          '<label class="ha-rules-block-label">' + t('tc.ha.rules_creator_name') + '</label>' +
-          '<div class="ms-wrap" id="haRulesV2CreatorTagSelect">' +
-            '<div class="ms-selected" id="haRulesV2CreatorTags"></div>' +
-            '<input type="text" class="ms-input" id="haRulesV2CreatorSearch" placeholder="' + t('tc.ha.rules_creator_add_search_ph') + '">' +
-            '<div class="ms-dropdown ms-dropdown--hidden" id="haRulesV2CreatorSuggestions"></div>' +
-          '</div>' +
-          '<p class="ha-rules-hint">' + t('tc.ha.rules_creator_multi_hint') + '</p>' +
-          '<select class="ha-rules-select ha-rules-v2-creator" id="haRulesV2Creator" multiple style="display:none">' + creatorOpts + '</select>' +
-        '</div>';
-    }
-    return '<div class="ha-rules-v2-form card" data-rules-v2-dimension="' + dimension + '" data-rules-v2-country="' + (selectedCountry || '') + '">' +
+    var dimBlock =
+      '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_v2_tab_live_account') + '</label><select class="ha-rules-select ha-rules-v2-live-account" id="haRulesV2LiveAccount">' + liveAccountOpts + '</select></div>' +
+      '<div class="ha-rules-block ha-rules-block--full">' +
+        '<label class="ha-rules-block-label">' + t('tc.ha.rules_v2_creators_optional') + '</label>' +
+        '<div class="ms-wrap" id="haRulesV2CreatorTagSelect">' +
+          '<div class="ms-selected" id="haRulesV2CreatorTags"></div>' +
+          '<input type="text" class="ms-input" id="haRulesV2CreatorSearch" placeholder="' + t('tc.ha.rules_creator_add_search_ph') + '">' +
+          '<div class="ms-dropdown ms-dropdown--hidden" id="haRulesV2CreatorSuggestions"></div>' +
+        '</div>' +
+        '<p class="ha-rules-hint">' + t('tc.ha.rules_la_creator_hint') + '</p>' +
+        '<select class="ha-rules-select ha-rules-v2-creator" id="haRulesV2Creator" multiple style="display:none">' + creatorOpts + '</select>' +
+      '</div>';
+    return '<div class="ha-rules-v2-form card" data-rules-v2-dimension="live_account">' +
       '<h4 class="ha-rules-v2-form-title">' + t('tc.ha.rules_v2_create_new') + '</h4>' +
-      '<div class="ha-rules-v2-form-row ha-rules-v2-form-row--compact">' +
+      '<div class="ha-rules-v2-form-section">' +
+        '<h5 class="ha-rules-v2-form-section-title">' + t('tc.ha.rules_v2_section_subject') + '</h5>' +
         dimBlock +
-        '<div class="ha-rules-block ha-rules-block--inline"><label class="ha-rules-block-label">' + t('tc.ha.rules_currency') + '</label><select class="ha-rules-select ha-rules-v2-currency" id="haRulesV2Currency"><option value="USD">USD</option><option value="CNY">CNY</option><option value="EUR">EUR</option></select></div>' +
       '</div>' +
-      '<input type="hidden" id="haRulesV2Country" value="' + (selectedCountry || '') + '">' +
+      '<div class="ha-rules-v2-form-section ha-rules-v2-form-section--last">' +
+        '<h5 class="ha-rules-v2-form-section-title">' + t('tc.ha.rules_v2_section_currency') + '</h5>' +
+        '<div class="ha-rules-block ha-rules-block--inline"><select class="ha-rules-select ha-rules-v2-currency" id="haRulesV2Currency"><option value="USD">USD</option><option value="CNY">CNY</option><option value="EUR">EUR</option></select></div>' +
+      '</div>' +
       '<details class="ha-rules-collapse">' +
         '<summary class="ha-rules-collapse-summary">' + t('tc.ha.rules_section_hourly') + '</summary>' +
         '<div class="ha-rules-block ha-rules-collapse-body">' +
@@ -3957,6 +4059,7 @@
   function renderHaSettleRulesV2Detail(rec) {
     var creatorName = rec.createdBy ? findMemberName(rec.createdBy).name : '-';
     var createdAtStr = rec.createdAt ? new Date(rec.createdAt).toLocaleString(getLang() === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'short', timeStyle: 'short' }) : '-';
+    var subjectVal = haRulesV2HistorySubjectLabel(rec);
     var m = rec.merchant || {};
     var hourlyRows = (m.hourlyRates || []).map(function (r) {
       var rowPeriod = (r.effectiveStart || r.effectiveEnd) ? ((r.effectiveStart || '') + ' – ' + (r.effectiveEnd || '')) : '—';
@@ -3966,7 +4069,7 @@
       return '<tr><td>' + (tier.min || 0) + '</td><td>' + (tier.max != null ? tier.max : '—') + '</td><td>' + (tier.rate || 0) + ' %</td></tr>';
     }).join('');
     return '<div class="ha-rules-v2-detail card">' +
-      '<h4 class="ha-rules-v2-form-title">' + (rec.country || '') + ' · ' + (rec.hourlyEffectiveStart || '') + ' – ' + (rec.cpsEffectiveEnd || '') + '</h4>' +
+      '<h4 class="ha-rules-v2-form-title">' + subjectVal + ' · ' + (rec.hourlyEffectiveStart || '') + ' – ' + (rec.cpsEffectiveEnd || '') + '</h4>' +
       '<div class="ha-rules-v2-detail-meta">' + t('tc.ha.rules_v2_created_by') + ': ' + creatorName + ' · ' + t('tc.ha.rules_v2_created_at') + ': ' + createdAtStr + '</div>' +
       '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_v2_hourly_effective') + '</label><p>' + (rec.hourlyEffectiveStart || '') + ' – ' + (rec.hourlyEffectiveEnd || '') + '</p></div>' +
       '<div class="ha-rules-block"><label class="ha-rules-block-label">' + t('tc.ha.rules_v2_cps_effective') + '</label><p>' + (rec.cpsEffectiveStart || '') + ' – ' + (rec.cpsEffectiveEnd || '') + '</p></div>' +
@@ -4308,16 +4411,33 @@
       '<span class="ha-settle-page-info">' + haSettleBatchPage + ' / ' + totalPages + '</span>' +
       '<button type="button" class="ha-settle-page-btn" data-dir="next"' + (haSettleBatchPage >= totalPages ? ' disabled' : '') + '><i class="fas fa-chevron-right"></i></button>' +
       '</div>' : '';
-    var countryOpts = countryList.map(function (c) { return '<option value="' + c + '">' + haCountryLabelWithFlag(c) + '</option>'; }).join('');
+    var liveAccountSet = {};
+    (haSettleBatches || []).forEach(function (b) { var la = (b.liveAccountUsername || '').replace(/^@/, ''); if (la) liveAccountSet[la] = true; });
+    (haManageUsers || []).forEach(function (u) { var la = u.liveAccount && (u.liveAccount.username || '').replace(/^@/, ''); if (la) liveAccountSet[la] = true; });
+    var liveAccountList = Object.keys(liveAccountSet).sort();
+    var creatorSet = {};
+    (haSettleBatches || []).forEach(function (b) { (b.hosts || []).forEach(function (h) { var n = (h.name || '').trim(); if (n) creatorSet[n] = true; }); });
+    (haManageUsers || []).forEach(function (u) { var n = (u.name || '').trim(); if (n) creatorSet[n] = true; });
+    var creatorList = Object.keys(creatorSet).sort();
     var genModalHtml = '<div class="ha-rules-creator-modal-overlay ha-generate-batch-modal" id="haGenerateBatchModal">' +
       '<div class="ha-rules-creator-modal">' +
         '<button type="button" class="ha-modal-close ha-generate-batch-close" aria-label="Close"><i class="fas fa-times"></i></button>' +
         '<h3 class="ha-rules-modal-title">' + t('tc.ha.generate_modal_title') + '</h3>' +
         '<div class="ha-rules-creator-modal-body">' +
           '<div class="ha-generate-batch-form">' +
-            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_country_scope') + '</label><div class="ha-generate-batch-country-scope"><label class="ha-generate-scope-opt"><input type="radio" name="haGenerateCountryScope" value="all" checked> ' + t('tc.ha.generate_modal_country_all') + '</label><label class="ha-generate-scope-opt"><input type="radio" name="haGenerateCountryScope" value="specific"> ' + t('tc.ha.generate_modal_country_specific') + '</label></div><div class="ha-generate-country-select-wrap" style="display:none"><select class="ha-rules-input ha-generate-country-select" id="haGenerateCountrySelect">' + countryOpts + '</select></div></div>' +
-            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_period') + '</label><div class="ha-generate-batch-dates"><input type="date" class="ha-rules-input" id="haGenerateDateStart"><span class="ha-settle-date-sep">–</span><input type="date" class="ha-rules-input" id="haGenerateDateEnd"></div></div>' +
-            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_settle_types') + '</label><div class="ha-generate-batch-types"><label class="ha-generate-type-opt"><input type="checkbox" class="ha-generate-include-hourly" checked> ' + t('tc.ha.generate_modal_include_hourly') + '</label><label class="ha-generate-type-opt"><input type="checkbox" class="ha-generate-include-commission" checked> ' + t('tc.ha.generate_modal_include_commission') + '</label><label class="ha-generate-type-opt"><input type="checkbox" class="ha-generate-include-other-rewards" checked> ' + t('tc.ha.generate_modal_include_other_rewards') + '</label></div></div>' +
+            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_live_account') + ' <span class="ha-rules-label-optional">' + t('tc.ha.generate_modal_optional') + '</span></label><div class="ms-wrap ha-generate-ms-wrap" id="haGenerateLiveAccountWrap">' +
+              '<div class="ms-selected" id="haGenerateLiveAccountTags"></div>' +
+              '<input type="text" class="ms-input" id="haGenerateLiveAccountSearch" placeholder="' + t('tc.ha.generate_modal_select_ph') + '" autocomplete="off">' +
+              '<div class="ms-dropdown ms-dropdown--hidden" id="haGenerateLiveAccountDropdown"></div>' +
+            '</div></div>' +
+            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_creator') + ' <span class="ha-rules-label-optional">' + t('tc.ha.generate_modal_optional') + '</span></label><div class="ms-wrap ha-generate-ms-wrap" id="haGenerateCreatorWrap">' +
+              '<div class="ms-selected" id="haGenerateCreatorTags"></div>' +
+              '<input type="text" class="ms-input" id="haGenerateCreatorSearch" placeholder="' + t('tc.ha.generate_modal_select_ph') + '" autocomplete="off">' +
+              '<div class="ms-dropdown ms-dropdown--hidden" id="haGenerateCreatorDropdown"></div>' +
+            '</div></div>' +
+            '<p class="ha-rules-hint ha-generate-filter-hint">' + t('tc.ha.generate_modal_filter_hint') + '</p>' +
+            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_period') + ' <span class="ha-rules-required">*</span></label><div class="ha-generate-batch-dates"><input type="date" class="ha-rules-input" id="haGenerateDateStart"><span class="ha-settle-date-sep">–</span><input type="date" class="ha-rules-input" id="haGenerateDateEnd"></div></div>' +
+            '<div class="ha-rules-field"><label class="ha-rules-block-label">' + t('tc.ha.generate_modal_settle_types') + ' <span class="ha-rules-required">*</span></label><div class="ha-generate-batch-types"><label class="ha-generate-type-opt"><input type="checkbox" class="ha-generate-include-hourly" checked> ' + t('tc.ha.generate_modal_include_hourly') + '</label><label class="ha-generate-type-opt"><input type="checkbox" class="ha-generate-include-commission" checked> ' + t('tc.ha.generate_modal_include_commission') + '</label><label class="ha-generate-type-opt"><input type="checkbox" class="ha-generate-include-other-rewards" checked> ' + t('tc.ha.generate_modal_include_other_rewards') + '</label></div></div>' +
           '</div>' +
         '</div>' +
         '<div class="ha-rules-creator-modal-footer">' +
@@ -4364,67 +4484,68 @@
     var batch = haSettleBatches.filter(function (b) { return b.id === batchId; })[0];
     if (!batch) return '<div class="ha-settle-content"><p class="ha-rules-hint">Batch not found.</p></div>';
     var cur = haBatchGetCurrency(batch);
+    haBatchDetailDrawerCurrency = cur;
     var statusCls = batch.status === 'draft' ? 'badge--pending' : 'badge--success';
-    var hasHourly = (batch.totalHourly || 0) > 0;
-    var hasCps = (batch.totalCommission || 0) > 0;
-    var hasOtherRewards = (batch.totalBonus || 0) > 0 || (batch.hosts || []).some(function (h) { return (h.otherRewards && h.otherRewards.length) || (h.bonus || 0) > 0; });
-    var types = [];
-    if (hasHourly) types.push('hourly');
-    if (hasCps) types.push('cps');
-    if (hasOtherRewards) types.push('other_rewards');
-    if (types.indexOf(haBatchDetailSettleType) < 0) haBatchDetailSettleType = types[0] || 'hourly';
-    var sel = haBatchDetailSettleType;
-    var filteredHosts = (batch.hosts || []).filter(function (h) {
-      if (sel === 'hourly') return (h.hourly || 0) > 0;
-      if (sel === 'cps') return (h.commission || 0) > 0;
-      if (sel === 'other_rewards') return (h.bonus || 0) > 0 || (h.otherRewards && h.otherRewards.length);
-      return true;
-    });
+
+    var hosts = (batch.hosts || []).slice();
+    hosts.sort(function (a, b) { return ((b.total || 0) - (a.total || 0)); });
+
+    var hasHourly = (batch.totalHourly || 0) > 0 || hosts.some(function (h) { return (h.hourly || 0) > 0; });
+    var hasCps = (batch.totalCommission || 0) > 0 || hosts.some(function (h) { return (h.commission || 0) > 0; });
+    var hasOtherRewards = (batch.totalBonus || 0) > 0 || hosts.some(function (h) { return (h.otherRewards && h.otherRewards.length) || (h.bonus || 0) > 0; });
+
+    var lang = getLang();
+    var emptyHourlyText = (lang === 'zh') ? '暂无时薪明细' : 'No hourly settlement.';
+    var emptyCpsText = (lang === 'zh') ? '暂无CPS明细' : 'No CPS settlement.';
+    var emptyOtherText = (lang === 'zh') ? '暂无其他奖励' : 'No other rewards.';
+
     var summaryCards = [];
-    if (hasHourly) summaryCards.push('<div class="ha-batch-detail-summary-card ha-batch-detail-summary-card--filter' + (sel === 'hourly' ? ' ha-batch-detail-summary-card--active' : '') + '" data-settle-type="hourly"><span class="ha-batch-detail-summary-icon"><i class="fas fa-clock"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.rules_hourly') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalHourly || 0, cur) + '</span></div>');
-    if (hasCps) summaryCards.push('<div class="ha-batch-detail-summary-card ha-batch-detail-summary-card--filter' + (sel === 'cps' ? ' ha-batch-detail-summary-card--active' : '') + '" data-settle-type="cps"><span class="ha-batch-detail-summary-icon"><i class="fas fa-percent"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.rules_cps') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalCommission || 0, cur) + '</span></div>');
-    if (hasOtherRewards) summaryCards.push('<div class="ha-batch-detail-summary-card ha-batch-detail-summary-card--filter' + (sel === 'other_rewards' ? ' ha-batch-detail-summary-card--active' : '') + '" data-settle-type="other_rewards"><span class="ha-batch-detail-summary-icon"><i class="fas fa-gift"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.bonus_other') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalBonus || 0, cur) + '</span></div>');
+    if (hasHourly) summaryCards.push('<div class="ha-batch-detail-summary-card"><span class="ha-batch-detail-summary-icon"><i class="fas fa-clock"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.th_hourly_total') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalHourly || 0, cur) + '</span></div>');
+    if (hasCps) summaryCards.push('<div class="ha-batch-detail-summary-card"><span class="ha-batch-detail-summary-icon"><i class="fas fa-percent"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.th_commission_total') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalCommission || 0, cur) + '</span></div>');
+    if (hasOtherRewards) summaryCards.push('<div class="ha-batch-detail-summary-card"><span class="ha-batch-detail-summary-icon"><i class="fas fa-gift"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.bonus_other') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalBonus || 0, cur) + '</span></div>');
     summaryCards.push('<div class="ha-batch-detail-summary-card ha-batch-detail-summary-card--total"><span class="ha-batch-detail-summary-icon"><i class="fas fa-wallet"></i></span><span class="ha-batch-detail-summary-label">' + t('tc.ha.batch_total') + '</span><span class="ha-batch-detail-summary-value">' + haFormatAmount(batch.totalAmount || 0, cur) + '</span></div>');
+
+    var tableHeader = '<tr><th>' + t('tc.ha.th_creator') + '</th><th>' + t('tc.ha.th_hourly_total') + '</th><th>' + t('tc.ha.th_commission_total') + '</th><th>' + t('tc.ha.bonus_other') + '</th><th>' + t('tc.ha.batch_total') + '</th></tr>';
+
+    var emptyRow = '<tr><td colspan="5" class="ha-settle-empty ha-rules-empty-state"><span class="ha-rules-empty-text">' + (lang === 'zh' ? '暂无结算明细' : 'No settlement detail.') + '</span></td></tr>';
+
+    function computeOtherRewardsTotal(h, currency) {
+      var bonus = h && h.bonus ? (Number(h.bonus) || 0) : 0;
+      var arr = (h && h.otherRewards && h.otherRewards.length) ? h.otherRewards : [];
+      var sum = arr.reduce(function (s, r) { return s + (Number(r.amount) || 0); }, 0);
+      return Math.round((bonus + sum) * 100) / 100;
+    }
+
+    function hostCurrency(h) {
+      return (h && h.currency) ? h.currency : cur;
+    }
+
     var creatorRows = [];
-    var colCount = 0;
-    filteredHosts.forEach(function (h) {
-      if (sel === 'hourly') {
-        colCount = 4;
-        var totalDurH = (h.lives || []).reduce(function (s, lv) { return s + (lv.durationSeconds || 0) / 3600; }, 0);
-        var effRate = totalDurH ? (h.hourly || 0) / totalDurH : ((h.lives && h.lives[0] && h.lives[0].hourlyRate != null) ? h.lives[0].hourlyRate : 0);
-        creatorRows.push('<tr class="ha-batch-creator-row--expandable"><td><span class="ha-batch-expand-icon"><i class="fas fa-chevron-down"></i></span>' + (h.name || '-') + '</td><td>' + (h.liveCount || 0) + '</td><td>' + haFormatAmount(effRate, h.currency || cur) + '</td><td>' + haFormatAmount(h.hourly || 0, h.currency || cur) + '</td></tr>');
-        var totalDur = (h.lives || []).reduce(function (s, lv) { return s + (lv.durationSeconds || 0); }, 0);
-        var livesRows = (h.lives || []).map(function (lv) {
-          var handle = lv.handle || (lv.liveAccountUsername ? ('@' + String(lv.liveAccountUsername).replace(/^@/, '')) : null) || h.handle || '-';
-          var hr = lv.hourlyRate != null ? lv.hourlyRate : (totalDur ? (h.hourly || 0) / (totalDur / 3600) : 0);
-          var amt = lv.hourlyAmount != null ? lv.hourlyAmount : (totalDur ? (h.hourly || 0) * (lv.durationSeconds || 0) / totalDur : 0);
-          return '<tr><td>' + (lv.roomId || '-') + '</td><td>' + (handle || '-') + '</td><td>' + (lv.eventName || '-') + '</td><td>' + formatLiveStartEnd(lv.startAt, lv.endAt) + '</td><td>' + formatDurationSeconds(lv.durationSeconds) + '</td><td>' + haFormatAmount(hr, cur) + '</td><td>' + haFormatAmount(amt, cur) + '</td></tr>';
-        }).join('');
-        creatorRows.push('<tr class="ha-batch-lives-row"><td colspan="4"><div class="ha-batch-lives-wrap"><table class="ha-batch-lives-table"><thead><tr><th>' + t('tc.ha.live_room_id') + '</th><th>Handle</th><th>' + t('tc.ha.live_event_name') + '</th><th>' + t('tc.ha.live_start_end') + '</th><th>' + t('tc.ha.live_duration') + '</th><th>' + t('tc.ha.live_hourly_rate') + '</th><th>' + t('tc.ha.live_settle_amount') + '</th></tr></thead><tbody>' + (livesRows || '<tr><td colspan="7">—</td></tr>') + '</tbody></table></div></td></tr>');
-      } else if (sel === 'cps') {
-        colCount = 4;
-        creatorRows.push('<tr class="ha-batch-creator-row--expandable"><td><span class="ha-batch-expand-icon"><i class="fas fa-chevron-down"></i></span>' + (h.name || '-') + '</td><td>' + (h.liveCount || 0) + '</td><td>—</td><td>' + haFormatAmount(h.commission || 0, h.currency || cur) + '</td></tr>');
-        var livesRows = (h.lives || []).map(function (lv) {
-          var handle = lv.handle || (lv.liveAccountUsername ? ('@' + String(lv.liveAccountUsername).replace(/^@/, '')) : null) || h.handle || '-';
-          var rate = lv.cpsRate != null ? ((lv.cpsRate * 100) + '%') : '—';
-          var amt = lv.cpsAmount != null ? lv.cpsAmount : (h.lives && h.lives.length ? (h.commission || 0) / h.lives.length : 0);
-          return '<tr><td>' + (lv.roomId || '-') + '</td><td>' + (handle || '-') + '</td><td>' + (lv.eventName || '-') + '</td><td>' + formatLiveStartEnd(lv.startAt, lv.endAt) + '</td><td>' + formatDurationSeconds(lv.durationSeconds) + '</td><td>' + haFormatAmount(lv.gmv, cur) + '</td><td>' + rate + '</td><td>' + haFormatAmount(amt, cur) + '</td></tr>';
-        }).join('');
-        creatorRows.push('<tr class="ha-batch-lives-row"><td colspan="4"><div class="ha-batch-lives-wrap"><table class="ha-batch-lives-table"><thead><tr><th>' + t('tc.ha.live_room_id') + '</th><th>Handle</th><th>' + t('tc.ha.live_event_name') + '</th><th>' + t('tc.ha.live_start_end') + '</th><th>' + t('tc.ha.live_duration') + '</th><th>' + t('tc.ha.live_gmv') + '</th><th>' + t('tc.ha.live_cps_rate') + '</th><th>' + t('tc.ha.live_settle_amount') + '</th></tr></thead><tbody>' + (livesRows || '<tr><td colspan="8">—</td></tr>') + '</tbody></table></div></td></tr>');
-      } else {
-        colCount = 3;
-        var otherAmt = (h.bonus || 0) + (h.otherRewards || []).reduce(function (s, r) { return s + (r.amount || 0); }, 0);
-        creatorRows.push('<tr class="ha-batch-creator-row--expandable"><td><span class="ha-batch-expand-icon"><i class="fas fa-chevron-down"></i></span>' + (h.name || '-') + '</td><td>' + (h.otherRewards && h.otherRewards.length ? h.otherRewards.length : 1) + '</td><td>' + haFormatAmount(otherAmt, h.currency || cur) + '</td></tr>');
-        var rewards = (h.otherRewards && h.otherRewards.length) ? h.otherRewards : (h.bonus ? [{ title: t('tc.ha.bonus_other'), date: '', amount: h.bonus }] : []);
-        var rewardsRows = rewards.map(function (r) { return '<tr><td>' + (r.title || '-') + '</td><td>' + (r.date || '-') + '</td><td>' + haFormatAmount(r.amount || 0, h.currency || cur) + '</td></tr>'; }).join('');
-        creatorRows.push('<tr class="ha-batch-lives-row"><td colspan="3"><div class="ha-batch-lives-wrap"><table class="ha-batch-lives-table ha-batch-other-rewards-table"><thead><tr><th>' + t('tc.ha.custom_entry_title') + '</th><th>' + t('tc.ha.rules_bonus_date') + '</th><th>' + t('tc.ha.rules_bonus_amount') + '</th></tr></thead><tbody>' + (rewardsRows || '<tr><td colspan="3">—</td></tr>') + '</tbody></table></div></td></tr>');
-      }
-    });
-    var tableHeader = '';
-    if (sel === 'hourly') tableHeader = '<tr><th>' + t('tc.ha.th_creator') + '</th><th>Lives</th><th>' + t('tc.ha.rules_hourly') + '</th><th>' + t('tc.ha.live_settle_amount') + '</th></tr>';
-    else if (sel === 'cps') tableHeader = '<tr><th>' + t('tc.ha.th_creator') + '</th><th>Lives</th><th>' + t('tc.ha.live_cps_rate') + '</th><th>' + t('tc.ha.live_settle_amount') + '</th></tr>';
-    else tableHeader = '<tr><th>' + t('tc.ha.th_creator') + '</th><th>' + t('tc.ha.other_rewards_count') + '</th><th>' + t('tc.ha.rules_bonus_amount') + '</th></tr>';
-    var emptyRow = '<tr><td colspan="' + colCount + '" class="ha-settle-empty ha-rules-empty-state"><span class="ha-rules-empty-text">' + (sel === 'hourly' ? 'No hourly settlement.' : sel === 'cps' ? 'No CPS settlement.' : 'No other rewards.') + '</span></td></tr>';
+    haBatchDetailDrawerHostMap = {};
+    if (hosts.length) {
+      hosts.forEach(function (h, hi) {
+        var hCur = hostCurrency(h);
+        var hourlyTotal = h.hourly || 0;
+        var cpsTotal = h.commission || 0;
+        var otherTotal = computeOtherRewardsTotal(h, hCur);
+        var totalAmt = (h.total != null) ? h.total : (hourlyTotal + cpsTotal + otherTotal);
+
+        var hostName = h.name || '-';
+        var hostIdx = String(hi);
+        haBatchDetailDrawerHostMap[hostIdx] = h;
+
+        creatorRows.push(
+          '<tr class="ha-batch-host-row" data-host-idx="' + hostIdx + '">' +
+            '<td><span class="ha-batch-expand-icon"><i class="fas fa-chevron-right"></i></span>' + hostName + '</td>' +
+            '<td class="ha-amount-cell">' + haFormatAmount(hourlyTotal, hCur) + '</td>' +
+            '<td class="ha-amount-cell">' + haFormatAmount(cpsTotal, hCur) + '</td>' +
+            '<td class="ha-amount-cell">' + haFormatAmount(otherTotal, hCur) + '</td>' +
+            '<td class="ha-amount-cell">' + haFormatAmount(totalAmt, hCur) + '</td>' +
+          '</tr>'
+        );
+      });
+    }
+
     return '<div class="ha-settle-content ha-batch-detail-page">' +
       '<div class="ha-batch-detail-back"><button type="button" class="ha-batch-detail-back-btn"><i class="fas fa-arrow-left"></i> ' + t('tc.ha.back_to_batches') + '</button></div>' +
       '<div class="ha-batch-detail-head">' +
@@ -4435,7 +4556,299 @@
       '</div>' +
       '<div class="ha-batch-detail-summary" id="haBatchDetailSummary">' + summaryCards.join('') + '</div>' +
       '<div class="card ha-batch-detail-card"><div class="ha-batch-detail-table-wrap" id="haBatchDetailTableWrap"><table class="ha-batch-detail-table"><thead>' + tableHeader + '</thead><tbody>' + (creatorRows.length ? creatorRows.join('') : emptyRow) + '</tbody></table></div></div>' +
+      '<div class="ha-settle-drawer-overlay" id="haBatchDetailDrawerOverlay"></div>' +
+      '<aside class="ha-settle-drawer" id="haBatchDetailDrawer" aria-hidden="true">' +
+        '<div class="ha-settle-drawer-header">' +
+          '<div>' +
+            '<div class="ha-settle-drawer-title" id="haBatchDetailDrawerHostTitle">-</div>' +
+            '<div class="ha-settle-drawer-subtitle" id="haBatchDetailDrawerHostTotal">-</div>' +
+          '</div>' +
+          '<button type="button" class="ha-settle-drawer-close" id="haBatchDetailDrawerClose" aria-label="Close"><i class="fas fa-times"></i></button>' +
+        '</div>' +
+        '<div class="ha-settle-drawer-body" id="haBatchDetailDrawerBody"></div>' +
+      '</aside>' +
     '</div>';
+  }
+
+  // Render host details content for batch detail drawer (lazy render)
+  function renderHaBatchDetailDrawerHostBody(hostIdx, forcedActiveType) {
+    var host = haBatchDetailDrawerHostMap[String(hostIdx)];
+    if (!host) return '<div class="ha-rules-empty-state"><span class="ha-rules-empty-text">Not found.</span></div>';
+
+    var lang = getLang();
+    var cur = haBatchDetailDrawerCurrency || 'USD';
+    var hCur = host.currency || cur;
+
+    var emptyHourlyText = (lang === 'zh') ? '暂无时薪明细' : 'No hourly settlement.';
+    var emptyCpsText = (lang === 'zh') ? '暂无CPS明细' : 'No CPS settlement.';
+    var emptyOtherText = (lang === 'zh') ? '暂无其他奖励' : 'No other rewards.';
+
+    function computeOtherRewardsTotal(h) {
+      var bonus = h && h.bonus ? (Number(h.bonus) || 0) : 0;
+      var arr = (h && h.otherRewards && h.otherRewards.length) ? h.otherRewards : [];
+      var sum = arr.reduce(function (s, r) { return s + (Number(r.amount) || 0); }, 0);
+      return Math.round((bonus + sum) * 100) / 100;
+    }
+
+    var hourlyTotal = host.hourly || 0;
+    var cpsTotal = host.commission || 0;
+    var otherTotal = computeOtherRewardsTotal(host);
+    var hostTotal = (host.total != null) ? host.total : (hourlyTotal + cpsTotal + otherTotal);
+
+    var lives = host.lives || [];
+    var totalDur = lives.reduce(function (s, lv) { return s + (lv.durationSeconds || 0); }, 0);
+
+    // ===== Active type (default by totals, can be forced) =====
+    var typesForDefault = [
+      { key: 'hourly', total: hourlyTotal },
+      { key: 'cps', total: cpsTotal },
+      { key: 'other_rewards', total: otherTotal }
+    ];
+    typesForDefault.sort(function (a, b) { return (b.total || 0) - (a.total || 0); });
+    var validForced = forcedActiveType && typesForDefault.some(function (x) { return x.key === forcedActiveType; });
+    var activeType = validForced
+      ? forcedActiveType
+      : (typesForDefault[0] && typesForDefault[0].key ? typesForDefault[0].key : 'hourly');
+
+    var hourlyTable = '';
+    var cpsTable = '';
+    var otherTable = '';
+
+    // ===== Hourly (merged columns) =====
+    if (activeType === 'hourly') {
+      var hourlyRows = lives.map(function (lv) {
+        var handle = lv.handle || (lv.liveAccountUsername ? ('@' + String(lv.liveAccountUsername).replace(/^@/, '')) : null) || host.handle || '-';
+        var hr = lv.hourlyRate != null ? lv.hourlyRate : (totalDur ? (hourlyTotal || 0) / (totalDur / 3600) : 0);
+        var amt = lv.hourlyAmount != null ? lv.hourlyAmount : (totalDur ? (hourlyTotal || 0) * (lv.durationSeconds || 0) / totalDur : 0);
+        if (!(amt > 0)) return null;
+
+        return '' +
+          '<tr>' +
+          '  <td>' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-top">' + (lv.roomId || '-') + '</div>' +
+          '      <div class="ha-batch-merged-sub">' + (handle || '-') + '</div>' +
+          '      <div class="ha-batch-merged-event">' + (lv.eventName || '-') + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '  <td>' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-top">' + formatLiveStartEnd(lv.startAt, lv.endAt) + '</div>' +
+          '      <div class="ha-batch-merged-sub">' + formatDurationSeconds(lv.durationSeconds) + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '  <td class="ha-amount-cell">' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-top">' + t('tc.ha.live_hourly_rate') + ': ' + haFormatAmount(hr, hCur) + '</div>' +
+          '      <div class="ha-batch-merged-amount">' + haFormatAmount(amt, hCur) + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '</tr>';
+      }).filter(Boolean).join('');
+
+      var hourlyTableBody = hourlyRows ? hourlyRows : '<tr><td colspan="3" class="ha-rules-empty-state"><span class="ha-rules-empty-text">' + emptyHourlyText + '</span></td></tr>';
+
+      var hourlyRoomHandleTh = (lang === 'zh') ? 'Room ID & Handle' : 'Room ID & Handle';
+      var hourlyRateAmtTh = (lang === 'zh') ? 'Rate & Amount' : 'Rate & Amount';
+      hourlyTable = '<table class="ha-batch-lives-table"><thead><tr>' +
+        '<th>' + hourlyRoomHandleTh + '</th>' +
+        '<th>' + t('tc.ha.live_start_end') + ' / ' + t('tc.ha.live_duration') + '</th>' +
+        '<th>' + hourlyRateAmtTh + '</th>' +
+        '</tr></thead><tbody>' + hourlyTableBody + '</tbody></table>';
+    }
+
+    // ===== CPS (merged columns) =====
+    if (activeType === 'cps') {
+      var cpsRows = lives.map(function (lv) {
+        var handle = lv.handle || (lv.liveAccountUsername ? ('@' + String(lv.liveAccountUsername).replace(/^@/, '')) : null) || host.handle || '-';
+        var rate = lv.cpsRate != null ? ((lv.cpsRate * 100) + '%') : '—';
+        var amt = lv.cpsAmount != null ? lv.cpsAmount : (lives.length ? (cpsTotal || 0) / lives.length : 0);
+        if (!(amt > 0)) return null;
+
+        return '' +
+          '<tr>' +
+          '  <td>' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-top">' + (lv.roomId || '-') + '</div>' +
+          '      <div class="ha-batch-merged-sub">' + (handle || '-') + '</div>' +
+          '      <div class="ha-batch-merged-event">' + (lv.eventName || '-') + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '  <td>' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-top">' + formatLiveStartEnd(lv.startAt, lv.endAt) + '</div>' +
+          '      <div class="ha-batch-merged-sub">' + formatDurationSeconds(lv.durationSeconds) + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '  <td class="ha-amount-cell">' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-top">' + t('tc.ha.live_gmv') + ': ' + haFormatAmount(lv.gmv, hCur) + '</div>' +
+          '      <div class="ha-batch-merged-top">' + t('tc.ha.live_cps_rate') + ': ' + rate + '</div>' +
+          '      <div class="ha-batch-merged-amount">' + haFormatAmount(amt, hCur) + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '</tr>';
+      }).filter(Boolean).join('');
+
+      var cpsTableBody = cpsRows ? cpsRows : '<tr><td colspan="3" class="ha-rules-empty-state"><span class="ha-rules-empty-text">' + emptyCpsText + '</span></td></tr>';
+
+      var hourlyRoomHandleTh = (lang === 'zh') ? 'Room ID & Handle' : 'Room ID & Handle';
+      cpsTable = '<table class="ha-batch-lives-table"><thead><tr>' +
+        '<th>' + hourlyRoomHandleTh + '</th>' +
+        '<th>' + t('tc.ha.live_start_end') + ' / ' + t('tc.ha.live_duration') + '</th>' +
+        '<th>' + (lang === 'zh' ? 'GMV / CPS Rate & Amount' : 'GMV / CPS Rate & Amount') + '</th>' +
+        '</tr></thead><tbody>' + cpsTableBody + '</tbody></table>';
+    }
+
+    // ===== Other rewards (merged columns) =====
+    if (activeType === 'other_rewards') {
+      var rewards = (host.otherRewards && host.otherRewards.length) ? host.otherRewards : (host.bonus ? [{ title: t('tc.ha.bonus_other'), date: '', amount: host.bonus }] : []);
+      var otherRows = rewards.map(function (r) {
+        var noteVal = (r.note != null && String(r.note).trim() !== '') ? r.note
+          : (r.remark != null && String(r.remark).trim() !== '') ? r.remark
+            : (r.remarks != null && String(r.remarks).trim() !== '') ? r.remarks
+              : (r.备注 != null && String(r.备注).trim() !== '') ? r.备注
+                : '-';
+        return '' +
+          '<tr>' +
+          '  <td>' +
+          '    <div class="ha-batch-merged-cell">' +
+          '      <div class="ha-batch-merged-sub">' + (r.title || '-') + '</div>' +
+          '      <div class="ha-batch-merged-top">' + (r.date || '-') + '</div>' +
+          '    </div>' +
+          '  </td>' +
+          '  <td class="ha-amount-cell">' + haFormatAmount(r.amount || 0, hCur) + '</td>' +
+          '  <td>' + noteVal + '</td>' +
+          '</tr>';
+      }).join('');
+
+      var otherTableBody = otherRows ? otherRows : '<tr><td colspan="3" class="ha-rules-empty-state"><span class="ha-rules-empty-text">' + emptyOtherText + '</span></td></tr>';
+
+      otherTable = '<table class="ha-batch-lives-table ha-batch-other-rewards-table"><thead><tr>' +
+        '<th>' + (lang === 'zh' ? 'Title & Date' : 'Title & Date') + '</th>' +
+        '<th>' + t('tc.ha.rules_bonus_amount') + '</th>' +
+        '<th>' + t('tc.ha.rules_bonus_note') + '</th>' +
+        '</tr></thead><tbody>' + otherTableBody + '</tbody></table>';
+    }
+
+    // ===== Active type & panes =====
+    function typePane(paneKey, titleHtml, totalHtml, tableHtml) {
+      var isActive = paneKey === activeType;
+      return '' +
+        '<div class="ha-batch-drawer-pane" data-pane="' + paneKey + '"' + (isActive ? '' : ' hidden') + '>' +
+          '<div class="ha-batch-host-type-block">' +
+            '<div class="ha-batch-host-type-header">' +
+              '<span class="ha-batch-host-type-title">' + titleHtml + '</span>' +
+              '<span class="ha-batch-host-type-total">' + totalHtml + '</span>' +
+            '</div>' +
+            tableHtml +
+          '</div>' +
+        '</div>';
+    }
+
+    var hourlyPane = typePane(
+      'hourly',
+      '<i class="fas fa-clock"></i> ' + t('tc.ha.rules_hourly'),
+      haFormatAmount(hourlyTotal || 0, hCur),
+      hourlyTable
+    );
+    var cpsPane = typePane(
+      'cps',
+      '<i class="fas fa-percent"></i> ' + t('tc.ha.rules_cps'),
+      haFormatAmount(cpsTotal || 0, hCur),
+      cpsTable
+    );
+    var otherPane = typePane(
+      'other_rewards',
+      '<i class="fas fa-gift"></i> ' + t('tc.ha.bonus_other'),
+      haFormatAmount(otherTotal || 0, hCur),
+      otherTable
+    );
+
+    var panesHtml = hourlyPane + cpsPane + otherPane;
+
+    // ===== Top panels (Settlement-level style cards) =====
+    function panelCard(key, iconHtml, label, total) {
+      var isActive = key === activeType;
+      return '' +
+        '<div class="ha-batch-detail-summary-card ha-batch-detail-summary-card--filter' + (isActive ? ' ha-batch-detail-summary-card--active' : '') + '" ' +
+          'role="button" tabindex="0" data-pane="' + key + '">' +
+          '<span class="ha-batch-detail-summary-icon">' + iconHtml + '</span>' +
+          '<span class="ha-batch-detail-summary-label">' + label + '</span>' +
+          '<span class="ha-batch-detail-summary-value">' + haFormatAmount(total || 0, hCur) + '</span>' +
+        '</div>';
+    }
+
+    var panelsHtml =
+      '<div class="ha-batch-detail-summary ha-batch-drawer-summary">' +
+      panelCard('hourly', '<i class="fas fa-clock"></i>', t('tc.ha.rules_hourly'), hourlyTotal) +
+      panelCard('cps', '<i class="fas fa-percent"></i>', t('tc.ha.rules_cps'), cpsTotal) +
+      panelCard('other_rewards', '<i class="fas fa-gift"></i>', t('tc.ha.bonus_other'), otherTotal) +
+      '<div class="ha-batch-detail-summary-card ha-batch-detail-summary-card--total">' +
+        '<span class="ha-batch-detail-summary-icon"><i class="fas fa-wallet"></i></span>' +
+        '<span class="ha-batch-detail-summary-label">' + t('tc.ha.batch_total') + '</span>' +
+        '<span class="ha-batch-detail-summary-value">' + haFormatAmount(hostTotal || 0, hCur) + '</span>' +
+      '</div>' +
+      '</div>';
+
+    return '' +
+      '<div class="ha-batch-drawer-meta-line">' +
+      (lang === 'zh' ? '合计口径：主播合计 = 时薪 + CPS + 其他' : 'Accounting: Host total = Hourly + CPS + Bonuses') +
+      '</div>' +
+      panelsHtml +
+      '<div class="ha-batch-drawer-panes">' + panesHtml + '</div>';
+  }
+
+  function haOpenBatchDetailHostDrawer(hostIdx, activePaneKey) {
+    var drawer = document.getElementById('haBatchDetailDrawer');
+    var overlay = document.getElementById('haBatchDetailDrawerOverlay');
+    var body = document.getElementById('haBatchDetailDrawerBody');
+    var hostTitleEl = document.getElementById('haBatchDetailDrawerHostTitle');
+    var hostTotalEl = document.getElementById('haBatchDetailDrawerHostTotal');
+    if (!drawer || !overlay || !body) return;
+
+    var host = haBatchDetailDrawerHostMap[String(hostIdx)];
+    if (!host) return;
+
+    haBatchDetailDrawerActiveHostIdx = String(hostIdx);
+
+    var cur = haBatchDetailDrawerCurrency || 'USD';
+    var hCur = host.currency || cur;
+    var hourlyTotal = host.hourly || 0;
+    var cpsTotal = host.commission || 0;
+    var otherTotal = (host.bonus || 0) + (host.otherRewards || []).reduce(function (s, r) { return s + (Number(r.amount) || 0); }, 0);
+    otherTotal = Math.round(otherTotal * 100) / 100;
+    var hostTotal = (host.total != null) ? host.total : (hourlyTotal + cpsTotal + otherTotal);
+
+    if (hostTitleEl) hostTitleEl.textContent = host.name || '-';
+    if (hostTotalEl) hostTotalEl.textContent = haFormatAmount(hostTotal || 0, hCur);
+
+    // Render content
+    var html = renderHaBatchDetailDrawerHostBody(hostIdx, activePaneKey);
+    body.innerHTML = html;
+
+    // Show drawer
+    drawer.classList.add('ha-settle-drawer--open');
+    overlay.classList.add('ha-settle-drawer-overlay--open');
+    drawer.setAttribute('aria-hidden', 'false');
+
+    if (!document.body.dataset.haBatchDetailDrawerEscBound) {
+      document.body.dataset.haBatchDetailDrawerEscBound = '1';
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          haCloseBatchDetailHostDrawer();
+        }
+      });
+    }
+  }
+
+  function haCloseBatchDetailHostDrawer() {
+    var drawer = document.getElementById('haBatchDetailDrawer');
+    var overlay = document.getElementById('haBatchDetailDrawerOverlay');
+    if (!drawer || !overlay) return;
+    drawer.classList.remove('ha-settle-drawer--open');
+    overlay.classList.remove('ha-settle-drawer-overlay--open');
+    drawer.setAttribute('aria-hidden', 'true');
   }
 
   function renderHaWithdrawPage() {
@@ -4512,6 +4925,13 @@
     }
     if (haPastLivesFilterSettled === 'yes') list = list.filter(function (s) { return s.settled; });
     else if (haPastLivesFilterSettled === 'no') list = list.filter(function (s) { return !s.settled; });
+    if (haPastLivesFilterStmtScope === 'in_scope') {
+      list = list.filter(function (s) {
+        return !s.settled && !haLiveSessionIsAbnormal(s) && !s.excludeFromSettlement;
+      });
+    } else if (haPastLivesFilterStmtScope === 'excluded') {
+      list = list.filter(function (s) { return !!s.excludeFromSettlement; });
+    }
     return list;
   }
 
@@ -4520,6 +4940,7 @@
     var list = haPastLivesFilteredSessions();
     var abnormalCount = haLiveSessionAbnormalCount();
     var filterHtml = '<div class="ha-past-lives-filters">' +
+      '<div class="ha-past-lives-filters-row ha-past-lives-filters-row--inputs">' +
       '<div class="ha-past-lives-filter-section">' +
         '<span class="ha-past-lives-filter-label">' + t('tc.ha.past_lives_filter_host') + '</span>' +
         '<input type="text" class="ha-past-lives-input" id="haPastLivesFilterHost" placeholder="' + t('tc.ha.past_lives_filter_host') + '" value="' + (haPastLivesFilterHost || '').replace(/"/g, '&quot;') + '">' +
@@ -4540,23 +4961,40 @@
         '<input type="date" class="ha-past-lives-input ha-past-lives-date" id="haPastLivesFilterDateEnd" value="' + (haPastLivesFilterDateEnd || '') + '">' +
         '</div>' +
       '</div>' +
-      '<div class="ha-past-lives-filter-section ha-past-lives-filter-section--settled">' +
-        '<span class="ha-past-lives-filter-label">' + t('tc.ha.past_lives_th_settled') + '</span>' +
-        '<div class="ha-past-lives-segmented" role="radiogroup" aria-label="' + t('tc.ha.past_lives_th_settled') + '">' +
+      '</div>' +
+      '<div class="ha-past-lives-filters-row ha-past-lives-filters-row--segments">' +
+      '<div class="ha-past-lives-filter-group">' +
+        '<span class="ha-past-lives-filter-label">' + t('tc.ha.past_lives_filter_settled') + '</span>' +
+        '<div class="ha-past-lives-segmented" role="radiogroup" aria-label="' + t('tc.ha.past_lives_filter_settled') + '">' +
           '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterSettled === '' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
             '<input type="radio" name="haPastLivesFilterSettled" value=""' + (haPastLivesFilterSettled === '' ? ' checked' : '') + '>' +
-            '<span>' + t('common.all') + '</span> </label>' +
+            '<span>' + t('common.all') + '</span></label>' +
           '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterSettled === 'yes' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
             '<input type="radio" name="haPastLivesFilterSettled" value="yes"' + (haPastLivesFilterSettled === 'yes' ? ' checked' : '') + '>' +
-            '<span>' + t('tc.ha.settled') + '</span> </label>' +
+            '<span>' + t('tc.ha.settled') + '</span></label>' +
           '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterSettled === 'no' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
             '<input type="radio" name="haPastLivesFilterSettled" value="no"' + (haPastLivesFilterSettled === 'no' ? ' checked' : '') + '>' +
-            '<span>' + t('tc.ha.unsettled') + '</span> </label>' +
+            '<span>' + t('tc.ha.unsettled') + '</span></label>' +
+        '</div>' +
+      '</div>' +
+      '<div class="ha-past-lives-filter-group">' +
+        '<span class="ha-past-lives-filter-label">' + t('tc.ha.past_lives_filter_stmt_scope') + '</span>' +
+        '<div class="ha-past-lives-segmented" role="radiogroup" aria-label="' + t('tc.ha.past_lives_filter_stmt_scope') + '">' +
+          '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterStmtScope === '' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
+            '<input type="radio" name="haPastLivesFilterStmtScope" value=""' + (haPastLivesFilterStmtScope === '' ? ' checked' : '') + '>' +
+            '<span>' + t('tc.ha.past_lives_filter_stmt_all') + '</span></label>' +
+          '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterStmtScope === 'in_scope' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
+            '<input type="radio" name="haPastLivesFilterStmtScope" value="in_scope"' + (haPastLivesFilterStmtScope === 'in_scope' ? ' checked' : '') + '>' +
+            '<span>' + t('tc.ha.past_lives_filter_stmt_in_scope') + '</span></label>' +
+          '<label class="ha-past-lives-segmented-item' + (haPastLivesFilterStmtScope === 'excluded' ? ' ha-past-lives-segmented-item--active' : '') + '">' +
+            '<input type="radio" name="haPastLivesFilterStmtScope" value="excluded"' + (haPastLivesFilterStmtScope === 'excluded' ? ' checked' : '') + '>' +
+            '<span>' + t('tc.ha.past_lives_filter_stmt_excluded') + '</span></label>' +
         '</div>' +
       '</div>' +
       '<div class="ha-past-lives-filter-actions">' +
         '<button type="button" class="btn btn-primary btn-sm" id="haPastLivesExport"><i class="fas fa-file-export"></i> ' + t('tc.ha.past_lives_export') + '</button>' +
         (abnormalCount > 0 ? '<button type="button" class="btn btn-secondary btn-sm ha-past-lives-fix-abnormal-entry" id="haPastLivesFixAbnormalEntry"><i class="fas fa-exclamation-triangle"></i> ' + t('tc.ha.past_lives_fix_abnormal') + ' (' + abnormalCount + ')</button>' : '') +
+      '</div>' +
       '</div>' +
       '</div>';
     var rows = list.map(function (s) {
@@ -4565,10 +5003,19 @@
       var dur = s.durationSeconds ? (Math.round(s.durationSeconds / 3600 * 100) / 100) : '—';
       var gmvVal = s.gmv != null ? s.gmv : 0;
       var gmvDisplay = haFormatAmount(gmvVal, s.currency);
-      var settledBatchCell = s.settled ? (t('tc.ha.settled') + ' ' + (s.batchSn || '')) : t('tc.ha.unsettled');
+      var sidEsc = (s.sessionId || '').replace(/"/g, '&quot;');
+      var settledBatchCell;
+      if (s.settled) settledBatchCell = t('tc.ha.settled') + ' ' + (s.batchSn || '');
+      else if (s.excludeFromSettlement) settledBatchCell = t('tc.ha.unsettled') + ' · <span class="badge badge--muted ha-past-lives-excluded-badge">' + t('tc.ha.past_lives_settle_excluded') + '</span>';
+      else settledBatchCell = t('tc.ha.unsettled');
       var isAbn = haLiveSessionIsAbnormal(s);
       var abnBadge = isAbn ? '<span class="badge badge--warning ha-past-lives-abn-badge" title="' + t('tc.ha.past_lives_fix_abnormal') + '"><i class="fas fa-exclamation-triangle"></i></span>' : '';
-      return '<tr class="ha-past-lives-row' + (isAbn ? ' ha-past-lives-row--abnormal' : '') + '" data-session-id="' + (s.sessionId || '').replace(/"/g, '&quot;') + '">' +
+      var canSelect = haPastLivesSessionEligibleForExclude(s);
+      var chkCell = canSelect
+        ? '<td class="ha-past-lives-td-checkbox"><input type="checkbox" class="ha-past-lives-row-check" data-session-id="' + sidEsc + '" aria-label="' + t('tc.ha.past_lives_th_select') + '"></td>'
+        : '<td class="ha-past-lives-td-checkbox ha-past-lives-td-checkbox--na" title="' + (s.settled ? t('tc.ha.settled') : t('tc.ha.past_lives_fix_abnormal')) + '">—</td>';
+      return '<tr class="ha-past-lives-row' + (isAbn ? ' ha-past-lives-row--abnormal' : '') + '" data-session-id="' + sidEsc + '">' +
+        chkCell +
         '<td>' + (s.scheduleId != null ? s.scheduleId : '—') + '</td>' +
         '<td>' + (s.creatorName || '—') + '</td>' +
         '<td>' + (s.roomId || '—') + '</td>' +
@@ -4581,7 +5028,18 @@
         '<td>' + settledBatchCell + '</td>' +
         '<td>' + abnBadge + '</td></tr>';
     }).join('');
+    var batchBarHtml = '<div class="ha-past-lives-batch-bar ha-past-lives-batch-bar--idle" id="haPastLivesBatchBar" role="region" aria-label="' + t('tc.ha.past_lives_batch_aria') + '">' +
+      '<div class="ha-past-lives-batch-bar-inner">' +
+        '<div class="ha-past-lives-batch-bar-text">' +
+          '<span class="ha-past-lives-batch-title">' + t('tc.ha.past_lives_batch_title') + '</span>' +
+          '<p class="ha-past-lives-batch-lead" id="haPastLivesBatchLead">' + t('tc.ha.past_lives_batch_hint') + '</p>' +
+        '</div>' +
+        '<div class="ha-past-lives-batch-actions">' +
+        '<button type="button" class="btn btn-secondary btn-sm" id="haPastLivesBatchExclude" disabled title="' + t('tc.ha.past_lives_batch_disable_title') + '"><i class="fas fa-ban"></i> ' + t('tc.ha.past_lives_batch_exclude') + '</button>' +
+        '<button type="button" class="btn btn-ghost btn-sm" id="haPastLivesBatchInclude" disabled title="' + t('tc.ha.past_lives_batch_disable_title') + '"><i class="fas fa-undo"></i> ' + t('tc.ha.past_lives_batch_include') + '</button>' +
+        '</div></div></div>';
     var tableHtml = '<table class="ha-rules-table ha-settle-table ha-past-lives-table"><thead><tr>' +
+      '<th class="ha-past-lives-th-checkbox" title="' + t('tc.ha.past_lives_th_select_title') + '"><input type="checkbox" id="haPastLivesSelectAll" class="ha-past-lives-select-all" aria-label="' + t('tc.ha.select_all') + '" title="' + t('tc.ha.past_lives_th_select_title') + '"></th>' +
       '<th>' + t('tc.ha.past_lives_th_schedule_id') + '</th>' +
       '<th>' + t('tc.ha.past_lives_th_host') + '</th>' +
       '<th>' + t('tc.ha.past_lives_th_room_id') + '</th>' +
@@ -4592,14 +5050,19 @@
       '<th>' + t('tc.ha.past_lives_th_duration') + '</th>' +
       '<th>' + t('tc.ha.past_lives_th_gmv') + '</th>' +
       '<th>' + t('tc.ha.past_lives_th_settled') + ' / ' + t('tc.ha.past_lives_th_batch_sn') + '</th>' +
-      '<th></th></tr></thead><tbody>' + (rows || '<tr><td colspan="11" class="ha-rules-empty-state">' + t('tc.ha.past_lives_empty') + '</td></tr>') + '</tbody></table>';
+      '<th></th></tr></thead><tbody>' + (rows || '<tr><td colspan="12" class="ha-rules-empty-state">' + t('tc.ha.past_lives_empty') + '</td></tr>') + '</tbody></table>';
     return '<div class="ha-settle-content ha-past-lives-content">' +
       '<div class="card ha-settle-card">' +
         '<div class="ha-settle-intro">' +
           '<h3 class="ha-rules-title">' + t('tc.ha.past_lives_title') + '</h3>' +
           '<p class="ha-settle-desc">' + t('tc.ha.past_lives_desc') + '</p>' +
+          '<div class="ha-past-lives-callout" role="note">' +
+            '<span class="ha-past-lives-callout-icon" aria-hidden="true"><i class="fas fa-info-circle"></i></span>' +
+            '<p class="ha-past-lives-callout-text">' + t('tc.ha.past_lives_desc_exclude') + '</p>' +
+          '</div>' +
           filterHtml +
         '</div>' +
+        batchBarHtml +
         '<div class="table-wrap ha-settle-table-wrap">' + tableHtml + '</div>' +
       '</div></div>';
   }
@@ -4803,52 +5266,35 @@
     bindHaSettlementInnerEvents();
   }
 
+  function haRulesV2PopulateCreatorsForLiveAccount(laUn) {
+    var sel = document.getElementById('haRulesV2Creator');
+    if (!sel) return;
+    laUn = (laUn || '').replace(/^@/, '');
+    var users = (haManageUsers || []).filter(function (u) {
+      var w = u.liveAccount && u.liveAccount.username ? (u.liveAccount.username + '').replace(/^@/, '') : '';
+      return laUn && w === laUn;
+    });
+    sel.innerHTML = users.map(function (u) {
+      return '<option value="' + u.id + '">' + (u.name || ('#' + u.id)) + '</option>';
+    }).join('');
+  }
   function bindHaSettlementInnerEvents() {
     if (haSettleActiveTab === 'rules') {
-      document.querySelectorAll('.ha-rules-v2-country-tab').forEach(function (el) {
-        el.addEventListener('click', function () {
-          var c = el.getAttribute('data-rules-v2-country');
-          if (c) {
-            haSettleRulesV2CountryFilter = c;
-            renderHaSettle();
-            bindHaSettlementInnerEvents();
-          }
-        });
-      });
-      document.querySelectorAll('.ha-rules-v2-dim-tab').forEach(function (el) {
-        el.addEventListener('click', function () {
-          var tab = el.getAttribute('data-rules-v2-tab');
-          if (tab) {
-            haSettleRulesV2ActiveTab = tab;
-            renderHaSettle();
-            bindHaSettlementInnerEvents();
-          }
-        });
-      });
       var submitBtn = document.querySelector('.ha-rules-v2-submit');
       if (submitBtn) {
         submitBtn.addEventListener('click', function () {
-          var formCard = submitBtn.closest('.ha-rules-v2-form');
-          var dimension = (formCard && formCard.getAttribute('data-rules-v2-dimension')) || 'live_account';
-          var countryEl = document.getElementById('haRulesV2Country');
-          var country = (countryEl && countryEl.value) ? countryEl.value : 'US';
-          var liveAccountUsername = '';
-          var creatorId = null;
-          if (dimension === 'live_account') {
-            var laEl = document.getElementById('haRulesV2LiveAccount');
-            liveAccountUsername = (laEl && laEl.value) ? laEl.value.trim() : '';
-            if (!liveAccountUsername) { showToast(t('tc.ha.rules_live_account_select_first'), 'warn'); return; }
-          } else if (dimension === 'creator') {
-            var crHidden = document.getElementById('haRulesV2Creator');
-            var crVals = [];
-            if (crHidden) {
-              crVals = Array.from(crHidden.options || [])
-                .filter(function (o) { return o.selected; })
-                .map(function (o) { return o.value; })
-                .filter(Boolean);
-            }
-            if (!crVals.length) { showToast(t('tc.ha.rules_creator_select_first'), 'warn'); return; }
-            creatorId = crVals.map(function (v) { return parseInt(v, 10) || v; });
+          var laEl = document.getElementById('haRulesV2LiveAccount');
+          var liveAccountUsername = (laEl && laEl.value) ? laEl.value.trim() : '';
+          if (!liveAccountUsername) { showToast(t('tc.ha.rules_live_account_select_first'), 'warn'); return; }
+          var countryRaw = haGetLiveAccountCountry(liveAccountUsername);
+          var country = countryRaw != null && countryRaw !== '' ? countryRaw : '';
+          var crHidden = document.getElementById('haRulesV2Creator');
+          var crVals = [];
+          if (crHidden) {
+            crVals = Array.from(crHidden.options || [])
+              .filter(function (o) { return o.selected; })
+              .map(function (o) { return o.value; })
+              .filter(Boolean);
           }
           var cpsEffectiveStartEl = document.getElementById('haRulesV2CpsEffectiveStart');
           var cpsEffectiveEndEl = document.getElementById('haRulesV2CpsEffectiveEnd');
@@ -4890,24 +5336,21 @@
           var cpsMode = (cpsModeEl && cpsModeEl.value === 'per_session') ? 'per_session' : 'per_hour';
           var config = { currency: currency, hourlyRates: hourlyRates, cpsTiers: cpsTiers, cpsMode: cpsMode };
           var byCreatorObj = {};
-            if (dimension === 'creator' && Array.isArray(creatorId)) {
-              creatorId.forEach(function (cid) { byCreatorObj[cid] = config; });
-            } else if (dimension === 'creator' && creatorId != null) {
-              byCreatorObj[creatorId] = config;
-            }
-            var record = {
+          var creatorIdsNum = crVals.map(function (v) { return parseInt(v, 10) || v; });
+          creatorIdsNum.forEach(function (cid) { byCreatorObj[cid] = config; });
+          var record = {
             id: 'r2_' + Date.now() + '_' + Math.random().toString(36).slice(2),
-            dimension: dimension,
+            dimension: 'live_account',
             country: country,
-            liveAccountUsername: dimension === 'live_account' ? liveAccountUsername : undefined,
-            creatorId: dimension === 'creator' ? (Array.isArray(creatorId) ? creatorId[0] : creatorId) : undefined,
+            liveAccountUsername: liveAccountUsername,
+            creatorIds: creatorIdsNum.length ? creatorIdsNum : undefined,
             hourlyEffectiveStart: hourlyEffectiveStart,
             hourlyEffectiveEnd: hourlyEffectiveEnd,
             cpsEffectiveStart: cpsEffectiveStart,
             cpsEffectiveEnd: cpsEffectiveEnd,
-            merchant: dimension === 'merchant' ? config : {},
-            byCreator: dimension === 'creator' ? byCreatorObj : {},
-            byLiveAccount: dimension === 'live_account' ? (function () { var o = {}; o[liveAccountUsername] = config; return o; })() : {},
+            merchant: {},
+            byCreator: creatorIdsNum.length ? byCreatorObj : {},
+            byLiveAccount: creatorIdsNum.length ? {} : (function () { var o = {}; o[liveAccountUsername] = config; return o; })(),
             createdAt: Date.now(),
             createdBy: (typeof currentUser === 'object' && currentUser && currentUser.id) ? currentUser.id : null
           };
@@ -4926,6 +5369,17 @@
       if (creatorSearch && creatorTagsWrap && creatorSuggestions && creatorHiddenSelect) {
         function getAllCreators() {
           return (haManageUsers || []).map(function (u) {
+            return { id: String(u.id), name: u.name || ('#' + u.id) };
+          });
+        }
+        function getCreatorsForCurrentLa() {
+          var laEl = document.getElementById('haRulesV2LiveAccount');
+          var laUn = (laEl && laEl.value) ? (laEl.value + '').replace(/^@/, '') : '';
+          if (!laUn) return [];
+          return (haManageUsers || []).filter(function (u) {
+            var w = u.liveAccount && u.liveAccount.username ? (u.liveAccount.username + '').replace(/^@/, '') : '';
+            return w === laUn;
+          }).map(function (u) {
             return { id: String(u.id), name: u.name || ('#' + u.id) };
           });
         }
@@ -4951,10 +5405,10 @@
           }).join('');
         }
         function renderSuggestions(keyword) {
-          var all = getAllCreators();
+          var pool = getCreatorsForCurrentLa();
           var selectedIds = getSelectedIds();
           var kw = (keyword || '').toLowerCase();
-          var candidates = all.filter(function (c) {
+          var candidates = pool.filter(function (c) {
             if (selectedIds.indexOf(String(c.id)) !== -1) return false;
             if (!kw) return true;
             return (c.name || '').toLowerCase().indexOf(kw) !== -1 || String(c.id).indexOf(kw) !== -1;
@@ -5002,7 +5456,16 @@
           renderCreatorTags();
           renderSuggestions(creatorSearch.value);
         });
-        // initial render (no selection yet)
+        var laSelectEl = document.getElementById('haRulesV2LiveAccount');
+        if (laSelectEl) {
+          laSelectEl.addEventListener('change', function () {
+            haRulesV2PopulateCreatorsForLiveAccount(laSelectEl.value);
+            syncHiddenSelect([]);
+            renderCreatorTags();
+            creatorSuggestions.classList.add('ms-dropdown--hidden');
+          });
+        }
+        haRulesV2PopulateCreatorsForLiveAccount(laSelectEl && laSelectEl.value);
         renderCreatorTags();
       }
       var hourlyAddV2 = document.querySelector('.ha-rules-v2-hourly-add');
@@ -5187,6 +5650,7 @@
       var fDateStart = document.getElementById('haPastLivesFilterDateStart');
       var fDateEnd = document.getElementById('haPastLivesFilterDateEnd');
       var fSettledRadios = document.querySelectorAll('input[name="haPastLivesFilterSettled"]');
+      var fStmtScopeRadios = document.querySelectorAll('input[name="haPastLivesFilterStmtScope"]');
       function applyPastLivesFilters() {
         haPastLivesFilterHost = (fHost && fHost.value) || '';
         haPastLivesFilterRoom = (fRoom && fRoom.value) || '';
@@ -5195,6 +5659,8 @@
         haPastLivesFilterDateEnd = (fDateEnd && fDateEnd.value) || '';
         var checked = fSettledRadios && Array.from(fSettledRadios).find(function (r) { return r.checked; });
         haPastLivesFilterSettled = (checked && checked.value) || '';
+        var checkedStmt = fStmtScopeRadios && Array.from(fStmtScopeRadios).find(function (r) { return r.checked; });
+        haPastLivesFilterStmtScope = (checkedStmt && checkedStmt.value) || '';
         renderHaSettle();
         bindHaSettlementInnerEvents();
       }
@@ -5207,18 +5673,99 @@
       if (fDateStart) fDateStart.addEventListener('change', applyPastLivesFilters);
       if (fDateEnd) fDateEnd.addEventListener('change', applyPastLivesFilters);
       if (fSettledRadios && fSettledRadios.length) fSettledRadios.forEach(function (r) { r.addEventListener('change', applyPastLivesFilters); });
+      if (fStmtScopeRadios && fStmtScopeRadios.length) fStmtScopeRadios.forEach(function (r) { r.addEventListener('change', applyPastLivesFilters); });
+      var batchBar = document.getElementById('haPastLivesBatchBar');
+      var batchLeadEl = document.getElementById('haPastLivesBatchLead');
+      var selectAllCb = document.getElementById('haPastLivesSelectAll');
+      function getPastLivesCheckedIds() {
+        return Array.from(document.querySelectorAll('.ha-past-lives-row-check:checked')).map(function (c) { return c.getAttribute('data-session-id'); }).filter(Boolean);
+      }
+      function updatePastLivesBatchBar() {
+        var n = document.querySelectorAll('.ha-past-lives-row-check:checked').length;
+        var exBtn = document.getElementById('haPastLivesBatchExclude');
+        var incBtn = document.getElementById('haPastLivesBatchInclude');
+        if (batchBar) {
+          batchBar.classList.toggle('ha-past-lives-batch-bar--active', n > 0);
+          batchBar.classList.toggle('ha-past-lives-batch-bar--idle', n === 0);
+        }
+        if (batchLeadEl) {
+          batchLeadEl.textContent = n > 0 ? t('tc.ha.past_lives_batch_selected').replace('{0}', String(n)) : t('tc.ha.past_lives_batch_hint');
+        }
+        if (exBtn) exBtn.disabled = n === 0;
+        if (incBtn) incBtn.disabled = n === 0;
+        if (selectAllCb) {
+          var all = document.querySelectorAll('.ha-past-lives-row-check');
+          selectAllCb.indeterminate = false;
+          var allChecked = all.length > 0 && n === all.length;
+          selectAllCb.checked = allChecked;
+          if (n > 0 && !allChecked) selectAllCb.indeterminate = true;
+        }
+      }
+      if (selectAllCb) {
+        selectAllCb.addEventListener('change', function () {
+          document.querySelectorAll('.ha-past-lives-row-check').forEach(function (c) { c.checked = selectAllCb.checked; });
+          updatePastLivesBatchBar();
+        });
+      }
+      document.querySelectorAll('.ha-past-lives-row-check').forEach(function (c) {
+        c.addEventListener('change', updatePastLivesBatchBar);
+      });
+      function pastLivesSetExcludeForIds(ids, exclude) {
+        var n = 0;
+        if (exclude) {
+          ids.forEach(function (sid) {
+            var raw = haLiveSessions.filter(function (x) { return x.sessionId === sid; })[0];
+            if (!raw || !haPastLivesSessionEligibleForExclude(raw)) return;
+            if (haGetSessionWithEdits(raw).excludeFromSettlement) return;
+            haLiveSessionEdits[sid] = haLiveSessionEdits[sid] || {};
+            haLiveSessionEdits[sid].excludeFromSettlement = true;
+            n++;
+          });
+        } else {
+          ids.forEach(function (sid) {
+            if (!haLiveSessionEdits[sid] || !haLiveSessionEdits[sid].excludeFromSettlement) return;
+            delete haLiveSessionEdits[sid].excludeFromSettlement;
+            if (!Object.keys(haLiveSessionEdits[sid]).length) delete haLiveSessionEdits[sid];
+            n++;
+          });
+        }
+        if (n) haLiveSessionEditsSave();
+        return n;
+      }
+      var btnBatchExclude = document.getElementById('haPastLivesBatchExclude');
+      var btnBatchInclude = document.getElementById('haPastLivesBatchInclude');
+      if (btnBatchExclude) {
+        btnBatchExclude.addEventListener('click', function () {
+          var ids = getPastLivesCheckedIds();
+          if (!ids.length) return;
+          var n = pastLivesSetExcludeForIds(ids, true);
+          if (n) { showToast(t('tc.ha.past_lives_batch_exclude_done').replace('{0}', String(n))); renderHaSettle(); bindHaSettlementInnerEvents(); }
+          else showToast(t('tc.ha.past_lives_batch_none_applicable'), 'warn');
+        });
+      }
+      if (btnBatchInclude) {
+        btnBatchInclude.addEventListener('click', function () {
+          var ids = getPastLivesCheckedIds();
+          if (!ids.length) return;
+          var n = pastLivesSetExcludeForIds(ids, false);
+          if (n) { showToast(t('tc.ha.past_lives_batch_include_done').replace('{0}', String(n))); renderHaSettle(); bindHaSettlementInnerEvents(); }
+          else showToast(t('tc.ha.past_lives_batch_none_applicable'), 'warn');
+        });
+      }
+      updatePastLivesBatchBar();
       var exportBtn = document.getElementById('haPastLivesExport');
       if (exportBtn) {
         exportBtn.addEventListener('click', function () {
           var list = haPastLivesFilteredSessions();
           if (!list.length) { showToast(t('tc.ha.past_lives_empty')); return; }
-          var headers = [t('tc.ha.past_lives_th_schedule_id'), t('tc.ha.past_lives_th_host'), t('tc.ha.past_lives_th_room_id'), t('tc.ha.past_lives_th_event'), t('tc.ha.past_lives_filter_la'), t('tc.ha.past_lives_th_planned'), t('tc.ha.past_lives_th_actual'), t('tc.ha.past_lives_th_duration'), t('tc.ha.past_lives_th_gmv'), t('tc.ha.past_lives_th_settled') + '/' + t('tc.ha.past_lives_th_batch_sn')];
+          var headers = [t('tc.ha.past_lives_th_schedule_id'), t('tc.ha.past_lives_th_host'), t('tc.ha.past_lives_th_room_id'), t('tc.ha.past_lives_th_event'), t('tc.ha.past_lives_filter_la'), t('tc.ha.past_lives_th_planned'), t('tc.ha.past_lives_th_actual'), t('tc.ha.past_lives_th_duration'), t('tc.ha.past_lives_th_gmv'), t('tc.ha.past_lives_th_settled') + '/' + t('tc.ha.past_lives_th_batch_sn'), t('tc.ha.past_lives_filter_stmt_scope')];
           var rows = list.map(function (s) {
             var planned = formatLiveStartEnd(s.startAt, s.endAt) || '';
             var actual = formatLiveStartEnd(s.actualStartAt, s.actualEndAt) || '';
             var dur = s.durationSeconds ? (Math.round(s.durationSeconds / 3600 * 100) / 100) : '';
             var settledBatch = s.settled ? (t('tc.ha.settled') + ' ' + (s.batchSn || '')) : t('tc.ha.unsettled');
-            return [s.scheduleId != null ? s.scheduleId : '', s.creatorName || '', s.roomId || '', s.eventName || '', (s.liveAccountUsername ? '@' + String(s.liveAccountUsername).replace(/^@/, '') : ''), planned, actual, dur, (s.gmv != null ? s.gmv : 0), settledBatch];
+            var stmtScope = s.excludeFromSettlement ? t('tc.ha.past_lives_filter_stmt_excluded') : t('tc.ha.past_lives_filter_stmt_in_scope');
+            return [s.scheduleId != null ? s.scheduleId : '', s.creatorName || '', s.roomId || '', s.eventName || '', (s.liveAccountUsername ? '@' + String(s.liveAccountUsername).replace(/^@/, '') : ''), planned, actual, dur, (s.gmv != null ? s.gmv : 0), settledBatch, stmtScope];
           });
           var csv = [headers.join(','), rows.map(function (r) { return r.map(function (c) { return '"' + String(c).replace(/"/g, '""') + '"'; }).join(','); }).join('\n')].join('\n');
           var blob = new Blob(['\ufeff' + csv], { type: 'text/csv;charset=utf-8' });
@@ -5295,29 +5842,36 @@
             bindHaSettlementInnerEvents();
           });
         }
-        var summaryEl = document.getElementById('haBatchDetailSummary');
-        if (summaryEl) {
-          summaryEl.querySelectorAll('.ha-batch-detail-summary-card--filter').forEach(function (card) {
-            card.addEventListener('click', function () {
-              var type = card.getAttribute('data-settle-type');
-              if (type) {
-                haBatchDetailSettleType = type;
-                renderHaSettle();
-                bindHaSettlementInnerEvents();
-              }
-            });
+
+        // Drawer: host list -> right side drawer
+        document.querySelectorAll('.ha-batch-host-row').forEach(function (row) {
+          row.addEventListener('click', function () {
+            var idx = row.getAttribute('data-host-idx');
+            if (idx == null) return;
+            haOpenBatchDetailHostDrawer(idx);
           });
-        }
-        var tableWrap = document.getElementById('haBatchDetailTableWrap');
-        if (tableWrap) {
-          tableWrap.querySelectorAll('.ha-batch-creator-row--expandable').forEach(function (row) {
-            row.addEventListener('click', function () {
-              var next = row.nextElementSibling;
-              if (next && next.classList.contains('ha-batch-lives-row')) {
-                next.classList.toggle('ha-batch-lives-row--expanded');
-                row.classList.toggle('ha-batch-creator-row--expanded');
-              }
-            });
+        });
+
+        var overlay = document.getElementById('haBatchDetailDrawerOverlay');
+        if (overlay) overlay.addEventListener('click', haCloseBatchDetailHostDrawer);
+
+        var closeBtn = document.getElementById('haBatchDetailDrawerClose');
+        if (closeBtn) closeBtn.addEventListener('click', haCloseBatchDetailHostDrawer);
+
+        var drawerBody = document.getElementById('haBatchDetailDrawerBody');
+        if (drawerBody && !drawerBody.dataset.bindTypeTabs) {
+          drawerBody.dataset.bindTypeTabs = '1';
+          drawerBody.addEventListener('click', function (e) {
+            var card = e.target.closest('.ha-batch-detail-summary-card--filter[data-pane]');
+            if (!card) return;
+            var paneKey = card.getAttribute('data-pane');
+            if (!paneKey) return;
+            // Re-render only the active type's table to reduce heavy DOM cost.
+            // Keep current scroll position.
+            var oldScrollTop = drawerBody.scrollTop;
+            var hostIdx = haBatchDetailDrawerActiveHostIdx;
+            if (hostIdx != null) haOpenBatchDetailHostDrawer(hostIdx, paneKey);
+            drawerBody.scrollTop = oldScrollTop;
           });
         }
         return;
@@ -5347,18 +5901,114 @@
         genModal.querySelector('.ha-generate-batch-close')?.addEventListener('click', closeGenModal);
         genModal.querySelector('.ha-generate-batch-cancel')?.addEventListener('click', closeGenModal);
         genModal.addEventListener('click', function (e) { if (e.target === genModal) closeGenModal(); });
-        genModal.querySelectorAll('input[name="haGenerateCountryScope"]').forEach(function (radio) {
-          radio.addEventListener('change', function () {
-            var wrap = genModal.querySelector('.ha-generate-country-select-wrap');
-            if (wrap) wrap.style.display = (radio.value === 'specific') ? 'block' : 'none';
-          });
-        });
+        (function setupGenMultiSelects() {
+          function getLiveAccountList() {
+            var set = {};
+            (haSettleBatches || []).forEach(function (b) { var la = (b.liveAccountUsername || '').replace(/^@/, ''); if (la) set[la] = true; });
+            (haManageUsers || []).forEach(function (u) { var la = u.liveAccount && (u.liveAccount.username || '').replace(/^@/, ''); if (la) set[la] = true; });
+            return Object.keys(set).sort();
+          }
+          function getCreatorList() {
+            var set = {};
+            (haSettleBatches || []).forEach(function (b) { (b.hosts || []).forEach(function (h) { var n = (h.name || '').trim(); if (n) set[n] = true; }); });
+            (haManageUsers || []).forEach(function (u) { var n = (u.name || '').trim(); if (n) set[n] = true; });
+            return Object.keys(set).sort();
+          }
+          var laTags = document.getElementById('haGenerateLiveAccountTags');
+          var laSearch = document.getElementById('haGenerateLiveAccountSearch');
+          var laDropdown = document.getElementById('haGenerateLiveAccountDropdown');
+          var laWrap = document.getElementById('haGenerateLiveAccountWrap');
+          if (laTags && laSearch && laDropdown && laWrap) {
+            function renderLaDropdown(kw) {
+              var all = getLiveAccountList();
+              var selected = Array.from(laTags.querySelectorAll('.ms-tag')).map(function (t) { return t.getAttribute('data-value') || ''; }).filter(Boolean);
+              var k = (kw || '').toLowerCase();
+              var candidates = all.filter(function (la) {
+                if (selected.indexOf(la) !== -1) return false;
+                return !k || la.toLowerCase().indexOf(k) !== -1;
+              });
+              if (!candidates.length) {
+                laDropdown.classList.add('ms-dropdown--hidden');
+                laDropdown.innerHTML = '<div class="ms-no-result">' + t('tc.ha.generate_modal_live_account_all') + '</div>';
+                return;
+              }
+              laDropdown.innerHTML = candidates.map(function (la) { return '<div class="ms-option" data-value="' + la + '">@' + la + '</div>'; }).join('');
+              laDropdown.classList.remove('ms-dropdown--hidden');
+            }
+            laSearch.addEventListener('focus', function () { renderLaDropdown(laSearch.value); });
+            laSearch.addEventListener('input', function () { renderLaDropdown(laSearch.value); });
+            laDropdown.addEventListener('click', function (e) {
+              var opt = e.target.closest('.ms-option');
+              if (!opt) return;
+              var val = opt.getAttribute('data-value');
+              laTags.insertAdjacentHTML('beforeend', '<span class="ms-tag" data-value="' + val + '">@' + val + '<button type="button" class="ms-tag-remove" aria-label="Remove">&times;</button></span>');
+              laSearch.value = '';
+              renderLaDropdown('');
+            });
+            laTags.addEventListener('click', function (e) {
+              var btn = e.target.closest('.ms-tag-remove');
+              if (btn) { var t = btn.closest('.ms-tag'); if (t) t.remove(); }
+            });
+          }
+          var crTags = document.getElementById('haGenerateCreatorTags');
+          var crSearch = document.getElementById('haGenerateCreatorSearch');
+          var crDropdown = document.getElementById('haGenerateCreatorDropdown');
+          var crWrap = document.getElementById('haGenerateCreatorWrap');
+          if (crTags && crSearch && crDropdown && crWrap) {
+            function renderCrDropdown(kw) {
+              var all = getCreatorList();
+              var selected = Array.from(crTags.querySelectorAll('.ms-tag')).map(function (t) { return t.getAttribute('data-value') || ''; }).filter(Boolean);
+              var k = (kw || '').toLowerCase();
+              var candidates = all.filter(function (n) {
+                if (selected.indexOf(n) !== -1) return false;
+                return !k || n.toLowerCase().indexOf(k) !== -1;
+              });
+              if (!candidates.length) {
+                crDropdown.classList.add('ms-dropdown--hidden');
+                crDropdown.innerHTML = '<div class="ms-no-result">' + t('tc.ha.generate_modal_creator_all') + '</div>';
+                return;
+              }
+              crDropdown.innerHTML = candidates.map(function (n) { return '<div class="ms-option" data-value="' + n.replace(/"/g, '&quot;') + '">' + n + '</div>'; }).join('');
+              crDropdown.classList.remove('ms-dropdown--hidden');
+            }
+            crSearch.addEventListener('focus', function () { renderCrDropdown(crSearch.value); });
+            crSearch.addEventListener('input', function () { renderCrDropdown(crSearch.value); });
+            crDropdown.addEventListener('click', function (e) {
+              var opt = e.target.closest('.ms-option');
+              if (!opt) return;
+              var val = opt.getAttribute('data-value');
+              crTags.insertAdjacentHTML('beforeend', '<span class="ms-tag" data-value="' + val.replace(/"/g, '&quot;') + '">' + val + '<button type="button" class="ms-tag-remove" aria-label="Remove">&times;</button></span>');
+              crSearch.value = '';
+              renderCrDropdown('');
+            });
+            crTags.addEventListener('click', function (e) {
+              var btn = e.target.closest('.ms-tag-remove');
+              if (btn) { var t = btn.closest('.ms-tag'); if (t) t.remove(); }
+            });
+          }
+          if (!window._haGenDropdownClickListenerAdded) {
+            window._haGenDropdownClickListenerAdded = true;
+            document.addEventListener('click', function (e) {
+              var modal = document.getElementById('haGenerateBatchModal');
+              if (!modal || !modal.classList.contains('show')) return;
+              if (e.target.closest('.ha-generate-ms-wrap')) return;
+              modal.querySelectorAll('.ms-dropdown').forEach(function (d) { d.classList.add('ms-dropdown--hidden'); });
+            });
+          }
+        })();
+        function getGenSelectedLiveAccounts() {
+          var tags = genModal.querySelectorAll('#haGenerateLiveAccountTags .ms-tag');
+          return Array.from(tags).map(function (t) { return t.getAttribute('data-value') || ''; }).filter(Boolean);
+        }
+        function getGenSelectedCreators() {
+          var tags = genModal.querySelectorAll('#haGenerateCreatorTags .ms-tag');
+          return Array.from(tags).map(function (t) { return t.getAttribute('data-value') || ''; }).filter(Boolean);
+        }
         genModal.querySelector('.ha-generate-batch-confirm')?.addEventListener('click', function () {
           var startEl = document.getElementById('haGenerateDateStart');
           var endEl = document.getElementById('haGenerateDateEnd');
-          var scopeAll = genModal.querySelector('input[name="haGenerateCountryScope"][value="all"]')?.checked;
-          var countrySelect = document.getElementById('haGenerateCountrySelect');
-          var genCountry = (!scopeAll && countrySelect && countrySelect.value) ? countrySelect.value.trim() : null;
+          var genLiveAccounts = getGenSelectedLiveAccounts();
+          var genCreators = getGenSelectedCreators();
           var includeHourly = genModal.querySelector('.ha-generate-include-hourly')?.checked;
           var includeCommission = genModal.querySelector('.ha-generate-include-commission')?.checked;
           var includeOtherRewards = genModal.querySelector('.ha-generate-include-other-rewards')?.checked;
@@ -5373,7 +6023,7 @@
             return;
           }
           haSettleRulesLoad();
-          var newBatches = haSettleRulesGenerateBatch(startDate, endDate, { includeHourly: !!includeHourly, includeCommission: !!includeCommission, includeOtherRewards: !!includeOtherRewards, country: genCountry });
+          var newBatches = haSettleRulesGenerateBatch(startDate, endDate, { includeHourly: !!includeHourly, includeCommission: !!includeCommission, includeOtherRewards: !!includeOtherRewards, liveAccountUsernames: genLiveAccounts.length ? genLiveAccounts : undefined, creatorNames: genCreators.length ? genCreators : undefined });
           if (newBatches && newBatches.length) {
             for (var i = newBatches.length - 1; i >= 0; i--) haSettleBatches.unshift(newBatches[i]);
             haSettleBatchFilter = 'draft';
