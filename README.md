@@ -1,4 +1,4 @@
-# Wahool SaaS - Affiliate 联盟达人板块
+#Opsique
 
 与「直播服务」并列的 Affiliate 业务线前端，首版包含：找达人、达人批量触达、达人管理；同时包含 Tenant Center 里的结算板块（Settlement）。
 其中 Live 板块 & Affiliate 板块共用同一套结算系统（入口在同一处）。
