@@ -571,10 +571,18 @@
       'ls.th.subject': 'Subject',
       'ls.th.account': 'Account',
       'ls.th.time': 'Time',
+      'ls.time.duration_fmt_hm': '{0}h {1}m',
+      'ls.time.duration_fmt_h': '{0}h',
+      'ls.time.duration_fmt_m': '{0} min',
+      'ls.time.duration_inline': 'Duration: {0}',
       'ls.th.hosts_segments': 'Hosts (planned)',
       'ls.th.follower': 'Follower',
-      'ls.th.tiktok_sid': 'TikTok session ID',
+      'ls.th.tiktok_sid': 'TikTok Live Event',
       'ls.th.tiktok_live_event_sync': 'TikTok Live Event',
+      'ls.tiktok_event.status_synced': 'Synced successfully',
+      'ls.tiktok_event.session_id_fmt': 'Session ID: {0}',
+      'ls.tiktok_event.room_id_fmt': 'Room ID: {0}',
+      'ls.tiktok_event.room_ids_empty': '—',
       'ls.tiktok_sync.status_idle': 'Not synced',
       'ls.tiktok_sync.status_syncing': 'Syncing',
       'ls.tiktok_sync.status_failed': 'Failed',
@@ -1268,10 +1276,18 @@
       'ls.th.subject': '主题',
       'ls.th.account': '直播账号',
       'ls.th.time': '直播时间',
+      'ls.time.duration_fmt_hm': '{0} 小时 {1} 分',
+      'ls.time.duration_fmt_h': '{0} 小时',
+      'ls.time.duration_fmt_m': '{0} 分钟',
+      'ls.time.duration_inline': '时长：{0}',
       'ls.th.hosts_segments': '主播（计划分段）',
       'ls.th.follower': '跟播人',
-      'ls.th.tiktok_sid': 'TikTok Session ID',
+      'ls.th.tiktok_sid': 'TikTok Live Event',
       'ls.th.tiktok_live_event_sync': 'TikTok Live Event',
+      'ls.tiktok_event.status_synced': '同步成功',
+      'ls.tiktok_event.session_id_fmt': 'Session ID：{0}',
+      'ls.tiktok_event.room_id_fmt': 'Room ID：{0}',
+      'ls.tiktok_event.room_ids_empty': '—',
       'ls.tiktok_sync.status_idle': '未同步',
       'ls.tiktok_sync.status_syncing': '同步中',
       'ls.tiktok_sync.status_failed': '失败',
@@ -7341,6 +7357,9 @@
       (b.sessions || []).forEach(function (s) {
         if (!s) return;
         if (s.tiktokSessionId == null && s.tiktokEventId) s.tiktokSessionId = s.tiktokEventId;
+        if (s.tiktokRoomIds == null && s.tiktokRoomId != null && String(s.tiktokRoomId).trim() !== '') {
+          s.tiktokRoomIds = [String(s.tiktokRoomId).trim()];
+        }
         if (s.gmvCurrency == null) s.gmvCurrency = 'USD';
         if (s.syncStatus === 'synced' && !s.livePhase) s.livePhase = 'scheduled';
         if (s.pushedToHost == null) s.pushedToHost = b.status !== 'initial';
@@ -7631,6 +7650,7 @@
             eventName: 'Live Event E',
             liveAccountUsername: 'homechef_mike',
             tiktokSessionId: '4026548745',
+            tiktokRoomIds: ['7345621890123456789', '7345621890123456790'],
             pushedToHost: true,
             syncStatus: 'synced',
             livePhase: 'live',
@@ -7655,6 +7675,7 @@
             eventName: 'Live Event F',
             liveAccountUsername: 'alex_creator',
             tiktokSessionId: '4026548746',
+            tiktokRoomIds: ['7345621890123456801', '7345621890123456802', '7345621890123456803'],
             pushedToHost: true,
             syncStatus: 'synced',
             livePhase: 'live',
@@ -7679,6 +7700,7 @@
             eventName: 'Live Event G',
             liveAccountUsername: 'priscilla_live',
             tiktokSessionId: '4026548747',
+            tiktokRoomIds: ['7345621890123456901'],
             pushedToHost: true,
             syncStatus: 'synced',
             livePhase: 'ended',
@@ -7703,6 +7725,7 @@
             eventName: 'Live Event H',
             liveAccountUsername: 'homechef_mike',
             tiktokSessionId: '4026548748',
+            tiktokRoomIds: ['7345621890123456910', '7345621890123456911'],
             pushedToHost: true,
             syncStatus: 'synced',
             livePhase: 'ended',
@@ -8031,14 +8054,38 @@
     return '<span class="ls-sess-remark-preview" title="' + String(r).replace(/"/g, '&quot;').replace(/</g, '&lt;') + '">' + show.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
   }
 
+  /** 计划起止时间差（分钟），无法解析或无效时返回 null */
+  function lsPlannedDurationMinutes(s) {
+    if (!s) return null;
+    var a = lsStrToMs(s.plannedStartAt || '');
+    var b = lsStrToMs(s.plannedEndAt || '');
+    if (!isFinite(a) || !isFinite(b) || b <= a) return null;
+    return Math.round((b - a) / 60000);
+  }
+
+  function lsFormatDurationMinutes(totalMins) {
+    if (totalMins == null || !isFinite(totalMins) || totalMins <= 0) return '';
+    var h = Math.floor(totalMins / 60);
+    var m = totalMins % 60;
+    if (h > 0 && m > 0) return lsT('ls.time.duration_fmt_hm', h, m);
+    if (h > 0) return lsT('ls.time.duration_fmt_h', h);
+    return lsT('ls.time.duration_fmt_m', m);
+  }
+
   function lsSessionTimeCell(s) {
     var dd = lsSessionDetailDisplay(s);
     var tz = dd.timeZone || lsDisplayTimeZone || '-';
     var start = s.plannedStartAt || '-';
     var end = s.plannedEndAt || '-';
+    var durM = lsPlannedDurationMinutes(s);
+    var durStr = durM != null ? lsFormatDurationMinutes(durM) : '';
+    var durHtml = durStr
+      ? '<div class="ls-sess-time-duration">' + lsEscHtml(lsT('ls.time.duration_inline', durStr)) + '</div>'
+      : '';
     return '<div class="ls-sess-time-cell">' +
       '<div class="ls-sess-time-tz">' + String(tz).replace(/</g, '&lt;') + '</div>' +
       '<div class="ls-sess-time-range">' + String(start).replace(/</g, '&lt;') + ' ~ ' + String(end).replace(/</g, '&lt;') + '</div>' +
+      durHtml +
       '</div>';
   }
 
@@ -8076,6 +8123,72 @@
     return '' +
       '<div class="ls-sess-stack">' +
       '<span class="badge badge-secondary">' + lsEscHtml(t('ls.tiktok_sync.status_idle')) + '</span>' +
+      '</div>';
+  }
+
+  /** 解析场次上的 TikTok Room ID（支持多值，兼容单字段 tiktokRoomId）。 */
+  function lsSessionTikTokRoomIds(s) {
+    if (!s) return [];
+    if (Array.isArray(s.tiktokRoomIds) && s.tiktokRoomIds.length) {
+      return s.tiktokRoomIds.map(function (x) { return x != null ? String(x).trim() : ''; }).filter(Boolean);
+    }
+    if (s.tiktokRoomId != null && String(s.tiktokRoomId).trim() !== '') {
+      return [String(s.tiktokRoomId).trim()];
+    }
+    return [];
+  }
+
+  /**
+   * 「待直播 / 直播中 / 已直播」Tab：TikTok Live Event 摘要（同步结果 + Session ID；直播中/已直播另附 Room ID）。
+   */
+  function lsSessionTikTokLiveEventInfoCell(s) {
+    if (!s) return '<span class="ls-sess-cell-muted">—</span>';
+    var idRaw = s.tiktokSessionId || s.tiktokEventId || '';
+    var phase = s.livePhase;
+    var statusText;
+    var statusMod = '';
+    if (phase === 'live') {
+      statusText = t('ls.sess.live');
+    } else if (phase === 'ended') {
+      statusText = t('ls.sess.ended');
+    } else {
+      statusText = t('ls.tiktok_event.status_synced');
+      statusMod = ' ls-sess-tiktok-live-event__status--ok';
+    }
+    var idLine = idRaw
+      ? '<div class="ls-sess-stack__sub ls-sess-tiktok-live-event__id">' +
+        lsEscHtml(lsT('ls.tiktok_event.session_id_fmt', String(idRaw))) +
+        '</div>'
+      : '<div class="ls-sess-stack__sub ls-sess-cell-muted">—</div>';
+    var roomBlock = '';
+    if (phase === 'live' || phase === 'ended') {
+      var rids = lsSessionTikTokRoomIds(s);
+      var roomTitle = lsEscHtml(t('tc.ha.live_room_id'));
+      if (rids.length === 1) {
+        roomBlock =
+          '<div class="ls-sess-stack__sub ls-sess-tiktok-live-event__id ls-sess-tiktok-live-event__room">' +
+          lsEscHtml(lsT('ls.tiktok_event.room_id_fmt', rids[0])) +
+          '</div>';
+      } else if (rids.length > 1) {
+        roomBlock =
+          '<div class="ls-sess-tiktok-live-event__rooms">' +
+          '<div class="ls-sess-tiktok-live-event__rooms-title">' + roomTitle + '</div>' +
+          rids.map(function (rid) {
+            return '<div class="ls-sess-tiktok-live-event__room-line">' + lsEscHtml(rid) + '</div>';
+          }).join('') +
+          '</div>';
+      } else {
+        roomBlock =
+          '<div class="ls-sess-stack__sub ls-sess-tiktok-live-event__id ls-sess-tiktok-live-event__room">' +
+          lsEscHtml(lsT('ls.tiktok_event.room_id_fmt', t('ls.tiktok_event.room_ids_empty'))) +
+          '</div>';
+      }
+    }
+    return '' +
+      '<div class="ls-sess-stack ls-sess-tiktok-live-event-cell">' +
+      '<div class="ls-sess-tiktok-live-event__status' + statusMod + '">' + lsEscHtml(statusText) + '</div>' +
+      idLine +
+      roomBlock +
       '</div>';
   }
 
@@ -8955,6 +9068,9 @@
             s.plannedStartAt || '',
             s.plannedEndAt || '',
             lsSessionHostsLabel(s),
+            s.tiktokSessionId || '',
+            s.tiktokEventId || '',
+            lsSessionTikTokRoomIds(s).join(' '),
             s.tiktokLiveEventSyncStatus || '',
             s.tiktokSyncFailureCode || '',
             s.tiktokSyncFailureDetail || ''
@@ -8988,7 +9104,7 @@
         }
 
         var tikCell = showTikTokCol
-          ? '<td>' + (s.tiktokSessionId || s.tiktokEventId || '-') + '</td>'
+          ? '<td class="ls-sess-col-tiktok-live-event">' + lsSessionTikTokLiveEventInfoCell(s) + '</td>'
           : '';
 
         var tikSyncCell = showTikTokSyncCol
@@ -9063,7 +9179,7 @@
       '<th>' + t('ls.th.time') + '</th>' +
       (showTikTokSyncCol ? '<th style="min-width:200px">' + t('ls.th.tiktok_live_event_sync') + '</th>' : '') +
       '<th>' + t('ls.th.hosts_segments') + '</th>' +
-      (showTikTokCol ? '<th>' + t('ls.th.tiktok_sid') + '</th>' : '') +
+      (showTikTokCol ? '<th style="min-width:188px">' + t('ls.th.tiktok_sid') + '</th>' : '') +
       '<th>' + t('ls.th.created_follower') + '</th>' +
       '<th>' + t('ls.th.remark_en') + '</th>' +
       '<th style="text-align:right">' + t('common.actions') + '</th>' +

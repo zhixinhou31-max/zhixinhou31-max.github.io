@@ -8857,6 +8857,66 @@ tr:hover td { background: var(--primary-soft); }
   word-break: break-word;
 }
 
+/* 主播排期 · 待直播/直播中/已结束：TikTok Live Event 摘要 */
+.ls-sess-col-tiktok-live-event {
+  vertical-align: top;
+  min-width: 188px;
+  max-width: 280px;
+}
+
+.ls-sess-tiktok-live-event-cell {
+  gap: 6px;
+}
+
+.ls-sess-tiktok-live-event__status {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-header);
+  line-height: 1.35;
+}
+
+.ls-sess-tiktok-live-event__status--ok {
+  color: var(--success);
+}
+
+.ls-sess-tiktok-live-event__id {
+  font-size: var(--text-xs);
+  color: var(--text-subtext);
+  line-height: 1.45;
+  word-break: break-all;
+}
+
+.ls-sess-tiktok-live-event__room {
+  margin-top: 2px;
+}
+
+.ls-sess-tiktok-live-event__rooms {
+  margin-top: 8px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--border-subtle, rgba(0, 0, 0, 0.08));
+}
+
+.ls-sess-tiktok-live-event__rooms-title {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-subtext);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  margin-bottom: 4px;
+}
+
+.ls-sess-tiktok-live-event__room-line {
+  font-size: var(--text-xs);
+  color: var(--text-body);
+  line-height: 1.45;
+  word-break: break-all;
+  font-variant-numeric: tabular-nums;
+}
+
+.ls-sess-tiktok-live-event__room-line + .ls-sess-tiktok-live-event__room-line {
+  margin-top: 2px;
+}
+
 .ls-session-edit__mode-hint {
   font-size: var(--text-sm);
   color: var(--text-subtext);
@@ -9341,7 +9401,6 @@ tr:hover td { background: var(--primary-soft); }
 .ls-sess-time-cell {
   font-size: var(--text-sm);
   line-height: 1.4;
-  white-space: nowrap;
 }
 
 .ls-sess-time-tz {
@@ -9352,6 +9411,15 @@ tr:hover td { background: var(--primary-soft); }
 
 .ls-sess-time-range {
   color: var(--text-body);
+  white-space: nowrap;
+}
+
+.ls-sess-time-duration {
+  margin-top: 6px;
+  font-size: var(--text-xs);
+  color: var(--text-subtext);
+  line-height: 1.45;
+  white-space: normal;
 }
 
 .ls-sess-col-subject {
