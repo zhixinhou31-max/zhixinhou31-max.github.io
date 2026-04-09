@@ -6,9 +6,12 @@
 ## 结构
 
 - **index.html**：整体布局、**Role 切换**（直播服务 | Affiliate）、左侧导航。切换为 Affiliate 后一级菜单整体替换为：Find Creators、Outreach、Creator CRM、Analytics（Soon）。
-- **styles.css**：LiveQ 品牌样式与 Role 切换、各页组件样式
-- **app.js**：Role 持久化（localStorage）、Hash 路由及四模块页面渲染与交互
-- **结算板块（Settlement）**：位于 Tenant Center 内的 Host & Affiliate 子菜单（Live / Affiliate 共用）
+- **styles/app.css**：共享品牌样式、布局与跨页面组件样式。
+- **scripts/app.js**：Role 持久化（localStorage）、Hash 路由及主应用模块渲染与交互。
+- **pages/live/**：独立 Live 页面原型，例如 Live Settings、Auto-Setting Flash Sale。
+- **assets/**：静态资源。
+- **docs/**：开发交接与模块说明文档。
+- **结算板块（Settlement）**：位于 Tenant Center 内的 Host & Affiliate 子菜单（Live / Affiliate 共用）。
 
 ## 本地运行
 
@@ -20,6 +23,11 @@ npx serve .
 ```
 
 默认按当前 Role 进入：直播服务为 Dashboard，Affiliate 为 Creator CRM。
+
+独立页面原型当前位于：
+
+- `pages/live/live-settings.html`
+- `pages/live/auto-setting-flash-sale.html`
 
 ## Role 与路由
 

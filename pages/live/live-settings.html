@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wahool SaaS - Live Settings</title>
+    <style>
+      :root {
+        --bg: #f9fafb;
+        --card: #ffffff;
+        --line: #ececec;
+        --text: #000000;
+        --body: #3a3a3c;
+        --helper: #6e6e73;
+        --primary: #0bb6c8;
+        --primary-soft: #ecfbf8;
+        --secondary: #343657;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+      }
+      .topbar {
+        height: 56px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+      .status { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: #1fbf75; }
+      .dot { width: 8px; height: 8px; border-radius: 999px; background: #1fbf75; }
+      .brand { font-size: 14px; font-weight: 700; }
+      .lang {
+        height: 32px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 10px;
+        background: #fff;
+      }
+      .layout { display: grid; grid-template-columns: 56px 1fr; min-height: calc(100vh - 56px); }
+      .sidebar { background: #fff; border-right: 1px solid var(--line); }
+      .logo, .item {
+        height: 40px;
+        display: grid;
+        place-items: center;
+        border-bottom: 1px solid var(--line);
+      }
+      .logo { font-weight: 700; font-size: 20px; }
+      .item { color: #111827; text-decoration: none; }
+      .item.active { background: var(--primary); color: #fff; }
+      .titlebar {
+        height: 52px;
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+      .titlebar h1 {
+        margin: 0;
+        font-family: "Plus Jakarta Sans", Inter, sans-serif;
+        font-size: 20px;
+        font-weight: 700;
+      }
+      .page {
+        padding: 24px 22px 36px;
+      }
+      .card-list {
+        width: 820px;
+        max-width: 100%;
+        display: grid;
+        gap: 14px;
+      }
+      .setting-card {
+        display: grid;
+        grid-template-columns: 56px 1fr 20px;
+        align-items: center;
+        gap: 18px;
+        min-height: 128px;
+        padding: 22px 20px;
+        background: #fbfbfa;
+        border: 1px solid #f1f2f4;
+        border-radius: 12px;
+        text-decoration: none;
+        color: inherit;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+        transition: border-color .16s ease, box-shadow .16s ease, transform .16s ease;
+      }
+      .setting-card:hover {
+        border-color: #d9e8eb;
+        box-shadow: 0 8px 20px rgba(16, 24, 40, 0.06);
+        transform: translateY(-1px);
+      }
+      .setting-card--disabled {
+        cursor: default;
+      }
+      .setting-card--disabled:hover {
+        border-color: #f1f2f4;
+        box-shadow: 0 1px 2px rgba(16, 24, 40, 0.04);
+        transform: none;
+      }
+      .setting-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        color: var(--secondary);
+        background: var(--primary-soft);
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .setting-title {
+        margin: 0 0 6px;
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 700;
+        color: #1f2222;
+      }
+      .setting-desc {
+        margin: 0;
+        color: var(--body);
+        font-size: 14px;
+        line-height: 21px;
+      }
+      .arrow {
+        color: #98a2b3;
+        font-size: 28px;
+        text-align: right;
+      }
+      .coming {
+        display: inline-flex;
+        align-items: center;
+        margin-top: 10px;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #f7f8fa;
+        border: 1px solid #e7e8ed;
+        color: #667085;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="status"><span class="dot"></span>Connected</div>
+      <div style="display:flex;align-items:center;gap:12px;">
+        <strong class="brand">Wahool SaaS</strong>
+        <select class="lang" aria-label="Language">
+          <option>English</option>
+        </select>
+      </div>
+    </header>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="logo">W</div>
+        <a class="item" href="../../index.html" title="Dashboard">&#9638;</a>
+        <a class="item" href="../../index.html#/live/schedule" title="Live Schedule">&#128197;</a>
+        <div class="item active" title="Live Settings">&#9881;</div>
+        <a class="item" href="../../index.html#/affiliate/analytics" title="Tenant Center">&#8962;</a>
+      </aside>
+
+      <main>
+        <div class="titlebar">
+          <h1>Live Setting</h1>
+        </div>
+
+        <section class="page">
+          <div class="card-list">
+            <a class="setting-card" href="./auto-setting-flash-sale.html">
+              <div class="setting-icon">&#9881;</div>
+              <div>
+                <h2 class="setting-title">Auto-Setting Flash Sale</h2>
+                <p class="setting-desc">Create and manage reusable flash sale templates, submission schedules, and task execution for TikTok creator deals.</p>
+              </div>
+              <div class="arrow">&#8250;</div>
+            </a>
+
+            <div class="setting-card setting-card--disabled">
+              <div class="setting-icon">&#128172;</div>
+              <div>
+                <h2 class="setting-title">Auto-Comments Library</h2>
+                <p class="setting-desc">Preset comments that can be auto-triggered during your livestream to boost engagement and keep the chat lively.</p>
+                <span class="coming">Existing module</span>
+              </div>
+              <div class="arrow">&#8250;</div>
+            </div>
+
+            <div class="setting-card setting-card--disabled">
+              <div class="setting-icon">&#128250;</div>
+              <div>
+                <h2 class="setting-title">Casting Device</h2>
+                <p class="setting-desc">Bind a TV device code to a room name for easy mobile casting and device management.</p>
+                <span class="coming">Existing module</span>
+              </div>
+              <div class="arrow">&#8250;</div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

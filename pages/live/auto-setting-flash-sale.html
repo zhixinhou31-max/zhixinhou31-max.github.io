@@ -1,0 +1,3130 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wahool SaaS - Auto-Setting Flash Sale</title>
+    <style>
+      :root {
+        --bg: #f9fafb;
+        --card: #ffffff;
+        --line: #ececec;
+        --text: #000000;
+        --body: #3a3a3c;
+        --helper: #6e6e73;
+        --primary: #0bb6c8;
+        --primary-hover: #09a4b4;
+        --primary-pressed: #07899a;
+        --secondary: #343657;
+        --secondary-hover: #4c4e6b;
+        --secondary-pressed: #2e304d;
+        --success: #1fbf75;
+        --warn: #ffca28;
+        --error: #f75555;
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--bg);
+        color: var(--text);
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+      }
+      .topbar {
+        height: 56px;
+        padding: 0 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-bottom: 1px solid var(--line);
+        background: var(--card);
+      }
+      .status { display: inline-flex; gap: 8px; align-items: center; font-size: 13px; color: var(--success); }
+      .dot { width: 8px; height: 8px; border-radius: 999px; background: var(--success); }
+      .lang { height: 30px; border: 1px solid var(--line); border-radius: 8px; padding: 0 8px; }
+
+      .layout { display: grid; grid-template-columns: 56px 1fr; min-height: calc(100vh - 56px); }
+      .sidebar { background: #fff; border-right: 1px solid var(--line); }
+      .logo,.item { height: 40px; display: grid; place-items: center; border-bottom: 1px solid var(--line); }
+      .logo { font-weight: 700; font-size: 20px; }
+      .item.active { background: #0bb6c8; color: #fff; }
+      .item-link {
+        text-decoration: none;
+        color: inherit;
+        font-size: 16px;
+      }
+      .item-link:hover {
+        background: #f7f8fa;
+      }
+
+      body.embed-mode {
+        background: transparent;
+      }
+      body.embed-mode .topbar,
+      body.embed-mode .sidebar,
+      body.embed-mode .titlebar {
+        display: none;
+      }
+      body.embed-mode .layout {
+        display: block;
+        min-height: auto;
+      }
+      body.embed-mode main,
+      body.embed-mode .page {
+        padding: 0;
+      }
+
+      .titlebar {
+        height: 52px;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+      }
+      h1 { margin: 0; font-family: "Plus Jakarta Sans", Inter, sans-serif; font-size: 20px; font-weight: 700; }
+      h2 { margin: 0; font-size: 18px; font-weight: 600; color: var(--secondary); }
+      p { margin: 0; }
+      .sub { margin-top: 6px; font-size: 14px; color: var(--body); line-height: 18px; }
+      .hint { font-size: 12px; color: var(--helper); }
+
+      .page { padding: 18px 20px 24px; display: grid; gap: 14px; }
+      .card {
+        background: #fff;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        box-shadow: 0 1px 2px rgba(16,24,40,.06);
+        padding: 16px;
+      }
+      .row { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+      .inline { display: inline-flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+
+      .btn {
+        height: 34px;
+        border-radius: 8px;
+        border: 1px solid var(--line);
+        background: #f4f4f4;
+        color: #000;
+        font-size: 14px;
+        padding: 0 12px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1;
+        white-space: nowrap;
+        vertical-align: middle;
+      }
+      .btn:hover { background: #e7e8ed; }
+      .btn:active { background: #d9d9d9; }
+      .btn-primary {
+        border-color: var(--primary);
+        background: var(--primary);
+        color: #fff;
+      }
+      .btn-primary:hover { background: var(--primary-hover); border-color: var(--primary-hover); }
+      .btn-primary:active { background: var(--primary-pressed); border-color: var(--primary-pressed); }
+      .btn-link {
+        background: transparent;
+        border-color: transparent;
+        color: var(--secondary);
+      }
+      .btn-link:hover { color: var(--primary); background: #ecfbf8; border-color: #ecfbf8; }
+
+      .badge { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 999px; font-size: 12px; font-weight: 600; }
+      .ok { background: #eafbf5; color: #1b8758; }
+      .warn { background: #fff8e1; color: #a87900; }
+      .err { background: #ffecec; color: #c94040; }
+      .neutral { background: #e7e8ed; color: #5f6470; }
+
+      .tabs {
+        display: flex;
+        gap: 2px;
+        border-bottom: 2px solid #ebedf0;
+        margin-bottom: 24px;
+      }
+      .tab {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 24px;
+        font-family: Inter, "Segoe UI", Arial, sans-serif;
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--helper);
+        background: none;
+        border: none;
+        border-bottom: 2px solid transparent;
+        margin-bottom: -2px;
+        cursor: pointer;
+        transition: color .2s ease, border-color .2s ease;
+      }
+      .tab:hover { color: var(--body); }
+      .tab.active {
+        color: var(--primary);
+        border-bottom-color: var(--primary);
+        font-weight: 600;
+      }
+      .panel { display: none; }
+      .panel.active { display: block; }
+
+      .table-wrap {
+        margin-top: 12px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+      }
+      .list-toolbar {
+        margin-top: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .toolbar-filters {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .search-input {
+        width: 280px;
+        height: 36px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 0 12px;
+        font-size: 13px;
+        background: #fff;
+      }
+      .filter-chip {
+        height: 34px;
+        border: 1px solid #dfe6ee;
+        border-radius: 999px;
+        background: #fff;
+        padding: 0 12px;
+        font-size: 13px;
+        color: #667085;
+        cursor: pointer;
+      }
+      .filter-chip.active {
+        background: #ecfbf8;
+        color: var(--secondary);
+        border-color: #bfece6;
+        font-weight: 600;
+      }
+      table { width: 100%; border-collapse: collapse; }
+      th,td { font-size: 13px; text-align: left; padding: 10px 8px; border-bottom: 1px solid var(--line); }
+      th { font-size: 12px; color: var(--helper); background: #f7f7f4; }
+      tr:last-child td { border-bottom: none; }
+      .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 12px; color: var(--helper); }
+      .template-main {
+        display: grid;
+        gap: 6px;
+      }
+      .template-name {
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .template-store {
+        font-size: 13px;
+        line-height: 18px;
+        color: var(--body);
+      }
+      .template-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .template-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #f7f8fa;
+        border: 1px solid #e7e8ed;
+        color: #667085;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .window-stack, .health-stack, .metric-stack {
+        display: grid;
+        gap: 4px;
+      }
+      .metric-main {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .health-note {
+        font-size: 12px;
+        line-height: 16px;
+        color: var(--helper);
+      }
+      .action-row {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .btn[disabled] {
+        opacity: .55;
+        cursor: not-allowed;
+      }
+
+      .empty-state {
+        border: 1px dashed #d8dbe2;
+        border-radius: 10px;
+        background: #fafbfc;
+        padding: 18px;
+        text-align: center;
+      }
+      .template-empty-hero {
+        margin-top: 12px;
+        border: 1px solid #e6eef5;
+        border-radius: 16px;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+        padding: 28px;
+        display: grid;
+        gap: 20px;
+        text-align: center;
+        box-shadow: 0 2px 8px rgba(16,24,40,.04);
+      }
+      .template-empty-icon {
+        width: 64px;
+        height: 64px;
+        margin: 0 auto;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        background: linear-gradient(135deg, #ecfbf8, #f4f8ff);
+        color: var(--primary-pressed);
+        font-size: 28px;
+        font-weight: 700;
+      }
+      .template-empty-copy {
+        display: grid;
+        gap: 8px;
+      }
+      .template-empty-copy h3 {
+        font-size: 22px;
+        line-height: 28px;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+      .template-empty-copy p {
+        max-width: 640px;
+        margin: 0 auto;
+        font-size: 14px;
+        line-height: 22px;
+        color: var(--body);
+      }
+      .template-empty-steps {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px;
+        text-align: left;
+      }
+      .template-empty-step {
+        border: 1px solid #edf0f4;
+        border-radius: 14px;
+        background: #fff;
+        padding: 16px;
+        display: grid;
+        gap: 8px;
+      }
+      .template-empty-step-head {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+      .template-empty-step-num {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: #ecfbf8;
+        color: var(--primary-pressed);
+        font-size: 12px;
+        font-weight: 700;
+      }
+      .template-empty-step p {
+        font-size: 13px;
+        line-height: 19px;
+        color: var(--helper);
+      }
+      .template-empty-actions {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .shop-template-list {
+        display: grid;
+        gap: 14px;
+        margin-top: 12px;
+      }
+      .shop-section {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: #fff;
+        overflow: visible;
+        position: relative;
+      }
+      .shop-section-head {
+        padding: 18px;
+        border-bottom: 1px solid #edf0f4;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .shop-section-main {
+        display: grid;
+        gap: 6px;
+      }
+      .shop-name {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .shop-sub {
+        font-size: 13px;
+        line-height: 18px;
+        color: var(--body);
+      }
+      .shop-badges {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .shop-auth-note {
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--helper);
+      }
+      .shop-section-actions {
+        min-width: 220px;
+        display: grid;
+        gap: 10px;
+        justify-items: end;
+      }
+      .shop-template-items {
+        display: grid;
+        position: relative;
+        overflow: visible;
+      }
+      .template-list-head {
+        padding: 10px 18px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) 220px 1fr 170px 280px;
+        gap: 16px;
+        align-items: center;
+        background: #f8f9fb;
+        border-top: 1px solid #edf0f4;
+        border-bottom: 1px solid #edf0f4;
+      }
+      .template-list-head span {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 600;
+        color: var(--helper);
+      }
+      .template-row {
+        padding: 16px 18px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) 220px 1fr 170px 280px;
+        gap: 16px;
+        align-items: start;
+        border-top: 1px solid #edf0f4;
+        position: relative;
+        z-index: 1;
+      }
+      .template-row.menu-open {
+        z-index: 8;
+      }
+      .template-row:first-child {
+        border-top: none;
+      }
+      .template-products {
+        display: grid;
+        gap: 4px;
+      }
+      .template-status {
+        display: grid;
+        gap: 8px;
+      }
+      .template-status .badge {
+        width: fit-content;
+      }
+      .template-actions {
+        display: inline-flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 8px;
+        flex-wrap: wrap;
+        min-width: 0;
+      }
+      .template-menu-wrap {
+        position: relative;
+        display: inline-flex;
+        z-index: 5;
+      }
+      .btn-icon {
+        width: 34px;
+        min-width: 34px;
+        padding: 0;
+        font-size: 18px;
+      }
+      .template-menu {
+        position: absolute;
+        top: calc(100% + 8px);
+        right: 0;
+        min-width: 148px;
+        padding: 6px;
+        border: 1px solid #e5e7eb;
+        border-radius: 10px;
+        background: #fff;
+        box-shadow: 0 12px 30px rgba(16, 24, 40, 0.14);
+        display: grid;
+        gap: 2px;
+        z-index: 30;
+      }
+      .template-menu button {
+        height: 36px;
+        border: none;
+        border-radius: 8px;
+        background: transparent;
+        padding: 0 12px;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        font-size: 13px;
+        color: var(--body);
+        cursor: pointer;
+      }
+      .template-menu button:hover {
+        background: #f7f8fa;
+      }
+      .template-menu button.danger {
+        color: var(--error);
+      }
+      .template-menu button.danger:hover {
+        background: #fff5f5;
+      }
+      .template-empty-inline {
+        padding: 18px 16px;
+        color: var(--helper);
+        font-size: 13px;
+      }
+      .auth-callout {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 14px;
+        border: 1px solid #fbe2a8;
+        background: #fffaf0;
+        border-radius: 10px;
+        padding: 12px 14px;
+      }
+      .field-surface > .auth-callout {
+        margin-top: 18px;
+      }
+      .auth-callout.error {
+        border-color: #ffd7d7;
+        background: #fff6f6;
+      }
+      .auth-callout-main {
+        display: grid;
+        gap: 4px;
+      }
+      .auth-callout-title {
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+      .auth-callout-sub {
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--helper);
+      }
+
+      .drawer-mask {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.24);
+        display: none;
+        z-index: 30;
+      }
+      .drawer {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: 760px;
+        height: 100vh;
+        background: #fff;
+        border-left: 1px solid var(--line);
+        box-shadow: -8px 0 24px rgba(16,24,40,.12);
+        transform: translateX(100%);
+        transition: transform .2s ease;
+        z-index: 40;
+        display: grid;
+        grid-template-rows: auto auto 1fr auto;
+      }
+      .drawer.open { transform: translateX(0); }
+      .drawer-head {
+        padding: 18px 20px 14px;
+        border-bottom: 1px solid var(--line);
+        background: linear-gradient(180deg, #ffffff 0%, #fcfcfc 100%);
+      }
+      .drawer-steps {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 20px;
+        border-bottom: 1px solid var(--line);
+        background: #fff;
+      }
+      .step-divider {
+        width: 28px;
+        height: 1px;
+        background: #d9e0ea;
+        flex: none;
+      }
+      .step-btn {
+        min-width: 152px;
+        height: 44px;
+        border: 1px solid #dfe6ee;
+        border-radius: 12px;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+        color: #667085;
+        padding: 0 14px;
+        font-size: 14px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        box-shadow: 0 1px 1px rgba(16,24,40,.02);
+      }
+      .step-btn.active {
+        background: linear-gradient(180deg, #ecfbf8 0%, #e8f8f6 100%);
+        color: var(--secondary);
+        border-color: #bfece6;
+        font-weight: 600;
+        box-shadow: 0 4px 12px rgba(11,182,200,.12);
+      }
+      .step-badge {
+        width: 24px;
+        height: 24px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: #f2f4f7;
+        color: #667085;
+        font-size: 12px;
+        font-weight: 700;
+        flex: none;
+      }
+      .step-btn.active .step-badge {
+        background: #0bb6c8;
+        color: #fff;
+      }
+      .drawer-body {
+        overflow: auto;
+        padding: 16px 20px;
+        background: #fafbfc;
+      }
+      .drawer-foot {
+        border-top: 1px solid var(--line);
+        background: #fff;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .grid-2-1 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .basic-stack { display: grid; gap: 16px; }
+      .field-grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+      .field-grid-3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 14px; }
+      .field-surface {
+        border: 1px solid #edf0f4;
+        border-radius: 10px;
+        background: #fcfcfd;
+        padding: 14px;
+      }
+      .drawer-section {
+        border: 1px solid #e8ebf2;
+        border-radius: 12px;
+        background: #fff;
+        padding: 16px;
+      }
+      .section-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        margin-bottom: 14px;
+      }
+      .section-title {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+      .section-sub {
+        margin-top: 4px;
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--helper);
+      }
+      .window-note {
+        margin-top: 12px;
+        border: 1px solid #d9f1ec;
+        background: #f3fffc;
+        color: #1f6f66;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+      .field { display: grid; gap: 8px; align-content: start; }
+      .label { font-size: 13px; font-weight: 600; color: var(--secondary); }
+      .field-help {
+        font-size: 12px;
+        line-height: 16px;
+        color: var(--helper);
+      }
+      .input,.select {
+        height: 42px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        padding: 0 12px;
+        font-size: 13px;
+        background: #fff;
+      }
+      .input.error { border-color: var(--error); background: #fff8f8; }
+      .error-text { font-size: 12px; color: var(--error); }
+      .schedule-note {
+        margin-top: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        border: 1px solid #d9f1ec;
+        background: linear-gradient(180deg, #f8fffe 0%, #f2fcfb 100%);
+        color: #1f6f66;
+        border-radius: 10px;
+        padding: 12px 14px;
+      }
+      .note-icon {
+        width: 22px;
+        height: 22px;
+        border-radius: 999px;
+        display: grid;
+        place-items: center;
+        background: #e2f7f4;
+        color: var(--primary-pressed);
+        font-size: 12px;
+        font-weight: 700;
+        flex: none;
+      }
+      .note-title {
+        font-size: 12px;
+        font-weight: 600;
+        line-height: 16px;
+        color: #206e69;
+      }
+      .note-body {
+        margin-top: 2px;
+        font-size: 12px;
+        line-height: 16px;
+        color: #2a7a74;
+      }
+
+      .sku-group {
+        margin-top: 12px;
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        overflow: hidden;
+        background: #fff;
+        box-shadow: 0 1px 2px rgba(16,24,40,.04);
+      }
+      .sku-group-head {
+        padding: 14px 16px;
+        background: linear-gradient(180deg, #fbfcff 0%, #f7f9fc 100%);
+        border-bottom: 1px solid #edf0f4;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 16px;
+      }
+      .prod {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        gap: 12px;
+        align-items: center;
+      }
+      .prod-title {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .prod-id {
+        margin-top: 2px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 12px;
+        line-height: 16px;
+        color: #6b7280;
+      }
+      .prod-meta {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 8px;
+      }
+      .meta-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 5px 10px;
+        border-radius: 999px;
+        background: #ffffff;
+        border: 1px solid #e7e8ed;
+        color: #5f6470;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .group-actions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex: none;
+      }
+      .group-link {
+        font-size: 12px;
+        color: var(--secondary);
+        cursor: pointer;
+      }
+      .group-link:hover { color: var(--primary); }
+      .thumb {
+        width: 56px;
+        height: 56px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: linear-gradient(135deg, #ecfbf8, #f5f7fb);
+      }
+      .sku-table { width: 100%; border-collapse: collapse; }
+      .sku-table th,.sku-table td { border-bottom: 1px solid #edf0f4; padding: 14px 16px; font-size: 13px; vertical-align: middle; }
+      .sku-table th { background: #fbfbfc; color: #6e6e73; font-size: 12px; font-weight: 600; }
+      .sku-table tr:hover td { background: #fcfdfd; }
+      .sku-table td:first-child,.sku-table th:first-child { width: 44px; text-align: center; }
+      .sku-name {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .price-text {
+        font-size: 13px;
+        font-weight: 600;
+        color: var(--body);
+      }
+      .rule-pill {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #f4f8fb;
+        border: 1px solid #e6edf2;
+        color: #37516a;
+        font-size: 12px;
+        font-weight: 600;
+      }
+      .rule-stack {
+        display: grid;
+        gap: 6px;
+        justify-items: start;
+      }
+      .rule-sub {
+        font-size: 12px;
+        line-height: 16px;
+        color: #6b7280;
+      }
+
+      .mode {
+        display: inline-flex;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        overflow: hidden;
+      }
+      .mode button {
+        height: 28px;
+        border: none;
+        background: #fff;
+        padding: 0 10px;
+        font-size: 12px;
+        cursor: pointer;
+        color: var(--helper);
+      }
+      .mode button.active { background: #ecfbf8; color: var(--secondary); font-weight: 600; }
+
+      .batch-bar {
+        margin-top: 10px;
+        border: 1px solid #d9f1ec;
+        background: #f7fefc;
+        border-radius: 10px;
+        padding: 14px;
+        display: grid;
+        gap: 12px;
+      }
+      .batch-copy {
+        display: grid;
+        gap: 4px;
+      }
+      .batch-title {
+        font-size: 13px;
+        line-height: 18px;
+        font-weight: 600;
+        color: var(--secondary);
+      }
+      .batch-controls {
+        display: grid;
+        grid-template-columns: 200px minmax(0, 1fr) minmax(0, 1fr) auto auto;
+        gap: 10px;
+        align-items: center;
+      }
+      .stock-input {
+        max-width: 164px;
+      }
+      .toolbar-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+      }
+      .picker-card {
+        border: 1px solid #d9f1ec;
+        background: linear-gradient(180deg, #fcfffe 0%, #f7fefd 100%);
+        border-radius: 12px;
+        padding: 16px;
+        display: grid;
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+      .picker-actions {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .empty-products {
+        border: 1px dashed #cfe7e4;
+        background: #fbfefd;
+        border-radius: 12px;
+        padding: 28px 20px;
+        text-align: center;
+        display: grid;
+        gap: 12px;
+        margin-top: 4px;
+      }
+      .empty-icon {
+        width: 44px;
+        height: 44px;
+        margin: 0 auto;
+        border-radius: 12px;
+        display: grid;
+        place-items: center;
+        background: #ecfbf8;
+        color: var(--primary-pressed);
+        font-size: 18px;
+        font-weight: 700;
+      }
+      .sku-config {
+        display: grid;
+        gap: 10px;
+      }
+      .import-box {
+        border: 1px solid #d9f1ec;
+        background:
+          radial-gradient(circle at top right, rgba(11,182,200,0.08), transparent 28%),
+          linear-gradient(180deg, #fcfffe 0%, #f8fefd 100%);
+        border-radius: 12px;
+        padding: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .import-meta {
+        display: grid;
+        gap: 4px;
+      }
+      .import-pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        width: fit-content;
+        padding: 4px 8px;
+        border-radius: 999px;
+        background: #ecfbf8;
+        color: #1f6f66;
+        font-size: 11px;
+        font-weight: 600;
+      }
+      .group-stack {
+        display: grid;
+        gap: 12px;
+      }
+      .toast {
+        display: none;
+        margin-top: 10px;
+        border-radius: 8px;
+        padding: 8px 10px;
+        font-size: 12px;
+      }
+      .toast.ok { display: block; background: #eafbf5; color: #1b8758; }
+      .toast.err { display: block; background: #ffecec; color: #c94040; }
+      .close-btn {
+        width: 44px;
+        height: 44px;
+        border-radius: 12px;
+        border: 1px solid #e7e8ed;
+        background: #f7f7f7;
+        font-size: 22px;
+        line-height: 1;
+        display: grid;
+        place-items: center;
+      }
+      .close-btn:hover { background: #ededed; }
+      .drawer-head h2 {
+        font-size: 22px;
+        line-height: 1.1;
+      }
+      .drawer-head .sub {
+        font-size: 14px;
+        line-height: 1.4;
+        color: #2f354b;
+      }
+
+      .status-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+      .submit-shell {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 16px;
+        margin-top: 14px;
+      }
+      .submit-stack {
+        display: grid;
+        gap: 14px;
+      }
+      .selection-card {
+        border: 1px solid #e8ebf2;
+        border-radius: 12px;
+        background: #fff;
+        padding: 16px;
+        display: grid;
+        gap: 14px;
+      }
+      .selection-grid {
+        display: grid;
+        grid-template-columns: 1.1fr .9fr;
+        gap: 14px;
+      }
+      .handle-area {
+        min-height: 112px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 10px 12px;
+        font-size: 13px;
+        background: #fff;
+        resize: vertical;
+      }
+      .helper-list {
+        display: grid;
+        gap: 6px;
+        font-size: 12px;
+        color: var(--helper);
+      }
+      .inline-fields {
+        display: grid;
+        grid-template-columns: 180px 180px minmax(0, 1fr);
+        gap: 12px;
+      }
+      .summary-card {
+        border: 1px solid #d9f1ec;
+        background: linear-gradient(180deg, #fcfffe 0%, #f6fdfc 100%);
+        border-radius: 12px;
+        padding: 16px;
+        display: grid;
+        gap: 14px;
+        align-content: start;
+      }
+      .submit-header-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .btn-ghost {
+        background: #fff;
+        border-color: #dbe4ee;
+        color: var(--secondary);
+      }
+      .btn-ghost:hover {
+        background: #f7fafc;
+        border-color: #cfd8e3;
+      }
+      .summary-list {
+        display: grid;
+        gap: 10px;
+      }
+      .summary-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 12px;
+      }
+      .summary-label {
+        font-size: 12px;
+        color: var(--helper);
+      }
+      .summary-value {
+        font-size: 14px;
+        font-weight: 600;
+        color: var(--text);
+        text-align: right;
+      }
+      .creator-preview {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .schedule-group-list {
+        display: grid;
+        gap: 14px;
+      }
+      .schedule-group-card {
+        border: 1px solid #e8ebf2;
+        border-radius: 12px;
+        background: #fff;
+        padding: 16px;
+        display: grid;
+        gap: 14px;
+      }
+      .schedule-group-head {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .schedule-group-grid {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 12px;
+      }
+      .schedule-group-grid.group-top {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .schedule-group-grid.two-line {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      .schedule-range-note {
+        border: 1px dashed #d9e8ef;
+        border-radius: 10px;
+        background: #fbfcfd;
+        padding: 10px 12px;
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--helper);
+      }
+      .handle-chip-list {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .task-toolbar {
+        margin-top: 14px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .task-toolbar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .task-batch-list {
+        margin-top: 16px;
+        display: grid;
+        gap: 14px;
+      }
+      .task-batch-card {
+        border: 1px solid #e8ebf2;
+        border-radius: 14px;
+        background: #fff;
+        overflow: hidden;
+        box-shadow: 0 1px 2px rgba(16,24,40,.04);
+      }
+      .task-batch-head {
+        padding: 16px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 16px;
+        align-items: start;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcfe 100%);
+      }
+      .task-batch-main {
+        display: grid;
+        gap: 8px;
+      }
+      .batch-topline {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .batch-label {
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        color: #667085;
+      }
+      .task-batch-title {
+        font-size: 16px;
+        line-height: 22px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .task-batch-sub {
+        font-size: 13px;
+        line-height: 18px;
+        color: var(--body);
+      }
+      .task-batch-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .task-summary-strip {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(92px, 1fr));
+        gap: 10px;
+      }
+      .summary-metric {
+        min-width: 92px;
+        border: 1px solid #edf0f4;
+        border-radius: 12px;
+        background: #fff;
+        padding: 10px 12px;
+        display: grid;
+        gap: 4px;
+      }
+      .summary-metric-value {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+      .summary-metric-label {
+        font-size: 12px;
+        line-height: 16px;
+        color: var(--helper);
+      }
+      .task-batch-right {
+        display: grid;
+        gap: 12px;
+        justify-items: end;
+      }
+      .task-batch-body {
+        padding: 0 16px 16px;
+        display: grid;
+        gap: 14px;
+        border-top: 1px solid #edf0f4;
+        background: #fcfcfd;
+      }
+      .task-batch-note {
+        padding-top: 14px;
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--helper);
+      }
+      .task-item-list {
+        display: grid;
+        gap: 10px;
+      }
+      .task-group-card {
+        border: 1px solid #edf0f4;
+        border-radius: 12px;
+        background: #fff;
+        overflow: hidden;
+      }
+      .task-group-head {
+        padding: 14px;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        gap: 14px;
+        align-items: start;
+        border-bottom: 1px solid #edf0f4;
+      }
+      .task-group-main {
+        display: grid;
+        gap: 6px;
+      }
+      .task-group-title {
+        font-size: 14px;
+        line-height: 20px;
+        font-weight: 700;
+        color: var(--text);
+      }
+      .task-group-sub {
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--body);
+      }
+      .task-group-meta {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .task-group-right {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+      .task-group-foot {
+        padding: 0 14px 14px;
+        display: grid;
+        gap: 12px;
+        background: #fcfcfd;
+      }
+      .task-group-reason {
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--body);
+      }
+      .task-group-reason.muted {
+        color: var(--helper);
+      }
+      .task-handle-list {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        border: 1px dashed #dde4ec;
+        border-radius: 10px;
+        background: #fff;
+        padding: 12px;
+      }
+      .task-batch-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+
+      .reuse-mask {
+        position: fixed;
+        inset: 0;
+        background: rgba(15, 23, 42, 0.28);
+        display: none;
+        z-index: 60;
+      }
+      .reuse-modal {
+        position: fixed;
+        top: 72px;
+        left: 50%;
+        width: min(920px, calc(100vw - 48px));
+        max-height: calc(100vh - 96px);
+        transform: translate(-50%, 8px) scale(.98);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .18s ease, opacity .18s ease;
+        z-index: 70;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
+        border: 1px solid #dfe6ee;
+        border-radius: 16px;
+        background: #fff;
+        box-shadow: 0 20px 60px rgba(15,23,42,.18);
+        overflow: hidden;
+      }
+      .reuse-modal.open {
+        transform: translate(-50%, 0) scale(1);
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .reuse-head {
+        padding: 18px 20px 14px;
+        border-bottom: 1px solid var(--line);
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+        background: linear-gradient(180deg, #ffffff 0%, #fbfcfd 100%);
+      }
+      .reuse-body {
+        padding: 16px 20px;
+        overflow: auto;
+        display: grid;
+        gap: 12px;
+        background: #fafbfc;
+      }
+      .reuse-task-list {
+        display: grid;
+        gap: 12px;
+      }
+      .reuse-task-card {
+        border: 1px solid #e6ebf2;
+        border-radius: 14px;
+        background: #fff;
+        padding: 16px;
+        display: grid;
+        gap: 12px;
+        cursor: pointer;
+        transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease;
+      }
+      .reuse-task-card:hover {
+        border-color: #cdeef0;
+        box-shadow: 0 8px 24px rgba(11,182,200,.08);
+        transform: translateY(-1px);
+      }
+      .reuse-task-card.active {
+        border-color: #8ddce3;
+        box-shadow: 0 10px 26px rgba(11,182,200,.12);
+        background: linear-gradient(180deg, #ffffff 0%, #f8fffe 100%);
+      }
+      .reuse-task-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .reuse-task-title {
+        font-size: 15px;
+        line-height: 20px;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+      .reuse-task-sub {
+        font-size: 13px;
+        line-height: 18px;
+        color: var(--body);
+      }
+      .reuse-task-metrics {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+      }
+      .reuse-metric {
+        min-width: 88px;
+        border: 1px solid #edf0f4;
+        border-radius: 12px;
+        background: #fff;
+        padding: 10px 12px;
+        display: grid;
+        gap: 2px;
+      }
+      .reuse-metric-value {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 700;
+        color: var(--secondary);
+      }
+      .reuse-metric-label {
+        font-size: 11px;
+        line-height: 14px;
+        color: var(--helper);
+      }
+      .reuse-foot {
+        border-top: 1px solid var(--line);
+        background: #fff;
+        padding: 12px 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+      .reuse-foot-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      .task-item {
+        border: 1px solid #edf0f4;
+        border-radius: 12px;
+        background: #fff;
+        padding: 12px 14px;
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) 160px 140px minmax(0, 1fr) auto;
+        gap: 12px;
+        align-items: center;
+      }
+      .task-item-main {
+        display: grid;
+        gap: 4px;
+      }
+      .task-item-title {
+        font-size: 14px;
+        line-height: 19px;
+        font-weight: 600;
+        color: var(--text);
+      }
+      .task-item-sub {
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--helper);
+      }
+      .task-item-reason {
+        font-size: 12px;
+        line-height: 17px;
+        color: var(--body);
+      }
+      .task-item-reason.muted {
+        color: var(--helper);
+      }
+      .task-item-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .task-empty {
+        border: 1px dashed #d8dbe2;
+        border-radius: 12px;
+        background: #fafbfc;
+        padding: 24px;
+        text-align: center;
+        color: var(--helper);
+        font-size: 13px;
+      }
+      .creator-chip {
+        display: inline-flex;
+        align-items: center;
+        padding: 6px 10px;
+        border-radius: 999px;
+        background: #f7f8fa;
+        border: 1px solid #e7e8ed;
+        color: #485467;
+        font-size: 12px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="topbar">
+      <div class="status"><span class="dot"></span><span data-i18n="connected">Connected</span></div>
+      <div class="inline">
+        <strong>Wahool SaaS</strong>
+        <select id="lang" class="lang">
+          <option value="en">English</option>
+          <option value="zh">中文</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="layout">
+      <aside class="sidebar">
+        <div class="logo">W</div>
+        <div class="item">▦</div>
+        <div class="item">◉</div>
+        <div class="item active">⚙</div>
+        <a class="item item-link" href="../../index.html#/affiliate/analytics" title="Tenant Center">⌂</a>
+      </aside>
+
+      <main>
+        <div class="titlebar"><h1 data-i18n="pageTitle">Auto Submit Flash Sale</h1></div>
+        <div class="page">
+          <div class="tabs">
+            <button class="tab active" data-tab="package" data-i18n="tabPackage">Templates</button>
+            <button class="tab" data-tab="submit" data-i18n="tabSubmit">Submit Flash Sale</button>
+            <button class="tab" data-tab="tasks" data-i18n="tabTasks">Task Center</button>
+          </div>
+
+          <section id="panel-package" class="panel active">
+            <div class="card">
+              <div class="row">
+                <div>
+                  <h2 data-i18n="packageTitle">Templates</h2>
+                  <p class="sub" data-i18n="packageSub">Create and manage templates under each TikTok Shop.</p>
+                </div>
+                <button id="createTemplateBtn" class="btn btn-primary create-template" data-i18n="createPackage">Create Template</button>
+              </div>
+
+              <div class="list-toolbar">
+                <div class="toolbar-filters">
+                  <input id="templateSearch" class="search-input" data-i18n-placeholder="searchTemplates" placeholder="Search by template or shop" />
+                  <button class="filter-chip template-filter active" data-template-filter="all" data-i18n="filterAll">All</button>
+                  <button class="filter-chip template-filter" data-template-filter="active" data-i18n="filterActive">Active</button>
+                  <button class="filter-chip template-filter" data-template-filter="draft" data-i18n="filterDraft">Draft</button>
+                </div>
+                <div class="hint">
+                  <span data-i18n="listHint">Templates are sorted by recent usage.</span>
+                  <span> · </span>
+                  <span data-i18n="templateStoreDescription">Templates are organized under each authorized shop so your team can manage products and pricing rules in the right place.</span>
+                </div>
+              </div>
+
+              <div id="templateShopList" class="shop-template-list"></div>
+
+              <div id="packageEmpty" class="empty-state" style="display:none;">
+                <h3 data-i18n="emptyPackageTitle">No templates yet</h3>
+                <p class="sub" data-i18n="emptyPackageSub">Create your first template and reuse it in one click next time.</p>
+                <div class="spacer"><button class="btn btn-primary create-template" data-i18n="createPackage">Create Template</button></div>
+              </div>
+            </div>
+          </section>
+
+          <section id="panel-submit" class="panel">
+            <div class="card">
+              <div class="row">
+                <div>
+                  <h2 data-i18n="submitTitle">Submit Flash Sale</h2>
+                  <p class="sub" data-i18n="submitSub">Create flash sale tasks by combining shop, template, time, and creator handles.</p>
+                </div>
+                <div class="submit-header-actions">
+                  <button id="createTasksBtn" class="btn btn-primary" data-i18n="createTasks">Create Tasks</button>
+                </div>
+              </div>
+              <div class="submit-shell">
+                <div class="submit-stack">
+                  <div class="selection-card">
+                    <div>
+                      <div class="section-title" data-i18n="taskScheduleTitle">Schedule Groups</div>
+                      <div class="section-sub" data-i18n="taskScheduleSub">Each schedule group starts with one TikTok Shop, then uses one template under that shop, one start and end time, one execution timezone, and one or more TikTok creator handles.</div>
+                    </div>
+                    <div id="scheduleGroupList" class="schedule-group-list"></div>
+                    <div class="row">
+                      <div class="hint" data-i18n="taskRuleBody">Each schedule group becomes one task setup job. All handles inside that group share the same start, end, and timezone.</div>
+                      <button id="addScheduleGroup" class="btn" data-i18n="addGroup">Add Schedule Group</button>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </section>
+
+          <section id="panel-tasks" class="panel">
+            <div class="card">
+              <div class="row">
+                <div>
+                  <h2 data-i18n="taskTitle">Task Center</h2>
+                  <p class="sub" data-i18n="taskSub">Review task status, retry failed tasks, and reuse past task setups.</p>
+                </div>
+                <button class="btn" data-i18n="refresh">Refresh</button>
+              </div>
+              <div class="task-toolbar">
+                <div class="task-toolbar-left">
+                  <input id="taskSearch" class="search-input" data-i18n-placeholder="taskSearch" placeholder="Search by task, shop, template, or creator" />
+                  <button class="filter-chip active task-filter" data-task-filter="all" data-i18n="filterAll">All</button>
+                  <button class="filter-chip task-filter" data-task-filter="running" data-i18n="taskFilterRunning">Running</button>
+                  <button class="filter-chip task-filter" data-task-filter="attention" data-i18n="taskFilterAttention">Needs Attention</button>
+                  <button class="filter-chip task-filter" data-task-filter="completed" data-i18n="taskFilterCompleted">Completed</button>
+                </div>
+                <div class="hint" data-i18n="taskListHint">Tasks are sorted by most recently created first.</div>
+              </div>
+              <div id="taskBatchList" class="task-batch-list"></div>
+            </div>
+          </section>
+
+        </div>
+      </main>
+    </div>
+
+    <div id="drawerMask" class="drawer-mask"></div>
+    <aside id="drawer" class="drawer">
+      <div class="drawer-head row">
+        <div>
+          <h2 id="drawerTitle" data-i18n="drawerTitle">Edit Template</h2>
+          <p id="drawerSub" class="sub" data-i18n="drawerSub">Separated editing context to reduce cognitive load.</p>
+        </div>
+        <button id="closeDrawer" class="close-btn">✕</button>
+      </div>
+      <div class="drawer-steps">
+        <button class="step-btn active" data-step="basic">
+          <span class="step-badge">1</span>
+          <span data-i18n="stepBasicShort">Basics</span>
+        </button>
+        <div class="step-divider" aria-hidden="true"></div>
+        <button class="step-btn" data-step="sku">
+          <span class="step-badge">2</span>
+          <span data-i18n="stepSkuShort">SKU Setup</span>
+        </button>
+      </div>
+      <div class="drawer-body">
+        <section id="step-basic" class="step-panel">
+          <div class="drawer-section">
+            <div class="section-head">
+              <div>
+                <div class="section-title" data-i18n="scheduleTitle">Template Basics</div>
+                <div class="section-sub" data-i18n="scheduleSub">Set the template name and linked shop for this reusable flash sale setup.</div>
+              </div>
+            </div>
+            <div class="basic-stack">
+              <div id="shopAuthEmpty" class="empty-state" style="display:none;"></div>
+              <div class="field-surface">
+                <div class="field-grid-2">
+                  <div class="field">
+                    <label class="label" data-i18n="templateTitle">Template Title</label>
+                    <input id="templateTitle" class="input" type="text" value="Creator Daily Deals" />
+                    <div class="field-help" data-i18n="templateTitleHelp">Use a clear name so your team can reuse this template later.</div>
+                  </div>
+                  <div class="field">
+                    <label class="label" data-i18n="shopSelect">Select TikTok Shop</label>
+                    <select id="shopSelect" class="select"></select>
+                    <div class="field-help" data-i18n="shopSelectHelp">Choose an authorized TikTok Shop first. Templates live under each shop.</div>
+                  </div>
+                </div>
+                <div id="shopAuthNotice" class="auth-callout" style="display:none;"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="step-sku" class="step-panel" style="display:none;">
+          <div class="toolbar-row">
+            <div>
+              <div class="section-title" data-i18n="skuSetupTitle">SKU Setup</div>
+              <div class="section-sub" data-i18n="skuSetupSub">Choose products first, then apply one flash sale pricing rule and reserved stock setting to selected SKUs.</div>
+            </div>
+          </div>
+
+          <div class="picker-card">
+            <div class="import-meta">
+              <div class="import-pill" data-i18n="productSourcePill">Product Source</div>
+              <div class="section-title" data-i18n="productSourceTitle">Add products to this template</div>
+              <div class="section-sub" data-i18n="productSourceSub">Choose products from the selected shop or import an Excel file with a single PID column.</div>
+            </div>
+            <div class="picker-actions">
+              <button id="selectFromShop" class="btn" data-i18n="selectFromShop">Select from Shop</button>
+              <button class="btn" data-i18n="downloadTemplate">Download Excel Template</button>
+              <button id="importExcel" class="btn btn-primary" data-i18n="importExcel">Import Excel</button>
+            </div>
+          </div>
+
+          <div id="batchToast" class="toast"></div>
+
+          <div id="skuEmptyState" class="empty-products" style="display:none;">
+            <div class="empty-icon">+</div>
+            <div>
+              <div class="section-title" data-i18n="emptyProductsTitle">No products added yet</div>
+              <div class="section-sub" data-i18n="emptyProductsSub">Start by selecting products from the shop or importing an Excel file by PID.</div>
+            </div>
+            <div class="picker-actions" style="justify-content:center;">
+              <button id="emptySelectFromShop" class="btn" data-i18n="selectFromShop">Select from Shop</button>
+              <button id="emptyImportExcel" class="btn btn-primary" data-i18n="importExcel">Import Excel</button>
+            </div>
+          </div>
+
+          <div id="skuConfigSection" class="sku-config">
+            <div class="batch-bar">
+              <div class="batch-copy">
+                <div class="batch-title" data-i18n="batchTitle">Batch apply to selected SKUs</div>
+                <div class="hint" data-i18n="batchTip">Use one pricing method and reserved stock value, then apply to all checked SKUs.</div>
+              </div>
+              <div class="batch-controls">
+                <select id="batchMode" class="select"><option value="price" data-i18n="dealPrice">Deal Price</option><option value="off" data-i18n="offPercent">% Off</option></select>
+                <input id="batchValue" class="input" placeholder="Value" />
+                <input id="batchStock" class="input" placeholder="Stock" />
+                <button id="batchApply" class="btn btn-primary" data-i18n="apply">Apply</button>
+                <button id="undoBatch" class="btn" data-i18n="undo">Undo</button>
+              </div>
+            </div>
+            <div id="productGroups" class="group-stack"></div>
+          </div>
+        </section>
+
+      </div>
+      <div class="drawer-foot">
+        <span class="hint" data-i18n="saveHint">Auto-save off. Click Save to keep changes.</span>
+        <div class="inline">
+          <button class="btn" data-i18n="cancel">Cancel</button>
+          <button class="btn btn-primary" data-i18n="saveTemplate">Save Template</button>
+        </div>
+      </div>
+    </aside>
+
+    <div id="reuseMask" class="reuse-mask"></div>
+    <section id="reuseModal" class="reuse-modal" aria-hidden="true">
+      <div class="reuse-head">
+        <div>
+          <h2 data-i18n="reuseModalTitle">Reuse Previous Task</h2>
+          <p class="sub" data-i18n="reuseModalSub">Load one past task setup, review it, and import it into an editable task group.</p>
+        </div>
+        <button id="closeReuseModal" class="close-btn">✕</button>
+      </div>
+      <div class="reuse-body">
+        <div>
+          <div class="section-title" data-i18n="reuseHistoryTitle">Previous tasks</div>
+          <div class="section-sub" data-i18n="reuseHistorySub">Select one previous task to reuse.</div>
+        </div>
+        <div id="reuseTaskList" class="reuse-task-list"></div>
+      </div>
+      <div class="reuse-foot">
+        <span class="hint" data-i18n="reuseSelectionHint">Select one previous task to continue.</span>
+        <div class="reuse-foot-actions">
+          <button id="cancelReuseModal" class="btn" data-i18n="cancel">Cancel</button>
+          <button id="importReuseBtn" class="btn btn-primary" data-i18n="importTaskSetup" disabled>Import Setup</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+      if (window.location.search.indexOf('embed=1') !== -1) {
+        document.body.classList.add('embed-mode');
+      }
+
+      const t = {
+        en: {
+          connected:"Connected",pageTitle:"Auto Submit Flash Sale",workspaceTitle:"Flash Sale Workspace",workspaceSub:"Less repetitive setup for merchants and MCN teams.",
+          enabled:"Enabled",disabled:"Disabled",newSubmission:"New Submission",enableAutomation:"Enable Automation",
+          tabPackage:"Templates",tabSubmit:"Submit Flash Sale",tabTasks:"Task Center",
+          packageTitle:"Templates",packageSub:"Create and manage templates under each TikTok Shop.",createPackage:"Create Template",
+          searchTemplates:"Search by template or shop",filterAll:"All",filterActive:"Active",filterDraft:"Draft",listHint:"Templates are sorted by recent usage.",
+          colTemplate:"Template",colProducts:"Products",colStatus:"Status",colLastUsed:"Last Used",colEditedBy:"Edited By",colAction:"Action",
+          copyNew:"Copy",emptyPackageTitle:"No templates yet",emptyPackageSub:"Create your first template for an authorized TikTok Shop.",noTemplateMatchTitle:"No matching templates",noTemplateMatchSub:"Try a different search or filter.",
+          statusActive:"Active",statusActiveNote:"Ready to use.",statusDraft:"Draft",statusDraftNote:"Activate before use.",activateTemplate:"Activate",useTemplate:"Use",lastUsedToday:"Used 2 days ago",lastUsedOlder:"Used 6 days ago",authorizedShop:"TikTok Shop Authorized",sellerReady:"Seller Center Ready",sellerLoginRequired:"Seller Center Login Required",sellerLoginTemplateBlocked:"Seller Center login is required before this template can be activated or used.",noShopTemplates:"No templates for this shop yet.",createForThisShop:"Create Template for This Shop",completeLogin:"Complete Login",templateStoreDescription:"Templates are grouped by authorized shop.",storeTimezone:"Store Timezone",templateMore:"More",deleteTemplate:"Delete",deleteTemplateConfirm:"Delete this template?",templateDeleted:"Template deleted.",
+          submitTitle:"Submit Flash Sale",submitSub:"Create flash sale tasks by combining shop, template, time, and creator handles.",createTasks:"Create Tasks",reusePreviousTask:"Reuse Previous Task",reuseThisSetup:"Reuse This Task",reuseModalTitle:"Reuse Previous Task",reuseModalSub:"Load one past task setup, review it, and import it into an editable task group.",reuseHistoryTitle:"Previous tasks",reuseHistorySub:"Select one previous task to reuse.",reuseSelectionHint:"Select one previous task to continue.",importTaskSetup:"Import Task",reuseWindow:"Window",templateMatchTitle:"Shop and Creator Setup",
+          templateMatchSub:"Add one or more task groups.",selectShopFirst:"Select TikTok Shop",selectTemplate:"Select Template",submitTemplateHelp:"Choose an active template for this shop.",linkedShop:"Linked Shop",linkedShopHelp:"This task runs under the selected TikTok Shop.",creatorHandles:"TikTok Creator Handles",creatorHandlesPlaceholder:"@miachen\n@alexrivera\n@jordanlive",creatorHandlesHelp1:"Enter one handle per line.",creatorHandlesHelp2:"All handles in the same task share one time range.",taskScheduleTitle:"Task Groups",taskScheduleSub:"Each task group uses one shop, one template, one time range, and one or more handles.",groupTitle:"Task Group",groupSub:"Use one task group for creators who share the same flash sale window.",groupSub2:"Add another task group for a different time range.",groupStart:"Start",groupEnd:"End",executionTimezone:"Execution Timezone",addGroup:"Add Task Group",removeGroup:"Remove Task Group",taskRuleBody:"Each group becomes one task.",taskSummaryTitle:"Task Summary",taskSummarySub:"Review the task groups before creating tasks.",summaryTemplates:"Templates Used",summaryShops:"Shops Involved",summaryCreators:"Creator Handles",summaryGroups:"Task Groups",summaryEarliestStart:"Earliest Start",summaryLatestEnd:"Latest End",summaryExecutionTimezone:"Timezones",summaryTasks:"Tasks to Create",editTemplate:"Edit Template",selectTemplatePlaceholder:"Select a template",selectShopPlaceholder:"Select a TikTok Shop",groupTemplateMissing:"No active templates for this shop.",groupSellerMissing:"Seller Center login is required for this task.",goAuthorizeShop:"Authorize TikTok Shop",goSellerLogin:"Complete Seller Center Login",
+          taskTitle:"Task Center",taskSub:"Review task status, retry failed tasks, and reuse past task setups.",
+          refresh:"Refresh",colStore:"Store",colStatus:"Status",completed:"Completed",running:"Running",failed:"Failed",retry:"Retry",reconnect:"Reconnect",pending:"Pending",succeeded:"Succeeded",
+          taskSearch:"Search by task, shop, template, or creator",taskFilterRunning:"Running",taskFilterAttention:"Needs Attention",taskFilterCompleted:"Completed",taskListHint:"Tasks are sorted by most recently created first.",taskEmpty:"No tasks match the current filters.",
+          batchLabel:"Task",batchSummaryGroups:"Task Groups",batchSummaryShops:"Shops",batchSummaryHandles:"Handles",batchSummaryFailed:"Failed Tasks",taskExpand:"View Details",taskCollapse:"Hide Details",taskCreatedAt:"Created",taskFailureReason:"Failure Reason",taskNone:"No issues reported.",taskOpenTemplate:"Open Template",taskRetryFailed:"Retry Failed Tasks",taskRetryGroup:"Retry Task",taskCompletedWithErrors:"Completed with Errors",taskGroupLabel:"Task",taskHandles:"Handles",taskViewHandles:"View Handles",taskHideHandles:"Hide Handles",taskGroupShop:"TikTok Shop",taskGroupTemplate:"Template",reasonAuthExpired:"Shop authorization expired.",reasonInvalidHandle:"Creator handle could not be matched.",reasonApiTimeout:"TikTok API timed out. Safe to retry.",reasonMissingSku:"2 SKUs are missing reserved stock.",
+          drawerTitle:"Edit Template",drawerSub:"Separated editing context to reduce cognitive load.",
+          drawerTitleCreate:"Create Template",drawerSubCreate:"Use the same flow as editing, then save as a new template.",
+          drawerTitleEdit:"Edit Template",drawerSubEdit:"Separated editing context to reduce cognitive load.",
+          scheduleTitle:"Template Basics",scheduleSub:"Name the template and choose its TikTok Shop.",
+          templateTitle:"Template Title",
+          shopSelect:"Select TikTok Shop",
+          templateTitleHelp:"Use a clear name your team can recognize.",
+          shopSelectHelp:"Templates are created under one TikTok Shop.",
+          noAuthorizedShopTitle:"Authorize TikTok Shop first",
+          noAuthorizedShopSub:"Authorize a TikTok Shop first.",
+          noAuthorizedShopStep1:"Authorize TikTok Shop",
+          noAuthorizedShopStep1Desc:"Connect a TikTok Shop to load products.",
+          noAuthorizedShopStep2:"Complete Seller Center Login",
+          noAuthorizedShopStep2Desc:"Complete Seller Center login before using templates for tasks.",
+          sellerCenterMissingTitle:"Seller Center login required",
+          sellerCenterMissingSub:"Products are available, but Seller Center login is still required.",
+          sellerCenterReadyTitle:"Seller Center login ready",
+          sellerCenterReadySub:"This shop is ready to create and run templates.",
+          importPill:"Excel Import",
+          importTitle:"Bulk Import Products",
+          importSub:"Upload an Excel file with one PID column.",
+          productSourcePill:"Product Source",
+          productSourceTitle:"Add products to this template",
+          productSourceSub:"Add products from the shop or import by PID.",
+          selectFromShop:"Select from Shop",
+          emptyProductsTitle:"No products added yet",
+          emptyProductsSub:"Select products from the shop or import by PID.",
+          downloadTemplate:"Download Excel Template",
+          importExcel:"Import Excel",
+          skuSetupTitle:"SKU Setup",
+          skuSetupSub:"Add products, then set price and reserved stock for selected SKUs.",
+          stepBasicShort:"Basics",stepSkuShort:"SKU Setup",
+          batchTitle:"Batch apply to selected SKUs",batchTip:"Set one price rule and stock value for checked SKUs.",dealPrice:"Fixed Price",offPercent:"% Off",apply:"Apply",
+          undo:"Undo",colSku:"SKU",originalPrice:"Original Price",dealInput:"Template Price Rule",reservedStock:"Creator Reserved Stock",checkTitle:"Validation Summary",checkSub:"Fix these items before saving template.",
+          check1:"2 SKUs missing reserved stock.",check2:"1 SKU has invalid discount (> 90%).",check3:"Timezone is set and window is valid.",saveHint:"Auto-save off. Click Save to keep changes.",
+          cancel:"Cancel",saveTemplate:"Save Template"
+        },
+        zh: {
+          connected:"已连接",pageTitle:"自动提报秒杀",workspaceTitle:"秒杀提报工作台",workspaceSub:"减少商家与MCN运营团队的重复配置工作。",
+          enabled:"已启用",disabled:"已停用",newSubmission:"新建提报",enableAutomation:"启用自动化",
+          tabPackage:"模版",tabSubmit:"提报秒杀",tabTasks:"任务中心",
+          packageTitle:"模版",packageSub:"按 TikTok Shop 管理模版，方便后续直接复用。",createPackage:"创建模版",
+          searchTemplates:"按模版名或店铺搜索",filterAll:"全部",filterActive:"已启用",filterDraft:"草稿",listHint:"当前按最近使用时间排序。",
+          colTemplate:"模板",colProducts:"商品信息",colStatus:"状态",colLastUsed:"最近使用",colEditedBy:"最近编辑人",colAction:"操作",
+          copyNew:"复制",emptyPackageTitle:"暂无模版",emptyPackageSub:"为已授权的 TikTok Shop 创建第一个模版。",noTemplateMatchTitle:"没有匹配的模版",noTemplateMatchSub:"试试其他搜索词或筛选条件。",
+          statusActive:"启用",statusActiveNote:"可直接使用。",statusDraft:"草稿",statusDraftNote:"启用后可使用。",activateTemplate:"启用",useTemplate:"使用",lastUsedToday:"2天前使用",lastUsedOlder:"6天前使用",authorizedShop:"店铺已授权",sellerReady:"Seller Center 已登录",sellerLoginRequired:"需完成 Seller Center 登录",sellerLoginTemplateBlocked:"当前店铺尚未完成 Seller Center 登录，模版暂不能启用或用于提报。",noShopTemplates:"当前店铺下还没有模版。",createForThisShop:"为该店铺创建模版",completeLogin:"完成登录",templateStoreDescription:"模版按已授权店铺分组显示。",storeTimezone:"店铺时区",templateMore:"更多",deleteTemplate:"删除模版",deleteTemplateConfirm:"确认删除该模版？",templateDeleted:"模版已删除。",
+          submitTitle:"提报秒杀",submitSub:"按店铺、模版、时间和主播组合创建秒杀任务。",createTasks:"创建任务",reusePreviousTask:"快速复用历史任务",reuseThisSetup:"复用此任务",reuseModalTitle:"快速复用历史任务",reuseModalSub:"导入一条历史任务配置，确认后再次提报。",reuseHistoryTitle:"历史任务",reuseHistorySub:"选择一条历史任务进行复用。",reuseSelectionHint:"请先选择一条历史任务。",importTaskSetup:"导入任务",reuseWindow:"时间范围",templateMatchTitle:"店铺与主播设置",templateMatchSub:"添加一个或多个任务组。",selectShopFirst:"选择 TikTok Shop",selectTemplate:"选择模版",submitTemplateHelp:"选择当前店铺下的启用模版。",linkedShop:"关联店铺",linkedShopHelp:"当前任务会在所选 TikTok Shop 下执行。",creatorHandles:"TikTok 主播 Handle",creatorHandlesPlaceholder:"@miachen\n@alexrivera\n@jordanlive",creatorHandlesHelp1:"每行填写一个 Handle。",creatorHandlesHelp2:"同一任务组内共用同一时间范围。",taskScheduleTitle:"任务组设置",taskScheduleSub:"每个任务组对应一个店铺、一个模版、一组时间和一组主播。",groupTitle:"任务组",groupSub:"适用于共享同一秒杀时间窗的一组主播。",groupSub2:"不同时间段可新增任务组。",groupStart:"开始时间",groupEnd:"结束时间",executionTimezone:"执行时区",addGroup:"新增任务组",removeGroup:"删除任务组",taskRuleBody:"每个任务组都会生成一条任务。",taskSummaryTitle:"任务摘要",taskSummarySub:"创建前先确认这些任务组。",summaryTemplates:"模版数",summaryShops:"涉及店铺",summaryCreators:"主播数量",summaryGroups:"任务组数量",summaryEarliestStart:"最早开始时间",summaryLatestEnd:"最晚结束时间",summaryExecutionTimezone:"执行时区",summaryTasks:"预计任务数",editTemplate:"编辑模版",selectTemplatePlaceholder:"请选择模版",selectShopPlaceholder:"请选择 TikTok Shop",groupTemplateMissing:"当前店铺下没有启用模版。",groupSellerMissing:"当前任务组需先完成 Seller Center 登录。",goAuthorizeShop:"去授权 TikTok Shop",goSellerLogin:"去完成 Seller Center 登录",
+          taskTitle:"任务中心",taskSub:"查看任务状态，快速处理失败任务，并复用历史任务配置。",
+          refresh:"刷新",colStore:"店铺",colStatus:"状态",completed:"已完成",running:"进行中",failed:"失败",retry:"重试",reconnect:"重新连接",pending:"待执行",succeeded:"成功",
+          taskSearch:"按任务、店铺、模版或主播搜索",taskFilterRunning:"进行中",taskFilterAttention:"需处理",taskFilterCompleted:"已完成",taskListHint:"当前按最近创建时间排序。",taskEmpty:"当前筛选条件下没有任务。",batchLabel:"任务",batchSummaryGroups:"任务组",batchSummaryShops:"店铺数",batchSummaryHandles:"Handle 数",batchSummaryFailed:"失败任务",taskExpand:"查看明细",taskCollapse:"收起明细",taskCreatedAt:"创建时间",taskFailureReason:"失败原因",taskNone:"暂无异常。",taskOpenTemplate:"查看模版",taskRetryFailed:"重试失败任务",taskRetryGroup:"重试任务",taskCompletedWithErrors:"已完成（含失败）",taskGroupLabel:"任务",taskHandles:"Handle 数",taskViewHandles:"查看 Handle",taskHideHandles:"收起 Handle",taskGroupShop:"TikTok Shop",taskGroupTemplate:"模版",reasonAuthExpired:"店铺授权已失效。",reasonInvalidHandle:"主播 Handle 无法匹配。",reasonApiTimeout:"TikTok 接口超时，可安全重试。",reasonMissingSku:"有 2 个 SKU 缺少 Reserved Stock。",
+          drawerTitle:"编辑模版",drawerSub:"将编辑与列表分离，降低认知负担。",
+          drawerTitleCreate:"创建模版",drawerSubCreate:"与编辑流程保持一致，保存后即生成新模版。",
+          drawerTitleEdit:"编辑模版",drawerSubEdit:"将编辑与列表分离，降低认知负担。",
+          scheduleTitle:"模版基础信息",scheduleSub:"填写模版名称，并选择所属 TikTok Shop。",
+          templateTitle:"模版标题",
+          shopSelect:"选择 TikTok Shop",
+          templateTitleHelp:"建议使用便于识别的名称。",
+          shopSelectHelp:"模版会归属在该 TikTok Shop 下。",
+          noAuthorizedShopTitle:"请先授权 TikTok Shop",
+          noAuthorizedShopSub:"请先完成 TikTok Shop 授权。",
+          noAuthorizedShopStep1:"授权 TikTok Shop",
+          noAuthorizedShopStep1Desc:"连接 TikTok Shop 后才能同步商品。",
+          noAuthorizedShopStep2:"完成 Seller Center 登录",
+          noAuthorizedShopStep2Desc:"完成 Seller Center 登录后，模版和任务才能执行。",
+          sellerCenterMissingTitle:"需要完成 Seller Center 登录",
+          sellerCenterMissingSub:"当前店铺可拉取商品，但还不能执行提报。",
+          sellerCenterReadyTitle:"Seller Center 已就绪",
+          sellerCenterReadySub:"当前店铺已可正常创建并执行模版。",
+          importPill:"Excel 导入",
+          importTitle:"批量导入商品",
+          importSub:"上传仅包含 PID 列的 Excel 文件。",
+          productSourcePill:"商品来源",
+          productSourceTitle:"为当前模版添加商品",
+          productSourceSub:"可从店铺选择商品，或按 PID 导入。",
+          selectFromShop:"从店铺选择",
+          emptyProductsTitle:"当前还没有商品",
+          emptyProductsSub:"请先从店铺选择商品，或按 PID 导入。",
+          downloadTemplate:"下载 Excel 模版",
+          importExcel:"导入 Excel",
+          skuSetupTitle:"SKU 设置",
+          skuSetupSub:"先添加商品，再统一设置价格和 Reserved Stock。",
+          stepBasicShort:"基础配置",stepSkuShort:"SKU 设置",
+          batchTitle:"批量应用到已勾选 SKU",batchTip:"为已勾选 SKU 统一设置价格和库存。",dealPrice:"固定价",offPercent:"折扣(%)",apply:"应用",
+          undo:"撤销",colSku:"SKU",originalPrice:"原价",dealInput:"模版价格规则",reservedStock:"Reserved Stock",checkTitle:"校验结果",checkSub:"保存模板前请修复以下问题。",
+          check1:"2个SKU缺少Reserved Stock。",check2:"1个SKU折扣非法（>90%）。",check3:"时区已设置，时间窗有效。",saveHint:"当前未自动保存，请点击保存。",
+          cancel:"取消",saveTemplate:"保存模板"
+        }
+      };
+
+      const tenantCenterHash = "../../index.html#/affiliate/analytics";
+
+      const shopData = [
+        { id: "shop_glowlab", name: "GlowLab Official Store", market: "US Local Shop", timezoneLabel: "UTC-7", shopAuthorized: true, sellerLogin: true },
+        { id: "shop_veloura", name: "Veloura Beauty London", market: "UK Local Shop", timezoneLabel: "UTC+0", shopAuthorized: true, sellerLogin: false },
+        { id: "shop_nova", name: "Nova Trend Global", market: "US Cross-border Shop", timezoneLabel: "UTC-7", shopAuthorized: true, sellerLogin: true }
+      ];
+
+      const templateData = [
+        {
+          id: "tpl_glow_daily",
+          shopId: "shop_glowlab",
+          title: "Creator Daily Deals",
+          skuCount: 26,
+          pidGroups: 3,
+          pricingMode: "price",
+          status: "active",
+          lastUsed: "2026-03-26 21:30",
+          usedAgoKey: "lastUsedToday",
+          editedBy: "Amanda",
+          editedDate: "Mar 26, 2026"
+        },
+        {
+          id: "tpl_glow_evening",
+          shopId: "shop_glowlab",
+          title: "GlowLab Evening Push",
+          skuCount: 12,
+          pidGroups: 2,
+          pricingMode: "off",
+          status: "draft",
+          lastUsed: "2026-03-22 18:40",
+          usedAgoKey: "lastUsedOlder",
+          editedBy: "Amanda",
+          editedDate: "Mar 22, 2026"
+        },
+        {
+          id: "tpl_veloura_weekend",
+          shopId: "shop_veloura",
+          title: "Weekend Flash Set",
+          skuCount: 18,
+          pidGroups: 2,
+          pricingMode: "off",
+          status: "draft",
+          lastUsed: "2026-03-24 20:05",
+          usedAgoKey: "lastUsedOlder",
+          editedBy: "Jason",
+          editedDate: "Mar 24, 2026"
+        },
+        {
+          id: "tpl_nova_evening",
+          shopId: "shop_nova",
+          title: "US Evening Boost",
+          skuCount: 21,
+          pidGroups: 4,
+          pricingMode: "price",
+          status: "active",
+          lastUsed: "2026-03-28 09:40",
+          usedAgoKey: "lastUsedToday",
+          editedBy: "Amanda",
+          editedDate: "Mar 28, 2026"
+        }
+      ];
+
+      const defaultSkuGroups = [
+        {
+          product: "Graphic Tee - Unisex T-Shirt",
+          pid: "7038759535",
+          rows: [
+            { sku: "White-XXL", origin: 23.99, deal: 17.99, stock: 20, selected: true },
+            { sku: "White-XL", origin: 23.99, deal: 17.99, stock: 18, selected: true },
+            { sku: "White-L", origin: 23.99, deal: 17.99, stock: "", selected: false },
+            { sku: "Black-M", origin: 23.99, deal: 17.99, stock: 10, selected: true }
+          ]
+        },
+        {
+          product: "Hydrating Skin Tint",
+          pid: "8182046112",
+          rows: [
+            { sku: "Light-01", origin: 19.99, deal: 15.99, stock: 16, selected: true },
+            { sku: "Light-02", origin: 19.99, deal: 15.99, stock: 12, selected: true },
+            { sku: "Medium-02", origin: 19.99, deal: 15.99, stock: 0, selected: false }
+          ]
+        },
+        {
+          product: "Cooling Face Mist",
+          pid: "9207713550",
+          rows: [
+            { sku: "100ml", origin: 12.99, deal: 9.99, stock: 30, selected: true },
+            { sku: "150ml", origin: 14.99, deal: 11.99, stock: 22, selected: true }
+          ]
+        }
+      ];
+
+      const defaultScheduleGroups = [
+        {
+          id: "group_1",
+          shopId: "shop_glowlab",
+          templateId: "tpl_glow_daily",
+          start: "2026-04-01T20:00",
+          end: "2026-04-01T22:00",
+          timezone: "Asia/Shanghai",
+          handles: "@miachen\n@alexrivera\n@jordanlive"
+        },
+        {
+          id: "group_2",
+          shopId: "shop_nova",
+          templateId: "tpl_nova_evening",
+          start: "2026-04-02T19:30",
+          end: "2026-04-02T21:30",
+          timezone: "America/Los_Angeles",
+          handles: "@westcoastmia\n@trendroom"
+        }
+      ];
+
+      const taskData = [
+        {
+          id: "TASK-20260401-01",
+          shop: "GlowLab Official Store",
+          template: "Creator Daily Deals",
+          start: "2026-04-01 20:00",
+          end: "2026-04-01 22:00",
+          timezone: "Asia/Shanghai",
+          status: "running",
+          reason: "none",
+          handles: ["@miachen", "@alexrivera", "@jordanlive"],
+          createdAt: "2026-03-30 10:20",
+          createdBy: "Amanda"
+        },
+        {
+          id: "TASK-20260402-02",
+          shop: "Nova Trend Global",
+          template: "US Evening Boost",
+          start: "2026-04-02 19:30",
+          end: "2026-04-02 21:30",
+          timezone: "America/Los_Angeles",
+          status: "failed",
+          reason: "api-timeout",
+          handles: ["@lunalive", "@trendroom"],
+          createdAt: "2026-03-30 10:22",
+          createdBy: "Amanda"
+        },
+        {
+          id: "TASK-20260329-01",
+          shop: "Veloura Beauty London",
+          template: "Weekend Flash Set",
+          start: "2026-03-29 18:00",
+          end: "2026-03-29 20:00",
+          timezone: "Europe/London",
+          status: "failed",
+          reason: "auth-expired",
+          handles: ["@beautybyana", "@velouralive"],
+          createdAt: "2026-03-29 18:05",
+          createdBy: "Jason"
+        },
+        {
+          id: "TASK-20260328-01",
+          shop: "Nova Trend Global",
+          template: "US Evening Boost",
+          start: "2026-03-28 17:00",
+          end: "2026-03-28 19:00",
+          timezone: "America/Los_Angeles",
+          status: "completed",
+          reason: "none",
+          handles: ["@westcoastmia"],
+          createdAt: "2026-03-28 09:40",
+          createdBy: "Amanda"
+        },
+        {
+          id: "TASK-20260329-02",
+          shop: "Nova Trend Global",
+          template: "Creator Daily Deals",
+          start: "2026-03-29 16:00",
+          end: "2026-03-29 18:00",
+          timezone: "America/Los_Angeles",
+          status: "completed",
+          reason: "none",
+          handles: ["@trendroom", "@nordahlive"],
+          createdAt: "2026-03-28 09:41",
+          createdBy: "Amanda"
+        }
+      ];
+
+      const langSel = document.getElementById("lang");
+      const tabs = document.querySelectorAll(".tab");
+      const panels = {
+        package: document.getElementById("panel-package"),
+        submit: document.getElementById("panel-submit"),
+        tasks: document.getElementById("panel-tasks")
+      };
+
+      const drawerMask = document.getElementById("drawerMask");
+      const drawer = document.getElementById("drawer");
+      const closeDrawer = document.getElementById("closeDrawer");
+      const packagePanel = document.getElementById("panel-package");
+      const submitPanel = document.getElementById("panel-submit");
+      const templateShopList = document.getElementById("templateShopList");
+      const packageEmpty = document.getElementById("packageEmpty");
+      const createTemplateBtn = document.getElementById("createTemplateBtn");
+      const templateSearch = document.getElementById("templateSearch");
+      const templateFilterBtns = document.querySelectorAll(".template-filter");
+      const taskSearch = document.getElementById("taskSearch");
+      const taskFilterBtns = document.querySelectorAll(".task-filter");
+      const taskBatchList = document.getElementById("taskBatchList");
+      const drawerTitleEl = document.getElementById("drawerTitle");
+      const drawerSubEl = document.getElementById("drawerSub");
+      const stepBtns = document.querySelectorAll(".step-btn");
+      const stepPanels = {
+        basic: document.getElementById("step-basic"),
+        sku: document.getElementById("step-sku")
+      };
+      const importExcel = document.getElementById("importExcel");
+      const selectFromShop = document.getElementById("selectFromShop");
+      const emptySelectFromShop = document.getElementById("emptySelectFromShop");
+      const emptyImportExcel = document.getElementById("emptyImportExcel");
+      const batchMode = document.getElementById("batchMode");
+      const batchValue = document.getElementById("batchValue");
+      const batchStock = document.getElementById("batchStock");
+      const batchApply = document.getElementById("batchApply");
+      const undoBatch = document.getElementById("undoBatch");
+      const batchToast = document.getElementById("batchToast");
+      const skuEmptyState = document.getElementById("skuEmptyState");
+      const skuConfigSection = document.getElementById("skuConfigSection");
+      const productGroups = document.getElementById("productGroups");
+      const shopSelect = document.getElementById("shopSelect");
+      const shopAuthNotice = document.getElementById("shopAuthNotice");
+      const shopAuthEmpty = document.getElementById("shopAuthEmpty");
+      const scheduleGroupList = document.getElementById("scheduleGroupList");
+      const addScheduleGroupBtn = document.getElementById("addScheduleGroup");
+      const createTasksBtn = document.getElementById("createTasksBtn");
+      const reuseMask = document.getElementById("reuseMask");
+      const reuseModal = document.getElementById("reuseModal");
+      const closeReuseModal = document.getElementById("closeReuseModal");
+      const cancelReuseModal = document.getElementById("cancelReuseModal");
+      const importReuseBtn = document.getElementById("importReuseBtn");
+      const reuseTaskList = document.getElementById("reuseTaskList");
+      let lastBatchSnapshot = null;
+      let currentLang = "en";
+      let drawerMode = "edit";
+      let skuGroups = JSON.parse(JSON.stringify(defaultSkuGroups));
+      let taskFilter = "all";
+      let templateFilter = "all";
+      let currentTemplateId = templateData[0].id;
+      let submitGroups = JSON.parse(JSON.stringify(defaultScheduleGroups));
+      let selectedReuseTaskId = "";
+      let openTemplateMenuId = "";
+
+      function getShopById(shopId) {
+        return shopData.find((shop) => shop.id === shopId);
+      }
+
+      function getTemplateById(templateId) {
+        return templateData.find((template) => template.id === templateId);
+      }
+
+      function getTemplatesByShop(shopId) {
+        return templateData.filter((template) => template.shopId === shopId);
+      }
+
+      function getActiveTemplatesByShop(shopId) {
+        return templateData.filter((template) => template.shopId === shopId && template.status === "active");
+      }
+
+      function copyTemplate(templateId) {
+        const source = getTemplateById(templateId);
+        if (!source) return;
+        const copyId = `tpl_copy_${Date.now()}`;
+        const duplicate = {
+          ...source,
+          id: copyId,
+          title: `${source.title} Copy`,
+          status: "draft",
+          lastUsed: "--",
+          usedAgoKey: "lastUsedOlder",
+          editedBy: "Amanda",
+          editedDate: "Apr 01, 2026"
+        };
+        templateData.unshift(duplicate);
+      }
+
+      function deleteTemplate(templateId) {
+        const index = templateData.findIndex((template) => template.id === templateId);
+        if (index === -1) return;
+        templateData.splice(index, 1);
+        submitGroups = submitGroups.map((group) => {
+          if (group.templateId !== templateId) return group;
+          const fallback = getActiveTemplatesByShop(group.shopId)[0];
+          return { ...group, templateId: fallback ? fallback.id : "" };
+        });
+        if (currentTemplateId === templateId) {
+          currentTemplateId = templateData[0] ? templateData[0].id : "";
+        }
+      }
+
+      function shopLabel(shop) {
+        return `${shop.name} (${shop.market} · ${shop.timezoneLabel})`;
+      }
+
+      function goTenantCenter() {
+        if (window.top && window.top !== window) {
+          window.top.location.href = tenantCenterHash;
+          return;
+        }
+        window.location.href = tenantCenterHash;
+      }
+
+      function creatorCountFromHandles(text) {
+        return String(text || "")
+          .split("\n")
+          .map((line) => line.trim())
+          .filter(Boolean).length;
+      }
+
+      function formatDateTime(value) {
+        if (!value) return "--";
+        return value.replace("T", " ");
+      }
+
+      function renderTemplateList() {
+        const dict = t[currentLang];
+        const authorizedShops = shopData.filter((shop) => shop.shopAuthorized);
+        const query = (templateSearch?.value || "").trim().toLowerCase();
+        const allAuthorizedTemplates = authorizedShops.flatMap((shop) => getTemplatesByShop(shop.id));
+        if (!authorizedShops.length) {
+          templateShopList.innerHTML = "";
+          packageEmpty.style.display = "block";
+          createTemplateBtn.style.display = "none";
+          packageEmpty.className = "template-empty-hero";
+          packageEmpty.innerHTML = `
+            <div class="template-empty-icon">◎</div>
+            <div class="template-empty-copy">
+              <h3>${dict.noAuthorizedShopTitle}</h3>
+              <p>${dict.noAuthorizedShopSub}</p>
+            </div>
+            <div class="template-empty-steps">
+              <div class="template-empty-step">
+                <div class="template-empty-step-head"><span class="template-empty-step-num">1</span>${dict.noAuthorizedShopStep1}</div>
+                <p>${dict.noAuthorizedShopStep1Desc}</p>
+              </div>
+              <div class="template-empty-step">
+                <div class="template-empty-step-head"><span class="template-empty-step-num">2</span>${dict.noAuthorizedShopStep2}</div>
+                <p>${dict.noAuthorizedShopStep2Desc}</p>
+              </div>
+            </div>
+            <div class="template-empty-actions">
+              <button class="btn btn-primary go-tenant-center">${dict.goAuthorizeShop}</button>
+            </div>
+          `;
+          return;
+        }
+        createTemplateBtn.style.display = "inline-flex";
+        const visibleShops = authorizedShops.map((shop) => {
+          const shopTemplates = getTemplatesByShop(shop.id).filter((template) => {
+            if (templateFilter !== "all" && template.status !== templateFilter) return false;
+            if (!query) return true;
+            const haystack = `${template.title} ${shop.name} ${shop.market}`.toLowerCase();
+            return haystack.includes(query);
+          });
+          if (!shopTemplates.length) return "";
+          const sellerBadge = shop.sellerLogin
+            ? `<span class="badge ok">${dict.sellerReady}</span>`
+            : `<span class="badge warn">${dict.sellerLoginRequired}</span>`;
+          const authNote = shop.sellerLogin ? dict.sellerCenterReadySub : dict.sellerCenterMissingSub;
+          const rows = `
+            <div class="template-list-head">
+              <span>${dict.colTemplate}</span>
+              <span>${dict.colProducts}</span>
+              <span>${dict.colStatus}</span>
+              <span>${dict.colLastUsed}</span>
+              <span>${dict.colAction}</span>
+            </div>
+            ${shopTemplates.map((template) => {
+            const active = template.status === "active";
+            const statusBadge = active
+              ? `<span class="badge ok">${dict.statusActive}</span>`
+              : `<span class="badge neutral">${dict.statusDraft}</span>`;
+            const statusNote = !shop.sellerLogin
+              ? dict.sellerLoginTemplateBlocked
+              : active
+                ? dict.statusActiveNote
+                : dict.statusDraftNote;
+            const primaryAction = !shop.sellerLogin
+              ? ``
+              : active
+                ? `<button class="btn btn-primary template-use" data-template-id="${template.id}">${dict.useTemplate}</button>`
+                : `<button class="btn btn-primary template-activate" data-template-id="${template.id}">${dict.activateTemplate}</button>`;
+            return `
+              <div class="template-row ${openTemplateMenuId === template.id ? "menu-open" : ""}">
+                <div class="template-main">
+                  <div class="template-name">${template.title}</div>
+                  <div class="template-store">${shop.name} · ${shop.timezoneLabel}</div>
+                  <div class="template-meta">
+                    <span class="template-chip">${template.skuCount} SKUs</span>
+                    <span class="template-chip">${template.pricingMode === "price" ? dict.dealPrice : dict.offPercent}</span>
+                  </div>
+                </div>
+                <div class="template-products">
+                  <div class="metric-main">${template.skuCount} SKUs</div>
+                  <div class="mono">PID groups: ${template.pidGroups}</div>
+                </div>
+                <div class="template-status">
+                  ${statusBadge}
+                  <div class="health-note">${statusNote}</div>
+                </div>
+                <div class="metric-stack">
+                  <div class="metric-main">${template.lastUsed}</div>
+                  <div class="mono">${dict[template.usedAgoKey]}</div>
+                </div>
+                <div class="template-actions">
+                  ${primaryAction}
+                  <button class="btn btn-link edit-template" data-template-id="${template.id}">${dict.editTemplate}</button>
+                  <div class="template-menu-wrap">
+                    <button class="btn btn-icon toggle-template-menu" data-template-id="${template.id}" aria-label="${dict.templateMore}">…</button>
+                    ${openTemplateMenuId === template.id ? `
+                      <div class="template-menu">
+                        <button class="template-copy" data-template-id="${template.id}">${dict.copyNew}</button>
+                        <button class="template-delete danger" data-template-id="${template.id}">${dict.deleteTemplate}</button>
+                      </div>
+                    ` : ""}
+                  </div>
+                </div>
+              </div>
+            `;
+          }).join("")}`;
+          return `
+            <section class="shop-section">
+              <div class="shop-section-head">
+                <div class="shop-section-main">
+                  <div class="shop-name">${shop.name}</div>
+                  <div class="shop-sub">${shop.market} · ${dict.storeTimezone}: ${shop.timezoneLabel}</div>
+                  <div class="shop-badges">
+                    <span class="badge ok">${dict.authorizedShop}</span>
+                    ${sellerBadge}
+                  </div>
+                  <div class="shop-auth-note">${authNote}</div>
+                </div>
+                <div class="shop-section-actions">
+                  <div class="action-row">
+                  ${shop.sellerLogin ? "" : `<button class="btn go-tenant-center">${dict.completeLogin}</button>`}
+                  <button class="btn btn-primary create-template" data-shop-id="${shop.id}">${dict.createForThisShop}</button>
+                  </div>
+                </div>
+              </div>
+              <div class="shop-template-items">${rows}</div>
+            </section>
+          `;
+        }).filter(Boolean).join("");
+        if (!visibleShops) {
+          templateShopList.innerHTML = "";
+          packageEmpty.style.display = "block";
+          packageEmpty.className = "template-empty-hero";
+          if (!allAuthorizedTemplates.length) {
+            packageEmpty.innerHTML = `
+              <div class="template-empty-icon">◎</div>
+              <div class="template-empty-copy">
+                <h3>${dict.emptyPackageTitle}</h3>
+                <p>${dict.emptyPackageSub}</p>
+              </div>
+              <div class="template-empty-actions">
+                <button class="btn btn-primary create-template">${dict.createPackage}</button>
+              </div>
+            `;
+          } else {
+            packageEmpty.innerHTML = `
+              <div class="template-empty-icon">⌕</div>
+              <div class="template-empty-copy">
+                <h3>${dict.noTemplateMatchTitle}</h3>
+                <p>${dict.noTemplateMatchSub}</p>
+              </div>
+            `;
+          }
+          return;
+        }
+        packageEmpty.className = "empty-state";
+        packageEmpty.style.display = "none";
+        templateShopList.innerHTML = visibleShops;
+      }
+
+      function renderShopSelectOptions(selectedShopId) {
+        const dict = t[currentLang];
+        const authorizedShops = shopData.filter((shop) => shop.shopAuthorized);
+        shopSelect.innerHTML = "";
+        if (!authorizedShops.length) {
+          shopSelect.innerHTML = `<option value="">${dict.selectShopPlaceholder}</option>`;
+          return;
+        }
+        authorizedShops.forEach((shop) => {
+          const option = document.createElement("option");
+          option.value = shop.id;
+          option.textContent = shopLabel(shop);
+          option.selected = shop.id === selectedShopId;
+          shopSelect.appendChild(option);
+        });
+      }
+
+      function renderDrawerShopState() {
+        const dict = t[currentLang];
+        const authorizedShops = shopData.filter((shop) => shop.shopAuthorized);
+        if (!authorizedShops.length) {
+          shopAuthEmpty.style.display = "block";
+          shopAuthNotice.style.display = "none";
+          shopAuthEmpty.innerHTML = `
+            <h3>${dict.noAuthorizedShopTitle}</h3>
+            <p class="sub">${dict.noAuthorizedShopSub}</p>
+            <div class="spacer"><button class="btn btn-primary go-tenant-center">${dict.goAuthorizeShop}</button></div>
+          `;
+          shopSelect.disabled = true;
+          return;
+        }
+        shopAuthEmpty.style.display = "none";
+        shopSelect.disabled = false;
+        const selectedShop = getShopById(shopSelect.value || authorizedShops[0].id);
+        if (!selectedShop) return;
+        const isReady = selectedShop.sellerLogin;
+        shopAuthNotice.style.display = "flex";
+        shopAuthNotice.className = `auth-callout${isReady ? "" : " error"}`;
+        shopAuthNotice.innerHTML = `
+          <div class="auth-callout-main">
+            <div class="auth-callout-title">${isReady ? dict.sellerCenterReadyTitle : dict.sellerCenterMissingTitle}</div>
+            <div class="auth-callout-sub">${isReady ? dict.sellerCenterReadySub : dict.sellerCenterMissingSub}</div>
+          </div>
+          ${isReady ? "" : `<button class="btn btn-primary go-tenant-center">${dict.goSellerLogin}</button>`}
+        `;
+      }
+
+      function renderScheduleGroups() {
+        const dict = t[currentLang];
+        scheduleGroupList.innerHTML = submitGroups.map((group, index) => {
+          const selectedShop = getShopById(group.shopId) || shopData[0];
+          const templates = getActiveTemplatesByShop(selectedShop.id);
+          const selectedTemplate = getTemplateById(group.templateId) || templates[0];
+          const handles = String(group.handles || "").split("\n").map((line) => line.trim()).filter(Boolean);
+          const sellerWarning = !selectedShop.sellerLogin ? `
+            <div class="auth-callout error">
+              <div class="auth-callout-main">
+                <div class="auth-callout-title">${dict.sellerCenterMissingTitle}</div>
+                <div class="auth-callout-sub">${dict.groupSellerMissing}</div>
+              </div>
+              <button class="btn btn-primary go-tenant-center">${dict.goSellerLogin}</button>
+            </div>
+          ` : "";
+          const templateWarning = !templates.length ? `
+            <div class="auth-callout">
+              <div class="auth-callout-main">
+                <div class="auth-callout-title">${dict.selectTemplate}</div>
+                <div class="auth-callout-sub">${dict.groupTemplateMissing}</div>
+              </div>
+              <button class="btn create-template" data-shop-id="${selectedShop.id}">${dict.createPackage}</button>
+            </div>
+          ` : "";
+          return `
+            <div class="schedule-group-card" data-group-id="${group.id}">
+              <div class="schedule-group-head">
+                <div>
+                  <div class="section-title">${dict.groupTitle} ${index + 1}</div>
+                  <div class="section-sub">${index === 0 ? dict.groupSub : dict.groupSub2}</div>
+                </div>
+                <div class="inline">
+                  <span class="template-chip">${handles.length} Handles</span>
+                  ${index > 0 ? `<button class="btn btn-link remove-group" data-group-id="${group.id}">${dict.removeGroup}</button>` : ""}
+                </div>
+              </div>
+              <div class="schedule-group-grid group-top">
+                <div class="field">
+                  <label class="label">${dict.selectShopFirst}</label>
+                  <select class="select submit-shop-select" data-group-id="${group.id}">
+                    ${shopData.filter((shop) => shop.shopAuthorized).map((shop) => `<option value="${shop.id}" ${shop.id === selectedShop.id ? "selected" : ""}>${shopLabel(shop)}</option>`).join("")}
+                  </select>
+                  <div class="field-help">${dict.linkedShopHelp}</div>
+                </div>
+                <div class="field">
+                  <label class="label">${dict.selectTemplate}</label>
+                  <select class="select submit-template-select" data-group-id="${group.id}" ${templates.length ? "" : "disabled"}>
+                    ${templates.length ? templates.map((template) => `<option value="${template.id}" ${selectedTemplate && template.id === selectedTemplate.id ? "selected" : ""}>${template.title}</option>`).join("") : `<option value="">${dict.selectTemplatePlaceholder}</option>`}
+                  </select>
+                  <div class="field-help">${dict.submitTemplateHelp}</div>
+                </div>
+              </div>
+              ${sellerWarning}
+              ${templateWarning}
+              <div class="schedule-group-grid">
+                <div class="field">
+                  <label class="label">${dict.groupStart}</label>
+                  <input class="input submit-start" type="datetime-local" data-group-id="${group.id}" value="${group.start}" />
+                </div>
+                <div class="field">
+                  <label class="label">${dict.groupEnd}</label>
+                  <input class="input submit-end" type="datetime-local" data-group-id="${group.id}" value="${group.end}" />
+                </div>
+                <div class="field">
+                  <label class="label">${dict.executionTimezone}</label>
+                  <select class="select submit-timezone" data-group-id="${group.id}">
+                    <option ${group.timezone === "Asia/Shanghai" ? "selected" : ""}>Asia/Shanghai</option>
+                    <option ${group.timezone === "America/Los_Angeles" ? "selected" : ""}>America/Los_Angeles</option>
+                    <option ${group.timezone === "Europe/London" ? "selected" : ""}>Europe/London</option>
+                  </select>
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">${dict.creatorHandles}</label>
+                <textarea class="handle-area submit-handles" data-group-id="${group.id}" placeholder="${dict.creatorHandlesPlaceholder}">${group.handles}</textarea>
+                <div class="helper-list">
+                  <div>${dict.creatorHandlesHelp1}</div>
+                  <div>${dict.creatorHandlesHelp2}</div>
+                </div>
+                <div class="handle-chip-list">${handles.map((handle) => `<span class="creator-chip">${handle}</span>`).join("")}</div>
+              </div>
+              <div class="schedule-range-note">${handles.length || 0} handles · ${formatDateTime(group.start)} → ${formatDateTime(group.end)} · ${group.timezone}</div>
+            </div>
+          `;
+        }).join("");
+        updateTaskSummary();
+      }
+
+      function updateTaskSummary() {
+        let hasBlockingIssue = false;
+
+        submitGroups.forEach((group) => {
+          const shop = getShopById(group.shopId);
+          const templates = getActiveTemplatesByShop(group.shopId);
+          if (!shop || !shop.sellerLogin || !templates.length || !group.templateId) {
+            hasBlockingIssue = true;
+          }
+        });
+
+        createTasksBtn.disabled = hasBlockingIssue;
+      }
+
+      function taskBadge(status) {
+        const dict = t[currentLang];
+        if (status === "completed") return { cls: "ok", text: dict.completed };
+        if (status === "running") return { cls: "warn", text: dict.running };
+        if (status === "attention") return { cls: "err", text: dict.taskCompletedWithErrors };
+        if (status === "failed") return { cls: "err", text: dict.failed };
+        if (status === "pending") return { cls: "neutral", text: dict.pending };
+        if (status === "succeeded") return { cls: "ok", text: dict.succeeded };
+        return { cls: "neutral", text: status };
+      }
+
+      function taskReasonText(reason) {
+        const dict = t[currentLang];
+        if (reason === "auth-expired") return dict.reasonAuthExpired;
+        if (reason === "invalid-handle") return dict.reasonInvalidHandle;
+        if (reason === "api-timeout") return dict.reasonApiTimeout;
+        if (reason === "missing-sku") return dict.reasonMissingSku;
+        return dict.taskNone;
+      }
+
+      function buildSubmitGroupFromTask(task) {
+        if (!task) return null;
+        const matchedShop = shopData.find((shop) => shop.name === task.shop);
+        const matchedTemplate = templateData.find((template) => template.title === task.template && (!matchedShop || template.shopId === matchedShop.id));
+        return {
+          id: `group_${Date.now()}`,
+          shopId: matchedShop ? matchedShop.id : "",
+          templateId: matchedTemplate ? matchedTemplate.id : "",
+          start: task.start ? task.start.replace(" ", "T") : "",
+          end: task.end ? task.end.replace(" ", "T") : "",
+          timezone: task.timezone || "Asia/Shanghai",
+          handles: Array.isArray(task.handles) ? task.handles.join("\n") : ""
+        };
+      }
+
+      function renderReuseTaskList() {
+        const dict = t[currentLang];
+        reuseTaskList.innerHTML = taskData.map((task) => {
+          const active = task.id === selectedReuseTaskId;
+          const badge = taskBadge(task.status);
+          return `
+            <div class="reuse-task-card ${active ? "active" : ""}" data-task-card="${task.id}">
+              <div class="reuse-task-top">
+                <div>
+                  <div class="reuse-task-title">${task.id}</div>
+                  <div class="reuse-task-sub">${task.createdAt} · ${task.createdBy}</div>
+                </div>
+                <span class="badge ${badge.cls}">${badge.text}</span>
+              </div>
+              <div class="reuse-task-metrics">
+                <div class="reuse-metric">
+                  <div class="reuse-metric-value">${task.shop}</div>
+                  <div class="reuse-metric-label">${dict.summaryShops}</div>
+                </div>
+                <div class="reuse-metric">
+                  <div class="reuse-metric-value">${task.template}</div>
+                  <div class="reuse-metric-label">${dict.summaryTemplates}</div>
+                </div>
+                <div class="reuse-metric">
+                  <div class="reuse-metric-value">${formatDateTime(task.start)} → ${formatDateTime(task.end)}</div>
+                  <div class="reuse-metric-label">${dict.reuseWindow}</div>
+                </div>
+                <div class="reuse-metric">
+                  <div class="reuse-metric-value">${task.handles.length}</div>
+                  <div class="reuse-metric-label">${dict.summaryCreators}</div>
+                </div>
+              </div>
+            </div>
+          `;
+        }).join("");
+        importReuseBtn.disabled = !selectedReuseTaskId;
+      }
+
+      function openReuseModal(taskId = "") {
+        selectedReuseTaskId = taskId || selectedReuseTaskId || (taskData[0] ? taskData[0].id : "");
+        renderReuseTaskList();
+        reuseMask.style.display = "block";
+        reuseModal.classList.add("open");
+        reuseModal.setAttribute("aria-hidden", "false");
+      }
+
+      function closeReuseDialog() {
+        reuseModal.classList.remove("open");
+        reuseMask.style.display = "none";
+        reuseModal.setAttribute("aria-hidden", "true");
+      }
+
+      function taskActionLabel(action) {
+        const dict = t[currentLang];
+        if (action === "retry") return dict.retry;
+        if (action === "reconnect") return dict.reconnect;
+        return "";
+      }
+
+      function renderTaskCenter() {
+        const dict = t[currentLang];
+        const query = (taskSearch?.value || "").trim().toLowerCase();
+        const filtered = taskData.filter((task) => {
+          if (taskFilter === "running" && !["running", "pending"].includes(task.status)) return false;
+          if (taskFilter === "attention" && task.status !== "failed") return false;
+          if (taskFilter === "completed" && task.status !== "completed") return false;
+          if (!query) return true;
+          const haystack = [task.id, task.shop, task.template, task.start, task.end, task.timezone, task.createdBy, ...task.handles].join(" ").toLowerCase();
+          return haystack.includes(query);
+        });
+
+        if (!filtered.length) {
+          taskBatchList.innerHTML = `<div class="task-empty">${dict.taskEmpty}</div>`;
+          return;
+        }
+
+        taskBatchList.innerHTML = filtered.map((task, index) => {
+          const badge = taskBadge(task.status);
+          const handlesOpen = index === 0;
+          const taskReason = taskReasonText(task.reason);
+          const taskReasonClass = task.reason === "none" ? "task-group-reason muted" : "task-group-reason";
+          const handleRows = task.handles.map((handle) => `<span class="creator-chip">${handle}</span>`).join("");
+          return `
+            <article class="task-batch-card">
+              <div class="task-batch-head">
+                <div class="task-batch-main">
+                  <div class="batch-topline">
+                    <span class="batch-label">${dict.batchLabel}</span>
+                    <span class="mono">${task.id}</span>
+                    <span class="badge ${badge.cls}">${badge.text}</span>
+                  </div>
+                  <div class="task-batch-title">${task.template}</div>
+                  <div class="task-batch-meta">
+                    <span class="template-chip">${dict.taskGroupShop}: ${task.shop}</span>
+                    <span class="template-chip">${formatDateTime(task.start)} → ${formatDateTime(task.end)}</span>
+                    <span class="template-chip">${task.timezone}</span>
+                    <span class="template-chip">${task.handles.length} ${dict.taskHandles.toLowerCase()}</span>
+                  </div>
+                </div>
+                <div class="task-batch-right">
+                  <button class="btn toggle-handles" data-handle-target="taskHandleList${index}">${handlesOpen ? dict.taskHideHandles : dict.taskViewHandles}</button>
+                </div>
+              </div>
+              <div class="task-batch-body" style="display:grid;">
+                <div class="task-batch-note">${dict.taskCreatedAt}: ${task.createdAt} · ${task.createdBy}</div>
+                <div class="${taskReasonClass}">${taskReason}</div>
+                <div id="taskHandleList${index}" class="task-handle-list" style="display:${handlesOpen ? "grid" : "none"};">${handleRows}</div>
+                <div class="task-batch-actions">
+                  <button class="btn btn-ghost reuse-task" data-task-id="${task.id}">${dict.reuseThisSetup}</button>
+                  ${task.status === "failed" ? `<button class="btn btn-primary">${dict.taskRetryGroup}</button>` : ""}
+                </div>
+              </div>
+            </article>
+          `;
+        }).join("");
+
+        document.querySelectorAll(".toggle-handles").forEach((btn) => {
+          btn.onclick = () => {
+            const target = document.getElementById(btn.dataset.handleTarget);
+            const hidden = target.style.display === "none";
+            target.style.display = hidden ? "grid" : "none";
+            btn.textContent = hidden ? dict.taskHideHandles : dict.taskViewHandles;
+          };
+        });
+        document.querySelectorAll(".reuse-task").forEach((btn) => {
+          btn.onclick = () => openReuseModal(btn.dataset.taskId);
+        });
+      }
+
+      function renderI18n() {
+        const dict = t[currentLang];
+        document.querySelectorAll("[data-i18n]").forEach((el) => {
+          const key = el.getAttribute("data-i18n");
+          if (dict[key]) el.textContent = dict[key];
+        });
+        document.querySelectorAll("[data-i18n-placeholder]").forEach((el) => {
+          const key = el.getAttribute("data-i18n-placeholder");
+          if (dict[key]) el.setAttribute("placeholder", dict[key]);
+        });
+        if (drawerMode === "create") {
+          drawerTitleEl.textContent = dict.drawerTitleCreate || dict.drawerTitle;
+          drawerSubEl.textContent = dict.drawerSubCreate || dict.drawerSub;
+        } else {
+          drawerTitleEl.textContent = dict.drawerTitleEdit || dict.drawerTitle;
+          drawerSubEl.textContent = dict.drawerSubEdit || dict.drawerSub;
+        }
+        renderTemplateList();
+        renderDrawerShopState();
+        renderScheduleGroups();
+        syncSkuState();
+        renderSkuRows();
+        renderTaskCenter();
+      }
+
+      function activateTab(tab) {
+        tabs.forEach((b) => b.classList.toggle("active", b.dataset.tab === tab));
+        Object.keys(panels).forEach((k) => panels[k].classList.toggle("active", k === tab));
+      }
+
+      function openDrawer(mode = "edit") {
+        drawerMode = mode;
+        const dict = t[currentLang];
+        if (drawerMode === "create") {
+          drawerTitleEl.textContent = dict.drawerTitleCreate || dict.drawerTitle;
+          drawerSubEl.textContent = dict.drawerSubCreate || dict.drawerSub;
+          skuGroups = [];
+          currentTemplateId = "";
+          document.getElementById("templateTitle").value = "";
+          const firstAuthorized = shopData.find((shop) => shop.shopAuthorized);
+          renderShopSelectOptions(firstAuthorized ? firstAuthorized.id : "");
+          batchToast.className = "toast";
+          batchToast.textContent = "";
+        } else {
+          drawerTitleEl.textContent = dict.drawerTitleEdit || dict.drawerTitle;
+          drawerSubEl.textContent = dict.drawerSubEdit || dict.drawerSub;
+          const editingTemplate = getTemplateById(currentTemplateId) || templateData[0];
+          document.getElementById("templateTitle").value = editingTemplate.title;
+          renderShopSelectOptions(editingTemplate.shopId);
+          skuGroups = JSON.parse(JSON.stringify(defaultSkuGroups));
+        }
+        renderDrawerShopState();
+        syncSkuState();
+        renderSkuRows();
+        drawerMask.style.display = "block";
+        drawer.classList.add("open");
+      }
+      function hideDrawer() {
+        drawer.classList.remove("open");
+        drawerMask.style.display = "none";
+      }
+
+      function activateStep(step) {
+        stepBtns.forEach((b) => b.classList.toggle("active", b.dataset.step === step));
+        Object.keys(stepPanels).forEach((k) => stepPanels[k].style.display = k === step ? "block" : "none");
+      }
+
+      function syncSkuState() {
+        const hasProducts = skuGroups.length > 0;
+        skuEmptyState.style.display = hasProducts ? "none" : "grid";
+        skuConfigSection.style.display = hasProducts ? "grid" : "none";
+      }
+
+      function renderProductGroups() {
+        productGroups.innerHTML = "";
+        skuGroups.forEach((group, index) => {
+          const missingStock = group.rows.filter((row) => row.stock === "").length;
+          const statusText = missingStock > 0
+            ? (currentLang === "zh" ? `${missingStock} 个缺少库存` : `${missingStock} Missing stock`)
+            : (currentLang === "zh" ? "已就绪" : "Ready");
+          const wrapper = document.createElement("div");
+          wrapper.className = "sku-group";
+          wrapper.innerHTML = `
+            <div class="sku-group-head">
+              <div class="prod">
+                <div class="thumb"></div>
+                <div>
+                  <div class="prod-title">${group.product}</div>
+                  <div class="prod-id">PID-${group.pid}</div>
+                  <div class="prod-meta">
+                    <span class="meta-chip">${group.rows.length} ${currentLang === "zh" ? "个SKU" : "SKUs"}</span>
+                    <span class="meta-chip">${statusText}</span>
+                  </div>
+                </div>
+              </div>
+              <div class="group-actions">
+                <button class="btn btn-link toggle-sku" data-target="skuBody${index}">${currentLang === "zh" ? "收起" : "Collapse"}</button>
+              </div>
+            </div>
+            <div id="skuBody${index}">
+              <table class="sku-table">
+                <thead>
+                  <tr><th></th><th>${t[currentLang].colSku}</th><th>${t[currentLang].originalPrice}</th><th>${t[currentLang].dealInput}</th><th>${t[currentLang].reservedStock}</th></tr>
+                </thead>
+                <tbody id="skuRows${index}"></tbody>
+              </table>
+            </div>
+          `;
+          productGroups.appendChild(wrapper);
+        });
+
+        document.querySelectorAll(".toggle-sku").forEach((btn) => {
+          btn.onclick = () => {
+            const target = document.getElementById(btn.dataset.target);
+            const isHidden = target.style.display === "none";
+            target.style.display = isHidden ? "block" : "none";
+            btn.textContent = isHidden ? (currentLang === "zh" ? "收起" : "Collapse") : (currentLang === "zh" ? "展开" : "Expand");
+          };
+        });
+      }
+
+      function renderSkuRows() {
+        const dict = t[currentLang];
+        renderProductGroups();
+        skuGroups.forEach((group, groupIndex) => {
+          const tbody = document.getElementById(`skuRows${groupIndex}`);
+          if (!tbody) return;
+          tbody.innerHTML = "";
+          group.rows.forEach((r, rowIndex) => {
+            const badStock = r.stock === "";
+            const row = document.createElement("tr");
+            const isOffMode = batchMode.value === "off";
+            const offPercent = Number(r.deal);
+            const discountedPrice = r.origin * (1 - offPercent / 100);
+            const dealMarkup = isOffMode
+              ? `<div class="rule-stack"><span class="rule-pill">${offPercent.toFixed(0)}% Off</span><span class="rule-sub">${currentLang === "zh" ? "折后价" : "After discount"}: $${discountedPrice.toFixed(2)}</span></div>`
+              : `<span class="rule-pill">$${Number(r.deal).toFixed(2)} Fixed</span>`;
+            row.innerHTML = `
+              <td><input type="checkbox" ${r.selected ? "checked" : ""} data-sel="${groupIndex}-${rowIndex}"></td>
+              <td><div class="sku-name">${r.sku}</div></td>
+              <td><span class="price-text">$${r.origin.toFixed(2)}</span></td>
+              <td>${dealMarkup}</td>
+              <td>
+                <input class="input stock-input ${badStock ? "error":""}" value="${r.stock}" data-stock="${groupIndex}-${rowIndex}" />
+                ${badStock ? `<div class="error-text">${dict.check1}</div>` : ""}
+              </td>
+            `;
+            tbody.appendChild(row);
+          });
+        });
+
+        document.querySelectorAll("[data-sel]").forEach((el) => {
+          el.addEventListener("change", () => {
+            const [g, r] = el.dataset.sel.split("-").map(Number);
+            skuGroups[g].rows[r].selected = el.checked;
+          });
+        });
+        document.querySelectorAll("[data-stock]").forEach((el) => {
+          el.addEventListener("input", () => {
+            const [g, r] = el.dataset.stock.split("-").map(Number);
+            skuGroups[g].rows[r].stock = el.value;
+          });
+        });
+      }
+
+      function applyCurrentBatchSettings() {
+        const value = Number(batchValue.value);
+        const stock = Number(batchStock.value);
+        skuGroups.forEach((group) => {
+          group.rows.forEach((r) => {
+            if (Number.isFinite(value) && value > 0) r.deal = value;
+            if (Number.isFinite(stock) && stock >= 0) r.stock = stock;
+          });
+        });
+      }
+
+      tabs.forEach((b) => b.addEventListener("click", () => activateTab(b.dataset.tab)));
+      langSel.addEventListener("change", (e) => { currentLang = e.target.value; renderI18n(); });
+      batchMode.addEventListener("change", renderSkuRows);
+      templateSearch.addEventListener("input", renderTemplateList);
+      templateFilterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          templateFilter = btn.dataset.templateFilter;
+          templateFilterBtns.forEach((chip) => chip.classList.toggle("active", chip === btn));
+          renderTemplateList();
+        });
+      });
+      taskSearch.addEventListener("input", renderTaskCenter);
+      taskFilterBtns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          taskFilter = btn.dataset.taskFilter;
+          taskFilterBtns.forEach((chip) => chip.classList.toggle("active", chip === btn));
+          renderTaskCenter();
+        });
+      });
+      createTemplateBtn.addEventListener("click", () => openDrawer("create"));
+      closeDrawer.addEventListener("click", hideDrawer);
+      drawerMask.addEventListener("click", hideDrawer);
+      stepBtns.forEach((b) => b.addEventListener("click", () => activateStep(b.dataset.step)));
+      shopSelect.addEventListener("change", renderDrawerShopState);
+      closeReuseModal.addEventListener("click", closeReuseDialog);
+      cancelReuseModal.addEventListener("click", closeReuseDialog);
+      reuseMask.addEventListener("click", closeReuseDialog);
+      reuseTaskList.addEventListener("click", (event) => {
+        const card = event.target.closest("[data-task-card]");
+        if (!card) return;
+        selectedReuseTaskId = card.dataset.taskCard;
+        renderReuseTaskList();
+      });
+      importReuseBtn.addEventListener("click", () => {
+        const task = taskData.find((item) => item.id === selectedReuseTaskId);
+        const importedGroup = buildSubmitGroupFromTask(task);
+        if (importedGroup) {
+          submitGroups = [importedGroup];
+          renderScheduleGroups();
+          activateTab("submit");
+        }
+        closeReuseDialog();
+      });
+
+      packagePanel.addEventListener("click", (event) => {
+        const target = event.target;
+        if (!target.closest(".template-menu-wrap")) {
+          openTemplateMenuId = "";
+        }
+        if (target.classList.contains("create-template")) {
+          const shopId = target.dataset.shopId;
+          openDrawer("create");
+          if (shopId) {
+            renderShopSelectOptions(shopId);
+            renderDrawerShopState();
+          }
+        }
+        if (target.classList.contains("edit-template")) {
+          currentTemplateId = target.dataset.templateId;
+          openDrawer("edit");
+        }
+        if (target.classList.contains("template-use")) {
+          const template = getTemplateById(target.dataset.templateId);
+          if (template && submitGroups[0]) {
+            submitGroups[0].shopId = template.shopId;
+            submitGroups[0].templateId = template.id;
+            renderScheduleGroups();
+          }
+          activateTab("submit");
+        }
+        if (target.classList.contains("template-activate")) {
+          const template = getTemplateById(target.dataset.templateId);
+          if (template) {
+            template.status = "active";
+            renderTemplateList();
+          }
+        }
+        if (target.classList.contains("toggle-template-menu")) {
+          const templateId = target.dataset.templateId;
+          openTemplateMenuId = openTemplateMenuId === templateId ? "" : templateId;
+          renderTemplateList();
+          return;
+        }
+        if (target.classList.contains("template-copy")) {
+          copyTemplate(target.dataset.templateId);
+          openTemplateMenuId = "";
+          renderTemplateList();
+          return;
+        }
+        if (target.classList.contains("template-delete")) {
+          if (window.confirm(t[currentLang].deleteTemplateConfirm)) {
+            deleteTemplate(target.dataset.templateId);
+            openTemplateMenuId = "";
+            renderTemplateList();
+            renderScheduleGroups();
+            showToast(t[currentLang].templateDeleted);
+          }
+          return;
+        }
+        if (target.classList.contains("go-tenant-center")) {
+          goTenantCenter();
+        }
+        renderTemplateList();
+      });
+
+      submitPanel.addEventListener("click", (event) => {
+        const target = event.target;
+        if (target.classList.contains("create-template")) {
+          const shopId = target.dataset.shopId;
+          openDrawer("create");
+          if (shopId) {
+            renderShopSelectOptions(shopId);
+            renderDrawerShopState();
+          }
+        }
+        if (target.classList.contains("remove-group")) {
+          submitGroups = submitGroups.filter((group) => group.id !== target.dataset.groupId);
+          renderScheduleGroups();
+        }
+        if (target.classList.contains("go-tenant-center")) {
+          goTenantCenter();
+        }
+      });
+
+      submitPanel.addEventListener("change", (event) => {
+        const target = event.target;
+        const groupId = target.dataset.groupId;
+        if (!groupId) return;
+        const group = submitGroups.find((item) => item.id === groupId);
+        if (!group) return;
+        if (target.classList.contains("submit-shop-select")) {
+          group.shopId = target.value;
+          const templates = getActiveTemplatesByShop(group.shopId);
+          group.templateId = templates[0] ? templates[0].id : "";
+          renderScheduleGroups();
+          return;
+        }
+        if (target.classList.contains("submit-template-select")) {
+          group.templateId = target.value;
+          updateTaskSummary();
+          return;
+        }
+        if (target.classList.contains("submit-start")) group.start = target.value;
+        if (target.classList.contains("submit-end")) group.end = target.value;
+        if (target.classList.contains("submit-timezone")) group.timezone = target.value;
+        updateTaskSummary();
+      });
+
+      submitPanel.addEventListener("input", (event) => {
+        const target = event.target;
+        if (!target.classList.contains("submit-handles")) return;
+        const group = submitGroups.find((item) => item.id === target.dataset.groupId);
+        if (!group) return;
+        group.handles = target.value;
+        renderScheduleGroups();
+      });
+
+      addScheduleGroupBtn.addEventListener("click", () => {
+        const firstShop = shopData.find((shop) => shop.shopAuthorized);
+        const firstTemplates = firstShop ? getActiveTemplatesByShop(firstShop.id) : [];
+        submitGroups.push({
+          id: `group_${Date.now()}`,
+          shopId: firstShop ? firstShop.id : "",
+          templateId: firstTemplates[0] ? firstTemplates[0].id : "",
+          start: "",
+          end: "",
+          timezone: "Asia/Shanghai",
+          handles: ""
+        });
+        renderScheduleGroups();
+      });
+
+      createTasksBtn.addEventListener("click", () => {
+        const createdAt = new Date().toISOString().slice(0, 16).replace("T", " ");
+        const createdBy = currentLang === "zh" ? "当前用户" : "Current User";
+        const newTasks = submitGroups.map((group, index) => {
+          const shop = getShopById(group.shopId);
+          const template = getTemplateById(group.templateId);
+          return {
+            id: `TASK-${Date.now()}-${index + 1}`,
+            shop: shop ? shop.name : "--",
+            template: template ? template.title : "--",
+            start: group.start ? group.start.replace("T", " ") : "--",
+            end: group.end ? group.end.replace("T", " ") : "--",
+            timezone: group.timezone || "Asia/Shanghai",
+            status: "pending",
+            reason: "none",
+            handles: String(group.handles || "").split("\n").map((line) => line.trim()).filter(Boolean),
+            createdAt,
+            createdBy
+          };
+        });
+        taskData.unshift(...newTasks);
+        renderTaskCenter();
+        activateTab("tasks");
+      });
+
+      function loadProducts(source) {
+        skuGroups = JSON.parse(JSON.stringify(defaultSkuGroups));
+        applyCurrentBatchSettings();
+        syncSkuState();
+        renderSkuRows();
+        batchToast.className = "toast ok";
+        batchToast.textContent = currentLang === "zh"
+          ? (source === "shop" ? "已从店铺选择 3 个商品组。" : "已模拟导入 Excel（PID 列），新增 3 个商品组。")
+          : (source === "shop" ? "Selected 3 product groups from the shop." : "Mock Excel import complete. Added 3 product groups from PID column.");
+      }
+
+      importExcel.addEventListener("click", () => loadProducts("excel"));
+      emptyImportExcel.addEventListener("click", () => loadProducts("excel"));
+      selectFromShop.addEventListener("click", () => loadProducts("shop"));
+      emptySelectFromShop.addEventListener("click", () => loadProducts("shop"));
+
+      batchApply.addEventListener("click", () => {
+        const mode = batchMode.value;
+        const value = Number(batchValue.value);
+        const stock = Number(batchStock.value);
+        let changed = 0;
+        let failed = 0;
+        lastBatchSnapshot = JSON.parse(JSON.stringify(skuGroups));
+        skuGroups.forEach((group) => {
+          group.rows.forEach((r) => {
+            if (!r.selected) return;
+            if (Number.isFinite(value) && value > 0) {
+              r.deal = value;
+              changed += 1;
+            } else {
+              failed += 1;
+            }
+            if (Number.isFinite(stock) && stock >= 0) r.stock = stock;
+          });
+        });
+        renderSkuRows();
+        const dict = t[currentLang];
+        if (changed > 0) {
+          batchToast.className = "toast ok";
+          batchToast.textContent = currentLang === "zh"
+            ? `已更新 ${changed} 个SKU，失败 ${failed} 个。`
+            : `Updated ${changed} SKUs, failed ${failed}.`;
+        } else {
+          batchToast.className = "toast err";
+          batchToast.textContent = currentLang === "zh"
+            ? "未应用成功，请检查输入值。"
+            : "No updates applied. Check your input values.";
+        }
+      });
+
+      undoBatch.addEventListener("click", () => {
+        if (!lastBatchSnapshot) return;
+        lastBatchSnapshot.forEach((group, i) => {
+          skuGroups[i].rows = group.rows;
+        });
+        renderSkuRows();
+        batchToast.className = "toast ok";
+        batchToast.textContent = currentLang === "zh" ? "已撤销上一次批量设置。" : "Last batch update has been undone.";
+      });
+
+      renderShopSelectOptions(templateData[0].shopId);
+      syncSkuState();
+      activateTab("package");
+      activateStep("basic");
+      renderI18n();
+    </script>
+  </body>
+</html>

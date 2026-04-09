@@ -14,8 +14,18 @@
   var i18n = {
     en: {
       // nav
-      'nav.dashboard': 'Dashboard', 'nav.live_calendar': 'Live Calendar', 'nav.live_console': 'Live Console',
+      'nav.dashboard': 'Dashboard', 'nav.live_calendar': 'Live Calendar', 'nav.live_schedule': 'Live Schedule', 'nav.live_console': 'Live Console',
       'nav.live_settings': 'Live Settings', 'nav.live_products': 'Live Products', 'nav.merchant': 'Merchant Center',
+      'live_settings.title': 'Live Settings',
+      'live_settings.desc': 'Configure live operation modules from one place.',
+      'live_settings.flash_title': 'Auto-Setting Flash Sale',
+      'live_settings.flash_desc': 'Create and manage reusable flash sale templates, submission schedules, and task execution for TikTok creator deals.',
+      'live_settings.comments_title': 'Auto-Comments Library',
+      'live_settings.comments_desc': 'Preset comments that can be auto-triggered during your livestream to boost engagement and keep the chat lively.',
+      'live_settings.cast_title': 'Casting Device',
+      'live_settings.cast_desc': 'Bind a TV device code to a room name for easy mobile casting and device management.',
+      'live_settings.existing': 'Existing module',
+      'live_settings.back': 'Back to Live Settings',
       'nav.find_creators': 'Find Creators', 'nav.outreach': 'Outreach', 'nav.creator_crm': 'Creator CRM',
       'nav.analytics': 'Analytics', 'nav.tenant_center': 'Tenant Center', 'nav.profile': 'Profile', 'nav.account': 'Account',
       // common
@@ -188,7 +198,7 @@
       'analytics.title': 'Analytics', 'analytics.coming': 'Coming in a future release.',
       'tc.plan_benefits': 'Plan & Benefits', 'tc.plan_usage': 'Plan & Usage', 'tc.billing_usage': 'Billing & Usage', 'tc.billing_invoices': 'Billing',
       'tc.affiliate_plan': 'Affiliate Plan', 'tc.live_plan': 'Live Plan', 'tc.current_plan': 'Current Plan', 'tc.orders': 'Orders', 'tc.invoices': 'Invoices',
-      'tc.tenant': 'Tenant', 'tc.profile': 'Profile', 'tc.live_account': 'Live Account', 'tc.tenant_tts': 'TAP Seller', 'tc.tenant_host': 'Tenant Host', 'tc.admin': 'Admin', 'tc.account_settings': 'Account settings',
+      'tc.tenant': 'Tenant', 'tc.profile': 'Profile', 'tc.live_account': 'Live Account', 'tc.tenant_tts': 'TikTok Shop', 'tc.tenant_host': 'Tenant Host', 'tc.admin': 'Admin', 'tc.account_settings': 'Account settings',
       'tc.cancel_subscription': 'Cancel Subscription', 'tc.benefits_store': 'Benefits Store',
       'tc.benefits_store_desc_live': 'Plans for Live streaming',
       'tc.benefits_store_desc_affiliate': 'Plans for Affiliate', 'tc.benefits_usage': 'Benefits & Usage', 'tc.available_days': 'Available Days',
@@ -201,8 +211,8 @@
       'tc.orders_invoices_placeholder': 'Orders and invoices will appear here.',
       'tc.tenant_placeholder': 'Tenant profile and account settings.',
       'tc.admin_placeholder': 'Account and security settings.',
-      'tc.tts.title': 'TikTok Shop authorizations',
-      'tc.tts.desc': 'Connect your TikTok Shops via TikTok authorization. After you confirm on TikTok, authorized shops will appear below.',
+      'tc.tts.title': 'TikTok Shop',
+      'tc.tts.desc': 'Manage TikTok Shop connections by authorization type.',
       'tc.tts.auth_btn': 'Authorize TikTok Shop',
       'tc.tts.shop_id': 'Shop ID',
       'tc.tts.marketplace': 'Marketplace',
@@ -212,14 +222,32 @@
       'tc.tts.last_update': 'Last update',
       'tc.tts.renew': 'Renew',
       'tc.tts.remove': 'Remove',
-      'tc.tts.remove_confirm': 'Disconnect this TikTok Shop? Find Creators for this marketplace will no longer be available.',
+      'tc.tts.remove_confirm': 'Disconnect this TikTok Shop authorization?',
       'tc.tts.empty_title': 'No TikTok Shop connected yet',
-      'tc.tts.empty_desc': 'Connect at least one TikTok Shop to use Find Creators and other affiliate features.',
+      'tc.tts.empty_desc': 'Authorize a TikTok Shop to start using shop-based features.',
       'tc.tts.empty_cta': 'Authorize TikTok Shop',
       'tc.tts.na': '—',
       'tc.tts.toast_connected': 'TikTok Shop connected',
       'tc.tts.toast_removed': 'Authorization removed',
       'tc.tts.toast_renewed': 'Authorization renewed',
+      'tc.tts.type_label': 'Authorization type',
+      'tc.tts.type_isv': 'TikTok ISV',
+      'tc.tts.type_tap': 'TAP Seller',
+      'tc.tts.type_isv_desc': 'Used to sync shop products and run flash sale setup.',
+      'tc.tts.type_tap_desc': 'Used by Find Creators to load the shop affiliate marketplace.',
+      'tc.tts.section_isv': 'TikTok ISV',
+      'tc.tts.section_tap': 'TAP Seller',
+      'tc.tts.section_isv_desc': 'For product sync and flash sale setup.',
+      'tc.tts.section_tap_desc': 'For Find Creators marketplace access.',
+      'tc.tts.auth_btn_isv': 'Authorize TikTok ISV',
+      'tc.tts.auth_btn_tap': 'Authorize TAP Seller',
+      'tc.tts.connected_count': 'connected',
+      'tc.tts.seller_login': 'Seller Center Login',
+      'tc.tts.seller_login_connected': 'Connected',
+      'tc.tts.seller_login_required': 'Login required',
+      'tc.tts.complete_login': 'Complete Seller Center Login',
+      'tc.tts.manage_login': 'Enter Seller Center',
+      'tc.tts.toast_login_connected': 'Seller Center login connected',
       'tc.host_affiliate': 'Host & Affiliate', 'tc.ha_manage': 'Management', 'tc.ha_settlement': 'Settlement',
       'tc.ha_manage_desc': 'Manage Host & Affiliate profiles and link them with your tenant.',
       'tc.ha_settlement_desc': 'Create statements and approve creator payouts.',
@@ -522,12 +550,179 @@
       'tc.ha.request_id': 'Request ID',
       'tc.ha.amount': 'Amount',
       'tc.ha.created_at': 'Created at',
+      // Live schedule (#/live/schedule) — keys shared with zh; use t('ls.*')
+      'ls.title': 'Live management',
+      'ls.intro': 'Collect host availability, set hour targets, generate draft sessions, sync to TikTok, then track live runs and GMV.',
+      'ls.tab.host_avail': 'Host availability',
+      'ls.tab.targets': 'Hour targets',
+      'ls.tab.batches': 'Schedules',
+      'ls.sess.draft': 'Draft',
+      'ls.sess.pending_confirm': 'Pending host',
+      'ls.sess.pending_sync': 'Pending sync',
+      'ls.sess.pending_live': 'Upcoming',
+      'ls.sess.live': 'Live',
+      'ls.sess.ended': 'Ended',
+      'ls.phase.scheduled': 'Scheduled',
+      'ls.phase.live': 'Live',
+      'ls.phase.ended': 'Ended',
+      'ls.th.schedule_id': 'Schedule ID',
+      'ls.th.subject_account': 'Subject & Live account',
+      'ls.th.created_follower': 'Created by & Co-host',
+      'ls.th.subject': 'Subject',
+      'ls.th.account': 'Account',
+      'ls.th.time': 'Time',
+      'ls.th.hosts_segments': 'Hosts (planned)',
+      'ls.th.follower': 'Follower',
+      'ls.th.tiktok_sid': 'TikTok session ID',
+      'ls.th.tiktok_live_event_sync': 'TikTok Live Event',
+      'ls.tiktok_sync.status_idle': 'Not synced',
+      'ls.tiktok_sync.status_syncing': 'Syncing',
+      'ls.tiktok_sync.status_failed': 'Failed',
+      'ls.tiktok_sync.fail_auth': 'Live account login expired. Sign in again, then retry.',
+      'ls.tiktok_sync.fail_other': 'System error',
+      'ls.th.created_by': 'Created by',
+      'ls.th.remark_en': 'Notes (EN)',
+      'ls.search.sessions_ph': 'Search ID, subject, account, follower, hosts, notes…',
+      'ls.empty.sessions': 'No sessions in this status',
+      'ls.empty.sessions_hint': 'Try another status tab, clear the search box, or generate schedules from the Host schedule tab.',
+      'ls.btn.push_host': 'Push to hosts',
+      'ls.btn.batch_push': 'Push selected',
+      'ls.btn.batch_sync_tiktok': 'Sync selected to TikTok',
+      'ls.btn.edit_schedule': 'Edit schedule',
+      'ls.btn.cancel_schedule': 'Cancel schedule',
+      'ls.btn.sync_tiktok': 'Sync to TikTok',
+      'ls.btn.view': 'View details',
+      'ls.select_all': 'Select all',
+      'ls.modal.batch_sync_title': 'Sync TikTok for selected sessions?',
+      'ls.modal.batch_sync_body': 'TikTok Live Events will be created for {0} session(s) (MVP mock).',
+      'ls.toast.batch_sync_none': 'No sessions available to sync.',
+      'ls.toast.batch_sync_done': 'Synced {0} session(s) (MVP mock).',
+      'ls.targets.save': 'Save targets',
+      'ls.targets.generate': 'Generate schedule',
+      'ls.targets.add': 'Add target',
+      'ls.targets.hint': 'Tip: select hosts on the Availability tab before generating. You can also open the same flow from here.',
+      'ls.targets.th.account': 'Account',
+      'ls.targets.th.period': 'Period',
+      'ls.targets.th.target_h': 'Target hours',
+      'ls.targets.th.planned_h': 'Planned hours',
+      'ls.targets.th.accepted_h': 'Accepted hours',
+      'ls.targets.th.rate': 'Progress',
+      'ls.targets.th.updated': 'Updated',
+      'ls.targets.th.actions': 'Actions',
+      'ls.targets.cancel': 'Void',
+      'ls.targets.empty': 'No targets yet.',
+      'ls.host.search_ph': 'Search hosts',
+      'ls.host.tz_merchant': '(merchant)',
+      'ls.host.week_prev': 'Previous week',
+      'ls.host.week_this': 'This week',
+      'ls.host.week_next': 'Next week',
+      'ls.host.tz_display_label': 'Time display',
+      'ls.host.window': 'Window: {0}. Chips show availability after draft allocation.',
+      'ls.host.tz_legend_display': 'Time display: {0}',
+      'ls.host.tz_legend_boundary': 'Date boundary: {0}',
+      'ls.host.tz_legend_note': 'Cell times follow display timezone; week/day boundary follows merchant timezone.',
+      'ls.host.select_all': 'Select all',
+      'ls.host.gen': 'Generate schedule',
+      'ls.host.selected_n': '{0} selected',
+      'ls.host.gen_hint': 'Select hosts, then set period, account, and timezone.',
+      'ls.host.overflow': '+{0} more',
+      'ls.targets.past_locked': 'Past periods are read-only.',
+      'ls.host.th.matrix': 'Host',
+      'ls.host.badge.open': 'Open',
+      'ls.host.badge.full': 'Allocated',
+      'ls.host.summary_remain': '{0} h left',
+      'ls.host.metric_avail': 'Avail {0}h',
+      'ls.host.metric_alloc': 'Alloc {0}h',
+      'ls.host.tooltip.no_avail': 'Not reported (excluded from draft).',
+      'ls.host.tooltip.day': 'Avail {0}h · alloc {1}h',
+      'ls.host.cell.none': 'Not reported',
+      'ls.host.cell.more': 'more',
+      'ls.host.row.hint': 'Click a day cell to edit availability.',
+      'ls.host.empty_matrix': 'No availability in this 7-day window.',
+      'ls.user_id': 'User ID',
+      'ls.weekday.0': 'Mon', 'ls.weekday.1': 'Tue', 'ls.weekday.2': 'Wed', 'ls.weekday.3': 'Thu', 'ls.weekday.4': 'Fri', 'ls.weekday.5': 'Sat', 'ls.weekday.6': 'Sun',
+      'ls.drawer.close': 'Close',
+      'ls.drawer.tab.sessions': 'Sessions',
+      'ls.drawer.tab.segments': 'Relay segments',
+      'ls.drawer.host.avail': 'Availability',
+      'ls.drawer.host.planned': 'Planned allocation',
+      'ls.drawer.edit_slot_title': 'Edit availability slot',
+      'ls.drawer.add_slot_title': 'Add availability slot',
+      'ls.drawer.add_slot_btn': 'Add slot',
+      'ls.host.add_slot_btn': 'Add host availability',
+      'ls.host.add_slot_modal_title': 'Add availability for a host',
+      'ls.host.add_slot_date_label': 'Date',
+      'ls.host.add_slot_modal_ok': 'Continue',
+      'ls.host.add_slot_no_hosts': 'No hosts found. Import or add availability first.',
+      'ls.host.add_slot_no_date': 'Please select a date.',
+      'ls.host.batch_modal_title': 'Batch add host availability',
+      'ls.host.batch_hint': 'Each row: pick a host and time range. Multiple hosts can be mixed in one batch. Empty rows are skipped. Times use the display timezone above.',
+      'ls.host.batch_tz_label': 'Timezone',
+      'ls.host.batch_add_row': 'Add row',
+      'ls.host.batch_remove_row': 'Remove row',
+      'ls.host.batch_save': 'Save all',
+      'ls.host.batch_empty': 'Please fill at least one complete row.',
+      'ls.host.batch_err_incomplete_row': 'Each row needs host, date, start time, and end time.',
+      'ls.host.batch_err_time_order': 'Start must be before end on every row.',
+      'ls.host.batch_keep_one_row': 'Keep at least one row.',
+      'ls.host.batch_saved': 'Saved {0} availability slot(s).',
+      'ls.drawer.avail_empty': 'No availability slots yet.',
+      'ls.drawer.stats_impact_hint': 'Editing or voiding slots affects planned allocation for subsequent draft generation; regenerate in merchant goals.',
+      'ls.drawer.add_slot_no_host': 'No host selected.',
+      'ls.drawer.add_slot_no_day': 'Open this drawer from a calendar day first.',
+      'ls.drawer.add_slot_day_mismatch': 'Start and end must fall on the calendar day opened in this drawer.',
+      'ls.drawer.th.status': 'Status',
+      'ls.drawer.th.start': 'Start',
+      'ls.drawer.th.end': 'End',
+      'ls.drawer.th.duration': 'Duration',
+      'ls.drawer.tz_label': 'Timezone',
+      'ls.drawer.th.source': 'Source',
+      'ls.drawer.th.updated_at': 'Updated',
+      'ls.drawer.avail_status_valid': 'Active',
+      'ls.drawer.avail_status_voided': 'Voided',
+      'ls.drawer.avail_void': 'Void',
+      'ls.drawer.avail_restore': 'Restore',
+      'ls.modal.detail': 'Schedule details',
+      'ls.modal.edit': 'Edit schedule',
+      'ls.modal.save': 'Save',
+      'ls.modal.update': 'Update',
+      'ls.section.account': 'Account',
+      'ls.section.schedule': 'Schedule & hosts',
+      'ls.section.remark': 'Notes',
+      'ls.live_ended.hint': 'Most fields are read-only. Per host segment you can edit actual start/end and GMV (including notes). TikTok Live Events cannot be edited while live or after.',
+      'ls.gmv.ccy_hint': 'GMV currency comes from the server (live room). Current: {0}',
+      'ls.banner.host_checkin': 'Host hasn’t checked in.',
+      'ls.readonly.empty_sessions': 'No sessions',
+      'ls.detail.seg_hosts': 'Hosts',
+      'ls.format.gmv_label': 'Direct GMV: {0}',
+      'ls.edit.hint_streamed': 'After the stream ends, only actual start/end times and GMV can be edited.',
+      'ls.edit.hint_full': 'Edit all schedule fields (MVP preview).',
+      'ls.modal.seg_hosts_title': 'Host segments',
+      'ls.seg.empty': 'No segments yet',
+      'ls.seg.del_disabled': 'Cannot delete',
+      'ls.seg.add_host': 'Add host segment',
+      'ls.seg.host': 'Host',
+      'ls.seg.start': 'Start',
+      'ls.seg.end': 'End',
+      'ls.seg.gmv': 'GMV',
+      'ls.seg.gmv_note': 'GMV notes',
+      'common.close': 'Close',
       'tc.ha.stat_batches': 'Batches'
     },
     zh: {
       // nav
-      'nav.dashboard': '仪表盘', 'nav.live_calendar': '直播日历', 'nav.live_console': '直播控制台',
+      'nav.dashboard': '仪表盘', 'nav.live_calendar': '直播日历', 'nav.live_schedule': '直播排期', 'nav.live_console': '直播控制台',
       'nav.live_settings': '直播设置', 'nav.live_products': '直播商品', 'nav.merchant': '商家中心',
+      'live_settings.title': '直播设置',
+      'live_settings.desc': '在一个入口中管理直播相关功能设置。',
+      'live_settings.flash_title': '自动设置秒杀',
+      'live_settings.flash_desc': '创建并管理 TikTok Creator Flash Sale 的模版、提报排期和任务执行。',
+      'live_settings.comments_title': '自动评论库',
+      'live_settings.comments_desc': '预设评论内容，在直播过程中自动触发，提升互动和评论活跃度。',
+      'live_settings.cast_title': '投屏设备',
+      'live_settings.cast_desc': '绑定电视设备码与房间名称，便于移动端投屏和设备管理。',
+      'live_settings.existing': '现有模块',
+      'live_settings.back': '返回直播设置',
       'nav.find_creators': '找达人', 'nav.outreach': '达人触达', 'nav.creator_crm': '达人管理',
       'nav.analytics': '数据分析', 'nav.tenant_center': '租户中心', 'nav.profile': '个人资料', 'nav.account': '账户设置',
       // common
@@ -701,7 +896,7 @@
       'analytics.title': '数据分析', 'analytics.coming': '即将上线，敬请期待。',
       'tc.plan_benefits': '套餐与权益', 'tc.plan_usage': '套餐与用量', 'tc.billing_usage': '账单与使用', 'tc.billing_invoices': '账单',
       'tc.affiliate_plan': 'Affiliate 套餐', 'tc.live_plan': 'Live 套餐', 'tc.current_plan': '当前套餐', 'tc.orders': '订单', 'tc.invoices': '发票',
-      'tc.tenant': '租户', 'tc.profile': '个人资料', 'tc.live_account': '直播账号', 'tc.tenant_tts': 'TAP Seller', 'tc.tenant_host': '租户主持', 'tc.admin': '管理', 'tc.account_settings': '账户设置',
+      'tc.tenant': '租户', 'tc.profile': '个人资料', 'tc.live_account': '直播账号', 'tc.tenant_tts': 'TikTok Shop', 'tc.tenant_host': '租户主持', 'tc.admin': '管理', 'tc.account_settings': '账户设置',
       'tc.cancel_subscription': '取消订阅', 'tc.benefits_store': '权益商店',
       'tc.benefits_store_desc_live': '直播业务套餐',
       'tc.benefits_store_desc_affiliate': '联盟达人业务套餐', 'tc.benefits_usage': '权益与使用', 'tc.available_days': '可用天数',
@@ -714,8 +909,8 @@
       'tc.orders_invoices_placeholder': '订单与发票将在此展示。',
       'tc.tenant_placeholder': '租户资料与账号设置。',
       'tc.admin_placeholder': '账户与安全设置。',
-      'tc.tts.title': 'TikTok Shop 授权',
-      'tc.tts.desc': '通过 TikTok 授权连接您的店铺。在 TikTok 完成授权后，已授权店铺将显示在下方。',
+      'tc.tts.title': 'TikTok Shop',
+      'tc.tts.desc': '按授权类型管理 TikTok Shop 连接。',
       'tc.tts.auth_btn': '授权 TikTok Shop',
       'tc.tts.shop_id': 'Shop ID',
       'tc.tts.marketplace': 'Marketplace',
@@ -725,14 +920,32 @@
       'tc.tts.last_update': '最近更新',
       'tc.tts.renew': '续期',
       'tc.tts.remove': '移除',
-      'tc.tts.remove_confirm': '确定要断开此 TikTok Shop 吗？该市场的 Find Creators 功能将不可用。',
+      'tc.tts.remove_confirm': '确定要断开该 TikTok Shop 授权吗？',
       'tc.tts.empty_title': '暂无已连接的 TikTok Shop',
-      'tc.tts.empty_desc': '连接至少一个 TikTok Shop 以使用 Find Creators 等联盟功能。',
+      'tc.tts.empty_desc': '先完成 TikTok Shop 授权后，再使用相关能力。',
       'tc.tts.empty_cta': '授权 TikTok Shop',
       'tc.tts.na': '—',
       'tc.tts.toast_connected': 'TikTok Shop 已连接',
       'tc.tts.toast_removed': '授权已移除',
       'tc.tts.toast_renewed': '授权已续期',
+      'tc.tts.type_label': '授权类型',
+      'tc.tts.type_isv': 'TikTok ISV',
+      'tc.tts.type_tap': 'TAP Seller',
+      'tc.tts.type_isv_desc': '用于同步店铺商品和执行秒杀设置。',
+      'tc.tts.type_tap_desc': '用于 Find Creator 获取店铺所在地区的 Affiliate MarketPlace。',
+      'tc.tts.section_isv': 'TikTok ISV',
+      'tc.tts.section_tap': 'TAP Seller',
+      'tc.tts.section_isv_desc': '用于商品同步和秒杀设置。',
+      'tc.tts.section_tap_desc': '用于 Find Creator 市场能力。',
+      'tc.tts.auth_btn_isv': '授权 TikTok ISV',
+      'tc.tts.auth_btn_tap': '授权 TAP Seller',
+      'tc.tts.connected_count': '已连接',
+      'tc.tts.seller_login': 'Seller Center 登录',
+      'tc.tts.seller_login_connected': '已连接',
+      'tc.tts.seller_login_required': '需完成登录',
+      'tc.tts.complete_login': '完成 Seller Center 登录',
+      'tc.tts.manage_login': '进入 Seller Center',
+      'tc.tts.toast_login_connected': 'Seller Center 登录已连接',
       'tc.host_affiliate': '合作主播&达人', 'tc.ha_manage': '合作主播&达人', 'tc.ha_settlement': '主播&达人结算',
       'tc.ha_manage_desc': '管理 Host 与 Affiliate 账号，并与当前租户绑定。',
       'tc.ha_settlement_desc': '将直播排期生成 Creator 结算批次，并对 Creator 提现申请进行审批。',
@@ -1035,6 +1248,162 @@
       'tc.ha.request_id': '申请ID',
       'tc.ha.amount': '金额',
       'tc.ha.created_at': '申请时间',
+      'ls.title': '直播管理',
+      'ls.intro': '收集主播空闲时段、提报目标小时数、生成初排并与 TikTok 同步，开播后回填实际上下播与 GMV。',
+      'ls.tab.host_avail': '主播日程',
+      'ls.tab.targets': '直播目标',
+      'ls.tab.batches': '主播排期',
+      'ls.sess.draft': '暂存',
+      'ls.sess.pending_confirm': '待确认',
+      'ls.sess.pending_sync': '待同步',
+      'ls.sess.pending_live': '待直播',
+      'ls.sess.live': '直播中',
+      'ls.sess.ended': '已直播',
+      'ls.phase.scheduled': '待直播',
+      'ls.phase.live': '直播中',
+      'ls.phase.ended': '已直播',
+      'ls.th.schedule_id': '排期ID',
+      'ls.th.subject_account': '主题与直播账号',
+      'ls.th.created_follower': '创建人与跟播人',
+      'ls.th.subject': '主题',
+      'ls.th.account': '直播账号',
+      'ls.th.time': '直播时间',
+      'ls.th.hosts_segments': '主播（计划分段）',
+      'ls.th.follower': '跟播人',
+      'ls.th.tiktok_sid': 'TikTok Session ID',
+      'ls.th.tiktok_live_event_sync': 'TikTok Live Event',
+      'ls.tiktok_sync.status_idle': '未同步',
+      'ls.tiktok_sync.status_syncing': '同步中',
+      'ls.tiktok_sync.status_failed': '失败',
+      'ls.tiktok_sync.fail_auth': '直播账号登录已过期，请重新登录后重试。',
+      'ls.tiktok_sync.fail_other': '系统错误',
+      'ls.th.created_by': '创建人',
+      'ls.th.remark_en': '备注（英文）',
+      'ls.search.sessions_ph': '搜索排期ID、主题、账号、跟播、主播、备注…',
+      'ls.empty.sessions': '当前状态下暂无排期',
+      'ls.empty.sessions_hint': '可切换上方状态、清空搜索，或在「主播日程」中生成排期。',
+      'ls.btn.push_host': '推送主播',
+      'ls.btn.batch_push': '批量推送主播',
+      'ls.btn.batch_sync_tiktok': '批量同步 TikTok',
+      'ls.btn.edit_schedule': '编辑排期',
+      'ls.btn.cancel_schedule': '取消排期',
+      'ls.btn.sync_tiktok': '同步 TikTok',
+      'ls.btn.view': '查看详情',
+      'ls.select_all': '全选',
+      'ls.modal.batch_sync_title': '批量同步 TikTok？',
+      'ls.modal.batch_sync_body': '将为选中的 {0} 个场次创建 TikTok Live Event（MVP Mock）。',
+      'ls.toast.batch_sync_none': '没有可同步的场次。',
+      'ls.toast.batch_sync_done': '已同步 {0} 个场次（MVP Mock）。',
+      'ls.targets.save': '保存目标小时数',
+      'ls.targets.generate': '自动排期',
+      'ls.targets.add': '新增直播目标',
+      'ls.targets.hint': '提示：推荐在「主播日程」勾选主播后使用自动排期；也可在此打开同一配置。',
+      'ls.targets.th.account': '直播账号',
+      'ls.targets.th.period': '周期',
+      'ls.targets.th.target_h': '目标小时数',
+      'ls.targets.th.planned_h': '已初排小时数',
+      'ls.targets.th.accepted_h': '已接受小时数',
+      'ls.targets.th.rate': '完成率',
+      'ls.targets.th.updated': '更新时间',
+      'ls.targets.th.actions': '操作',
+      'ls.targets.cancel': '作废',
+      'ls.targets.empty': '暂无账号目标配置',
+      'ls.host.search_ph': '搜索主播',
+      'ls.host.tz_merchant': '（商家本机）',
+      'ls.host.week_prev': '上一周',
+      'ls.host.week_this': '本周',
+      'ls.host.week_next': '下一周',
+      'ls.host.tz_display_label': '时区',
+      'ls.host.window': '当前窗口：{0}；单元格内为当天可用时段（已扣除初排占用后的剩余）。',
+      'ls.host.tz_legend_display': '时间展示：{0}',
+      'ls.host.tz_legend_boundary': '日期边界：{0}',
+      'ls.host.tz_legend_note': '单元格时间按展示时区显示；周/日边界按商家时区计算。',
+      'ls.host.select_all': '全选',
+      'ls.host.gen': '自动排期',
+      'ls.host.selected_n': '已选 {0} 人',
+      'ls.host.gen_hint': '勾选主播后配置周期、直播账号与时区',
+      'ls.host.overflow': '+{0}段',
+      'ls.targets.past_locked': '过往周期不可修改',
+      'ls.host.th.matrix': '主播日程',
+      'ls.host.badge.open': '有空',
+      'ls.host.badge.full': '已分配完',
+      'ls.host.summary_remain': '剩余 {0}h',
+      'ls.host.metric_avail': '可用 {0}h',
+      'ls.host.metric_alloc': '已分配 {0}h',
+      'ls.host.tooltip.no_avail': '未提报（不参与初排）',
+      'ls.host.tooltip.day': '该天可用 {0}h · 已分配 {1}h',
+      'ls.host.cell.none': '未提报',
+      'ls.host.cell.more': '段',
+      'ls.host.row.hint': '点击某天单元格可编辑可用时段',
+      'ls.host.empty_matrix': '暂无主播可用时段（或不在当前7天窗口内）',
+      'ls.user_id': '用户ID',
+      'ls.weekday.0': '周一', 'ls.weekday.1': '周二', 'ls.weekday.2': '周三', 'ls.weekday.3': '周四', 'ls.weekday.4': '周五', 'ls.weekday.5': '周六', 'ls.weekday.6': '周日',
+      'ls.drawer.close': '关闭',
+      'ls.drawer.tab.sessions': '场次',
+      'ls.drawer.tab.segments': 'Relay 分段',
+      'ls.drawer.host.avail': '可用时段',
+      'ls.drawer.host.planned': '已分配计划',
+      'ls.drawer.edit_slot_title': '编辑空闲时段',
+      'ls.drawer.add_slot_title': '添加空闲时段',
+      'ls.drawer.add_slot_btn': '录入空闲时段',
+      'ls.host.add_slot_btn': '添加主播空闲时段',
+      'ls.host.add_slot_modal_title': '添加主播空闲时段',
+      'ls.host.add_slot_date_label': '日期',
+      'ls.host.add_slot_modal_ok': '继续',
+      'ls.host.add_slot_no_hosts': '暂无主播数据，请先导入或在抽屉中录入。',
+      'ls.host.add_slot_no_date': '请选择日期。',
+      'ls.host.batch_modal_title': '批量录入主播空闲时段',
+      'ls.host.batch_hint': '每行选择主播并填写时段；同一弹窗可混填多位主播。空行可留空（自动跳过）。时间按当前展示时区解析。',
+      'ls.host.batch_tz_label': '时区',
+      'ls.host.batch_add_row': '添加一行',
+      'ls.host.batch_remove_row': '删除此行',
+      'ls.host.batch_save': '保存全部',
+      'ls.host.batch_empty': '请至少完整填写一行。',
+      'ls.host.batch_err_incomplete_row': '每一行需同时选择主播并填写日期、开始时间、结束时间。',
+      'ls.host.batch_err_time_order': '每一行开始时间须早于结束时间。',
+      'ls.host.batch_keep_one_row': '至少保留一行。',
+      'ls.host.batch_saved': '已保存 {0} 条空闲时段。',
+      'ls.drawer.avail_empty': '暂无可用时段',
+      'ls.drawer.stats_impact_hint': '编辑/作废时段会影响「后续初排生成」的 planned allocation，请在商家目标中手动重新生成。',
+      'ls.drawer.add_slot_no_host': '未选择主播。',
+      'ls.drawer.add_slot_no_day': '请先从日历某天打开本抽屉。',
+      'ls.drawer.add_slot_day_mismatch': '开始与结束须落在当前抽屉对应的日期。',
+      'ls.drawer.th.status': '状态',
+      'ls.drawer.th.start': '开始',
+      'ls.drawer.th.end': '结束',
+      'ls.drawer.th.duration': '时长',
+      'ls.drawer.tz_label': '时区',
+      'ls.drawer.th.source': '来源',
+      'ls.drawer.th.updated_at': '更新时间',
+      'ls.drawer.avail_status_valid': '有效',
+      'ls.drawer.avail_status_voided': '已作废',
+      'ls.drawer.avail_void': '作废',
+      'ls.drawer.avail_restore': '恢复',
+      'ls.modal.detail': '排期详情',
+      'ls.modal.edit': '编辑排期',
+      'ls.modal.save': '保存',
+      'ls.modal.update': '更新排期',
+      'ls.section.account': '直播账号信息',
+      'ls.section.schedule': '日程与主播',
+      'ls.section.remark': '排期备注',
+      'ls.live_ended.hint': '以下字段不可编辑；每个主播分段仅可修改实际上下播与 GMV（含备注）。直播中或已结束时不可修改 TikTok Live Events。',
+      'ls.gmv.ccy_hint': 'GMV 币种由服务端按直播间商品币种下发，当前：{0}',
+      'ls.banner.host_checkin': '主播尚未在 App 打卡上播。',
+      'ls.readonly.empty_sessions': '暂无场次',
+      'ls.detail.seg_hosts': '主播信息',
+      'ls.format.gmv_label': 'Direct GMV：{0}',
+      'ls.edit.hint_streamed': '已直播：仅可编辑实际上下播与 GMV。',
+      'ls.edit.hint_full': '可编辑全部排期字段（MVP 预览）。',
+      'ls.modal.seg_hosts_title': '主播分段',
+      'ls.seg.empty': '暂无分段',
+      'ls.seg.del_disabled': '不可删除',
+      'ls.seg.add_host': '添加主播',
+      'ls.seg.host': '主播',
+      'ls.seg.start': '开始',
+      'ls.seg.end': '结束',
+      'ls.seg.gmv': 'GMV',
+      'ls.seg.gmv_note': 'GMV 备注',
+      'common.close': '关闭',
       'tc.ha.stat_batches': '批次数'
     }
   };
@@ -1148,9 +1517,13 @@
     'affiliate/discover': 'discover',
     'affiliate/outreach': 'outreach',
     'affiliate/analytics': 'analytics',
+    'tenant-center': 'analytics',
     'affiliate/settlement': 'settlement',
     'benefits-store': 'benefits-store',
-    'hosts/hourly-pay-rules': 'hourly-pay-rules'
+    'hosts/hourly-pay-rules': 'hourly-pay-rules',
+    'live/schedule': 'live_schedule',
+    'live/settings': 'live_settings',
+    'live/settings/flash-sale': 'live_settings_flash_sale'
   };
 
   function getRole() { return localStorage.getItem(ROLE_KEY) || 'live'; }
@@ -1158,13 +1531,9 @@
   function applyRoleUI() {
     var role = getRole();
     var navLive = document.getElementById('navLive');
-    var navHosts = document.getElementById('navHosts');
     var navAffiliate = document.getElementById('navAffiliate');
-    var sectionLive = document.getElementById('sectionLive');
     if (navLive) { navLive.classList.toggle('hidden', role === 'affiliate'); }
-    if (navHosts) { navHosts.classList.toggle('hidden', role === 'affiliate'); }
     if (navAffiliate) { navAffiliate.classList.toggle('visible', role === 'affiliate'); }
-    if (sectionLive) { sectionLive.classList.toggle('hidden', role === 'affiliate'); }
     var switcher = document.getElementById('roleSwitcher');
     if (switcher) switcher.classList.toggle('role--affiliate', role === 'affiliate');
     document.querySelectorAll('.role-switcher-btn').forEach(function (btn) {
@@ -1225,7 +1594,11 @@
 
   function setSidebarActive(routeId) {
     document.querySelectorAll('.sidebar-primary-icon[data-route]').forEach(function (a) {
-      a.classList.toggle('active', a.getAttribute('data-route') === routeId);
+      var navRoute = a.getAttribute('data-route');
+      var isActive = navRoute === routeId ||
+        (navRoute === 'live_settings' && routeId === 'live_settings_flash_sale') ||
+        (navRoute === 'tenant_center_shared' && routeId === 'analytics');
+      a.classList.toggle('active', isActive);
     });
   }
 
@@ -2597,6 +2970,7 @@
   }
 
   var tcPanel = 'plan';
+  var tcTtsAuthTab = 'isv';
 
   function renderTenantCenterSidebar() {
     var nav = '';
@@ -2739,42 +3113,54 @@
       return '<div class="tc-placeholder"><div class="tc-placeholder-icon"><i class="fas fa-user-cog"></i></div><p class="tc-placeholder-text">' + t('tc.tenant_placeholder') + '</p></div>';
     }
     if (panel === 'tenant_tts') {
-      var auths = loadTtsAuth();
-      var cards = auths.length ? auths.map(function (a) {
-        var mp = a.marketplace || a.country || '';
-        var shopLabel = (a.shopName || 'TikTok Shop') + (mp ? ' · ' + mp : '');
-        var status = (a.status || 'active') === 'active' ? t('tc.tts.auth_active') : t('tc.tts.auth_revoked');
-        var lastUpdate = formatTtsDate(a.authorizedAt, a.country);
-        return '' +
-          '<div class="tc-tts-card" data-id="' + a.id + '">' +
-            '<div class="tc-tts-header">' +
-              '<div class="tc-tts-avatar"><i class="fab fa-tiktok"></i></div>' +
-              '<div class="tc-tts-title">' +
-                '<div class="tc-tts-shop-name">' + shopLabel + '</div>' +
-                '<div class="tc-tts-shop-id">' + t('tc.tts.shop_id') + ': ' + (a.shopId || t('tc.tts.na')) + '</div>' +
+      var auths = loadTtsAuth().map(function (a) {
+        if (!a.authType) a.authType = 'tap_seller';
+        return a;
+      });
+      var activeType = tcTtsAuthTab === 'tap_seller' ? 'tap_seller' : 'isv';
+      var renderAuthCards = function (type) {
+        var sectionAuths = auths.filter(function (a) { return a.authType === type; });
+        var cards = sectionAuths.length ? sectionAuths.map(function (a) {
+          var mp = a.marketplace || a.country || '';
+          var shopLabel = (a.shopName || 'TikTok Shop') + (mp ? ' · ' + mp : '');
+          var status = (a.status || 'active') === 'active' ? t('tc.tts.auth_active') : t('tc.tts.auth_revoked');
+          var lastUpdate = formatTtsDate(a.authorizedAt, a.country);
+          var sellerLoginStatus = a.sellerCenterStatus === 'connected' ? 'connected' : 'required';
+          var sellerLoginText = sellerLoginStatus === 'connected' ? t('tc.tts.seller_login_connected') : t('tc.tts.seller_login_required');
+          return '' +
+            '<div class="tc-tts-card" data-id="' + a.id + '">' +
+              '<div class="tc-tts-header">' +
+                '<div class="tc-tts-avatar"><i class="fab fa-tiktok"></i></div>' +
+                '<div class="tc-tts-title">' +
+                  '<div class="tc-tts-shop-name">' + shopLabel + '</div>' +
+                  '<div class="tc-tts-shop-id">' + t('tc.tts.shop_id') + ': ' + (a.shopId || t('tc.tts.na')) + '</div>' +
+                '</div>' +
               '</div>' +
+              '<div class="tc-tts-body">' +
+                '<div class="tc-tts-field"><span>' + t('tc.tts.auth_status') + '</span><span class="tc-tts-status tc-tts-status--' + (a.status || 'active') + '">' + status + '</span></div>' +
+                (a.authType === 'isv' ? '<div class="tc-tts-field"><span>' + t('tc.tts.seller_login') + '</span><span class="tc-tts-status tc-tts-status--' + sellerLoginStatus + '">' + sellerLoginText + '</span></div>' : '') +
+                '<div class="tc-tts-field"><span>' + t('tc.tts.marketplace') + '</span><span>' + (mp || t('tc.tts.na')) + '</span></div>' +
+                '<div class="tc-tts-field"><span>' + t('tc.tts.last_update') + '</span><span class="tc-tts-date">' + (lastUpdate || t('tc.tts.na')) + '</span></div>' +
+              '</div>' +
+              '<div class="tc-tts-footer">' +
+                (a.authType === 'isv' ? '<button type="button" class="btn ' + (sellerLoginStatus === 'connected' ? 'btn-secondary' : 'btn-primary') + ' btn-sm tc-tts-login" data-id="' + a.id + '">' + (sellerLoginStatus === 'connected' ? t('tc.tts.manage_login') : t('tc.tts.complete_login')) + '</button>' : '') +
+                '<button type="button" class="btn btn-secondary btn-sm tc-tts-renew" data-id="' + a.id + '">' + t('tc.tts.renew') + '</button>' +
+                '<button type="button" class="btn btn-sm tc-tts-remove tc-tts-remove--destructive" data-id="' + a.id + '">' + t('tc.tts.remove') + '</button>' +
+              '</div>' +
+            '</div>';
+        }).join('') : '<div class="tc-tts-empty tc-tts-empty--section"><div class="tc-tts-empty-icon"><i class="fab fa-tiktok"></i></div><div class="tc-tts-empty-title">' + t('tc.tts.empty_title') + '</div><p class="tc-tts-empty-desc">' + (type === 'isv' ? t('tc.tts.type_isv_desc') : t('tc.tts.type_tap_desc')) + '</p></div>';
+        var title = type === 'isv' ? t('tc.tts.section_isv') : t('tc.tts.section_tap');
+        var desc = type === 'isv' ? t('tc.tts.section_isv_desc') : t('tc.tts.section_tap_desc');
+        var btnLabel = type === 'isv' ? t('tc.tts.auth_btn_isv') : t('tc.tts.auth_btn_tap');
+        return '' +
+          '<section class="tc-tts-type-section">' +
+            '<div class="tc-tts-type-head">' +
+              '<div><div class="tc-tts-type-topline"><h3 class="tc-tts-type-title">' + title + '</h3><span class="tc-tts-type-count">' + sectionAuths.length + ' ' + t('tc.tts.connected_count') + '</span></div><p class="tc-tts-type-desc">' + desc + '</p></div>' +
+              '<button type="button" class="btn btn-primary tc-tts-connect-type" data-auth-type="' + type + '"><i class="fab fa-tiktok"></i> ' + btnLabel + '</button>' +
             '</div>' +
-            '<div class="tc-tts-body">' +
-              '<div class="tc-tts-field"><span>' + t('tc.tts.auth_status') + '</span><span class="tc-tts-status tc-tts-status--' + (a.status || 'active') + '">' + status + '</span></div>' +
-              '<div class="tc-tts-field"><span>' + t('tc.tts.marketplace') + '</span><span>' + (mp || t('tc.tts.na')) + '</span></div>' +
-              '<div class="tc-tts-field"><span>' + t('tc.tts.last_update') + '</span><span class="tc-tts-date">' + (lastUpdate || t('tc.tts.na')) + '</span></div>' +
-            '</div>' +
-            '<div class="tc-tts-footer">' +
-              '<button type="button" class="btn btn-secondary btn-sm tc-tts-renew" data-id="' + a.id + '">' + t('tc.tts.renew') + '</button>' +
-              '<button type="button" class="btn btn-sm tc-tts-remove tc-tts-remove--destructive" data-id="' + a.id + '">' + t('tc.tts.remove') + '</button>' +
-            '</div>' +
-          '</div>';
-      }).join('') : '' +
-        '<div class="tc-tts-empty">' +
-          '<div class="tc-tts-empty-icon"><i class="fab fa-tiktok"></i></div>' +
-          '<h3 class="tc-tts-empty-title">' + t('tc.tts.empty_title') + '</h3>' +
-          '<p class="tc-tts-empty-desc">' + t('tc.tts.empty_desc') + '</p>' +
-          '<button type="button" class="btn btn-primary" id="btnTtsConnectEmpty"><i class="fab fa-tiktok"></i> ' + t('tc.tts.empty_cta') + '</button>' +
-        '</div>';
-
-      var connectRow = auths.length ? '<div class="tc-tts-connect">' +
-        '<button type="button" class="btn btn-primary" id="btnTtsConnect"><i class="fab fa-tiktok"></i> ' + t('tc.tts.auth_btn') + '</button>' +
-        '</div>' : '';
+            '<div class="tc-tts-list' + (sectionAuths.length ? '' : ' tc-tts-list--empty') + '">' + cards + '</div>' +
+          '</section>';
+      };
 
       return '' +
         '<div class="tc-tenant-tts-page">' +
@@ -2785,8 +3171,11 @@
             '</div>' +
           '</div>' +
           '<div class="card tc-card tc-tts-card-wrap">' +
-            connectRow +
-            '<div class="tc-tts-list' + (auths.length ? '' : ' tc-tts-list--empty') + '" id="ttsAuthList">' + cards + '</div>' +
+            '<div class="tc-tts-tabs" role="tablist" aria-label="' + t('tc.tts.title') + '">' +
+              '<button type="button" class="tc-tts-tab' + (activeType === 'isv' ? ' tc-tts-tab--active' : '') + '" data-tts-tab="isv" role="tab" aria-selected="' + (activeType === 'isv' ? 'true' : 'false') + '">' + t('tc.tts.type_isv') + '</button>' +
+              '<button type="button" class="tc-tts-tab' + (activeType === 'tap_seller' ? ' tc-tts-tab--active' : '') + '" data-tts-tab="tap_seller" role="tab" aria-selected="' + (activeType === 'tap_seller' ? 'true' : 'false') + '">' + t('tc.tts.type_tap') + '</button>' +
+            '</div>' +
+            '<div id="ttsAuthList">' + renderAuthCards(activeType) + '</div>' +
           '</div>' +
         '</div>';
     }
@@ -6371,23 +6760,33 @@
     if (panel === 'ha_manage') bindHaManageEvents();
     if (panel === 'ha_settlement') bindHaSettlementEvents();
     if (panel === 'tenant_tts') {
+      document.querySelectorAll('.tc-tts-tab').forEach(function (tabBtn) {
+        tabBtn.addEventListener('click', function () {
+          tcTtsAuthTab = tabBtn.getAttribute('data-tts-tab') === 'tap_seller' ? 'tap_seller' : 'isv';
+          var main = document.getElementById('tcMain');
+          if (main) {
+            main.innerHTML = renderTenantCenterMain('tenant_tts');
+            bindTenantCenterPanelEvents('tenant_tts');
+          }
+        });
+      });
       var auths = loadTtsAuth();
-      var btnConnect = document.getElementById('btnTtsConnect') || document.getElementById('btnTtsConnectEmpty');
-      if (btnConnect) {
+      document.querySelectorAll('.tc-tts-connect-type').forEach(function (btnConnect) {
         btnConnect.addEventListener('click', function () {
-          // 在真实环境中，这里应跳转到 TikTok 授权页面，完成授权后由后端回调并写入授权记录。
-          // 当前 demo 中，我们模拟新增一条 US 店铺授权，便于后续流程联调。
-          var country = 'US';
-          var shopName = 'New TikTok Shop';
-          var id = 'tts_' + country.toLowerCase() + '_' + Date.now();
+          var authType = btnConnect.getAttribute('data-auth-type') || 'tap_seller';
+          var country = authType === 'isv' ? 'US' : 'UK';
+          var shopName = authType === 'isv' ? 'New ISV Shop' : 'New TAP Shop';
+          var id = 'tts_' + authType + '_' + country.toLowerCase() + '_' + Date.now();
           var shopId = 'TTS-' + String(Date.now()).slice(-8);
           auths.push({
             id: id,
+            authType: authType,
             country: country,
             marketplace: country,
             shopName: shopName,
             shopId: shopId,
             status: 'active',
+            sellerCenterStatus: authType === 'isv' ? 'required' : null,
             authorizedAt: new Date().toISOString(),
             revokedAt: null
           });
@@ -6399,7 +6798,24 @@
           }
           showToast(t('tc.tts.toast_connected'));
         });
-      }
+      });
+      document.querySelectorAll('.tc-tts-login').forEach(function (btn) {
+        btn.addEventListener('click', function () {
+          var id = btn.getAttribute('data-id');
+          if (!id) return;
+          var list = loadTtsAuth();
+          list.forEach(function (a) {
+            if (a.id === id) a.sellerCenterStatus = 'connected';
+          });
+          saveTtsAuth(list);
+          var main = document.getElementById('tcMain');
+          if (main) {
+            main.innerHTML = renderTenantCenterMain('tenant_tts');
+            bindTenantCenterPanelEvents('tenant_tts');
+          }
+          showToast(t('tc.tts.toast_login_connected'));
+        });
+      });
       document.querySelectorAll('.tc-tts-remove').forEach(function (btn) {
         btn.addEventListener('click', function () {
           var id = btn.getAttribute('data-id');
@@ -6516,6 +6932,4711 @@
     '</div>';
   }
 
+  // ================= Live Schedule (直播排期) Module =================
+  var LS_HOST_AVAIL_KEY = 'wahool_ls_host_avail';
+  var LS_TARGETS_KEY = 'wahool_ls_targets';
+  var LS_BATCHES_KEY = 'wahool_ls_batches';
+  var LS_TIMEZONE_DISPLAY_KEY = 'wahool_ls_timezone_display';
+
+  var lsActiveTab = 'host_avail'; // host_avail | targets | batches
+  var lsHostAvailabilities = [];
+  var lsMerchantTargets = [];
+  var lsScheduleBatches = [];
+
+  var lsActiveWeekStart = null; // YYYY-MM-DD (Mon)
+
+  var lsSessionDurationMinutes = 120; // fixed session template for MVP
+  var lsMaxRelaySegments = 3;
+
+  var lsHostFilter = { host: '', source: 'all', status: 'all' };
+  var lsTargetsPeriodStartFilter = '';
+  // 主播排期列表：按「直播场次」维度 + 状态 Tab（暂存/待确认/待同步/待直播/直播中/已直播）
+  var lsSessionListFilter = { tab: 'draft', q: '' };
+
+  /** i18n helper: replace {0} {1} in t(key) */
+  function lsT(key, a0, a1) {
+    var s = t(key);
+    if (a0 != null && a0 !== undefined) s = s.replace(/\{0\}/g, String(a0));
+    if (a1 != null && a1 !== undefined) s = s.replace(/\{1\}/g, String(a1));
+    return s;
+  }
+
+  var lsBatchDrawerBatchId = null;
+  var lsHostDrawerHostId = null;
+  var lsHostDrawerDayDate = null; // YYYY-MM-DD
+  var lsHostDrawerTab = 'availability'; // availability | planned
+
+  var lsGenerateInitialHostIdsFilter = null; // for “自动排期” modal selection (array)
+  var lsGenerateInitialAccountUsernamesFilter = null; // for “自动排期” modal selection (array)
+  /** 自动排期弹窗所选时区；执行 `lsGenerateInitialSchedule` 后清空 */
+  var lsGenerateInitialTimeZone = null;
+
+  var lsMerchantTimeZone = (function () {
+    try {
+      if (typeof Intl === 'undefined' || !Intl.DateTimeFormat) return 'UTC';
+      return Intl.DateTimeFormat().resolvedOptions().timeZone || 'UTC';
+    } catch (e) {
+      return 'UTC';
+    }
+  })();
+
+  var lsDisplayTimeZone = lsMerchantTimeZone;
+  try {
+    var savedTz = localStorage.getItem(LS_TIMEZONE_DISPLAY_KEY);
+    if (savedTz) lsDisplayTimeZone = savedTz;
+  } catch (e) {}
+
+  function lsGetTimeZoneOffsetMs(timeZone, date) {
+    // Returns: offsetMs = (timeZone_wall_clock_as_UTC) - (original_instant_ms)
+    // Used to convert wall time in a timeZone to an instant.
+    var dtf = new Intl.DateTimeFormat('en-US', {
+      timeZone: timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      second: '2-digit',
+      hour12: false
+    });
+    var parts = dtf.formatToParts(date);
+    var map = {};
+    parts.forEach(function (p) { if (p && p.type) map[p.type] = p.value; });
+    var asUTC = Date.UTC(
+      Number(map.year),
+      Number(map.month) - 1,
+      Number(map.day),
+      Number(map.hour),
+      Number(map.minute),
+      Number(map.second)
+    );
+    return asUTC - date.getTime();
+  }
+
+  function lsParseDateTimeParts(dateTimeStr) {
+    if (!dateTimeStr) return null;
+    var m = String(dateTimeStr).trim().match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+    if (!m) return null;
+    return {
+      y: Number(m[1]),
+      mo: Number(m[2]),
+      d: Number(m[3]),
+      h: Number(m[4]),
+      mi: Number(m[5])
+    };
+  }
+
+  function lsWallTimeToMs(dateTimeStr, timeZone) {
+    var p = lsParseDateTimeParts(dateTimeStr);
+    if (!p) return NaN;
+    // Guess by interpreting wall time as UTC, then correct by timezone offset (DST safe enough for MVP).
+    var guessMs = Date.UTC(p.y, p.mo - 1, p.d, p.h, p.mi, 0);
+    var offset = lsGetTimeZoneOffsetMs(timeZone, new Date(guessMs));
+    return guessMs - offset;
+  }
+
+  function lsFormatMs(ms, timeZone) {
+    if (!isFinite(ms)) return '';
+    var dtf = new Intl.DateTimeFormat('en-CA', {
+      timeZone: timeZone,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit',
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+    // en-CA 输出顺序稳定：YYYY-MM-DD, 再拼接时分
+    var parts = dtf.formatToParts(new Date(ms));
+    var map = {};
+    parts.forEach(function (p) { if (p && p.type) map[p.type] = p.value; });
+    // map: year, month, day, hour, minute
+    return map.year + '-' + map.month + '-' + map.day + ' ' + map.hour + ':' + map.minute;
+  }
+
+  function lsFormatMsTimeOnly(ms, timeZone) {
+    if (!isFinite(ms)) return '';
+    var dtf = new Intl.DateTimeFormat('en-CA', {
+      timeZone: timeZone,
+      hour: '2-digit',
+      minute: '2-digit',
+      hour12: false
+    });
+    var parts = dtf.formatToParts(new Date(ms));
+    var map = {};
+    parts.forEach(function (p) { if (p && p.type) map[p.type] = p.value; });
+    return (map.hour || '00') + ':' + (map.minute || '00');
+  }
+
+  // Data storage: all startAt/endAt strings are treated as wall time in "merchant time zone".
+  function lsMsToStr(ms) {
+    try {
+      return lsFormatMs(ms, lsMerchantTimeZone);
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function lsMsToStrDisplay(ms) {
+    try {
+      return lsFormatMs(ms, lsDisplayTimeZone);
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function lsMsToTimeStr(ms) {
+    try {
+      return lsFormatMsTimeOnly(ms, lsDisplayTimeZone);
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function lsStrToMs(s) {
+    if (!s) return NaN;
+    try {
+      if (String(s).indexOf('T') !== -1) return new Date(s).getTime();
+      return lsWallTimeToMs(s, lsMerchantTimeZone);
+    } catch (e) {
+      return NaN;
+    }
+  }
+
+  function lsDateStrFromDateTime(dateTimeStr) {
+    if (!dateTimeStr) return '';
+    // "YYYY-MM-DD HH:mm"
+    var parts = String(dateTimeStr).split(' ');
+    return parts[0] || '';
+  }
+
+  function lsTimeStrFromDateTime(dateTimeStr) {
+    if (!dateTimeStr) return '';
+    var parts = String(dateTimeStr).split(' ');
+    return parts[1] ? parts[1].slice(0, 5) : '';
+  }
+
+  function lsAddDaysToDateStr(dateStr, deltaDays) {
+    if (!dateStr) return '';
+    var m = String(dateStr).trim().match(/^(\d{4})-(\d{2})-(\d{2})$/);
+    if (!m) return dateStr;
+    var y = Number(m[1]);
+    var mo = Number(m[2]) - 1;
+    var d0 = Number(m[3]);
+    var ms = Date.UTC(y, mo, d0, 0, 0, 0);
+    var d = new Date(ms);
+    d.setUTCDate(d.getUTCDate() + deltaDays);
+    var pad = function (n) { return String(n).padStart(2, '0'); };
+    return d.getFullYear() + '-' + pad(d.getMonth() + 1) + '-' + pad(d.getDate());
+  }
+
+  function lsGetDayRangeMs(dateStr) {
+    // IMPORTANT: range calculations must use merchant timezone,
+    // while display formatting uses lsDisplayTimeZone.
+    var startMs = lsWallTimeToMs(dateStr + ' 00:00', lsMerchantTimeZone);
+    if (!isFinite(startMs)) return null;
+    var endDateStr = lsAddDaysToDateStr(dateStr, 1);
+    var endMs = lsWallTimeToMs(endDateStr + ' 00:00', lsMerchantTimeZone);
+    if (!isFinite(endMs)) endMs = startMs + 24 * 60 * 60 * 1000;
+    return { startMs: startMs, endMs: endMs };
+  }
+
+  function lsComputeHoursOverlap(startAt, endAt, rangeStartMs, rangeEndMs) {
+    var s = lsStrToMs(startAt);
+    var e = lsStrToMs(endAt);
+    if (!isFinite(s) || !isFinite(e) || !(s < e)) return 0;
+    var a = Math.max(s, rangeStartMs);
+    var b = Math.min(e, rangeEndMs);
+    if (!(a < b)) return 0;
+    return (b - a) / 3600000;
+  }
+
+  function lsMsToTimeStr(ms) {
+    try {
+      return lsFormatMsTimeOnly(ms, lsDisplayTimeZone);
+    } catch (e) {
+      return '';
+    }
+  }
+
+  function lsGetWeekDateStrs(weekStartDateStr) {
+    var arr = [];
+    for (var i = 0; i < 7; i++) arr.push(lsAddDaysToDateStr(weekStartDateStr, i));
+    return arr;
+  }
+
+  function lsComputeAvailableHoursForHostDay(hostId, dayDateStr, sourceFilter) {
+    var r = lsGetDayRangeMs(dayDateStr);
+    if (!r) return 0;
+    var list = (lsHostAvailabilities || []).filter(function (s) {
+      if (!s || s.hostId !== hostId) return false;
+      if (s.cancelled) return false;
+      if (sourceFilter && sourceFilter !== 'all' && s.source !== sourceFilter) return false;
+      return lsComputeHoursOverlap(s.startAt, s.endAt, r.startMs, r.endMs) > 0;
+    });
+    var sum = 0;
+    list.forEach(function (s) { sum += lsComputeHoursOverlap(s.startAt, s.endAt, r.startMs, r.endMs); });
+    return sum;
+  }
+
+  function lsComputeAllocatedHoursForHostDay(hostId, dayDateStr) {
+    var r = lsGetDayRangeMs(dayDateStr);
+    if (!r) return 0;
+    var sum = 0;
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (s) {
+        (s.segments || []).forEach(function (seg) {
+          if (seg.hostId !== hostId) return;
+          sum += lsComputeHoursOverlap(seg.startAt, seg.endAt, r.startMs, r.endMs);
+        });
+      });
+    });
+    return sum;
+  }
+
+  function lsGetActiveHostDaySegments(hostId, dayDateStr, sourceFilter) {
+    var r = lsGetDayRangeMs(dayDateStr);
+    if (!r) return [];
+    var list = (lsHostAvailabilities || []).filter(function (s) {
+      if (!s || s.hostId !== hostId) return false;
+      if (s.cancelled) return false;
+      if (sourceFilter && sourceFilter !== 'all' && s.source !== sourceFilter) return false;
+      return lsComputeHoursOverlap(s.startAt, s.endAt, r.startMs, r.endMs) > 0;
+    });
+    // Clip to day boundaries for display.
+    list.sort(function (a, b) { return lsStrToMs(a.startAt) - lsStrToMs(b.startAt); });
+    return list.map(function (s) {
+      var sMs = lsStrToMs(s.startAt);
+      var eMs = lsStrToMs(s.endAt);
+      var cs = Math.max(sMs, r.startMs);
+      var ce = Math.min(eMs, r.endMs);
+      return Object.assign({}, s, {
+        _clipStartMs: cs,
+        _clipEndMs: ce
+      });
+    });
+  }
+
+  function lsMergeHostAvailabilitiesForDay(hostId, dayDateStr) {
+    var dayRange = lsGetDayRangeMs(dayDateStr);
+    if (!dayRange) return;
+    var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+
+    var segments = (lsHostAvailabilities || []).filter(function (s) {
+      if (!s || s.hostId !== hostId) return false;
+      if (s.cancelled) return false;
+      return lsComputeHoursOverlap(s.startAt, s.endAt, dayRange.startMs, dayRange.endMs) > 0;
+    });
+    if (!segments.length) return;
+
+    // Normalize into clipped intervals for the day and merge overlap/adjacent.
+    var intervals = segments.slice().map(function (s) {
+      var sMs = lsStrToMs(s.startAt);
+      var eMs = lsStrToMs(s.endAt);
+      return {
+        _seg: s,
+        startMs: Math.max(sMs, dayRange.startMs),
+        endMs: Math.min(eMs, dayRange.endMs),
+      };
+    }).sort(function (a, b) { return a.startMs - b.startMs; });
+
+    // Build merged groups; each group owns a set of original segments.
+    var groups = [];
+    for (var i = 0; i < intervals.length; i++) {
+      var it = intervals[i];
+      if (!groups.length) {
+        groups.push({ startMs: it.startMs, endMs: it.endMs, segs: [it._seg] });
+        continue;
+      }
+      var last = groups[groups.length - 1];
+      if (it.startMs <= last.endMs) {
+        last.endMs = Math.max(last.endMs, it.endMs);
+        last.segs.push(it._seg);
+      } else {
+        groups.push({ startMs: it.startMs, endMs: it.endMs, segs: [it._seg] });
+      }
+    }
+
+    // Apply merged intervals back to existing segments:
+    // - first segment in each group => update boundaries
+    // - rest => cancel
+    groups.forEach(function (g) {
+      if (!g.segs.length) return;
+      g.segs[0].startAt = lsMsToStr(g.startMs);
+      g.segs[0].endAt = lsMsToStr(g.endMs);
+      g.segs[0].updatedAt = nowStr;
+      for (var i = 1; i < g.segs.length; i++) {
+        g.segs[i].cancelled = true;
+        g.segs[i].updatedAt = nowStr;
+      }
+    });
+  }
+
+  function lsFormatPeriod(period) {
+    if (!period) return '';
+    if (period.startAt && period.endAt) return period.startAt + ' ~ ' + period.endAt;
+    return period;
+  }
+
+  function lsGetPeriodSeeds() {
+    // MVP: single default period for demo.
+    return { startAt: '2026-03-25', endAt: '2026-03-31' };
+  }
+
+  function lsCoerceScheduleIdNumber(v) {
+    if (v == null || v === '') return NaN;
+    if (typeof v === 'number' && isFinite(v)) return v;
+    var s = String(v).trim();
+    if (/^\d{1,4}$/.test(s)) return parseInt(s, 10);
+    return NaN;
+  }
+
+  function lsMaxScheduleNumericId() {
+    var max = 0;
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (s) {
+        if (!s) return;
+        var n = lsCoerceScheduleIdNumber(s.scheduleId);
+        if (isFinite(n) && n > max) max = n;
+      });
+    });
+    return max;
+  }
+
+  /** 排期 ID 展示：4 位纯数字（不足补零） */
+  function lsFormatScheduleIdDisplay(v) {
+    var n = lsCoerceScheduleIdNumber(v);
+    if (!isFinite(n)) {
+      var s = String(v == null ? '' : v).trim();
+      return s || '-';
+    }
+    n = Math.min(9999, Math.max(0, Math.floor(n)));
+    return String(n).padStart(4, '0');
+  }
+
+  /** 将缺失或非数字的 scheduleId 规范为 1001–9999 循环递增的数字 */
+  function lsNormalizeSessionScheduleIds() {
+    var next = lsMaxScheduleNumericId() + 1;
+    if (next < 1001) next = 1001;
+    if (next > 9999) next = 1001;
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (s) {
+        if (!s) return;
+        var n = lsCoerceScheduleIdNumber(s.scheduleId);
+        if (isFinite(n) && n >= 0 && n <= 9999) {
+          s.scheduleId = Math.floor(n);
+          return;
+        }
+        s.scheduleId = next;
+        next += 1;
+        if (next > 9999) next = 1001;
+      });
+    });
+  }
+
+  function lsNormalizeScheduleBatches() {
+    (lsScheduleBatches || []).forEach(function (b) {
+      if (!b) return;
+      if (!b.createdBy) b.createdBy = '商家';
+      (b.sessions || []).forEach(function (s) {
+        if (!s) return;
+        if (s.tiktokSessionId == null && s.tiktokEventId) s.tiktokSessionId = s.tiktokEventId;
+        if (s.gmvCurrency == null) s.gmvCurrency = 'USD';
+        if (s.syncStatus === 'synced' && !s.livePhase) s.livePhase = 'scheduled';
+        if (s.pushedToHost == null) s.pushedToHost = b.status !== 'initial';
+        if (s.syncStatus === 'pending' && !s.tiktokLiveEventSyncStatus) s.tiktokLiveEventSyncStatus = 'idle';
+      });
+    });
+    lsNormalizeSessionScheduleIds();
+    lsRecomputeBatchStatuses();
+  }
+
+  /** 是否存在至少一场未取消的 session（用于判断 localStorage 里的 batches 是否为空占位） */
+  function lsScheduleBatchesHasAnySession(arr) {
+    return Array.isArray(arr) && arr.some(function (b) {
+      return b && (b.sessions || []).some(function (s) { return s && !s.cancelled; });
+    });
+  }
+
+  /**
+   * 演示用：单批次多场次，每场 3 个主播分段（与列表「主播（计划分段）」一致）
+   * period: { startAt, endAt } 与商家目标周期对齐
+   */
+  function lsBuildDemoScheduleBatches(period) {
+    return [
+      {
+        id: 'LSB-2026-03-DEMO-001',
+        periodStart: period.startAt,
+        periodEnd: period.endAt,
+        status: 'waiting_sync',
+        createdBy: (typeof currentUser === 'object' && currentUser && currentUser.id) ? currentUser.id : 'u1',
+        createdAt: '2026-03-24 10:30',
+        updatedAt: '2026-03-24 10:30',
+        sessions: [
+          {
+            id: 'sess-ps-001',
+            scheduleId: 1001,
+            eventName: 'Live Event A',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548741',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'idle',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-26 18:00',
+            plannedEndAt: '2026-03-26 21:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event A',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'Mock pending sync · ready to sync (success path).'
+            },
+            segments: [
+              { id: 'seg-ps-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-26 18:00', endAt: '2026-03-26 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-001-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-26 19:00', endAt: '2026-03-26 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-001-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-26 20:00', endAt: '2026-03-26 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-002',
+            scheduleId: 1002,
+            eventName: 'Live Event B',
+            liveAccountUsername: 'alex_creator',
+            tiktokSessionId: '4026548742',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'failed',
+            tiktokSyncFailureCode: 'live_account_auth_expired',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-27 18:00',
+            plannedEndAt: '2026-03-27 21:00',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event B',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'PS mock: second session, multi-host plan.'
+            },
+            segments: [
+              { id: 'seg-ps-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-27 18:00', endAt: '2026-03-27 19:15', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-002-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-27 19:15', endAt: '2026-03-27 20:15', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-002-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-27 20:15', endAt: '2026-03-27 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-003',
+            scheduleId: 1010,
+            eventName: 'Live Event B2',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548748',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'syncing',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-26 18:00',
+            plannedEndAt: '2026-03-26 21:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event B2',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'PS mock: TikTok Live Event sync in progress.'
+            },
+            segments: [
+              { id: 'seg-ps-003-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-26 18:00', endAt: '2026-03-26 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-003-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-26 19:00', endAt: '2026-03-26 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-003-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-26 20:00', endAt: '2026-03-26 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-004',
+            scheduleId: 1009,
+            eventName: 'Live Event B3',
+            liveAccountUsername: 'alex_creator',
+            tiktokSessionId: '4026548749',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'failed',
+            tiktokSyncFailureCode: 'other',
+            tiktokSyncFailureDetail: 'TikTok API error 429: rate limit exceeded',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-27 18:00',
+            plannedEndAt: '2026-03-27 21:00',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event B3',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'PS mock: sync failed (system error).'
+            },
+            segments: [
+              { id: 'seg-ps-004-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-27 18:00', endAt: '2026-03-27 19:15', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-004-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-27 19:15', endAt: '2026-03-27 20:15', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-004-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-27 20:15', endAt: '2026-03-27 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-005',
+            scheduleId: 1011,
+            eventName: 'Live Event OK-1',
+            liveAccountUsername: 'priscilla_live',
+            tiktokSessionId: '4026548750',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'idle',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-28 10:00',
+            plannedEndAt: '2026-03-28 13:00',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event OK-1',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'Mock: pending sync · ready (success).'
+            },
+            segments: [
+              { id: 'seg-ps-005-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-28 10:00', endAt: '2026-03-28 11:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-005-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-28 11:00', endAt: '2026-03-28 12:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-005-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-28 12:00', endAt: '2026-03-28 13:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-006',
+            scheduleId: 1012,
+            eventName: 'Live Event OK-2',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548751',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'idle',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-29 10:00',
+            plannedEndAt: '2026-03-29 12:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event OK-2',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'Mock: another row ready to sync successfully.'
+            },
+            segments: [
+              { id: 'seg-ps-006-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-29 10:00', endAt: '2026-03-29 11:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-006-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-29 11:00', endAt: '2026-03-29 12:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-007',
+            scheduleId: 1013,
+            eventName: 'Live Event Fail-Auth-2',
+            liveAccountUsername: 'priscilla_live',
+            tiktokSessionId: '4026548752',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'failed',
+            tiktokSyncFailureCode: 'live_account_auth_expired',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-30 14:00',
+            plannedEndAt: '2026-03-30 17:00',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event Fail-Auth-2',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'Mock: sync failed · live account login expired (duplicate case).'
+            },
+            segments: [
+              { id: 'seg-ps-007-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-30 14:00', endAt: '2026-03-30 15:30', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-007-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-30 15:30', endAt: '2026-03-30 17:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-ps-008',
+            scheduleId: 1014,
+            eventName: 'Live Event Fail-Other-2',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548753',
+            pushedToHost: true,
+            syncStatus: 'pending',
+            tiktokLiveEventSyncStatus: 'failed',
+            tiktokSyncFailureCode: 'other',
+            tiktokSyncFailureDetail: 'Internal error: upstream timeout after 30s (request_id: req_8f2a1c)',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-31 19:00',
+            plannedEndAt: '2026-03-31 22:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event Fail-Other-2',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'Mock: sync failed · other / system error message.'
+            },
+            segments: [
+              { id: 'seg-ps-008-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-31 19:00', endAt: '2026-03-31 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-008-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-31 20:00', endAt: '2026-03-31 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-ps-008-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-31 21:00', endAt: '2026-03-31 22:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-pl-001',
+            scheduleId: 1003,
+            eventName: 'Live Event C',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548743',
+            pushedToHost: true,
+            syncStatus: 'synced',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-27 18:00',
+            plannedEndAt: '2026-03-27 21:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event C',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'PL mock: synced, waiting to go live.'
+            },
+            segments: [
+              { id: 'seg-pl-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-27 18:00', endAt: '2026-03-27 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-pl-001-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-27 19:00', endAt: '2026-03-27 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-pl-001-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-27 20:00', endAt: '2026-03-27 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-pl-002',
+            scheduleId: 1004,
+            eventName: 'Live Event D',
+            liveAccountUsername: 'priscilla_live',
+            tiktokSessionId: '4026548744',
+            pushedToHost: true,
+            syncStatus: 'synced',
+            livePhase: 'scheduled',
+            plannedStartAt: '2026-03-28 18:00',
+            plannedEndAt: '2026-03-28 21:30',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event D',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'PL mock: waiting to live, 3 segments.'
+            },
+            segments: [
+              { id: 'seg-pl-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-28 18:00', endAt: '2026-03-28 19:30', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-pl-002-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-28 19:30', endAt: '2026-03-28 20:30', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
+              { id: 'seg-pl-002-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-28 20:30', endAt: '2026-03-28 21:30', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' }
+            ]
+          },
+          {
+            id: 'sess-li-001',
+            scheduleId: 1005,
+            eventName: 'Live Event E',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548745',
+            pushedToHost: true,
+            syncStatus: 'synced',
+            livePhase: 'live',
+            plannedStartAt: '2026-03-28 18:00',
+            plannedEndAt: '2026-03-28 21:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event E',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'LI mock: live, editable actual times & GMV.'
+            },
+            segments: [
+              { id: 'seg-li-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-28 18:00', endAt: '2026-03-28 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 5200.25, gmvRemark: 'Strong start', actualStartAt: '2026-03-28 18:01', actualEndAt: '2026-03-28 18:58' },
+              { id: 'seg-li-001-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-28 19:00', endAt: '2026-03-28 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 4100.00, gmvRemark: 'Nice momentum', actualStartAt: '2026-03-28 19:05', actualEndAt: '2026-03-28 19:55' },
+              { id: 'seg-li-001-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-28 20:00', endAt: '2026-03-28 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 3200.75, gmvRemark: 'Good conversion', actualStartAt: '2026-03-28 20:03', actualEndAt: '2026-03-28 20:57' }
+            ]
+          },
+          {
+            id: 'sess-li-002',
+            scheduleId: 1006,
+            eventName: 'Live Event F',
+            liveAccountUsername: 'alex_creator',
+            tiktokSessionId: '4026548746',
+            pushedToHost: true,
+            syncStatus: 'synced',
+            livePhase: 'live',
+            plannedStartAt: '2026-03-29 18:00',
+            plannedEndAt: '2026-03-29 21:00',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event F',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'LI mock: another live session.'
+            },
+            segments: [
+              { id: 'seg-li-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-29 18:00', endAt: '2026-03-29 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 2800.00, gmvRemark: 'OK', actualStartAt: '2026-03-29 18:00', actualEndAt: '2026-03-29 18:55' },
+              { id: 'seg-li-002-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-29 19:00', endAt: '2026-03-29 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 3600.50, gmvRemark: 'Great', actualStartAt: '2026-03-29 19:02', actualEndAt: '2026-03-29 19:58' },
+              { id: 'seg-li-002-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-29 20:00', endAt: '2026-03-29 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 4100.10, gmvRemark: 'Very good', actualStartAt: '2026-03-29 20:02', actualEndAt: '2026-03-29 20:59' }
+            ]
+          },
+          {
+            id: 'sess-en-001',
+            scheduleId: 1007,
+            eventName: 'Live Event G',
+            liveAccountUsername: 'priscilla_live',
+            tiktokSessionId: '4026548747',
+            pushedToHost: true,
+            syncStatus: 'synced',
+            livePhase: 'ended',
+            plannedStartAt: '2026-03-29 18:00',
+            plannedEndAt: '2026-03-29 21:00',
+            detail: {
+              liveType: '达播',
+              subject: 'Live Event G',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'EN mock: ended session, streamed view.'
+            },
+            segments: [
+              { id: 'seg-en-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-29 18:00', endAt: '2026-03-29 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 5100.00, gmvRemark: 'Complete', actualStartAt: '2026-03-29 18:00', actualEndAt: '2026-03-29 18:59' },
+              { id: 'seg-en-001-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-29 19:00', endAt: '2026-03-29 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 3900.00, gmvRemark: 'Complete', actualStartAt: '2026-03-29 19:01', actualEndAt: '2026-03-29 20:00' },
+              { id: 'seg-en-001-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-29 20:00', endAt: '2026-03-29 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 3300.00, gmvRemark: 'Complete', actualStartAt: '2026-03-29 20:02', actualEndAt: '2026-03-29 21:00' }
+            ]
+          },
+          {
+            id: 'sess-en-002',
+            scheduleId: 1008,
+            eventName: 'Live Event H',
+            liveAccountUsername: 'homechef_mike',
+            tiktokSessionId: '4026548748',
+            pushedToHost: true,
+            syncStatus: 'synced',
+            livePhase: 'ended',
+            plannedStartAt: '2026-03-30 18:00',
+            plannedEndAt: '2026-03-30 21:00',
+            detail: {
+              liveType: '店播',
+              subject: 'Live Event H',
+              timeZone: lsDisplayTimeZone,
+              follower: 'darren.chen',
+              remarkEn: 'EN mock: ended session #2.'
+            },
+            segments: [
+              { id: 'seg-en-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-30 18:00', endAt: '2026-03-30 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 2400.00, gmvRemark: 'Done', actualStartAt: '2026-03-30 18:00', actualEndAt: '2026-03-30 18:57' },
+              { id: 'seg-en-002-h2', hostId: 'h2', hostName: 'Alex Chen', startAt: '2026-03-30 19:00', endAt: '2026-03-30 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 3100.00, gmvRemark: 'Done', actualStartAt: '2026-03-30 19:03', actualEndAt: '2026-03-30 20:00' },
+              { id: 'seg-en-002-h3', hostId: 'h3', hostName: 'Priscilla Melendez', startAt: '2026-03-30 20:00', endAt: '2026-03-30 21:00', decisionStatus: 'accepted', decisionReason: '', gmv: 3600.00, gmvRemark: 'Done', actualStartAt: '2026-03-30 20:02', actualEndAt: '2026-03-30 21:00' }
+            ]
+          }
+        ]
+      }
+    ];
+  }
+
+  function lsLoadOrSeed() {
+    function safeLoad(key) {
+      try {
+        var raw = localStorage.getItem(key);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (e) {
+        return null;
+      }
+    }
+
+    var host = safeLoad(LS_HOST_AVAIL_KEY);
+    var targets = safeLoad(LS_TARGETS_KEY);
+    var batches = safeLoad(LS_BATCHES_KEY);
+    if (host && targets && batches != null) {
+      lsHostAvailabilities = host;
+      lsMerchantTargets = targets;
+      lsScheduleBatches = Array.isArray(batches) ? batches : [];
+      lsNormalizeScheduleBatches();
+      // 修复：localStorage 里 batches 可能是 []（空数组仍为 truthy），会导致永远不种演示数据
+      if (!lsScheduleBatchesHasAnySession(lsScheduleBatches)) {
+        var periodInject = lsGetPeriodSeeds();
+        if (targets && targets.length && targets[0].periodStart) {
+          periodInject = { startAt: targets[0].periodStart, endAt: targets[0].periodEnd || periodInject.endAt };
+        }
+        lsScheduleBatches = lsBuildDemoScheduleBatches(periodInject);
+        lsNormalizeScheduleBatches();
+        lsSaveAll();
+      }
+      // 已有 localStorage 批次时不会全量重种：若用户曾「同步」导致无待同步场次，或缺少演示批次，则合并/恢复 Demo 批次
+      lsEnsureDemoScheduleBatchForPendingSync();
+      if (!lsActiveWeekStart && targets && targets.length && targets[0].periodStart) lsActiveWeekStart = targets[0].periodStart;
+      return;
+    }
+
+    var period = lsGetPeriodSeeds();
+    // Seed hosts + availability (free slots). In real product, come from Excel import and/or APP report.
+    lsHostAvailabilities = [
+      // 2026-03-25 同一天：mock 多条 APP 提报时段（用于展示矩阵 cells 内的多段 chips）
+      { id: 'ha1a', hostId: 'h1', hostName: 'Maribel Maldonado', userId: '1001', liveAccountUsername: 'homechef_mike', startAt: '2026-03-25 18:00', endAt: '2026-03-25 19:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha1b', hostId: 'h1', hostName: 'Maribel Maldonado', userId: '1001', liveAccountUsername: 'homechef_mike', startAt: '2026-03-25 19:00', endAt: '2026-03-25 20:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha1c', hostId: 'h1', hostName: 'Maribel Maldonado', userId: '1001', liveAccountUsername: 'homechef_mike', startAt: '2026-03-25 20:00', endAt: '2026-03-25 21:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha1d', hostId: 'h1', hostName: 'Maribel Maldonado', userId: '1001', liveAccountUsername: 'homechef_mike', startAt: '2026-03-25 21:00', endAt: '2026-03-25 22:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha2', hostId: 'h2', hostName: 'Alex Chen', userId: '2002', liveAccountUsername: 'alex_creator', startAt: '2026-03-26 16:00', endAt: '2026-03-26 20:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha2b', hostId: 'h2', hostName: 'Alex Chen', userId: '2002', liveAccountUsername: 'alex_creator', startAt: '2026-03-26 22:00', endAt: '2026-03-26 23:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha3', hostId: 'h3', hostName: 'Priscilla Melendez', userId: '3003', liveAccountUsername: 'priscilla_live', startAt: '2026-03-27 18:00', endAt: '2026-03-27 22:00', source: 'APP提报', updatedAt: '2026-03-24 10:00', cancelled: false },
+      { id: 'ha4', hostId: 'h1', hostName: 'Maribel Maldonado', userId: '1001', liveAccountUsername: 'homechef_mike', startAt: '2026-03-28 17:00', endAt: '2026-03-28 21:30', source: 'APP提报', updatedAt: '2026-03-24 12:00', cancelled: false }
+    ];
+
+    lsMerchantTargets = [
+      { id: 't1', liveAccountUsername: 'homechef_mike', periodStart: period.startAt, periodEnd: period.endAt, targetHours: 6, plannedHours: 0, acceptedHours: 0, status: '未生成', updatedAt: '2026-03-24 09:00' },
+      { id: 't2', liveAccountUsername: 'alex_creator', periodStart: period.startAt, periodEnd: period.endAt, targetHours: 4, plannedHours: 0, acceptedHours: 0, status: '未生成', updatedAt: '2026-03-24 09:00' }
+    ];
+
+    // Seed: Live Schedule mock batches（用于演示不同 Tab 状态）
+    // 注意：这里的 segments 是“一个场次内多个主播的计划时段”，对应列表的“主播（计划分段）”
+    lsScheduleBatches = lsBuildDemoScheduleBatches(period);
+
+    lsSaveAll();
+    if (!lsTargetsPeriodStartFilter) lsTargetsPeriodStartFilter = period.startAt;
+    if (!lsActiveWeekStart) lsActiveWeekStart = period.startAt;
+  }
+
+  function lsSaveAll() {
+    try { localStorage.setItem(LS_HOST_AVAIL_KEY, JSON.stringify(lsHostAvailabilities)); } catch (e) {}
+    try { localStorage.setItem(LS_TARGETS_KEY, JSON.stringify(lsMerchantTargets)); } catch (e) {}
+    try { localStorage.setItem(LS_BATCHES_KEY, JSON.stringify(lsScheduleBatches)); } catch (e) {}
+  }
+
+  function lsComputeAvailabilityConflicts(list) {
+    // Conflict rule (MVP): overlap inside same host.
+    var byHost = {};
+    (list || []).forEach(function (s) {
+      if (s && s.cancelled) return;
+      var hid = s.hostId || '';
+      if (!hid) return;
+      byHost[hid] = byHost[hid] || [];
+      byHost[hid].push(s);
+    });
+    var conflictMap = {};
+    Object.keys(byHost).forEach(function (hid) {
+      var arr = byHost[hid].slice().sort(function (a, b) { return lsStrToMs(a.startAt) - lsStrToMs(b.startAt); });
+      for (var i = 0; i < arr.length; i++) {
+        var a = arr[i];
+        var aStart = lsStrToMs(a.startAt);
+        var aEnd = lsStrToMs(a.endAt);
+        if (!(aStart < aEnd)) continue;
+        for (var j = i + 1; j < arr.length; j++) {
+          var b = arr[j];
+          var bStart = lsStrToMs(b.startAt);
+          var bEnd = lsStrToMs(b.endAt);
+          if (!(bStart < bEnd)) continue;
+          if (bStart >= aEnd) break;
+          if (bEnd > aStart && bStart < aEnd) {
+            conflictMap[a.id] = (conflictMap[a.id] || []).concat(['与另一空闲段重叠（' + b.startAt + '–' + b.endAt + '）']);
+            conflictMap[b.id] = (conflictMap[b.id] || []).concat(['与另一空闲段重叠（' + a.startAt + '–' + a.endAt + '）']);
+          }
+        }
+      }
+    });
+    return conflictMap;
+  }
+
+  function lsGetSessionStatusBadge(status) {
+    if (status === 'initial') return { cls: 'badge-secondary', label: '初排' };
+    if (status === 'waiting_host') return { cls: 'badge-warning', label: '待主播确认' };
+    if (status === 'waiting_sync') return { cls: 'badge-primary', label: '待同步' };
+    if (status === 'synced') return { cls: 'badge-success', label: '已同步' };
+    return { cls: 'badge-secondary', label: status || '-' };
+  }
+
+  function lsIsBatchReadyForSync(batch) {
+    if (!batch) return false;
+    if (batch.status !== 'waiting_sync' && batch.status !== 'waiting_host') return false;
+    var total = 0;
+    var accepted = 0;
+    var rejected = 0;
+    (batch.sessions || []).forEach(function (s) {
+      if (!s || s.cancelled || !s.pushedToHost) return;
+      (s.segments || []).forEach(function (seg) {
+        total++;
+        if (seg.decisionStatus === 'accepted') accepted++;
+        else if (seg.decisionStatus === 'rejected') rejected++;
+      });
+    });
+    return total > 0 && accepted === total && rejected === 0;
+  }
+
+  /**
+   * 场次行状态（与「主播排期」Tab 对齐）
+   * draft 暂存 | pending_confirm 待确认 | pending_sync 待同步 | pending_live 待直播 | live 直播中 | ended 已直播
+   */
+  function lsComputeSessionRowStatus(batch, session) {
+    if (!batch || !session || session.cancelled) return null;
+    if (!session.pushedToHost) return 'draft';
+    var segs = session.segments || [];
+    var allAccepted = segs.length > 0 && segs.every(function (seg) { return seg.decisionStatus === 'accepted'; });
+    if (!allAccepted) return 'pending_confirm';
+    if (session.syncStatus !== 'synced') return 'pending_sync';
+    if (session.livePhase === 'live') return 'live';
+    if (session.livePhase === 'ended') return 'ended';
+    return 'pending_live';
+  }
+
+  var LS_DEMO_BATCH_ID = 'LSB-2026-03-DEMO-001';
+
+  /**
+   * 从 localStorage 恢复后：若不存在演示批次则追加；若演示批次内「待同步」为 0（曾全部同步过），则恢复演示场次。
+   * 仅影响 id 为 LS_DEMO_BATCH_ID 的批次，不改动用户自建批次。
+   */
+  function lsEnsureDemoScheduleBatchForPendingSync() {
+    var periodInject = lsGetPeriodSeeds();
+    if (lsMerchantTargets && lsMerchantTargets.length && lsMerchantTargets[0].periodStart) {
+      periodInject = {
+        startAt: lsMerchantTargets[0].periodStart,
+        endAt: lsMerchantTargets[0].periodEnd || periodInject.endAt
+      };
+    }
+    var demoArr;
+    try {
+      demoArr = lsBuildDemoScheduleBatches(periodInject);
+    } catch (e) {
+      return;
+    }
+    var demoBatch = demoArr && demoArr[0];
+    if (!demoBatch || demoBatch.id !== LS_DEMO_BATCH_ID) return;
+
+    var list = lsScheduleBatches || [];
+    var idx = list.findIndex(function (b) { return b && b.id === LS_DEMO_BATCH_ID; });
+    if (idx === -1) {
+      lsScheduleBatches = list.concat([JSON.parse(JSON.stringify(demoBatch))]);
+      lsNormalizeScheduleBatches();
+      lsSaveAll();
+      return;
+    }
+    var existing = list[idx];
+    var pendingN = 0;
+    (existing.sessions || []).forEach(function (s) {
+      if (!s || s.cancelled) return;
+      if (lsComputeSessionRowStatus(existing, s) === 'pending_sync') pendingN++;
+    });
+    if (pendingN > 0) return;
+
+    existing.sessions = JSON.parse(JSON.stringify(demoBatch.sessions));
+    existing.status = demoBatch.status;
+    existing.periodStart = demoBatch.periodStart;
+    existing.periodEnd = demoBatch.periodEnd;
+    existing.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+    lsNormalizeScheduleBatches();
+    lsSaveAll();
+  }
+
+  /** 各直播状态 Tab 的排期数量（与达人触达 Tab 计数一致，不受搜索框过滤） */
+  function lsCountSessionsByStatus() {
+    var counts = { draft: 0, pending_confirm: 0, pending_sync: 0, pending_live: 0, live: 0, ended: 0 };
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (s) {
+        var st = lsComputeSessionRowStatus(b, s);
+        if (st && counts[st] != null) counts[st]++;
+      });
+    });
+    return counts;
+  }
+
+  /** 将指定场次标记为已推送主播（可单场或多选） */
+  function lsPushSessionsToHost(batch, sessionIds) {
+    if (!batch || !sessionIds || !sessionIds.length) return;
+    var set = {};
+    sessionIds.forEach(function (id) { if (id) set[id] = true; });
+    var hadPushedBefore = (batch.sessions || []).some(function (s) { return s && s.pushedToHost; });
+    var anyNewPush = false;
+    var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+    (batch.sessions || []).forEach(function (s) {
+      if (!s || s.cancelled) return;
+      if (!set[s.id]) return;
+      if (s.pushedToHost) return;
+      anyNewPush = true;
+      s.pushedToHost = true;
+      (s.segments || []).forEach(function (seg) {
+        seg.decisionStatus = 'pending';
+        seg.decisionReason = '';
+      });
+    });
+    if (!anyNewPush) return;
+    batch.updatedAt = nowStr;
+    if (!hadPushedBefore) {
+      (lsMerchantTargets || []).forEach(function (t) {
+        if (t.periodStart !== batch.periodStart) return;
+        if ((Number(t.plannedHours) || 0) > 0) {
+          t.acceptedHours = 0;
+          t.status = '等待主播确认';
+        }
+        t.updatedAt = batch.updatedAt;
+      });
+    }
+    lsRecomputeBatchStatuses();
+    lsSaveAll();
+  }
+
+  function lsSessionHostsLabel(session) {
+    var names = [];
+    var seen = {};
+    (session.segments || []).forEach(function (seg) {
+      var n = (seg && seg.hostName) ? seg.hostName : (seg && seg.hostId);
+      if (!n) return;
+      if (seen[n]) return;
+      seen[n] = true;
+      names.push(n);
+    });
+    return names.length ? names.join('、') : '-';
+  }
+
+  /** 列表展示用：与编辑详情页 detail 字段对齐（只读，不写入默认 detail） */
+  function lsSessionDetailDisplay(s) {
+    var d = (s && s.detail) ? s.detail : {};
+    return {
+      subject: String(d.subject || (s && s.eventName) || '').trim(),
+      liveType: d.liveType ? String(d.liveType) : '',
+      timeZone: d.timeZone ? String(d.timeZone) : '',
+      follower: d.follower ? String(d.follower) : '',
+      remarkEn: String(d.remarkEn || '').trim()
+    };
+  }
+
+  /** 场次下列表：与结算 Fix Issue 列表 Host 列一致（ha-abnormal-host-tag）+ 计划时段 */
+  function lsSessionHostsSegmentsHtml(s) {
+    var segs = (s && s.segments) ? s.segments : [];
+    if (!segs.length) {
+      return '<span class="ls-sess-cell-muted">-</span>';
+    }
+    var inner = segs.map(function (seg) {
+      var name = String(seg.hostName || seg.hostId || '-').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var plan = (String(seg.startAt || '').replace(/</g, '&lt;')) + ' ~ ' + (String(seg.endAt || '').replace(/</g, '&lt;'));
+      var acc = seg.decisionStatus === 'accepted';
+      var statusTag = acc
+        ? '<span class="ha-abnormal-host-tag ha-abnormal-host-tag--status ha-abnormal-host-tag--ok">已确认</span>'
+        : '<span class="ha-abnormal-host-tag ha-abnormal-host-tag--status ha-abnormal-host-tag--pending">待确认</span>';
+      return '<div class="ls-sess-host-stack">' +
+        '<div class="ls-sess-host-stack-line">' +
+        '<span class="ha-abnormal-host-tag">' + name + '</span>' +
+        statusTag +
+        '</div>' +
+        '<div class="ls-sess-host-stack-plan">' + plan + '</div>' +
+        '</div>';
+    }).join('');
+    // 只有 1 位主播时补一个不可见占位块，保持与多主播行的视觉基线一致。
+    if (segs.length === 1) {
+      inner += '<div class="ls-sess-host-stack ls-sess-host-stack--placeholder" aria-hidden="true">' +
+        '<div class="ls-sess-host-stack-line">' +
+        '<span class="ha-abnormal-host-tag">-</span>' +
+        '<span class="ha-abnormal-host-tag ha-abnormal-host-tag--status ha-abnormal-host-tag--pending">-</span>' +
+        '</div>' +
+        '<div class="ls-sess-host-stack-plan">-</div>' +
+        '</div>';
+    }
+    return '<div class="ha-abnormal-host-tags ls-sess-host-tags-col">' + inner + '</div>';
+  }
+
+  function lsSessionRemarkCell(s) {
+    var r = lsSessionDetailDisplay(s).remarkEn;
+    if (!r) return '<span class="ls-sess-cell-muted">-</span>';
+    var show = r.length > 56 ? r.slice(0, 56) + '…' : r;
+    return '<span class="ls-sess-remark-preview" title="' + String(r).replace(/"/g, '&quot;').replace(/</g, '&lt;') + '">' + show.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</span>';
+  }
+
+  function lsSessionTimeCell(s) {
+    var dd = lsSessionDetailDisplay(s);
+    var tz = dd.timeZone || lsDisplayTimeZone || '-';
+    var start = s.plannedStartAt || '-';
+    var end = s.plannedEndAt || '-';
+    return '<div class="ls-sess-time-cell">' +
+      '<div class="ls-sess-time-tz">' + String(tz).replace(/</g, '&lt;') + '</div>' +
+      '<div class="ls-sess-time-range">' + String(start).replace(/</g, '&lt;') + ' ~ ' + String(end).replace(/</g, '&lt;') + '</div>' +
+      '</div>';
+  }
+
+  /**
+   * 「待同步」Tab：展示 TikTok Live Event 创建任务状态（与场次 syncStatus 区分：此为子任务）。
+   * tiktokLiveEventSyncStatus: idle | syncing | failed
+   * tiktokSyncFailureCode: live_account_auth_expired | other
+   */
+  function lsSessionTikTokLiveEventSyncCell(s) {
+    if (!s || s.syncStatus === 'synced') {
+      return '<span class="ls-sess-cell-muted">—</span>';
+    }
+    var job = s.tiktokLiveEventSyncStatus || 'idle';
+    var code = s.tiktokSyncFailureCode || '';
+    var detail = (s.tiktokSyncFailureDetail || '').trim();
+    if (job === 'syncing') {
+      return '' +
+        '<div class="ls-sess-stack">' +
+        '<span class="badge badge-primary"><i class="fas fa-spinner fa-spin" style="margin-right:6px" aria-hidden="true"></i>' + lsEscHtml(t('ls.tiktok_sync.status_syncing')) + '</span>' +
+        '</div>';
+    }
+    if (job === 'failed') {
+      var reasonText = code === 'live_account_auth_expired'
+        ? t('ls.tiktok_sync.fail_auth')
+        : (detail || t('ls.tiktok_sync.fail_other'));
+      var maxLen = 80;
+      var truncated = reasonText.length > maxLen ? reasonText.slice(0, maxLen) + '…' : reasonText;
+      var titleAttr = String(reasonText).replace(/"/g, '&quot;').replace(/</g, '&lt;');
+      return '' +
+        '<div class="ls-sess-stack">' +
+        '<span class="badge badge-warning">' + lsEscHtml(t('ls.tiktok_sync.status_failed')) + '</span>' +
+        '<div class="ls-sess-stack__sub ls-sess-tiktok-sync-reason" title="' + titleAttr + '">' + lsEscHtml(truncated) + '</div>' +
+        '</div>';
+    }
+    return '' +
+      '<div class="ls-sess-stack">' +
+      '<span class="badge badge-secondary">' + lsEscHtml(t('ls.tiktok_sync.status_idle')) + '</span>' +
+      '</div>';
+  }
+
+  /** MVP Mock：单场同步 TikTok，写入 TikTok Session ID 并进入「待直播」 */
+  function lsApplyTikTokSyncToSession(batch, session, idx) {
+    if (!batch || !session) return;
+    session.idempotencyKey = (batch.id || '') + '_' + (session.id || '');
+    delete session.tiktokLiveEventSyncStatus;
+    delete session.tiktokSyncFailureCode;
+    delete session.tiktokSyncFailureDetail;
+    session.syncStatus = 'synced';
+    session.tiktokSessionId = String(Date.now());
+    session.tiktokEventId = session.tiktokSessionId;
+    session.syncAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+    session.livePhase = 'scheduled';
+    batch.updatedAt = session.syncAt;
+    var allSynced = true;
+    (batch.sessions || []).forEach(function (x) {
+      if (!x || x.cancelled || !x.pushedToHost) return;
+      if (x.syncStatus !== 'synced') allSynced = false;
+    });
+    if (allSynced) batch.status = 'synced';
+  }
+
+  function lsRecomputeBatchStatuses() {
+    (lsScheduleBatches || []).forEach(function (b) {
+      if (!b || b.status === 'synced') return;
+      var pushed = (b.sessions || []).filter(function (s) { return s && !s.cancelled && s.pushedToHost; });
+      if (!pushed.length) {
+        b.status = 'initial';
+        return;
+      }
+      var total = 0;
+      var accepted = 0;
+      var rejected = 0;
+      pushed.forEach(function (s) {
+        (s.segments || []).forEach(function (seg) {
+          total++;
+          if (seg.decisionStatus === 'accepted') accepted++;
+          else if (seg.decisionStatus === 'rejected') rejected++;
+        });
+      });
+      if (total === 0) return;
+      if (accepted === total && rejected === 0) {
+        b.status = 'waiting_sync';
+        var allPushedSynced = pushed.every(function (s) { return s.syncStatus === 'synced'; });
+        if (allPushedSynced) b.status = 'synced';
+      } else {
+        b.status = 'waiting_host';
+      }
+    });
+  }
+
+  function lsGenerateInitialSchedule() {
+    // Generate a new batch for all targets in the currently selected period startAt.
+    var periodStart = lsTargetsPeriodStartFilter;
+    if (!periodStart) return;
+    var genTz = lsGenerateInitialTimeZone || lsDisplayTimeZone || lsMerchantTimeZone;
+    lsGenerateInitialTimeZone = null;
+    function msToStrGen(ms) {
+      try {
+        return lsFormatMs(ms, genTz);
+      } catch (e) {
+        return '';
+      }
+    }
+    var hostIdsFilter = lsGenerateInitialHostIdsFilter;
+    var accountUsernamesFilter = lsGenerateInitialAccountUsernamesFilter;
+
+    var targets = (lsMerchantTargets || []).filter(function (t) {
+      if (!t) return false;
+      if (t.periodStart !== periodStart) return false;
+      if (accountUsernamesFilter && accountUsernamesFilter.length && accountUsernamesFilter.indexOf(t.liveAccountUsername) === -1) return false;
+      return true;
+    });
+    if (!targets.length) {
+      showToast('No targets to generate.', 'warn');
+      return;
+    }
+
+    // Regeneration: clear previous batches & reset planned metrics for this period.
+    (lsMerchantTargets || []).forEach(function (t) {
+      if (t.periodStart !== periodStart) return;
+      t.plannedHours = 0;
+      // acceptedHours/real acceptance are not recalculated in MVP; keep as-is if already present.
+      // If you need strict reset, you can also set acceptedHours = 0 here.
+      t.status = '未生成';
+      t.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+    });
+    lsScheduleBatches = (lsScheduleBatches || []).filter(function (b) { return b.periodStart !== periodStart; });
+
+    // Shared free blocks across all sessions in a batch (prevents host conflicts).
+    var periodEnd = (targets[0] && targets[0].periodEnd) || '';
+    var periodStartMs = lsStrToMs(periodStart + ' 00:00');
+    var periodEndMs = lsStrToMs(periodEnd + ' 23:59');
+
+    var freeBlocks = []; // [{timeMs, hostId, hostName}]
+    (lsHostAvailabilities || []).forEach(function (slot) {
+      if (slot && slot.cancelled) return;
+      if (hostIdsFilter && hostIdsFilter.length && hostIdsFilter.indexOf(slot.hostId) === -1) return;
+      var sMs = lsStrToMs(slot.startAt);
+      var eMs = lsStrToMs(slot.endAt);
+      if (!(sMs < eMs)) return;
+      if (eMs < periodStartMs || sMs > periodEndMs) return;
+      var cursor = new Date(sMs);
+      cursor.setMinutes(0, 0, 0);
+      var hourMs = 60 * 60 * 1000;
+      var start = cursor.getTime();
+      if (start < sMs) start += hourMs;
+      for (var tm = start; tm + hourMs <= eMs; tm += hourMs) {
+        freeBlocks.push({ timeMs: tm, hostId: slot.hostId, hostName: slot.hostName, hostKey: slot.hostId });
+      }
+    });
+
+    // Map free block by time+host and allow consumption.
+    var freeMap = {};
+    freeBlocks.forEach(function (b) {
+      freeMap[b.timeMs + '|' + b.hostKey] = true;
+    });
+
+    function anyHostAt(timeMs) {
+      var ids = Object.keys(freeMap);
+      for (var i = 0; i < ids.length; i++) {
+        var k = ids[i];
+        var parts = k.split('|');
+        if (Number(parts[0]) === timeMs && freeMap[k]) return parts[1];
+      }
+      return null;
+    }
+
+    function getHostsAt(timeMs) {
+      var out = [];
+      Object.keys(freeMap).forEach(function (k) {
+        var parts = k.split('|');
+        if (Number(parts[0]) === timeMs && freeMap[k]) out.push(parts[1]);
+      });
+      return out;
+    }
+
+    function hostNameById(hostId) {
+      var h = (lsHostAvailabilities || []).find(function (s) { return s.hostId === hostId; });
+      return h ? (h.hostName || hostId) : hostId;
+    }
+
+    // Candidate start hours: all times that have at least one free host.
+    var timesSet = {};
+    freeBlocks.forEach(function (b) { timesSet[b.timeMs] = true; });
+    var times = Object.keys(timesSet).map(function (x) { return Number(x); }).sort(function (a, b) { return a - b; });
+
+    function isTimeBlockFeasible(startMs) {
+      var hours = lsSessionDurationMinutes / 60;
+      for (var i = 0; i < hours; i++) {
+        if (!anyHostAt(startMs + i * 60 * 60 * 1000)) return false;
+      }
+      return true;
+    }
+
+    function pickHostForHour(timeMs, preferredHostId) {
+      var hosts = getHostsAt(timeMs);
+      if (!hosts.length) return null;
+      if (preferredHostId && hosts.indexOf(preferredHostId) !== -1) return preferredHostId;
+      // otherwise pick the first available hostKey (stable by insertion order).
+      return hosts[0];
+    }
+
+    var newBatchId = 'LSB-' + periodStart + '-' + Date.now();
+    var batch = {
+      id: newBatchId,
+      periodStart: periodStart,
+      periodEnd: periodEnd,
+      status: 'initial',
+      createdBy: '商家',
+      createdAt: new Date().toISOString().slice(0, 16).replace('T', ' '),
+      updatedAt: new Date().toISOString().slice(0, 16).replace('T', ' '),
+      liveAccountTargets: targets.map(function (t) { return { liveAccountUsername: t.liveAccountUsername, targetHours: t.targetHours }; }),
+      sessions: []
+    };
+
+    var accountNeedHours = {};
+    targets.forEach(function (t) { accountNeedHours[t.liveAccountUsername] = Number(t.targetHours) || 0; });
+
+    var sessionIndex = 1;
+    var nextScheduleNumericId = lsMaxScheduleNumericId() + 1;
+    if (nextScheduleNumericId < 1001) nextScheduleNumericId = 1001;
+    if (nextScheduleNumericId > 9999) nextScheduleNumericId = 1001;
+    // Greedy allocation across accounts: iterate times and allocate sessions to the account with largest remaining need.
+    while (times.length && Object.keys(accountNeedHours).some(function (k) { return accountNeedHours[k] > 0; })) {
+      // Choose next feasible time start
+      var chosenStart = null;
+      for (var ti = 0; ti < times.length; ti++) {
+        var st = times[ti];
+        if (isTimeBlockFeasible(st)) { chosenStart = st; break; }
+      }
+      if (chosenStart == null) break;
+
+      var remainingSorted = Object.keys(accountNeedHours).sort(function (a, b) { return (accountNeedHours[b] || 0) - (accountNeedHours[a] || 0); });
+      var chosenAccount = remainingSorted[0];
+      if (!chosenAccount || (accountNeedHours[chosenAccount] || 0) <= 0) {
+        accountNeedHours[chosenAccount] = 0;
+        break;
+      }
+
+      var hours = lsSessionDurationMinutes / 60;
+      var segments = [];
+      var preferredHost = null;
+      var relaySegmentsExceeded = false;
+      for (var hi = 0; hi < hours; hi++) {
+        var hTime = chosenStart + hi * 60 * 60 * 1000;
+        var hostId = pickHostForHour(hTime, preferredHost);
+        if (!hostId) break;
+        // consume block
+        freeMap[hTime + '|' + hostId] = false;
+
+        if (segments.length && segments[segments.length - 1].hostId === hostId) {
+          segments[segments.length - 1].endAt = msToStrGen(hTime + 60 * 60 * 1000);
+        } else {
+          if (segments.length >= lsMaxRelaySegments) relaySegmentsExceeded = true;
+          segments.push({
+            id: 'seg-' + newBatchId + '-' + sessionIndex + '-' + segments.length,
+            hostId: hostId,
+            hostName: hostNameById(hostId),
+            startAt: msToStrGen(hTime),
+            startAtMs: hTime,
+            endAt: msToStrGen(hTime + 60 * 60 * 1000),
+            endAtMs: hTime + 60 * 60 * 1000,
+            decisionStatus: 'pending',
+            decisionReason: ''
+          });
+        }
+        preferredHost = hostId;
+      }
+
+      var plannedStartAt = msToStrGen(chosenStart);
+      plannedEndAt = msToStrGen(chosenStart + lsSessionDurationMinutes * 60 * 1000);
+
+      if (!segments.length) {
+        // can't allocate anymore at this time.
+        // Remove this start time so we don't stuck.
+        times = times.filter(function (t) { return t !== chosenStart; });
+        continue;
+      }
+
+      // Add session
+      var sessionDurationHours = lsSessionDurationMinutes / 60;
+      var sidNum = nextScheduleNumericId;
+      nextScheduleNumericId += 1;
+      if (nextScheduleNumericId > 9999) nextScheduleNumericId = 1001;
+      batch.sessions.push({
+        id: 'sess-' + newBatchId + '-' + sessionIndex,
+        scheduleId: sidNum,
+        liveAccountUsername: chosenAccount,
+        eventName: 'Live Event ' + sessionIndex,
+        plannedStartAt: plannedStartAt,
+        plannedStartAtMs: chosenStart,
+        plannedEndAt: plannedEndAt,
+        plannedEndAtMs: chosenStart + lsSessionDurationMinutes * 60 * 1000,
+        segments: segments,
+        availabilityReason: '按空闲段小时块顺序自动分配（相同主播连续可用会自动合并接力段）。',
+        conflictReason: relaySegmentsExceeded ? ('接力段数量超过上限（最大 ' + lsMaxRelaySegments + ' 段），建议在初排阶段人工调整以提升确认成功率。') : '',
+        syncStatus: 'not_synced',
+        tiktokEventId: null,
+        tiktokSessionId: null,
+        livePhase: null,
+        pushedToHost: false,
+        syncAt: null
+      });
+
+      // Reduce remaining hours for that account
+      accountNeedHours[chosenAccount] = Math.max(0, (accountNeedHours[chosenAccount] || 0) - sessionDurationHours);
+      sessionIndex++;
+
+      // Remove this start time so we don't reuse exact same block start across sessions.
+      times = times.filter(function (t) { return t !== chosenStart; });
+    }
+
+    // Update merchant targets planned hours based on sessions.
+    (batch.sessions || []).forEach(function (s) {
+      var t = lsMerchantTargets.find(function (x) { return x.liveAccountUsername === s.liveAccountUsername && x.periodStart === periodStart; });
+      if (t) t.plannedHours = (Number(t.plannedHours) || 0) + (lsSessionDurationMinutes / 60);
+      if (t) t.status = '初排中';
+      if (t) t.updatedAt = batch.updatedAt;
+    });
+
+    if (lsMerchantTargets && lsMerchantTargets.length) {
+      lsMerchantTargets.forEach(function (t) {
+        if (t.periodStart === periodStart) {
+          if ((Number(t.plannedHours) || 0) <= 0) t.status = '未生成';
+          t.updatedAt = t.updatedAt || batch.updatedAt;
+        }
+      });
+    }
+
+    (batch.sessions || []).forEach(function (s) {
+      if (!s) return;
+      s.detail = s.detail || {};
+      s.detail.timeZone = genTz;
+    });
+
+    lsScheduleBatches.unshift(batch);
+    lsSaveAll();
+    showToast('初排生成完成（MVP Mock）', 'success');
+
+    // Keep the selection; user can regenerate with a different host from the modal.
+  }
+
+  function renderLiveSchedule() {
+    lsLoadOrSeed();
+    lsRecomputeBatchStatuses();
+
+    var tabButtons = [
+      { key: 'host_avail', label: t('ls.tab.host_avail') },
+      { key: 'targets', label: t('ls.tab.targets') },
+      { key: 'batches', label: t('ls.tab.batches') }
+    ];
+
+    var activeTab = lsActiveTab;
+    var tabHtml = '<div class="or-tabs" id="lsTabs">' + tabButtons.map(function (b) {
+      var active = b.key === activeTab;
+      return '<button type="button" class="or-tab' + (active ? ' or-tab--active' : '') + '" data-ls-tab="' + b.key + '">' + b.label + '</button>';
+    }).join('') + '</div>';
+
+    var bodyHtml = renderLiveScheduleTab(activeTab);
+
+    return '' +
+      '<div class="ha-settle-content ls-live-schedule" id="lsRoot">' +
+      '<div class="ha-settle-card">' +
+      '<div class="ha-settle-intro ls-live-schedule-intro">' +
+      '<h3 class="ha-rules-title">' + t('ls.title') + '</h3>' +
+      '<p class="ha-settle-desc ls-live-schedule-desc">' + t('ls.intro') + '</p>' +
+      '</div>' +
+      tabHtml +
+      '<div class="or-tab-body" id="lsTabBody">' + bodyHtml + '</div>' +
+      '</div>' +
+      renderLiveScheduleBatchDrawerMarkup() +
+      renderLiveScheduleHostDrawerMarkup() +
+      renderLiveScheduleModalsMarkup();
+  }
+
+  function renderLiveScheduleTab(tabKey) {
+    if (tabKey === 'host_avail') return renderLiveScheduleHostAvailTab();
+    if (tabKey === 'targets') return renderLiveScheduleTargetsTab();
+    return renderLiveScheduleBatchesTab();
+  }
+
+  function renderLiveScheduleHostAvailTab() {
+    var weekStart = lsActiveWeekStart;
+    if (!weekStart) {
+      var fallback = (lsMerchantTargets && lsMerchantTargets.length ? lsMerchantTargets[0].periodStart : '') || (lsHostAvailabilities[0] ? lsDateStrFromDateTime(lsHostAvailabilities[0].startAt) : (lsGetPeriodSeeds().startAt || ''));
+      weekStart = fallback;
+      lsActiveWeekStart = weekStart;
+    }
+
+    var weekDays = lsGetWeekDateStrs(weekStart); // Mon-Sun
+    function lsDayLabel(dateStr, dayIdx) {
+      var parts = String(dateStr || '').split('-');
+      var mm = parts[1] || '';
+      var dd = parts[2] || '';
+      return t('ls.weekday.' + dayIdx) + ' (' + mm + '/' + dd + ')';
+    }
+
+    var sourceFilter = 'all';
+
+    var q = (lsHostFilter.host || '').toLowerCase();
+
+    // Timezone switch (display only). Default is merchant local timezone.
+    var lsTzList = [
+      'UTC',
+      'America/Los_Angeles',
+      'America/New_York',
+      'Europe/London',
+      'Europe/Paris',
+      'Asia/Shanghai',
+      'Asia/Tokyo',
+      'Asia/Singapore',
+      'Australia/Sydney'
+    ];
+    if (lsTzList.indexOf(lsMerchantTimeZone) === -1) lsTzList.unshift(lsMerchantTimeZone);
+    if (lsTzList.indexOf(lsDisplayTimeZone) === -1) lsTzList.push(lsDisplayTimeZone);
+    function lsTzShortName(tz) {
+      if (!tz) return '';
+      if (tz === 'UTC') return 'UTC';
+      var parts = String(tz).split('/');
+      return parts[parts.length - 1] || tz;
+    }
+
+    // Build host scope from available segments (excluding cancelled).
+    var hostMap = {};
+    (lsHostAvailabilities || []).forEach(function (s) {
+      if (!s || s.cancelled) return;
+      if (!s.hostId) return;
+      if (q && String(s.hostName || '').toLowerCase().indexOf(q) === -1) return;
+      var d = lsDateStrFromDateTime(s.startAt);
+      if (!d) return;
+      // Include hosts that have any overlap within week
+      var dayIdx = weekDays.indexOf(d);
+      if (dayIdx === -1) return;
+      // Source filter is applied at cell level, but we keep host in scope if any segment hits the week.
+      hostMap[s.hostId] = hostMap[s.hostId] || { hostId: s.hostId, hostName: s.hostName || s.hostId, userId: s.userId || '' };
+    });
+
+    function lsFormatUserId(userId) {
+      if (userId === null || userId === undefined || userId === '') return '-';
+      return String(userId).replace(/\D/g, '').padStart(4, '0');
+    }
+
+    var hosts = Object.keys(hostMap).map(function (hid) { return hostMap[hid]; }).sort(function (a, b) {
+      return String(a.hostName || '').localeCompare(String(b.hostName || ''));
+    });
+
+    function sumAvailableForHost(hostId) {
+      var total = 0;
+      for (var i = 0; i < 7; i++) total += lsComputeAvailableHoursForHostDay(hostId, weekDays[i], sourceFilter);
+      return total;
+    }
+
+    function sumAllocatedForHost(hostId) {
+      var total = 0;
+      for (var i = 0; i < 7; i++) total += lsComputeAllocatedHoursForHostDay(hostId, weekDays[i]);
+      return total;
+    }
+
+    function lsChipHtml(seg, showActiveBadge) {
+      var cs = seg._clipStartMs != null ? seg._clipStartMs : lsStrToMs(seg.startAt);
+      var ce = seg._clipEndMs != null ? seg._clipEndMs : lsStrToMs(seg.endAt);
+      var t1 = lsMsToTimeStr(cs);
+      var t2 = lsMsToTimeStr(ce);
+      return '<span class="badge ' + (showActiveBadge ? 'badge-primary' : 'badge-secondary') + '" style="margin-right:6px;margin-bottom:2px;white-space:nowrap;cursor:pointer">' + t1 + '-' + t2 + '</span>';
+    }
+
+    var rows = hosts.map(function (h) {
+      var hostId = h.hostId;
+      var availWeek = sumAvailableForHost(hostId);
+      var allocatedWeek = sumAllocatedForHost(hostId);
+      var remainingWeek = Math.max(0, availWeek - allocatedWeek);
+      var badgeCls = remainingWeek > 0 ? 'badge-primary' : 'badge-warning';
+
+      var cells = weekDays.map(function (dayDateStr, dayIdx) {
+        var activeSegs = lsGetActiveHostDaySegments(hostId, dayDateStr, sourceFilter);
+        var availDay = lsComputeAvailableHoursForHostDay(hostId, dayDateStr, sourceFilter);
+        var allocatedDay = lsComputeAllocatedHoursForHostDay(hostId, dayDateStr);
+        var remainingDay = Math.max(0, availDay - allocatedDay);
+
+        var tooltip = '';
+        var cellOpacity = '';
+        var segsHtml = '';
+        if (!activeSegs.length) {
+          tooltip = t('ls.host.tooltip.no_avail');
+          segsHtml = '<div style="color:var(--text-subtext);font-size:12px">' + t('ls.host.cell.none') + '</div>';
+        } else {
+          tooltip = lsT('ls.host.tooltip.day', remainingDay.toFixed(1), allocatedDay.toFixed(1));
+          if (remainingDay <= 0) {
+            cellOpacity = 'opacity:0.65';
+          }
+          var maxChips = 4;
+          segsHtml = activeSegs.slice(0, maxChips).map(function (seg) {
+            return lsChipHtml(seg, remainingDay > 0);
+          }).join('');
+          if (activeSegs.length > maxChips) {
+            segsHtml += '<span class="badge badge-secondary" style="white-space:nowrap;cursor:pointer">' + lsT('ls.host.overflow', activeSegs.length - maxChips) + '</span>';
+          }
+        }
+
+        return '' +
+          '<td>' +
+          '  <div class="ls-host-matrix-cell" data-open-host-drawer="1" data-host-id="' + hostId + '" data-day-date="' + dayDateStr + '" title="' + String(tooltip).replace(/"/g, '&quot;') + '" style="min-height:52px;' + cellOpacity + '">' +
+          '    <div style="display:flex;flex-wrap:wrap;align-items:flex-start">' +
+          '      ' + segsHtml +
+          '    </div>' +
+          '  </div>' +
+          '</td>';
+      }).join('');
+
+      var userIdStr = lsFormatUserId(h.userId);
+
+      return '' +
+        '<tr>' +
+        '<td style="min-width:240px">' +
+        '  <div style="display:flex;justify-content:flex-start;gap:10px;align-items:flex-start">' +
+        '    <input type="checkbox" class="ls-host-row-pick" data-host-id="' + String(hostId).replace(/"/g, '&quot;') + '" style="margin-top:4px;flex-shrink:0" />' +
+        '    <div style="flex:1;min-width:0">' +
+        '      <div style="font-weight:600">' + (h.hostName || hostId) + '</div>' +
+        '      <div style="font-size:12px;color:var(--text-subtext);margin-top:4px">' + t('ls.user_id') + ': ' + userIdStr + '</div>' +
+        '      <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">' +
+        '        <span class="badge badge-secondary">' + lsT('ls.host.metric_avail', availWeek.toFixed(1)) + '</span>' +
+        '        <span class="badge badge-secondary">' + lsT('ls.host.metric_alloc', allocatedWeek.toFixed(1)) + '</span>' +
+        '        <span class="badge ' + badgeCls + '">' + (remainingWeek > 0 ? t('ls.host.badge.open') : t('ls.host.badge.full')) + '（' + lsT('ls.host.summary_remain', remainingWeek.toFixed(1)) + '）</span>' +
+        '      </div>' +
+        '    </div>' +
+        '  </div>' +
+        '  <div style="font-size:12px;color:var(--text-subtext);margin-top:10px">' + t('ls.host.row.hint') + '</div>' +
+        '</td>' +
+        cells +
+        '</tr>';
+    }).join('');
+
+    var weekRangeLabel = weekStart + ' ~ ' + lsAddDaysToDateStr(weekStart, 6);
+
+    return '' +
+      '<div class="card ha-settle-card ls-live-schedule-card">' +
+      '  <div class="ha-settle-intro">' +
+      '    <div class="filters-row ls-host-schedule-filters" style="flex-wrap:wrap;align-items:center">' +
+      '      <input class="input" id="lsHostSearch" placeholder="' + lsEscHtml(t('ls.host.search_ph')) + '" value="' + (lsHostFilter.host || '') + '" />' +
+      '      <select class="select" id="lsTimeZoneSelect" style="min-width:220px">' +
+      lsTzList.map(function (tz) {
+        var active = tz === lsDisplayTimeZone;
+        var suffix = tz === lsMerchantTimeZone ? t('ls.host.tz_merchant') : '';
+        return '<option value="' + tz + '"' + (active ? ' selected' : '') + '>' + lsTzShortName(tz) + ' ' + suffix + '</option>';
+      }).join('') +
+      '      </select>' +
+      '      <div class="ls-host-schedule-filters__spacer" style="flex:1;min-width:8px"></div>' +
+      '      <div class="ls-host-schedule-filters__right" style="display:flex;flex-wrap:wrap;align-items:center;gap:10px">' +
+      '        <button type="button" class="btn btn-ghost btn-sm" id="lsWeekPrev"><i class="fas fa-chevron-left"></i> ' + t('ls.host.week_prev') + '</button>' +
+      '        <button type="button" class="btn btn-ghost btn-sm" id="lsWeekThis"><i class="fas fa-calendar-day"></i> ' + t('ls.host.week_this') + '</button>' +
+      '        <button type="button" class="btn btn-ghost btn-sm" id="lsWeekNext">' + t('ls.host.week_next') + ' <i class="fas fa-chevron-right"></i></button>' +
+      '      </div>' +
+      '    </div>' +
+      '    <div class="ls-host-window-hint" style="font-size:12px;color:var(--text-subtext);margin-top:10px">' + lsT('ls.host.window', weekRangeLabel) + '</div>' +
+      '  </div>' +
+      '  <div class="ls-host-gen-toolbar">' +
+      '    <label class="ls-host-gen-toolbar-left" style="display:inline-flex;align-items:center;gap:8px;cursor:pointer">' +
+      '      <input type="checkbox" id="lsHostSelectAllPicks" title="' + lsEscHtml(t('ls.host.select_all')) + '" />' +
+      '      <span style="font-size:12px;color:var(--text-body)">' + t('ls.host.select_all') + '</span>' +
+      '    </label>' +
+      '    <div class="ls-host-gen-toolbar__genpair">' +
+      '      <button type="button" class="btn btn-primary btn-sm ls-ai-generate-btn" id="lsHostAvailGenBtn" disabled><i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> ' + t('ls.host.gen') + '</button>' +
+      '      <span id="lsHostAvailGenCount" style="font-size:12px;color:var(--text-subtext)">' + lsT('ls.host.selected_n', '0') + '</span>' +
+      '      <span style="font-size:12px;color:var(--text-subtext)">' + t('ls.host.gen_hint') + '</span>' +
+      '    </div>' +
+      '    <div class="ls-host-gen-toolbar__spacer" style="flex:1;min-width:8px"></div>' +
+      '    <div class="ls-host-gen-toolbar__actions">' +
+      '      <button type="button" class="btn btn-secondary btn-sm" id="lsHostAvailAddSlotBtn"><i class="fas fa-plus"></i> ' + t('ls.host.add_slot_btn') + '</button>' +
+      '    </div>' +
+      '  </div>' +
+      '  <div class="table-wrap ha-settle-table-wrap">' +
+      '    <table class="ha-settle-table" style="table-layout:fixed">' +
+      '      <thead>' +
+      '        <tr>' +
+      '          <th style="min-width:240px">' + t('ls.host.th.matrix') + '</th>' +
+      weekDays.map(function (d, idx) { return '<th style="width:120px">' + lsDayLabel(d, idx) + '</th>'; }).join('') +
+      '        </tr>' +
+      '      </thead>' +
+      '      <tbody>' + (rows || '<tr><td colspan="8" class="ha-settle-empty ha-rules-empty-state"><span class="ha-rules-empty-text">' + t('ls.host.empty_matrix') + '</span></td></tr>') + '</tbody>' +
+      '    </table>' +
+      '  </div>' +
+      '</div>';
+  }
+
+  function renderLiveScheduleHostDrawerAvailabilityTable() {
+    var hostId = lsHostDrawerHostId;
+    var dayDateStr = lsHostDrawerDayDate;
+    if (!hostId || !dayDateStr) return '<div>请选择一个日期</div>';
+
+    var dayRange = lsGetDayRangeMs(dayDateStr);
+    if (!dayRange) return '<div>日期无效</div>';
+
+    var addToolbar = '<div class="ls-avail-drawer-actions">' +
+      '<button type="button" class="btn btn-primary btn-sm" id="lsAvailAddManual">' +
+      '<i class="fas fa-plus"></i> ' + t('ls.drawer.add_slot_btn') + '</button>' +
+      '</div>';
+
+    var segs = (lsHostAvailabilities || []).filter(function (s) {
+      if (!s || s.hostId !== hostId) return false;
+      var sMs = lsStrToMs(s.startAt);
+      var eMs = lsStrToMs(s.endAt);
+      if (!isFinite(sMs) || !isFinite(eMs) || !(sMs < eMs)) return false;
+      if (s.cancelled) {
+        // still show cancelled segments for restore
+      }
+      return lsComputeHoursOverlap(s.startAt, s.endAt, dayRange.startMs, dayRange.endMs) > 0;
+    });
+
+    segs.sort(function (a, b) { return lsStrToMs(a.startAt) - lsStrToMs(b.startAt); });
+
+    if (!segs.length) {
+      return addToolbar + '<div class="ha-settle-empty ha-rules-empty-state" style="padding:16px"><span class="ha-rules-empty-text">' + t('ls.drawer.avail_empty') + '</span></div>';
+    }
+
+    var rows = segs.map(function (s) {
+      var sMs = lsStrToMs(s.startAt);
+      var eMs = lsStrToMs(s.endAt);
+      var cs = Math.max(sMs, dayRange.startMs);
+      var ce = Math.min(eMs, dayRange.endMs);
+      var durH = (ce - cs) / 3600000;
+      var statusBadge = s.cancelled
+        ? '<span class="badge badge-secondary">' + t('ls.drawer.avail_status_voided') + '</span>'
+        : '<span class="badge badge-success">' + t('ls.drawer.avail_status_valid') + '</span>';
+      var startT = lsMsToTimeStr(cs);
+      var endT = lsMsToTimeStr(ce);
+      var actions = '';
+      if (!s.cancelled) {
+        actions += '<button type="button" class="btn btn-ghost btn-sm ls-avail-edit" data-avail-id="' + (s.id || '') + '"><i class="fas fa-pen"></i> ' + t('common.edit') + '</button>';
+        actions += '<button type="button" class="btn btn-secondary btn-sm ls-avail-cancel" data-avail-id="' + (s.id || '') + '"><i class="fas fa-trash"></i> ' + t('ls.drawer.avail_void') + '</button>';
+      } else {
+        actions += '<button type="button" class="btn btn-ghost btn-sm ls-avail-restore" data-avail-id="' + (s.id || '') + '"><i class="fas fa-rotate-left"></i> ' + t('ls.drawer.avail_restore') + '</button>';
+      }
+      return '' +
+        '<tr>' +
+        '<td style="width:140px">' + statusBadge + '</td>' +
+        '<td style="white-space:nowrap">' + startT + '</td>' +
+        '<td style="white-space:nowrap">' + endT + '</td>' +
+        '<td style="white-space:nowrap">' + (durH > 0 ? (durH.toFixed(1) + 'h') : '-') + '</td>' +
+        '<td>' + (s.source || '-') + '</td>' +
+        '<td>' + (s.updatedAt || '-') + '</td>' +
+        '<td class="ha-settle-actions">' + actions + '</td>' +
+        '</tr>';
+    }).join('');
+
+    return addToolbar +
+      '<div class="table-wrap ha-settle-table-wrap">' +
+      '  <table class="ha-settle-table">' +
+      '    <thead>' +
+      '      <tr>' +
+      '        <th>' + t('ls.drawer.th.status') + '</th>' +
+      '        <th>' + t('ls.drawer.th.start') + '</th>' +
+      '        <th>' + t('ls.drawer.th.end') + '</th>' +
+      '        <th>' + t('ls.drawer.th.duration') + '</th>' +
+      '        <th>' + t('ls.drawer.th.source') + '</th>' +
+      '        <th>' + t('ls.drawer.th.updated_at') + '</th>' +
+      '        <th style="text-align:right">' + t('common.actions') + '</th>' +
+      '      </tr>' +
+      '    </thead>' +
+      '    <tbody>' + rows + '</tbody>' +
+      '  </table>' +
+      '</div>';
+  }
+
+  function renderLiveScheduleHostDrawerPlannedTable() {
+    var hostId = lsHostDrawerHostId;
+    var dayDateStr = lsHostDrawerDayDate;
+    if (!hostId || !dayDateStr) return '<div>请选择一个日期</div>';
+
+    var dayRange = lsGetDayRangeMs(dayDateStr);
+    if (!dayRange) return '<div>日期无效</div>';
+
+    var rows = [];
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (sess) {
+        (sess.segments || []).forEach(function (seg) {
+          if (seg.hostId !== hostId) return;
+          if (lsComputeHoursOverlap(seg.startAt, seg.endAt, dayRange.startMs, dayRange.endMs) <= 0) return;
+          var durH = lsComputeHoursOverlap(seg.startAt, seg.endAt, dayRange.startMs, dayRange.endMs);
+          rows.push({
+            sessionEventName: sess.eventName || '-',
+            plannedStartAt: (sess.plannedStartAtMs != null ? lsMsToStrDisplay(sess.plannedStartAtMs) : (sess.plannedStartAt || '-')),
+            plannedEndAt: (sess.plannedEndAtMs != null ? lsMsToStrDisplay(sess.plannedEndAtMs) : (sess.plannedEndAt || '-')),
+            segStartAtMs: (seg.startAtMs != null ? seg.startAtMs : lsStrToMs(seg.startAt)),
+            durationH: durH,
+            batchId: b.id || '-'
+          });
+        });
+      });
+    });
+
+    rows.sort(function (a, b) {
+      var as = (a.segStartAtMs != null && isFinite(a.segStartAtMs) ? a.segStartAtMs : 0);
+      var bs = (b.segStartAtMs != null && isFinite(b.segStartAtMs) ? b.segStartAtMs : 0);
+      return as - bs;
+    });
+
+    if (!rows.length) {
+      return '<div class="ha-settle-empty ha-rules-empty-state" style="padding:16px"><span class="ha-rules-empty-text">该天暂无计划分配</span></div>';
+    }
+
+    var tableRows = rows.map(function (r) {
+      return '' +
+        '<tr>' +
+        '<td>' + (r.sessionEventName || '-') + '<div style="font-size:12px;color:var(--text-subtext);margin-top:4px">批次：' + (r.batchId || '-') + '</div></td>' +
+        '<td>' + (r.plannedStartAt || '-') + '</td>' +
+        '<td>' + (r.plannedEndAt || '-') + '</td>' +
+        '<td style="white-space:nowrap">' + (r.durationH ? (r.durationH.toFixed(1) + 'h') : '-') + '</td>' +
+        '</tr>';
+    }).join('');
+
+    return '' +
+      '<div class="table-wrap ha-settle-table-wrap">' +
+      '  <table class="ha-settle-table">' +
+      '    <thead><tr>' +
+      '      <th>Session</th>' +
+      '      <th>计划开始</th>' +
+      '      <th>计划结束</th>' +
+      '      <th style="text-align:right">计划消耗时长</th>' +
+      '    </tr></thead>' +
+      '    <tbody>' + tableRows + '</tbody>' +
+      '  </table>' +
+      '</div>';
+  }
+
+  function lsRenderHostDrawerContent() {
+    var el = document.getElementById('lsHostDrawerContent');
+    if (!el) return;
+
+    var hostId = lsHostDrawerHostId;
+    var dayDateStr = lsHostDrawerDayDate;
+    var host = (lsHostAvailabilities || []).find(function (s) { return s.hostId === hostId; });
+    var hostName = host ? (host.hostName || hostId) : hostId || '-';
+
+    var availH = lsComputeAvailableHoursForHostDay(hostId, dayDateStr, 'all');
+    var allocatedH = lsComputeAllocatedHoursForHostDay(hostId, dayDateStr);
+    var remainingH = Math.max(0, availH - allocatedH);
+
+    // Sync active tab UI
+    var typeTabs = document.querySelectorAll('#lsHostDrawerTypeTabs [data-ls-drawer-tab]');
+    typeTabs.forEach(function (btn) {
+      var v = btn.getAttribute('data-ls-drawer-tab');
+      if (v === lsHostDrawerTab) btn.classList.add('ha-batch-drawer-type-tab--active');
+      else btn.classList.remove('ha-batch-drawer-type-tab--active');
+    });
+
+    var subtitle = dayDateStr + '；可用 ' + availH.toFixed(1) + 'h，已分配(计划) ' + allocatedH.toFixed(1) + 'h，剩余 ' + remainingH.toFixed(1) + 'h';
+    var subEl = document.getElementById('lsHostDrawerSubtitle');
+    if (subEl) subEl.textContent = subtitle;
+
+    var tabHtml = lsHostDrawerTab === 'planned'
+      ? renderLiveScheduleHostDrawerPlannedTable()
+      : renderLiveScheduleHostDrawerAvailabilityTable();
+
+    var hintBlock = lsHostDrawerTab === 'availability'
+      ? '<div style="margin-bottom:12px">' +
+        '  <div style="font-size:12px;color:var(--text-subtext)">' + t('ls.drawer.stats_impact_hint') + '</div>' +
+        '</div>'
+      : '';
+    el.innerHTML = hintBlock + tabHtml;
+  }
+
+  function renderLiveScheduleTargetsTab() {
+    var currentPeriodStart = lsActiveWeekStart || lsTargetsPeriodStartFilter || '';
+
+    function isPastPeriod(periodStart) {
+      if (!currentPeriodStart || !periodStart) return false;
+      // YYYY-MM-DD lexicographic compare works
+      return String(periodStart) < String(currentPeriodStart);
+    }
+
+    var sortedTargets = (lsMerchantTargets || []).slice().sort(function (a, b) {
+      var ap = a.periodStart || '';
+      var bp = b.periodStart || '';
+      if (ap !== bp) return String(bp).localeCompare(String(ap));
+      return String(a.updatedAt || '').localeCompare(String(b.updatedAt || ''));
+    });
+
+    var rows = sortedTargets.map(function (row) {
+      var planned = Number(row.plannedHours) || 0;
+      var target = Number(row.targetHours) || 0;
+      var accepted = Number(row.acceptedHours) || 0;
+      var rate = target > 0 ? Math.round((accepted / target) * 100) : 0;
+
+      var past = isPastPeriod(row.periodStart);
+      var disabledAttr = past ? ' disabled title="' + lsEscHtml(t('ls.targets.past_locked')) + '"' : '';
+      var inputStyle = past ? 'max-width:120px;opacity:0.7' : 'max-width:120px';
+
+      var canCancel = row.status !== '已同步';
+      var cancelBtn = canCancel
+        ? '<button type="button" class="btn btn-secondary btn-sm ls-target-cancel" data-id="' + (row.id || '') + '"><i class="fas fa-trash"></i> ' + t('ls.targets.cancel') + '</button>'
+        : '<button type="button" class="btn btn-secondary btn-sm" disabled><i class="fas fa-trash"></i> ' + t('ls.targets.cancel') + '</button>';
+
+      return '' +
+        '<tr>' +
+        '<td>' + (row.liveAccountUsername || '-') + '</td>' +
+        '<td>' + (row.periodStart + ' ~ ' + row.periodEnd) + '</td>' +
+        '<td>' +
+        '<input type="number" class="input ls-target-hours-input" data-id="' + (row.id || '') + '" value="' + String(row.targetHours || 0) + '" min="0" step="0.5" style="' + inputStyle + '"' + disabledAttr + ' />' +
+        '</td>' +
+        '<td>' + (planned ? (planned + 'h') : '-') + '</td>' +
+        '<td>' + (accepted ? (accepted + 'h') : '-') + '</td>' +
+        '<td>' + (target ? (rate + '%') : '-') + '</td>' +
+        '<td>' + (row.updatedAt || '-') + '</td>' +
+        '<td>' +
+        '<div class="ha-settle-actions" style="display:flex;gap:8px;flex-wrap:wrap">' +
+        cancelBtn +
+        '</div>' +
+        '</td>' +
+        '</tr>';
+    }).join('');
+
+    // Period options for “自动排期弹窗 / 新增目标弹窗”
+    var periodOptions = (function () {
+      var set = {};
+      (lsMerchantTargets || []).forEach(function (t) {
+        if (t && t.periodStart) set[t.periodStart] = t.periodEnd || '';
+      });
+      if (lsActiveWeekStart && !set[lsActiveWeekStart]) {
+        // Try to infer current periodEnd from any existing target in same week range.
+        // Fallback: empty endAt.
+        set[lsActiveWeekStart] = set[lsActiveWeekStart] || '';
+      }
+      return Object.keys(set).sort().map(function (ps) { return { startAt: ps, endAt: set[ps] }; });
+    })();
+
+    // Keep the last inferred filter for internal logic
+    if (periodOptions.length && !lsTargetsPeriodStartFilter) lsTargetsPeriodStartFilter = periodOptions[0].startAt;
+    if (!lsTargetsPeriodStartFilter && lsActiveWeekStart) lsTargetsPeriodStartFilter = lsActiveWeekStart;
+
+    var header = '' +
+      '<div class="filters-row" style="margin-bottom:0">' +
+      '<button type="button" class="btn btn-primary btn-sm" id="lsTargetsSave"><i class="fas fa-save"></i> ' + t('ls.targets.save') + '</button>' +
+      '<button type="button" class="btn btn-ghost btn-sm" id="lsTargetsAdd"><i class="fas fa-plus"></i> ' + t('ls.targets.add') + '</button>' +
+      '</div>';
+
+    return '' +
+      '<div class="card ha-settle-card ls-live-schedule-card">' +
+      '<div class="ha-settle-intro">' +
+      header +
+      '<div class="ls-targets-hint" style="font-size:12px;color:var(--text-subtext);margin-top:10px">' + t('ls.targets.hint') + '</div>' +
+      '</div>' +
+      '<div class="table-wrap ha-settle-table-wrap">' +
+      '<table class="ha-settle-table">' +
+      '<thead><tr>' +
+      '<th>' + t('ls.targets.th.account') + '</th>' +
+      '<th>' + t('ls.targets.th.period') + '</th>' +
+      '<th>' + t('ls.targets.th.target_h') + '</th>' +
+      '<th>' + t('ls.targets.th.planned_h') + '</th>' +
+      '<th>' + t('ls.targets.th.accepted_h') + '</th>' +
+      '<th>' + t('ls.targets.th.rate') + '</th>' +
+      '<th>' + t('ls.targets.th.updated') + '</th>' +
+      '<th>' + t('ls.targets.th.actions') + '</th>' +
+      '</tr></thead>' +
+      '<tbody>' + (rows || '<tr><td colspan="8" class="ha-settle-empty ha-rules-empty-state"><span class="ha-rules-empty-text">' + t('ls.targets.empty') + '</span></td></tr>') + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function renderLiveScheduleBatchesTab() {
+    var tabDef = [
+      { key: 'draft', label: t('ls.sess.draft') },
+      { key: 'pending_confirm', label: t('ls.sess.pending_confirm') },
+      { key: 'pending_sync', label: t('ls.sess.pending_sync') },
+      { key: 'pending_live', label: t('ls.sess.pending_live') },
+      { key: 'live', label: t('ls.sess.live') },
+      { key: 'ended', label: t('ls.sess.ended') }
+    ];
+    var activeTab = lsSessionListFilter.tab || 'draft';
+    var showTikTokCol = activeTab === 'pending_live' || activeTab === 'live' || activeTab === 'ended';
+    var showTikTokSyncCol = activeTab === 'pending_sync';
+    var showCheckCol = activeTab === 'draft' || activeTab === 'pending_sync';
+    var showBatchPushToolbar = activeTab === 'draft';
+    var showBatchSyncToolbar = activeTab === 'pending_sync';
+
+    var sessTabIcons = {
+      draft: 'fa-inbox',
+      pending_confirm: 'fa-user-clock',
+      pending_sync: 'fa-cloud-upload-alt',
+      pending_live: 'fa-calendar-check',
+      live: 'fa-broadcast-tower',
+      ended: 'fa-flag-checkered'
+    };
+    var sessStatusCounts = lsCountSessionsByStatus();
+    var tabHtml = '<div class="or-tabs" id="lsSessionTabs">' + tabDef.map(function (t) {
+      var on = t.key === activeTab;
+      var cnt = sessStatusCounts[t.key] != null ? sessStatusCounts[t.key] : 0;
+      var ic = sessTabIcons[t.key] || 'fa-circle';
+      return '<button type="button" class="or-tab' + (on ? ' or-tab--active' : '') + '" data-ls-session-tab="' + t.key + '">' +
+        '<i class="fas ' + ic + '"></i> ' + t.label +
+        '<span class="or-tab-count">' + cnt + '</span></button>';
+    }).join('') + '</div>';
+
+    var qRaw = (lsSessionListFilter.q || '').trim().toLowerCase();
+
+    var rowHtml = [];
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (s) {
+        var st = lsComputeSessionRowStatus(b, s);
+        if (!st || st !== activeTab) return;
+        var ddList = lsSessionDetailDisplay(s);
+        if (qRaw) {
+          var hay = [
+            b.id || '',
+            b.periodStart || '',
+            s.scheduleId || '',
+            lsFormatScheduleIdDisplay(s.scheduleId),
+            s.id || '',
+            s.liveAccountUsername || '',
+            ddList.subject,
+            ddList.timeZone,
+            ddList.follower,
+            ddList.remarkEn,
+            s.plannedStartAt || '',
+            s.plannedEndAt || '',
+            lsSessionHostsLabel(s),
+            s.tiktokLiveEventSyncStatus || '',
+            s.tiktokSyncFailureCode || '',
+            s.tiktokSyncFailureDetail || ''
+          ].join(' ').toLowerCase();
+          if (hay.indexOf(qRaw) === -1) return;
+        }
+
+        var actions = '';
+
+        if (st === 'draft') {
+          actions =
+            '<button type="button" class="btn btn-primary btn-sm ls-sess-push" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-paper-plane"></i> ' + t('ls.btn.push_host') + '</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-edit" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-edit"></i> ' + t('ls.btn.edit_schedule') + '</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-cancel" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-ban"></i> ' + t('ls.btn.cancel_schedule') + '</button>';
+        } else if (st === 'pending_confirm') {
+          actions =
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-edit" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-edit"></i> ' + t('ls.btn.edit_schedule') + '</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-cancel" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-ban"></i> ' + t('ls.btn.cancel_schedule') + '</button>';
+        } else if (st === 'pending_sync') {
+          actions =
+            '<button type="button" class="btn btn-secondary btn-sm ls-sess-sync-tt" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-cloud-upload-alt"></i> ' + t('ls.btn.sync_tiktok') + '</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-edit" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-edit"></i> ' + t('ls.btn.edit_schedule') + '</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-cancel" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-ban"></i> ' + t('ls.btn.cancel_schedule') + '</button>';
+        } else if (st === 'pending_live') {
+          actions =
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-edit" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-edit"></i> ' + t('ls.btn.edit_schedule') + '</button>' +
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-cancel" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-ban"></i> ' + t('ls.btn.cancel_schedule') + '</button>';
+        } else if (st === 'live' || st === 'ended') {
+          actions =
+            '<button type="button" class="btn btn-ghost btn-sm ls-sess-view" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-eye"></i> ' + t('ls.btn.view') + '</button>';
+        }
+
+        var tikCell = showTikTokCol
+          ? '<td>' + (s.tiktokSessionId || s.tiktokEventId || '-') + '</td>'
+          : '';
+
+        var tikSyncCell = showTikTokSyncCol
+          ? '<td class="ls-sess-col-tiktok-sync">' + lsSessionTikTokLiveEventSyncCell(s) + '</td>'
+          : '';
+
+        var subjCell = ddList.subject ? String(ddList.subject).replace(/</g, '&lt;').replace(/>/g, '&gt;') : '<span class="ls-sess-cell-muted">-</span>';
+        var followerCell = ddList.follower ? String(ddList.follower).replace(/</g, '&lt;') : '<span class="ls-sess-cell-muted">-</span>';
+        var accountLine = String(s.liveAccountUsername || '-').replace(/</g, '&lt;');
+        var subjectAccountCell =
+          '<td class="ls-sess-col-subject-account">' +
+          '<div class="ls-sess-stack">' +
+          '<div class="ls-sess-stack__title">' + subjCell + '</div>' +
+          '<div class="ls-sess-stack__sub ls-sess-stack__mono">' + accountLine + '</div>' +
+          '</div></td>';
+
+        // 列顺序：直播时间 -> 主播(计划分段)
+        var hostsCell = lsSessionHostsSegmentsHtml(s);
+        var remarkCell = lsSessionRemarkCell(s);
+
+        // 创建人：当前登录用户姓名 + 创建时间（本机时区/本地格式）
+        var createdByName = (currentUser && currentUser.name) ? currentUser.name : '-';
+        var createdAtStr = b && b.createdAt
+          ? (function () {
+              if (typeof b.createdAt === 'string') {
+                var s = String(b.createdAt);
+                // 兼容 "YYYY-MM-DD HH:mm" 这种无时区格式：用本地时间解析并格式化
+                var d = new Date(s.replace(' ', 'T'));
+                return isNaN(d.getTime()) ? s : d.toLocaleString();
+              }
+              try {
+                return new Date(b.createdAt).toLocaleString();
+              } catch (e) {
+                return '-';
+              }
+            })()
+          : '-';
+        var createdCell =
+          '<div class="ha-batch-meta">' +
+          '  <span class="ha-batch-meta-name">' + lsEscHtml(createdByName) + '</span>' +
+          '  <span class="ha-batch-meta-time">' + lsEscHtml(createdAtStr) + '</span>' +
+          '</div>';
+        var createdFollowerCell =
+          '<td class="ls-sess-col-created-follower">' +
+          '<div class="ls-sess-stack">' +
+          '<div class="ls-sess-stack__block">' + createdCell + '</div>' +
+          '<div class="ls-sess-stack__sub"><span class="ls-sess-stack__label">' + t('ls.th.follower') + '</span> ' + followerCell + '</div>' +
+          '</div></td>';
+
+        rowHtml.push(
+          '<tr>' +
+          (showCheckCol ? '<td><input type="checkbox" class="ls-sess-row-check" data-batch-id="' + (b.id || '') + '" data-session-id="' + (s.id || '') + '" /></td>' : '') +
+          '<td class="ls-sess-col-sid">' + lsEscHtml(lsFormatScheduleIdDisplay(s.scheduleId)) + '</td>' +
+          subjectAccountCell +
+          '<td class="ls-sess-col-time">' + lsSessionTimeCell(s) + '</td>' +
+          tikSyncCell +
+          '<td class="ls-sess-col-hosts">' + hostsCell + '</td>' +
+          tikCell +
+          createdFollowerCell +
+          '<td class="ls-sess-col-remark">' + remarkCell + '</td>' +
+          '<td style="text-align:right"><div class="ha-settle-actions" style="justify-content:flex-end;flex-wrap:wrap">' + actions + '</div></td>' +
+          '</tr>'
+        );
+      });
+    });
+
+    var colSpan = 7 + (showTikTokCol ? 1 : 0) + (showTikTokSyncCol ? 1 : 0) + (showCheckCol ? 1 : 0);
+    var thead = '<thead><tr>' +
+      (showCheckCol ? '<th style="width:44px"><input type="checkbox" id="lsSessSelectAll" title="' + lsEscHtml(t('ls.select_all')) + '" /></th>' : '') +
+      '<th>' + t('ls.th.schedule_id') + '</th>' +
+      '<th>' + t('ls.th.subject_account') + '</th>' +
+      '<th>' + t('ls.th.time') + '</th>' +
+      (showTikTokSyncCol ? '<th style="min-width:200px">' + t('ls.th.tiktok_live_event_sync') + '</th>' : '') +
+      '<th>' + t('ls.th.hosts_segments') + '</th>' +
+      (showTikTokCol ? '<th>' + t('ls.th.tiktok_sid') + '</th>' : '') +
+      '<th>' + t('ls.th.created_follower') + '</th>' +
+      '<th>' + t('ls.th.remark_en') + '</th>' +
+      '<th style="text-align:right">' + t('common.actions') + '</th>' +
+      '</tr></thead>';
+
+    return '' +
+      '<div class="card ha-settle-card ls-live-schedule-card">' +
+      '<div class="ha-settle-intro">' +
+      tabHtml +
+      '<div class="filters-row" style="margin-bottom:0;align-items:center;gap:10px;flex-wrap:wrap">' +
+      (showBatchPushToolbar ? '<button type="button" class="btn btn-primary btn-sm" id="lsSessBatchPush" disabled><i class="fas fa-paper-plane"></i> ' + t('ls.btn.batch_push') + '</button>' : '') +
+      (showBatchSyncToolbar ? '<button type="button" class="btn btn-secondary btn-sm" id="lsSessBatchSync" disabled><i class="fas fa-cloud-upload-alt"></i> ' + t('ls.btn.batch_sync_tiktok') + '</button>' : '') +
+      '<input class="input" id="lsSessionSearch" placeholder="' + lsEscHtml(t('ls.search.sessions_ph')) + '" style="max-width:420px" value="' + String(lsSessionListFilter.q || '').replace(/"/g, '&quot;') + '" />' +
+      '</div>' +
+      '</div>' +
+      '<div class="table-wrap ha-settle-table-wrap">' +
+      '<table class="ha-settle-table ls-sess-table">' +
+      thead +
+      '<tbody>' + (rowHtml.length ? rowHtml.join('') : '<tr><td colspan="' + colSpan + '" class="ha-settle-empty ls-sess-table-empty-cell">' +
+        '<div class="ls-sess-table-empty">' +
+        '<div class="ls-sess-table-empty__icon" aria-hidden="true"><i class="fas fa-calendar-alt"></i></div>' +
+        '<p class="ls-sess-table-empty__title">' + lsEscHtml(t('ls.empty.sessions')) + '</p>' +
+        '<p class="ls-sess-table-empty__hint">' + lsEscHtml(t('ls.empty.sessions_hint')) + '</p>' +
+        '</div></td></tr>') + '</tbody>' +
+      '</table>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function renderLiveScheduleBatchDrawerMarkup() {
+    return '' +
+      '<div class="ha-settle-drawer-overlay" id="lsBatchDrawerOverlay"></div>' +
+      '<aside class="ha-settle-drawer" id="lsBatchDrawer" aria-hidden="true">' +
+      '  <div class="ha-settle-drawer-header">' +
+      '    <div>' +
+      '      <div class="ha-settle-drawer-title" id="lsBatchDrawerTitle">-</div>' +
+      '      <div class="ha-settle-drawer-subtitle" id="lsBatchDrawerSubtitle">-</div>' +
+      '    </div>' +
+      '    <button type="button" class="ha-settle-drawer-close" id="lsBatchDrawerClose" aria-label="' + lsEscHtml(t('common.close')) + '"><i class="fas fa-times"></i></button>' +
+      '  </div>' +
+      '  <div class="ha-settle-drawer-body" id="lsBatchDrawerBody">' +
+      '    <div class="ha-batch-drawer-tabs-wrap" style="margin-bottom:12px">' +
+      '      <div class="ha-batch-drawer-type-tabs" id="lsBatchDrawerTypeTabs">' +
+      '        <button type="button" class="ha-batch-drawer-type-tab ha-batch-drawer-type-tab--active" data-ls-drawer-tab="sessions"><span class="ha-batch-drawer-type-tab-label">' + t('ls.drawer.tab.sessions') + '</span></button>' +
+      '        <button type="button" class="ha-batch-drawer-type-tab" data-ls-drawer-tab="segments"><span class="ha-batch-drawer-type-tab-label">' + t('ls.drawer.tab.segments') + '</span></button>' +
+      '      </div>' +
+      '    </div>' +
+      '    <div id="lsBatchDrawerContent"></div>' +
+      '  </div>' +
+      '</aside>';
+  }
+
+  function renderLiveScheduleHostDrawerMarkup() {
+    return '' +
+      '<div class="ha-settle-drawer-overlay" id="lsHostDrawerOverlay"></div>' +
+      '<aside class="ha-settle-drawer" id="lsHostDrawer" aria-hidden="true">' +
+      '  <div class="ha-settle-drawer-header">' +
+      '    <div>' +
+      '      <div class="ha-settle-drawer-title" id="lsHostDrawerTitle">-</div>' +
+      '      <div class="ha-settle-drawer-subtitle" id="lsHostDrawerSubtitle">-</div>' +
+      '    </div>' +
+      '    <button type="button" class="ha-settle-drawer-close" id="lsHostDrawerClose" aria-label="' + lsEscHtml(t('common.close')) + '"><i class="fas fa-times"></i></button>' +
+      '  </div>' +
+      '  <div class="ha-settle-drawer-body" id="lsHostDrawerBody">' +
+      '    <div class="ha-batch-drawer-tabs-wrap" style="margin-bottom:12px">' +
+      '      <div class="ha-batch-drawer-type-tabs" id="lsHostDrawerTypeTabs">' +
+      '        <button type="button" class="ha-batch-drawer-type-tab ha-batch-drawer-type-tab--active" data-ls-drawer-tab="availability"><span class="ha-batch-drawer-type-tab-label">' + t('ls.drawer.host.avail') + '</span></button>' +
+      '        <button type="button" class="ha-batch-drawer-type-tab" data-ls-drawer-tab="planned"><span class="ha-batch-drawer-type-tab-label">' + t('ls.drawer.host.planned') + '</span></button>' +
+      '      </div>' +
+      '    </div>' +
+      '    <div id="lsHostDrawerContent"></div>' +
+      '  </div>' +
+      '</aside>';
+  }
+
+  function renderLiveScheduleModalsMarkup() {
+    return '' +
+      '<div class="modal-overlay" id="lsModalOverlay">' +
+      '  <div class="modal" id="lsModal">' +
+      '    <button type="button" class="modal-close" id="lsModalClose" aria-label="Close"><i class="fas fa-times"></i></button>' +
+      '    <h3 class="modal-title" id="lsModalTitle">-</h3>' +
+      '    <div id="lsModalBody"></div>' +
+      '    <div class="modal-footer" style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px">' +
+      '      <button type="button" class="btn btn-ghost" id="lsModalCancel">取消</button>' +
+      '      <button type="button" class="btn btn-primary" id="lsModalOk">确认</button>' +
+      '    </div>' +
+      '  </div>' +
+      '</div>' +
+      '<div class="modal-overlay" id="lsEditAvailabilityOverlay">' +
+      '  <div class="modal">' +
+      '    <button type="button" class="modal-close" id="lsEditAvailabilityClose" aria-label="Close"><i class="fas fa-times"></i></button>' +
+      '    <h3 class="modal-title" id="lsEditAvailabilityTitle">' + t('ls.drawer.edit_slot_title') + '</h3>' +
+      '    <div class="form-group">' +
+      '      <label class="form-label">' + t('ls.drawer.tz_label') + '</label>' +
+      '      <select class="select" id="lsEditAvailTimeZone"></select>' +
+      '    </div>' +
+      '    <div class="form-group">' +
+      '      <label class="form-label">开始时间</label>' +
+      '      <input class="input" type="text" id="lsEditAvailStart" placeholder="YYYY-MM-DD HH:mm" />' +
+      '    </div>' +
+      '    <div class="form-group">' +
+      '      <label class="form-label">结束时间</label>' +
+      '      <input class="input" type="text" id="lsEditAvailEnd" placeholder="YYYY-MM-DD HH:mm" />' +
+      '    </div>' +
+      '    <div class="modal-footer" style="display:flex;justify-content:flex-end;gap:10px;margin-top:18px">' +
+      '      <button type="button" class="btn btn-ghost" id="lsEditAvailabilityCancel">取消</button>' +
+      '      <button type="button" class="btn btn-primary" id="lsEditAvailabilitySave">保存</button>' +
+      '    </div>' +
+      '  </div>' +
+      '</div>' +
+      '';
+  }
+
+  function lsShowModal(title, bodyHtml, okLabel, okHandler, opts) {
+    opts = opts || {};
+    var overlay = document.getElementById('lsModalOverlay');
+    if (!overlay) return;
+    var modal = document.getElementById('lsModal');
+    var modalTitle = document.getElementById('lsModalTitle');
+    var modalBody = document.getElementById('lsModalBody');
+    var okBtn = document.getElementById('lsModalOk');
+    if (modal) {
+      modal.classList.remove('ls-modal--wide');
+      if (opts.wide) modal.classList.add('ls-modal--wide');
+    }
+    if (modalTitle) modalTitle.textContent = title || '';
+    if (modalBody) modalBody.innerHTML = bodyHtml || '';
+    if (okBtn && okLabel) okBtn.textContent = okLabel;
+    if (okBtn) okBtn.onclick = function () { if (typeof okHandler === 'function') okHandler(); };
+    if (overlay) overlay.classList.add('active');
+  }
+
+  function lsHideModal() {
+    var overlay = document.getElementById('lsModalOverlay');
+    if (overlay) overlay.classList.remove('active');
+    var modal = document.getElementById('lsModal');
+    if (modal) modal.classList.remove('ls-modal--wide');
+  }
+
+  function lsEscHtml(s) {
+    return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
+  }
+
+  /** Wall time "YYYY-MM-DD HH:mm(:ss)" <-> datetime-local */
+  function lsWallToDatetimeLocal(s) {
+    if (!s) return '';
+    var t = String(s).trim().replace(' ', 'T');
+    return t.length >= 16 ? t.substring(0, 16) : t;
+  }
+
+  function lsDatetimeLocalToWall(v) {
+    if (!v) return '';
+    return String(v).replace('T', ' ');
+  }
+
+  /** TikTok Shop 直播中控台链接（真实环境 session_id 为纯数字） */
+  function lsTiktokShopLiveEventDashboardUrl(session) {
+    var id = session && (session.tiktokSessionId || session.tiktokEventId);
+    if (!id) return '';
+    return 'https://shop.tiktok.com/streamer/live/event/dashboard?session_id=' + encodeURIComponent(String(id));
+  }
+
+  /** 优先使用 detail 中已填链接，否则用 Session ID 拼 Shop 仪表盘地址 */
+  function lsResolveTiktokLiveEventUrl(d, session) {
+    var raw = d && d.tiktokLiveEventUrl != null ? String(d.tiktokLiveEventUrl).trim() : '';
+    if (raw) return raw;
+    return lsTiktokShopLiveEventDashboardUrl(session);
+  }
+
+  /**
+   * GMV 币种（服务端下发直播间商品币种 ISO 4217）；仅用于展示「货币符号 + 金额」
+   */
+  function lsGmvCurrencyCode(session, seg) {
+    if (seg && seg.gmvCurrency) return String(seg.gmvCurrency).toUpperCase();
+    if (session && session.gmvCurrency) return String(session.gmvCurrency).toUpperCase();
+    if (session && session.detail && session.detail.gmvCurrency) return String(session.detail.gmvCurrency).toUpperCase();
+    return 'USD';
+  }
+
+  function lsFormatGmvDisplay(amount, session, seg) {
+    var code = lsGmvCurrencyCode(session, seg);
+    var n = Number(amount);
+    if (!isFinite(n)) n = 0;
+    try {
+      return new Intl.NumberFormat(typeof navigator !== 'undefined' && navigator.language ? navigator.language : 'en-US', {
+        style: 'currency',
+        currency: code,
+        minimumFractionDigits: 2,
+        maximumFractionDigits: 2
+      }).format(n);
+    } catch (err) {
+      return code + ' ' + n.toFixed(2);
+    }
+  }
+
+  function lsEnsureSessionDetail(session, batch) {
+    if (!session) return;
+    if (!session.detail) {
+      var ps = (session.plannedStartAt || '').split(/\s+/);
+      var pe = (session.plannedEndAt || '').split(/\s+/);
+      var durH = 2;
+      if (session.plannedStartAtMs != null && session.plannedEndAtMs != null) {
+        durH = Math.max(0.5, Math.round((session.plannedEndAtMs - session.plannedStartAtMs) / 3600000 * 10) / 10);
+      }
+      session.detail = {
+        liveType: '达播',
+        subject: session.eventName || '',
+        timeZone: lsDisplayTimeZone || 'America/New_York',
+        liveDate: ps[0] || (batch && batch.periodStart) || '',
+        liveClock: (ps[1] || '09:00').slice(0, 5),
+        durationHours: Math.floor(durH) || 2,
+        durationMinutes: Math.round((durH % 1) * 60) || 0,
+        follower: '',
+        tiktokLiveEventUrl: lsTiktokShopLiveEventDashboardUrl(session),
+        remarkEn: ''
+      };
+    }
+    (session.segments || []).forEach(function (seg) {
+      if (seg.actualStartAt == null) seg.actualStartAt = '';
+      if (seg.actualEndAt == null) seg.actualEndAt = '';
+      if (seg.gmv == null) seg.gmv = 0;
+      if (seg.gmvRemark == null) seg.gmvRemark = '';
+    });
+  }
+
+  function lsRenderSessionEditDetailHtml(batch, session, mode) {
+    var d = session.detail || {};
+    var tzOpts = ['America/New_York', 'America/Los_Angeles', 'Asia/Shanghai', 'UTC'];
+    if (tzOpts.indexOf(d.timeZone) === -1) tzOpts.unshift(d.timeZone);
+    var dhOpts = [];
+    var i;
+    for (i = 0; i <= 12; i++) dhOpts.push(i);
+    var dmOpts = [0, 15, 30, 45];
+    var followerOpts = [
+      { v: '', l: '请选择' },
+      { v: 'darren.chen', l: 'darren.chen' },
+      { v: 'hayleyliang@wahool.live', l: 'hayleyliang@wahool.live' }
+    ].map(function (f) {
+      return '<option value="' + lsEscHtml(f.v) + '"' + (String(d.follower || '') === f.v ? ' selected' : '') + '>' + lsEscHtml(f.l) + '</option>';
+    }).join('');
+
+    var accountRow = '' +
+      '<div class="ls-session-edit__row2">' +
+      '  <div class="form-group">' +
+      '    <label class="form-label"><span class="ls-req">*</span>直播账号</label>' +
+      '    <select class="select" id="lsDet_liveAccount"' + (mode === 'streamed' ? ' disabled' : '') + '>' +
+      '      <option value="' + lsEscHtml(session.liveAccountUsername || '-') + '">' + lsEscHtml(session.liveAccountUsername || '-') + '</option></select></div>' +
+      '  <div class="form-group">' +
+      '    <label class="form-label"><span class="ls-req">*</span>直播类型</label>' +
+      '    <select class="select" id="lsDet_liveType"' + (mode === 'streamed' ? ' disabled' : '') + '>' +
+      '      <option value="达播"' + ((d.liveType || '') === '达播' ? ' selected' : '') + '>达播</option>' +
+      '      <option value="店播"' + ((d.liveType || '') === '店播' ? ' selected' : '') + '>店播</option>' +
+      '    </select></div>' +
+      '</div>';
+
+    var timeRow = '' +
+      '<div class="form-group">' +
+      '  <label class="form-label"><span class="ls-req">*</span>主题</label>' +
+      '  <input class="input" id="lsDet_subject" value="' + lsEscHtml(d.subject || '') + '"' + (mode === 'streamed' ? ' disabled' : '') + ' />' +
+      '</div>' +
+      '<div class="form-group">' +
+      '  <label class="form-label"><span class="ls-req">*</span>直播时间</label>' +
+      '  <div class="ls-session-edit__time-row">' +
+      '    <select class="select" id="lsDet_tz" style="min-width:160px"' + (mode === 'streamed' ? ' disabled' : '') + '>' +
+      tzOpts.map(function (z) { return '<option value="' + lsEscHtml(z) + '"' + (z === d.timeZone ? ' selected' : '') + '>' + lsEscHtml(z) + '</option>'; }).join('') +
+      '    </select>' +
+      '    <input type="date" class="input" id="lsDet_date" style="max-width:160px"' + (mode === 'streamed' ? ' disabled' : '') + ' value="' + lsEscHtml(d.liveDate || '') + '" />' +
+      '    <input type="time" class="input" id="lsDet_time" style="max-width:120px"' + (mode === 'streamed' ? ' disabled' : '') + ' value="' + lsEscHtml(d.liveClock || '09:00') + '" />' +
+      '  </div></div>' +
+      '<div class="form-group">' +
+      '  <label class="form-label"><span class="ls-req">*</span>直播时长</label>' +
+      '  <div class="ls-session-edit__time-row">' +
+      '    <select class="select" id="lsDet_dh"' + (mode === 'streamed' ? ' disabled' : '') + '>' +
+      dhOpts.map(function (h) { return '<option value="' + h + '"' + (Number(d.durationHours) === h ? ' selected' : '') + '>' + h + ' 小时</option>'; }).join('') +
+      '    </select>' +
+      '    <select class="select" id="lsDet_dm"' + (mode === 'streamed' ? ' disabled' : '') + '>' +
+      dmOpts.map(function (m) { return '<option value="' + m + '"' + (Number(d.durationMinutes) === m ? ' selected' : '') + '>' + m + ' 分钟</option>'; }).join('') +
+      '    </select></div></div>' +
+      '<div class="form-group">' +
+      '  <label class="form-label"><span class="ls-req">*</span>直播跟播人</label>' +
+      '  <select class="select" id="lsDet_follower"' + (mode === 'streamed' ? ' disabled' : '') + '>' +
+      followerOpts +
+      '  </select></div>' +
+      '<div class="form-group">' +
+      '  <label class="form-label">TikTok Live Events</label>' +
+      '  <textarea class="input" id="lsDet_tt_url" rows="3" placeholder="请输入TikTok Live Events链接"' + (mode === 'streamed' ? ' disabled' : '') + '>' + lsEscHtml(d.tiktokLiveEventUrl || '') + '</textarea>' +
+      '</div>';
+
+    var hostCards;
+    if (mode === 'streamed') {
+      hostCards = '<div class="ha-abnormal-modal-hosts ls-sess-hosts" id="lsSessionEditHosts">' +
+        (session.segments || []).map(function (seg) {
+          var acc = (seg.decisionStatus === 'accepted');
+          var badge = acc ? '<span class="badge badge-success ls-host-badge"><i class="fas fa-check"></i> 已确认</span>' : '<span class="badge badge-secondary ls-host-badge">待确认</span>';
+          return '<div class="ha-abnormal-modal-seg ls-sess-seg-readonly" data-seg-id="' + lsEscHtml(seg.id) + '">' +
+            '<div class="ls-sess-seg-meta">' + badge + '</div>' +
+            '<div class="ha-abnormal-modal-seg-fields">' +
+            '<div class="ha-abnormal-modal-seg-field"><label>实际上播</label><input type="datetime-local" class="ls-sess-seg-act-start" value="' + lsWallToDatetimeLocal(seg.actualStartAt) + '" /></div>' +
+            '<div class="ha-abnormal-modal-seg-field"><label>实际下播</label><input type="datetime-local" class="ls-sess-seg-act-end" value="' + lsWallToDatetimeLocal(seg.actualEndAt) + '" /></div>' +
+            '<div class="ha-abnormal-modal-seg-field"><label>Live GMV</label><input type="number" class="ha-abnormal-modal-seg-gmv ls-sess-seg-gmv" min="0" step="0.01" value="' + (Number(seg.gmv) || 0) + '" /></div>' +
+            '</div>' +
+            '<div class="ls-sess-seg-gmv-note-wrap"><textarea class="input ls-sess-seg-gmv-note" rows="2" placeholder="GMV 修改备注">' + lsEscHtml(seg.gmvRemark || '') + '</textarea>' +
+            '<div class="ls-session-edit__hint">' + lsEscHtml(lsT('ls.format.gmv_label', lsFormatGmvDisplay(seg.gmv, session, seg))) + '</div></div>' +
+            '</div>';
+        }).join('') + '</div>';
+    } else {
+      hostCards = '<div class="ha-abnormal-modal-hosts ls-sess-hosts" id="lsSessionEditHosts">' +
+        (session.segments || []).map(function (seg) {
+          var acc = (seg.decisionStatus === 'accepted');
+          var badge = acc ? '<span class="badge badge-success ls-host-badge"><i class="fas fa-check"></i> 已确认</span>' : '<span class="badge badge-secondary ls-host-badge">待确认</span>';
+          var liveExtra = (session.livePhase === 'live')
+            ? '<div class="ha-abnormal-modal-seg-field"><label>实际上播</label><input type="datetime-local" class="ls-sess-seg-act-start" value="' + lsWallToDatetimeLocal(seg.actualStartAt) + '" /></div>' +
+              '<div class="ha-abnormal-modal-seg-field"><label>实际下播</label><input type="datetime-local" class="ls-sess-seg-act-end" value="' + lsWallToDatetimeLocal(seg.actualEndAt) + '" /></div>' +
+              '<div class="ha-abnormal-modal-seg-field"><label>GMV</label><input type="number" class="ha-abnormal-modal-seg-gmv ls-sess-seg-gmv" min="0" step="0.01" value="' + (Number(seg.gmv) || 0) + '" /></div>'
+            : '';
+          var gmvNoteBlock = (session.livePhase === 'live')
+            ? '<div class="ls-sess-seg-gmv-note-wrap"><textarea class="input ls-sess-seg-gmv-note" rows="2" placeholder="GMV 修改备注">' + lsEscHtml(seg.gmvRemark || '') + '</textarea></div>'
+            : '';
+          return '<div class="ha-abnormal-modal-seg" data-seg-id="' + lsEscHtml(seg.id) + '">' +
+            '<div class="ls-sess-seg-meta">' + badge + '</div>' +
+            '<div class="ha-abnormal-modal-seg-fields">' +
+            '<div class="ha-abnormal-modal-seg-field"><label>主播</label><input type="text" class="ha-abnormal-modal-seg-host ls-sess-seg-host" placeholder="请选择或输入主播" value="' + lsEscHtml(seg.hostName || '') + '" /></div>' +
+            '<div class="ha-abnormal-modal-seg-field"><label>计划开始</label><input type="datetime-local" class="ls-sess-seg-plan-start" value="' + lsWallToDatetimeLocal(seg.startAt) + '" /></div>' +
+            '<div class="ha-abnormal-modal-seg-field"><label>计划结束</label><input type="datetime-local" class="ls-sess-seg-plan-end" value="' + lsWallToDatetimeLocal(seg.endAt) + '" /></div>' +
+            '<button type="button" class="btn btn-ghost btn-xs ha-abnormal-modal-seg-del" aria-label="删除"><i class="fas fa-trash"></i></button>' +
+            liveExtra +
+            '</div>' +
+            gmvNoteBlock +
+            '</div>';
+        }).join('') + '</div>' +
+        (session.livePhase === 'live'
+          ? ''
+          : '<button type="button" class="btn btn-ghost btn-sm ha-abnormal-modal-add-host" id="lsSessionEditAddHost"><i class="fas fa-plus"></i> ' + t('ls.seg.add_host') + '</button>');
+    }
+
+    var bottom = '' +
+      '<div class="form-group">' +
+      '  <label class="form-label">备注 / 说明（英文）</label>' +
+      '  <textarea class="input" id="lsDet_remark" rows="4" placeholder="请输入备注或说明 (英文)"' + (mode === 'streamed' ? ' disabled' : '') + '>' + lsEscHtml(d.remarkEn || '') + '</textarea>' +
+      '</div>';
+
+    var hint = mode === 'streamed'
+      ? '<p class="ls-session-edit__mode-hint"><i class="fas fa-info-circle"></i> ' + t('ls.edit.hint_streamed') + '</p>'
+      : '<p class="ls-session-edit__mode-hint"><i class="fas fa-info-circle"></i> ' + t('ls.edit.hint_full') + '</p>';
+
+    return hint +
+      '<div class="ls-session-edit">' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.account') + '</h4>' + accountRow + '</section>' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.schedule') + '</h4>' +
+      '<div class="ls-session-edit__grid">' +
+      '<div class="ls-session-edit__col">' + timeRow + '</div>' +
+      '<div class="ls-session-edit__col ls-session-edit__col--hosts"><h5 class="ls-session-edit__h5">' + t('ls.detail.seg_hosts') + '</h5>' + hostCards + '</div>' +
+      '</div></section>' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.remark') + '</h4>' + bottom + '</section>' +
+      '</div>';
+  }
+
+  /** 排期详情只读：区块与「编辑排期」一致（账号 / 日程 / 主播分段 / 备注） */
+  function lsSessionPhaseLabel(phase) {
+    if (phase === 'live') return t('ls.phase.live');
+    if (phase === 'ended') return t('ls.phase.ended');
+    if (phase === 'scheduled') return t('ls.phase.scheduled');
+    return phase ? String(phase) : '-';
+  }
+
+  function lsRenderSessionDetailReadonlyHtml(batch, session) {
+    lsEnsureSessionDetail(session, batch);
+    var d = session.detail || {};
+    var subj = d.subject || session.eventName || '-';
+    var tz = d.timeZone || '-';
+    var liveDate = d.liveDate || '-';
+    var liveClock = (d.liveClock || '') || '-';
+    var durStr = (Number(d.durationHours) || 0) + ' 小时 ' + (Number(d.durationMinutes) || 0) + ' 分钟';
+    var follower = d.follower ? String(d.follower) : '';
+    var ttUrl = lsResolveTiktokLiveEventUrl(d, session);
+    var liveType = d.liveType || '-';
+    var la = session.liveAccountUsername || '-';
+
+    var accountRow =
+      '<div class="ls-session-edit__row2">' +
+      '<div class="form-group"><label class="form-label">直播账号</label><div class="ls-session-edit__readonly">' + lsEscHtml(la) + '</div></div>' +
+      '<div class="form-group"><label class="form-label">直播类型</label><div class="ls-session-edit__readonly">' + lsEscHtml(liveType) + '</div></div>' +
+      '</div>';
+
+    var timeRow =
+      '<div class="form-group"><label class="form-label">主题</label><div class="ls-session-edit__readonly">' + lsEscHtml(subj) + '</div></div>' +
+      '<div class="form-group"><label class="form-label">直播时间</label><div class="ls-session-edit__readonly">' + lsEscHtml(tz) + ' · ' + lsEscHtml(liveDate) + ' ' + lsEscHtml(liveClock) + '</div></div>' +
+      '<div class="form-group"><label class="form-label">直播时长</label><div class="ls-session-edit__readonly">' + lsEscHtml(durStr) + '</div></div>' +
+      '<div class="form-group"><label class="form-label">直播跟播人</label><div class="ls-session-edit__readonly">' + (follower ? lsEscHtml(follower) : '<span class="ls-sess-cell-muted">-</span>') + '</div></div>' +
+      '<div class="form-group"><label class="form-label">TikTok Live Events</label><div class="ls-session-edit__readonly" style="white-space:pre-wrap;word-break:break-all">' + (ttUrl ? lsEscHtml(ttUrl) : '<span class="ls-sess-cell-muted">-</span>') + '</div></div>' +
+      '<div class="form-group"><label class="form-label">计划起止（场次）</label><div class="ls-session-edit__readonly">' + lsEscHtml((session.plannedStartAt || '-') + ' ~ ' + (session.plannedEndAt || '-')) + '</div></div>';
+
+    var segs = session.segments || [];
+    var hostCards = '<div class="ha-abnormal-modal-hosts ls-sess-hosts ls-sess-hosts--detail-readonly">' +
+      segs.map(function (seg) {
+        var acc = seg.decisionStatus === 'accepted';
+        var rej = seg.decisionStatus === 'rejected';
+        var statusTag = acc
+          ? '<span class="ha-abnormal-host-tag ha-abnormal-host-tag--status ha-abnormal-host-tag--ok">已确认</span>'
+          : (rej
+            ? '<span class="ha-abnormal-host-tag ha-abnormal-host-tag--status ha-abnormal-host-tag--pending">已拒绝</span>'
+            : '<span class="ha-abnormal-host-tag ha-abnormal-host-tag--status ha-abnormal-host-tag--pending">待确认</span>');
+        var planLine = lsEscHtml(seg.startAt || '') + ' ~ ' + lsEscHtml(seg.endAt || '');
+        var extra = '';
+        if (session.livePhase === 'live' || session.livePhase === 'ended') {
+          extra =
+            '<div class="ls-sess-detail-seg__extra">' +
+            '<div class="ls-sess-detail-kv"><span class="ls-sess-detail-kv__lbl">实际上播</span><span class="ls-sess-detail-kv__val">' + lsEscHtml(seg.actualStartAt || '-') + '</span></div>' +
+            '<div class="ls-sess-detail-kv"><span class="ls-sess-detail-kv__lbl">实际下播</span><span class="ls-sess-detail-kv__val">' + lsEscHtml(seg.actualEndAt || '-') + '</span></div>' +
+            '<div class="ls-sess-detail-kv"><span class="ls-sess-detail-kv__lbl">GMV</span><span class="ls-sess-detail-kv__val">' + lsEscHtml(lsFormatGmvDisplay(seg.gmv, session, seg)) + '</span></div>' +
+            (seg.gmvRemark ? '<div class="ls-sess-detail-gmv-note">' + lsEscHtml(seg.gmvRemark) + '</div>' : '') +
+            '</div>';
+        }
+        return '<div class="ls-sess-detail-seg">' +
+          '<div class="ls-sess-host-stack-line">' +
+          '<span class="ha-abnormal-host-tag">' + lsEscHtml(seg.hostName || seg.hostId || '-') + '</span>' + statusTag +
+          '</div>' +
+          '<div class="ls-sess-host-stack-plan">' + planLine + '</div>' +
+          extra +
+          '</div>';
+      }).join('') +
+      (segs.length ? '' : '<div class="ls-session-edit__readonly"><span class="ls-sess-cell-muted">' + t('ls.seg.empty') + '</span></div>') +
+      '</div>';
+
+    var bottom =
+      '<div class="form-group">' +
+      '<label class="form-label">备注 / 说明（英文）</label>' +
+      '<div class="ls-session-edit__readonly" style="white-space:pre-wrap;word-break:break-word">' + (d.remarkEn ? lsEscHtml(d.remarkEn) : '<span class="ls-sess-cell-muted">-</span>') + '</div>' +
+      '</div>';
+
+    return '<div class="ls-session-edit ls-session-edit--readonly">' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.account') + '</h4>' + accountRow + '</section>' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.schedule') + '</h4>' +
+      '<div class="ls-session-edit__grid">' +
+      '<div class="ls-session-edit__col">' + timeRow + '</div>' +
+      '<div class="ls-session-edit__col ls-session-edit__col--hosts"><h5 class="ls-session-edit__h5">' + t('ls.detail.seg_hosts') + '</h5>' + hostCards + '</div>' +
+      '</div></section>' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.remark') + '</h4>' + bottom + '</section>' +
+      '</div>';
+  }
+
+  /** 主播分段卡片标题：HostName + Mar 5 19:00–21:15（对齐参考稿） */
+  function lsFormatSegCardTitleHtml(hostName, startAt, endAt) {
+    var hn = hostName || '-';
+    var s = String(startAt || '');
+    var e = String(endAt || '');
+    var m = s.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+    var m2 = e.match(/^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})/);
+    var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    if (m && m2) {
+      var mo = parseInt(m[2], 10) - 1;
+      var day = parseInt(m[3], 10);
+      return lsEscHtml(hn) + ' <span class="ls-sess-seg-card__title-range">' + months[mo] + ' ' + day + ' ' + m[4] + ':' + m[5] + '–' + m2[4] + ':' + m2[5] + '</span>';
+    }
+    return lsEscHtml(hn) + ' <span class="ls-sess-seg-card__title-range">' + lsEscHtml(s) + ' – ' + lsEscHtml(e) + '</span>';
+  }
+
+  /**
+   * 直播中 / 已直播 · 排期详情弹窗：顶部字段全部禁用；主播段为卡片式，仅 Start/End（实际）与 GMV 可编辑
+   */
+  function lsRenderSessionLiveEndedDetailModalHtml(batch, session) {
+    lsEnsureSessionDetail(session, batch);
+    var d = session.detail || {};
+    var dis = ' disabled';
+    var tzOpts = ['America/New_York', 'America/Los_Angeles', 'Asia/Shanghai', 'UTC'];
+    if (d.timeZone && tzOpts.indexOf(d.timeZone) === -1) tzOpts.unshift(d.timeZone);
+    var dhOpts = [];
+    var i;
+    for (i = 0; i <= 12; i++) dhOpts.push(i);
+    var dmOpts = [0, 15, 30, 45];
+    var followerOpts = [
+      { v: '', l: '请选择' },
+      { v: 'darren.chen', l: 'darren.chen' },
+      { v: 'hayleyliang@wahool.live', l: 'hayleyliang@wahool.live' }
+    ].map(function (f) {
+      return '<option value="' + lsEscHtml(f.v) + '"' + (String(d.follower || '') === f.v ? ' selected' : '') + '>' + lsEscHtml(f.l) + '</option>';
+    }).join('');
+
+    var ttLiveResolved = lsResolveTiktokLiveEventUrl(d, session);
+    var ttPlaceholder = '示例：https://shop.tiktok.com/streamer/live/event/dashboard?session_id=4026548742';
+
+    var accountRow =
+      '<div class="ls-session-edit__row2">' +
+      '<div class="form-group"><label class="form-label">直播账号</label><input class="input"' + dis + ' value="' + lsEscHtml(session.liveAccountUsername || '-') + '" /></div>' +
+      '<div class="form-group"><label class="form-label">直播类型</label>' +
+      '<select class="select"' + dis + '>' +
+      '<option value="达播"' + ((d.liveType || '') === '达播' ? ' selected' : '') + '>达播</option>' +
+      '<option value="店播"' + ((d.liveType || '') === '店播' ? ' selected' : '') + '>店播</option>' +
+      '</select></div>' +
+      '</div>';
+
+    var timeRow =
+      '<div class="form-group"><label class="form-label">主题</label><input class="input"' + dis + ' value="' + lsEscHtml(d.subject || '') + '" /></div>' +
+      '<div class="form-group"><label class="form-label">直播时间</label><div class="ls-session-edit__time-row">' +
+      '<select class="select"' + dis + ' style="min-width:160px">' +
+      tzOpts.map(function (z) { return '<option value="' + lsEscHtml(z) + '"' + (z === d.timeZone ? ' selected' : '') + '>' + lsEscHtml(z) + '</option>'; }).join('') +
+      '</select>' +
+      '<input type="date" class="input" style="max-width:160px"' + dis + ' value="' + lsEscHtml(d.liveDate || '') + '" />' +
+      '<input type="time" class="input" style="max-width:120px"' + dis + ' value="' + lsEscHtml((d.liveClock || '09:00').slice(0, 5)) + '" />' +
+      '</div></div>' +
+      '<div class="form-group"><label class="form-label">直播时长</label><div class="ls-session-edit__time-row">' +
+      '<select class="select"' + dis + '>' +
+      dhOpts.map(function (h) { return '<option value="' + h + '"' + (Number(d.durationHours) === h ? ' selected' : '') + '>' + h + ' 小时</option>'; }).join('') +
+      '</select>' +
+      '<select class="select"' + dis + '>' +
+      dmOpts.map(function (m) { return '<option value="' + m + '"' + (Number(d.durationMinutes) === m ? ' selected' : '') + '>' + m + ' 分钟</option>'; }).join('') +
+      '</select></div></div>' +
+      '<div class="form-group"><label class="form-label">直播跟播人</label><select class="select"' + dis + '>' + followerOpts + '</select></div>' +
+      '<div class="form-group"><label class="form-label">TikTok Live Events</label><textarea class="input" rows="3"' + dis + ' placeholder="' + lsEscHtml(ttPlaceholder) + '">' + lsEscHtml(ttLiveResolved) + '</textarea></div>' +
+      '<div class="form-group"><label class="form-label">计划起止（场次）</label><input class="input"' + dis + ' value="' + lsEscHtml((session.plannedStartAt || '-') + ' ~ ' + (session.plannedEndAt || '-')) + '" /></div>';
+
+    var segCards = (session.segments || []).map(function (seg) {
+      var titleInner = lsFormatSegCardTitleHtml(seg.hostName || seg.hostId, seg.startAt, seg.endAt);
+      return '<div class="ls-sess-seg-card" data-seg-id="' + lsEscHtml(seg.id) + '">' +
+        '<div class="ls-sess-seg-card__title">' + titleInner + '</div>' +
+        '<div class="ls-sess-seg-card__grid">' +
+        '<div class="ls-sess-seg-card__field"><label>' + t('ls.seg.host') + '</label><input type="text" class="input" value="' + lsEscHtml(seg.hostName || '') + '"' + dis + ' /></div>' +
+        '<div class="ls-sess-seg-card__field"><label>' + t('ls.seg.start') + '</label><input type="datetime-local" class="input ls-sess-seg-act-start" value="' + lsWallToDatetimeLocal(seg.actualStartAt) + '" /></div>' +
+        '<div class="ls-sess-seg-card__field"><label>' + t('ls.seg.end') + '</label><input type="datetime-local" class="input ls-sess-seg-act-end" value="' + lsWallToDatetimeLocal(seg.actualEndAt) + '" /></div>' +
+        '<div class="ls-sess-seg-card__field ls-sess-seg-card__field--gmv">' +
+        '<label>' + t('ls.seg.gmv') + '</label>' +
+        '<div class="ls-sess-seg-card__gmv-row">' +
+        '<input type="number" class="input ls-sess-seg-gmv" min="0" step="0.01" placeholder="' + lsEscHtml(t('ls.seg.gmv')) + '" value="' + (Number(seg.gmv) || 0) + '" />' +
+        '<button type="button" class="btn btn-ghost btn-xs ls-sess-seg-trash" disabled title="' + lsEscHtml(t('ls.seg.del_disabled')) + '" tabindex="-1"><i class="fas fa-trash-alt"></i></button>' +
+        '</div></div>' +
+        '<div class="ls-sess-seg-card__field ls-sess-seg-card__field--full"><label>' + t('ls.seg.gmv_note') + '</label><textarea class="input ls-sess-seg-gmv-note" rows="2" placeholder="' + lsEscHtml(t('ls.seg.gmv_note')) + '">' + lsEscHtml(seg.gmvRemark || '') + '</textarea></div>' +
+        '</div></div>';
+    }).join('');
+
+    var bottom = '<div class="form-group"><label class="form-label">备注 / 说明（英文）</label><textarea class="input" rows="4"' + dis + '>' + lsEscHtml(d.remarkEn || '') + '</textarea></div>';
+
+    return '<p class="ls-sess-live-ended-hint"><i class="fas fa-info-circle"></i> ' + t('ls.live_ended.hint') + '</p>' +
+      '<div class="ls-session-edit ls-session-edit--live-ended-modal">' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.account') + '</h4>' + accountRow + '</section>' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.schedule') + '</h4>' +
+      '<div class="ls-session-edit__grid">' +
+      '<div class="ls-session-edit__col">' + timeRow + '</div>' +
+      '<div class="ls-session-edit__col ls-session-edit__col--hosts">' +
+      '<div class="ls-sess-live-banner"><i class="fas fa-user-clock"></i> ' + t('ls.banner.host_checkin') + '</div>' +
+      '<h5 class="ls-session-edit__h5">' + t('ls.modal.seg_hosts_title') + '</h5>' +
+      '<p class="ls-session-edit__hint ls-sess-gmv-ccy-hint">' + lsT('ls.gmv.ccy_hint', lsGmvCurrencyCode(session)) + '</p>' +
+      '<div id="lsSessionLiveHosts" class="ls-sess-live-host-cards">' + (segCards || '<div class="ls-session-edit__readonly">' + t('ls.seg.empty') + '</div>') + '</div>' +
+      '</div></div></section>' +
+      '<section class="ls-session-edit__section"><h4 class="ls-session-edit__h4">' + t('ls.section.remark') + '</h4>' + bottom + '</section>' +
+      '</div>';
+  }
+
+  function lsCollectLiveEndedDetailSegments(session) {
+    var modalBody = document.getElementById('lsModalBody');
+    if (!modalBody) return;
+    var byId = {};
+    (session.segments || []).forEach(function (s) { if (s && s.id) byId[s.id] = s; });
+    modalBody.querySelectorAll('#lsSessionLiveHosts .ls-sess-seg-card').forEach(function (el) {
+      var sid = el.getAttribute('data-seg-id');
+      var seg = byId[sid];
+      if (!seg) return;
+      seg.actualStartAt = lsDatetimeLocalToWall((el.querySelector('.ls-sess-seg-act-start') || {}).value).trim();
+      seg.actualEndAt = lsDatetimeLocalToWall((el.querySelector('.ls-sess-seg-act-end') || {}).value).trim();
+      var gmvEl = el.querySelector('.ls-sess-seg-gmv');
+      seg.gmv = gmvEl ? parseFloat(gmvEl.value) || 0 : (seg.gmv != null ? seg.gmv : 0);
+      var gmvN = el.querySelector('.ls-sess-seg-gmv-note');
+      seg.gmvRemark = gmvN ? gmvN.value.trim() : (seg.gmvRemark || '');
+    });
+  }
+
+  function lsOpenSessionLiveEndedDetailModal(batchId, sessionId) {
+    var batch = lsScheduleBatches.find(function (b) { return b.id === batchId; });
+    if (!batch) return;
+    var session = (batch.sessions || []).find(function (s) { return s.id === sessionId; });
+    if (!session) return;
+    var overlay = document.getElementById('lsModalOverlay');
+    var modal = document.getElementById('lsModal');
+    var modalTitle = document.getElementById('lsModalTitle');
+    var modalBody = document.getElementById('lsModalBody');
+    var okBtn = document.getElementById('lsModalOk');
+    if (modal) modal.classList.add('ls-modal--wide');
+    if (modalTitle) modalTitle.textContent = t('ls.modal.detail');
+    if (modalBody) modalBody.innerHTML = lsRenderSessionLiveEndedDetailModalHtml(batch, session);
+    if (okBtn) okBtn.textContent = t('ls.modal.save');
+    if (okBtn) okBtn.onclick = function () {
+      lsCollectLiveEndedDetailSegments(session);
+      batch.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+      lsSaveAll();
+      lsHideModal();
+      if (document.getElementById('lsTabBody')) document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+      if (typeof window.lsRenderBatchDrawerContent === 'function' && lsBatchDrawerBatchId === batchId) {
+        window.lsRenderBatchDrawerContent(batchId, 'sessions');
+      }
+      showToast('已保存', 'success');
+    };
+    if (overlay) overlay.classList.add('active');
+  }
+
+  function lsBindSessionEditHostUi(mode, session) {
+    var modalBody = document.getElementById('lsModalBody');
+    if (!modalBody || mode !== 'full') return;
+    var wrap = modalBody.querySelector('#lsSessionEditHosts');
+    var addBtn = modalBody.querySelector('#lsSessionEditAddHost');
+    function bindDel(btn) {
+      btn.addEventListener('click', function () {
+        var row = btn.closest('.ha-abnormal-modal-seg');
+        if (row) row.remove();
+      });
+    }
+    modalBody.querySelectorAll('.ha-abnormal-modal-seg-del').forEach(function (btn) { bindDel(btn); });
+    if (addBtn && wrap) {
+      addBtn.onclick = function () {
+        var div = document.createElement('div');
+        div.className = 'ha-abnormal-modal-seg';
+        div.setAttribute('data-seg-id', 'seg-new-' + Date.now());
+        var liveExtra = session.livePhase === 'live'
+          ? '<div class="ha-abnormal-modal-seg-field"><label>实际上播</label><input type="datetime-local" class="ls-sess-seg-act-start" /></div>' +
+            '<div class="ha-abnormal-modal-seg-field"><label>实际下播</label><input type="datetime-local" class="ls-sess-seg-act-end" /></div>' +
+            '<div class="ha-abnormal-modal-seg-field"><label>GMV</label><input type="number" class="ha-abnormal-modal-seg-gmv ls-sess-seg-gmv" min="0" step="0.01" value="0" /></div>'
+          : '';
+        var gmvNote = session.livePhase === 'live'
+          ? '<div class="ls-sess-seg-gmv-note-wrap"><textarea class="input ls-sess-seg-gmv-note" rows="2" placeholder="GMV 修改备注"></textarea></div>'
+          : '';
+        div.innerHTML =
+          '<div class="ha-abnormal-modal-seg-fields">' +
+          '<div class="ha-abnormal-modal-seg-field"><label>主播</label><input type="text" class="ha-abnormal-modal-seg-host ls-sess-seg-host" placeholder="请选择或输入主播" /></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>计划开始</label><input type="datetime-local" class="ls-sess-seg-plan-start" /></div>' +
+          '<div class="ha-abnormal-modal-seg-field"><label>计划结束</label><input type="datetime-local" class="ls-sess-seg-plan-end" /></div>' +
+          '<button type="button" class="btn btn-ghost btn-xs ha-abnormal-modal-seg-del" aria-label="删除"><i class="fas fa-trash"></i></button>' +
+          liveExtra +
+          '</div>' +
+          gmvNote;
+        wrap.appendChild(div);
+        var del = div.querySelector('.ha-abnormal-modal-seg-del');
+        if (del) bindDel(del);
+      };
+    }
+  }
+
+  function lsCollectSessionSegmentsFromHostForm(session) {
+    var modalBody = document.getElementById('lsModalBody');
+    var segsOut = [];
+    if (!modalBody) return segsOut;
+    var oldById = {};
+    (session.segments || []).forEach(function (s) { if (s && s.id) oldById[s.id] = s; });
+    modalBody.querySelectorAll('#lsSessionEditHosts .ha-abnormal-modal-seg').forEach(function (segEl, idx) {
+      var prevId = segEl.getAttribute('data-seg-id') || '';
+      var hostName = ((segEl.querySelector('.ls-sess-seg-host') || {}).value || '').trim();
+      var planS = lsDatetimeLocalToWall((segEl.querySelector('.ls-sess-seg-plan-start') || {}).value);
+      var planE = lsDatetimeLocalToWall((segEl.querySelector('.ls-sess-seg-plan-end') || {}).value);
+      var isNew = prevId.indexOf('seg-new-') === 0;
+      var oid = isNew ? ('seg-' + Date.now() + '-' + idx + '-' + Math.random().toString(36).slice(2, 7)) : prevId;
+      var old = oldById[prevId] || {};
+      var hostIdVal = (!isNew && old.hostId) ? old.hostId : (hostName ? ('h-' + hostName.replace(/\s+/g, '-').slice(0, 24)) : ('h-new-' + idx));
+      var seg = {
+        id: oid,
+        hostId: hostIdVal,
+        hostName: hostName || old.hostName || '未命名主播',
+        startAt: planS,
+        endAt: planE,
+        startAtMs: lsStrToMs(planS),
+        endAtMs: lsStrToMs(planE),
+        decisionStatus: old.decisionStatus || 'pending',
+        decisionReason: old.decisionReason || ''
+      };
+      if (session.livePhase === 'live') {
+        seg.actualStartAt = lsDatetimeLocalToWall((segEl.querySelector('.ls-sess-seg-act-start') || {}).value);
+        seg.actualEndAt = lsDatetimeLocalToWall((segEl.querySelector('.ls-sess-seg-act-end') || {}).value);
+        var gmvInp = segEl.querySelector('.ls-sess-seg-gmv');
+        seg.gmv = gmvInp ? parseFloat(gmvInp.value) || 0 : (old.gmv != null ? old.gmv : 0);
+        var gmvN = segEl.querySelector('.ls-sess-seg-gmv-note');
+        seg.gmvRemark = gmvN ? gmvN.value.trim() : (old.gmvRemark || '');
+      } else {
+        seg.actualStartAt = old.actualStartAt != null ? old.actualStartAt : '';
+        seg.actualEndAt = old.actualEndAt != null ? old.actualEndAt : '';
+        seg.gmv = old.gmv != null ? old.gmv : 0;
+        seg.gmvRemark = old.gmvRemark != null ? old.gmvRemark : '';
+      }
+      segsOut.push(seg);
+    });
+    return segsOut;
+  }
+
+  function lsOpenSessionEditModal(batchId, sessionId) {
+    var batch = lsScheduleBatches.find(function (b) { return b.id === batchId; });
+    if (!batch) return;
+    var session = (batch.sessions || []).find(function (s) { return s.id === sessionId; });
+    if (!session) return;
+    lsEnsureSessionDetail(session, batch);
+    var mode = session.livePhase === 'ended' ? 'streamed' : 'full';
+    var overlay = document.getElementById('lsModalOverlay');
+    var modal = document.getElementById('lsModal');
+    var modalTitle = document.getElementById('lsModalTitle');
+    var modalBody = document.getElementById('lsModalBody');
+    var okBtn = document.getElementById('lsModalOk');
+    if (modal) modal.classList.add('ls-modal--wide');
+    if (modalTitle) modalTitle.textContent = t('ls.modal.edit');
+    if (modalBody) modalBody.innerHTML = lsRenderSessionEditDetailHtml(batch, session, mode);
+    lsBindSessionEditHostUi(mode, session);
+    if (okBtn) okBtn.textContent = t('ls.modal.update');
+    if (okBtn) okBtn.onclick = function () {
+      if (mode === 'streamed') {
+        var rows = document.querySelectorAll('#lsSessionEditHosts .ha-abnormal-modal-seg');
+        (session.segments || []).forEach(function (seg, si) {
+          var segEl = rows[si];
+          if (!segEl || !seg) return;
+          var elS = segEl.querySelector('.ls-sess-seg-act-start');
+          var elE = segEl.querySelector('.ls-sess-seg-act-end');
+          var elG = segEl.querySelector('.ls-sess-seg-gmv');
+          var elN = segEl.querySelector('.ls-sess-seg-gmv-note');
+          seg.actualStartAt = elS ? lsDatetimeLocalToWall(elS.value).trim() : '';
+          seg.actualEndAt = elE ? lsDatetimeLocalToWall(elE.value).trim() : '';
+          seg.gmv = elG ? parseFloat(elG.value) || 0 : 0;
+          seg.gmvRemark = elN ? elN.value.trim() : '';
+        });
+      } else {
+        var det = session.detail || {};
+        det.liveType = document.getElementById('lsDet_liveType') ? document.getElementById('lsDet_liveType').value : det.liveType;
+        det.subject = document.getElementById('lsDet_subject') ? document.getElementById('lsDet_subject').value.trim() : '';
+        det.timeZone = document.getElementById('lsDet_tz') ? document.getElementById('lsDet_tz').value : det.timeZone;
+        det.liveDate = document.getElementById('lsDet_date') ? document.getElementById('lsDet_date').value : '';
+        det.liveClock = document.getElementById('lsDet_time') ? document.getElementById('lsDet_time').value : '';
+        det.durationHours = document.getElementById('lsDet_dh') ? parseInt(document.getElementById('lsDet_dh').value, 10) || 0 : 0;
+        det.durationMinutes = document.getElementById('lsDet_dm') ? parseInt(document.getElementById('lsDet_dm').value, 10) || 0 : 0;
+        det.follower = document.getElementById('lsDet_follower') ? document.getElementById('lsDet_follower').value : '';
+        det.tiktokLiveEventUrl = document.getElementById('lsDet_tt_url') ? document.getElementById('lsDet_tt_url').value.trim() : '';
+        det.remarkEn = document.getElementById('lsDet_remark') ? document.getElementById('lsDet_remark').value.trim() : '';
+        session.detail = det;
+        session.eventName = det.subject || session.eventName;
+        session.liveAccountUsername = document.getElementById('lsDet_liveAccount') ? document.getElementById('lsDet_liveAccount').value : session.liveAccountUsername;
+        var clock = (det.liveClock || '09:00').trim();
+        if (clock.length === 5) clock = clock + ':00';
+        var pStart = det.liveDate + ' ' + clock;
+        var startMs = lsStrToMs(pStart);
+        if (!isFinite(startMs)) startMs = lsStrToMs(pStart.replace(/\s+/, 'T'));
+        var durMs = ((det.durationHours || 0) * 60 + (det.durationMinutes || 0)) * 60 * 1000;
+        if (isFinite(startMs) && durMs > 0) {
+          session.plannedStartAt = lsMsToStr(startMs);
+          session.plannedEndAt = lsMsToStr(startMs + durMs);
+          session.plannedStartAtMs = startMs;
+          session.plannedEndAtMs = startMs + durMs;
+        }
+        session.segments = lsCollectSessionSegmentsFromHostForm(session);
+      }
+      batch.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+      lsSaveAll();
+      lsHideModal();
+      if (document.getElementById('lsTabBody')) document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+      showToast('排期已更新', 'success');
+    };
+    if (overlay) overlay.classList.add('active');
+  }
+
+  function lsResolveHostMetaForDrawer(hostId) {
+    var hostName = '';
+    var userId = '';
+    var liveAccountUsername = '';
+    (lsHostAvailabilities || []).forEach(function (s) {
+      if (!s || s.hostId !== hostId) return;
+      if (s.hostName) hostName = s.hostName;
+      if (s.userId) userId = s.userId;
+      if (s.liveAccountUsername) liveAccountUsername = s.liveAccountUsername;
+    });
+    var titleEl = document.getElementById('lsHostDrawerTitle');
+    var titleTxt = titleEl && titleEl.textContent ? String(titleEl.textContent).trim() : '';
+    if (titleTxt && (!hostName || hostName === hostId)) hostName = titleTxt;
+    return { hostName: hostName || hostId, userId: userId || '', liveAccountUsername: liveAccountUsername || '' };
+  }
+
+  function lsCollectKnownHostsForAvailPicker() {
+    var map = {};
+    (lsHostAvailabilities || []).forEach(function (s) {
+      if (!s || !s.hostId) return;
+      map[s.hostId] = s.hostName || s.hostId;
+    });
+    return Object.keys(map).sort().map(function (hid) {
+      return { hostId: hid, hostName: map[hid] };
+    });
+  }
+
+  function lsGetBatchTimezoneOptions() {
+    var tzList = [
+      'UTC',
+      'America/Los_Angeles',
+      'America/New_York',
+      'Europe/London',
+      'Europe/Paris',
+      'Asia/Shanghai',
+      'Asia/Tokyo',
+      'Asia/Singapore',
+      'Australia/Sydney'
+    ];
+    if (lsMerchantTimeZone && tzList.indexOf(lsMerchantTimeZone) === -1) tzList.unshift(lsMerchantTimeZone);
+    if (lsDisplayTimeZone && tzList.indexOf(lsDisplayTimeZone) === -1) tzList.unshift(lsDisplayTimeZone);
+    return tzList;
+  }
+
+  function lsAvailBatchRowHtml(hosts, dateVal, startVal, endVal, selectedHostId, selectedTz) {
+    var opts = (hosts || []).map(function (h) {
+      var sel = h.hostId === selectedHostId ? ' selected' : '';
+      return '<option value="' + lsEscHtml(h.hostId) + '"' + sel + '>' + lsEscHtml(h.hostName) + '</option>';
+    }).join('');
+    var tzOpts = lsGetBatchTimezoneOptions().map(function (tz) {
+      var sel = tz === (selectedTz || lsDisplayTimeZone) ? ' selected' : '';
+      return '<option value="' + lsEscHtml(tz) + '"' + sel + '>' + lsEscHtml(tz) + '</option>';
+    }).join('');
+    return '' +
+      '<tr class="ls-avail-batch-row">' +
+      '<td><select class="select ls-avail-batch-host" style="min-width:160px;max-width:220px">' + opts + '</select></td>' +
+      '<td><select class="select ls-avail-batch-tz" style="min-width:190px;max-width:240px">' + tzOpts + '</select></td>' +
+      '<td><input type="date" class="input ls-avail-batch-date" value="' + lsEscHtml(dateVal || '') + '" /></td>' +
+      '<td><input type="time" class="input ls-avail-batch-start" value="' + lsEscHtml(startVal || '09:00') + '" step="60" /></td>' +
+      '<td><input type="time" class="input ls-avail-batch-end" value="' + lsEscHtml(endVal || '18:00') + '" step="60" /></td>' +
+      '<td><button type="button" class="btn btn-ghost btn-sm ls-avail-batch-remove" title="' + lsEscHtml(t('ls.host.batch_remove_row')) + '"><i class="fas fa-times"></i></button></td>' +
+      '</tr>';
+  }
+
+  function lsAvailBatchCommit() {
+    var tbody = document.getElementById('lsAvailBatchTbody');
+    if (!tbody) return;
+    var rowEls = tbody.querySelectorAll('tr.ls-avail-batch-row');
+    var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+    var toMerge = {};
+    var pushed = 0;
+    var uid = 0;
+    for (var i = 0; i < rowEls.length; i++) {
+      var row = rowEls[i];
+      var hostSel = row.querySelector('.ls-avail-batch-host');
+      var hid = hostSel ? String(hostSel.value || '').trim() : '';
+      var dInp = row.querySelector('.ls-avail-batch-date');
+      var sInp = row.querySelector('.ls-avail-batch-start');
+      var eInp = row.querySelector('.ls-avail-batch-end');
+      var tzSel = row.querySelector('.ls-avail-batch-tz');
+      var dateStr = dInp ? String(dInp.value || '').trim() : '';
+      var sT = sInp ? String(sInp.value || '').trim() : '';
+      var eT = eInp ? String(eInp.value || '').trim() : '';
+      var rowTz = tzSel ? String(tzSel.value || '').trim() : '';
+      var any = !!(hid || dateStr || sT || eT || rowTz);
+      if (!any) continue;
+      if (!hid || !dateStr || !sT || !eT || !rowTz) {
+        showToast(t('ls.host.batch_err_incomplete_row'), 'warn');
+        return;
+      }
+      var meta = lsResolveHostMetaForDrawer(hid);
+      var sPart = sT.length === 5 ? sT + ':00' : sT;
+      var ePart = eT.length === 5 ? eT + ':00' : eT;
+      var startWall = dateStr + ' ' + sPart;
+      var endWall = dateStr + ' ' + ePart;
+      var sMs = lsWallTimeToMs(startWall, rowTz);
+      var eMs = lsWallTimeToMs(endWall, rowTz);
+      if (!(sMs < eMs)) {
+        showToast(t('ls.host.batch_err_time_order'), 'warn');
+        return;
+      }
+      var dateStart = lsDateStrFromDateTime(startWall);
+      if (!dateStart || dateStart !== dateStr) {
+        showToast(t('ls.host.batch_err_incomplete_row'), 'warn');
+        return;
+      }
+      uid += 1;
+      lsHostAvailabilities.push({
+        id: 'ha_' + Date.now() + '_' + uid + '_' + Math.random().toString(36).slice(2, 8),
+        hostId: hid,
+        hostName: meta.hostName,
+        userId: meta.userId,
+        liveAccountUsername: meta.liveAccountUsername,
+        startAt: lsMsToStr(sMs),
+        endAt: lsMsToStr(eMs),
+        timeZone: rowTz,
+        source: 'merchant_manual',
+        updatedAt: nowStr,
+        cancelled: false
+      });
+      pushed += 1;
+      toMerge[hid + '|' + dateStart] = { hostId: hid, day: dateStart };
+    }
+    if (pushed === 0) {
+      showToast(t('ls.host.batch_empty'), 'warn');
+      return;
+    }
+    Object.keys(toMerge).forEach(function (k) {
+      var x = toMerge[k];
+      lsMergeHostAvailabilitiesForDay(x.hostId, x.day);
+    });
+    (lsMerchantTargets || []).forEach(function (targ) {
+      targ.status = 'needs_regen';
+      targ.updatedAt = nowStr;
+    });
+    lsSaveAll();
+    lsHideModal();
+    document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+    if (lsHostDrawerHostId && lsHostDrawerDayDate) lsRenderHostDrawerContent();
+    showToast(lsT('ls.host.batch_saved', String(pushed)), 'success');
+  }
+
+  function lsOpenAddAvailabilityBatchModal() {
+    var hosts = lsCollectKnownHostsForAvailPicker();
+    if (!hosts.length) {
+      showToast(t('ls.host.add_slot_no_hosts'), 'warn');
+      return;
+    }
+    var weekStart = lsActiveWeekStart || (lsGetPeriodSeeds().startAt || '');
+    var defaultHost0 = hosts[0] ? hosts[0].hostId : '';
+    var defaultHost1 = hosts[1] ? hosts[1].hostId : defaultHost0;
+    var bodyHtml =
+      '<p class="ls-avail-batch-hint" style="font-size:12px;color:var(--text-subtext);line-height:1.45;margin:0 0 12px">' + t('ls.host.batch_hint') + '</p>' +
+      '<div class="table-wrap ha-settle-table-wrap" style="max-height:min(52vh,420px);overflow-y:auto;overflow-x:hidden;border-radius:var(--radius-md)">' +
+      '  <table class="ha-settle-table ls-avail-batch-table" style="width:100%;table-layout:fixed">' +
+      '    <thead><tr>' +
+      '      <th style="width:26%">' + t('ls.seg.host') + '</th>' +
+      '      <th style="width:24%">' + t('ls.host.batch_tz_label') + '</th>' +
+      '      <th style="width:18%">' + t('ls.host.add_slot_date_label') + '</th>' +
+      '      <th style="width:14%">' + t('ls.drawer.th.start') + '</th>' +
+      '      <th style="width:14%">' + t('ls.drawer.th.end') + '</th>' +
+      '      <th style="width:52px"></th>' +
+      '    </tr></thead>' +
+      '    <tbody id="lsAvailBatchTbody">' +
+      lsAvailBatchRowHtml(hosts, weekStart, '09:00', '12:00', defaultHost0, lsDisplayTimeZone) +
+      lsAvailBatchRowHtml(hosts, weekStart, '14:00', '18:00', defaultHost1, lsDisplayTimeZone) +
+      '</tbody>' +
+      '  </table>' +
+      '</div>' +
+      '<div style="margin-top:12px">' +
+      '  <button type="button" class="btn btn-ghost btn-sm" id="lsAvailBatchAddRow"><i class="fas fa-plus"></i> ' + t('ls.host.batch_add_row') + '</button>' +
+      '</div>';
+    lsShowModal(t('ls.host.batch_modal_title'), bodyHtml, t('ls.host.batch_save'), lsAvailBatchCommit, { wide: true });
+  }
+
+  function lsOpenAddAvailabilityHostDayPicker() {
+    lsOpenAddAvailabilityBatchModal();
+  }
+
+  function lsOpenAddAvailabilityManual() {
+    var overlay = document.getElementById('lsEditAvailabilityOverlay');
+    if (!overlay) return;
+    if (!lsHostDrawerHostId) {
+      showToast(t('ls.drawer.add_slot_no_host'), 'warn');
+      return;
+    }
+    if (!lsHostDrawerDayDate) {
+      showToast(t('ls.drawer.add_slot_no_day'), 'warn');
+      return;
+    }
+    var titleEl = document.getElementById('lsEditAvailabilityTitle');
+    if (titleEl) titleEl.textContent = t('ls.drawer.add_slot_title');
+    lsRenderEditAvailTimeZoneOptions(lsDisplayTimeZone);
+    var day = lsHostDrawerDayDate;
+    document.getElementById('lsEditAvailStart').value = day + ' 09:00';
+    document.getElementById('lsEditAvailEnd').value = day + ' 18:00';
+    overlay.setAttribute('data-edit-id', '__new__');
+    overlay.setAttribute('data-new-host-id', lsHostDrawerHostId);
+    overlay.setAttribute('data-new-day', lsHostDrawerDayDate);
+    overlay.classList.add('active');
+  }
+
+  function lsOpenEditAvailability(availId) {
+    var overlay = document.getElementById('lsEditAvailabilityOverlay');
+    if (!overlay) return;
+    var avail = (lsHostAvailabilities || []).find(function (s) { return s.id === availId; });
+    if (!avail) return;
+    var titleEl = document.getElementById('lsEditAvailabilityTitle');
+    if (titleEl) titleEl.textContent = t('ls.drawer.edit_slot_title');
+    var editTz = avail.timeZone || lsDisplayTimeZone;
+    lsRenderEditAvailTimeZoneOptions(editTz);
+    var sMs = lsStrToMs(avail.startAt);
+    var eMs = lsStrToMs(avail.endAt);
+    document.getElementById('lsEditAvailStart').value = sMs ? lsFormatMs(sMs, editTz) : (avail.startAt || '');
+    document.getElementById('lsEditAvailEnd').value = eMs ? lsFormatMs(eMs, editTz) : (avail.endAt || '');
+    overlay.setAttribute('data-edit-id', availId);
+    overlay.removeAttribute('data-new-host-id');
+    overlay.removeAttribute('data-new-day');
+    overlay.classList.add('active');
+  }
+
+  function lsCloseEditAvailability() {
+    var overlay = document.getElementById('lsEditAvailabilityOverlay');
+    if (overlay) overlay.classList.remove('active');
+    if (overlay) overlay.removeAttribute('data-edit-id');
+    if (overlay) overlay.removeAttribute('data-new-host-id');
+    if (overlay) overlay.removeAttribute('data-new-day');
+  }
+
+  function lsRenderEditAvailTimeZoneOptions(selectedTz) {
+    var tzEl = document.getElementById('lsEditAvailTimeZone');
+    if (!tzEl) return;
+    var value = selectedTz || lsDisplayTimeZone || lsMerchantTimeZone || 'UTC';
+    var options = lsGetBatchTimezoneOptions();
+    if (options.indexOf(value) === -1) options.unshift(value);
+    tzEl.innerHTML = options.map(function (tz) {
+      return '<option value="' + lsEscHtml(tz) + '"' + (tz === value ? ' selected' : '') + '>' + lsEscHtml(tz) + '</option>';
+    }).join('');
+  }
+
+  /**
+   * 自动排期弹窗（「直播目标」与「主播日程」入口共用）。
+   * @param {object|null} options
+   * @param {string[]|null} options.initialHostIds — 预填主播（如从主播日程勾选）
+   * @param {boolean} [options.prefillAllAccounts] — 为 true 时预填全部可选直播账号
+   */
+  function lsOpenGenerateInitialScheduleModal(options) {
+    options = options || {};
+    var initialHostIds = options.initialHostIds || null;
+    var prefillAllAccounts = !!options.prefillAllAccounts;
+
+    var tzPeriods = (function () {
+      var set = {};
+      (lsMerchantTargets || []).forEach(function (t) {
+        if (!t || !t.periodStart) return;
+        set[t.periodStart] = t.periodEnd || '';
+      });
+      if (lsActiveWeekStart) {
+        if (!set[lsActiveWeekStart]) set[lsActiveWeekStart] = lsAddDaysToDateStr(lsActiveWeekStart, 6) || '';
+      }
+      return Object.keys(set).sort().map(function (ps) { return { startAt: ps, endAt: set[ps] }; });
+    })();
+
+    var tzHosts = (function () {
+      var map = {};
+      (lsHostAvailabilities || []).forEach(function (s) {
+        if (!s || s.cancelled) return;
+        if (!s.hostId) return;
+        map[s.hostId] = s.hostName || s.hostId;
+      });
+      return Object.keys(map).sort().map(function (hid) { return { hostId: hid, hostName: map[hid] }; });
+    })();
+
+    var tzAccounts = (function () {
+      var set = {};
+      (lsMerchantTargets || []).forEach(function (t) {
+        if (t && t.liveAccountUsername) set[t.liveAccountUsername] = true;
+      });
+      (lsHostAvailabilities || []).forEach(function (s) {
+        if (s && s.liveAccountUsername) set[s.liveAccountUsername] = true;
+      });
+      return Object.keys(set).sort().map(function (a) { return { accountUsername: a }; });
+    })();
+
+    var genTzOpts = ['America/New_York', 'America/Los_Angeles', 'Asia/Shanghai', 'UTC'];
+    if (genTzOpts.indexOf(lsDisplayTimeZone) === -1) genTzOpts.unshift(lsDisplayTimeZone);
+    var genTzHtml = genTzOpts.map(function (z) {
+      return '<option value="' + z + '"' + (z === lsDisplayTimeZone ? ' selected' : '') + '>' + z + '</option>';
+    }).join('');
+
+    var introHtml = (initialHostIds && initialHostIds.length)
+      ? '<div style="font-size:14px;color:var(--text-subtext);margin-bottom:12px">已从主播日程勾选 <strong>' + initialHostIds.length + '</strong> 位主播；可在下方继续增删。直播账号为必填。</div>'
+      : '<div style="font-size:14px;color:var(--text-subtext);margin-bottom:12px">主播与直播账号支持多选（下拉搜索标签）。主播为必填。</div>';
+
+    lsShowModal(
+      '自动排期',
+      introHtml +
+      '<div class="form-group">' +
+      '  <label class="form-label">主播（必填）</label>' +
+      '  <div class="ms-wrap" id="lsGenHostMsWrap">' +
+      '    <div class="ms-selected" id="lsGenHostSelected"></div>' +
+      '    <input type="text" class="ms-input" id="lsGenHostInput" placeholder="搜索并选择主播..." autocomplete="off" />' +
+      '    <div class="ms-dropdown ms-dropdown--hidden" id="lsGenHostDropdown"></div>' +
+      '  </div>' +
+      '</div>' +
+      '<div class="form-group" style="margin-top:14px">' +
+      '  <label class="form-label">直播账号</label>' +
+      '  <div class="ms-wrap" id="lsGenAccountMsWrap">' +
+      '    <div class="ms-selected" id="lsGenAccountSelected"></div>' +
+      '    <input type="text" class="ms-input" id="lsGenAccountInput" placeholder="搜索并选择直播账号..." autocomplete="off" />' +
+      '    <div class="ms-dropdown ms-dropdown--hidden" id="lsGenAccountDropdown"></div>' +
+      '  </div>' +
+      '</div>' +
+      '<div class="form-group" style="margin-top:14px">' +
+      '  <label class="form-label">直播时间段</label>' +
+      '  <select class="select" id="lsGenPeriodSelect" style="width:100%">' +
+      tzPeriods.map(function (p) {
+        var sel = (lsTargetsPeriodStartFilter === p.startAt || (lsActiveWeekStart && lsActiveWeekStart === p.startAt)) ? ' selected' : '';
+        return '<option value="' + p.startAt + '"' + sel + '>' + p.startAt + ' ~ ' + p.endAt + '</option>';
+      }).join('') +
+      '  </select>' +
+      '</div>' +
+      '<div class="form-group" style="margin-top:14px">' +
+      '  <label class="form-label">时区</label>' +
+      '  <select class="select" id="lsGenTimeZoneSelect" style="width:100%">' +
+      genTzHtml +
+      '  </select>' +
+      '</div>' +
+      '<div style="font-size:12px;color:var(--text-subtext);margin-top:12px">说明：将仅使用所选主播的空闲段进行分配，并仅对所选直播账号生成自动排期；展示时间按所选时区格式化并写入场次。</div>',
+      '自动排期',
+      function () {
+        var hostTags = document.querySelectorAll('#lsGenHostSelected .ms-tag[data-host-id]');
+        var hostIds = Array.prototype.map.call(hostTags, function (el) { return el.getAttribute('data-host-id'); }).filter(Boolean);
+
+        var accTags = document.querySelectorAll('#lsGenAccountSelected .ms-tag[data-account-username]');
+        var accUsernames = Array.prototype.map.call(accTags, function (el) { return el.getAttribute('data-account-username'); }).filter(Boolean);
+
+        var periodStartEl = document.getElementById('lsGenPeriodSelect');
+        var periodStart = periodStartEl ? periodStartEl.value : '';
+
+        var tzEl = document.getElementById('lsGenTimeZoneSelect');
+        lsGenerateInitialTimeZone = tzEl && tzEl.value ? tzEl.value : lsDisplayTimeZone;
+        try { localStorage.setItem(LS_TIMEZONE_DISPLAY_KEY, lsGenerateInitialTimeZone); } catch (e) {}
+        lsDisplayTimeZone = lsGenerateInitialTimeZone;
+
+        if (!hostIds.length) {
+          showToast('请选择“主播（必填）”', 'warn');
+          return;
+        }
+        if (!periodStart) {
+          showToast('请选择“直播时间段”', 'warn');
+          return;
+        }
+        if (!accUsernames.length) {
+          showToast('请选择“直播账号”', 'warn');
+          return;
+        }
+
+        lsGenerateInitialHostIdsFilter = hostIds;
+        lsGenerateInitialAccountUsernamesFilter = accUsernames;
+        lsTargetsPeriodStartFilter = periodStart;
+        lsHideModal();
+        lsGenerateInitialSchedule();
+        lsActiveTab = 'batches';
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+      }
+    );
+    setTimeout(function () {
+      var hostWrap = document.getElementById('lsGenHostMsWrap');
+      var accWrap = document.getElementById('lsGenAccountMsWrap');
+      var hostInput = document.getElementById('lsGenHostInput');
+      var hostSelectedEl = document.getElementById('lsGenHostSelected');
+      var hostDropdownEl = document.getElementById('lsGenHostDropdown');
+      var accInput = document.getElementById('lsGenAccountInput');
+      var accSelectedEl = document.getElementById('lsGenAccountSelected');
+      var accDropdownEl = document.getElementById('lsGenAccountDropdown');
+
+      if (!hostWrap || !accWrap || !hostInput || !hostSelectedEl || !hostDropdownEl || !accInput || !accSelectedEl || !accDropdownEl) return;
+
+      var hostById = {};
+      (tzHosts || []).forEach(function (h) {
+        if (!h || !h.hostId) return;
+        hostById[h.hostId] = h.hostName || h.hostId;
+      });
+      var accByUsername = {};
+      (tzAccounts || []).forEach(function (a) {
+        if (!a || !a.accountUsername) return;
+        accByUsername[a.accountUsername] = a.accountUsername;
+      });
+
+      var selectedHostIds;
+      if (initialHostIds && initialHostIds.length) {
+        selectedHostIds = initialHostIds.slice();
+      } else if (lsGenerateInitialHostIdsFilter && lsGenerateInitialHostIdsFilter.length) {
+        selectedHostIds = lsGenerateInitialHostIdsFilter.slice();
+      } else {
+        selectedHostIds = [];
+      }
+
+      var selectedAccUsernames;
+      if (prefillAllAccounts && tzAccounts && tzAccounts.length) {
+        selectedAccUsernames = tzAccounts.map(function (a) { return a.accountUsername; });
+      } else if (lsGenerateInitialAccountUsernamesFilter && lsGenerateInitialAccountUsernamesFilter.length) {
+        selectedAccUsernames = lsGenerateInitialAccountUsernamesFilter.slice();
+      } else {
+        selectedAccUsernames = [];
+      }
+
+      function lsRenderHostSelected() {
+        hostSelectedEl.innerHTML = (selectedHostIds || []).map(function (hid) {
+          var label = hostById[hid] || hid;
+          return '<span class="ms-tag" data-host-id="' + hid + '">' +
+            label +
+            '<i class="fas fa-times ms-tag-remove" data-host-id="' + hid + '"></i>' +
+            '</span>';
+        }).join('');
+        hostSelectedEl.querySelectorAll('.ms-tag-remove').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var hid = btn.getAttribute('data-host-id');
+            selectedHostIds = (selectedHostIds || []).filter(function (x) { return x !== hid; });
+            hostDropdownEl.classList.add('ms-dropdown--hidden');
+            lsRenderHostSelected();
+          });
+        });
+      }
+
+      function lsRenderHostDropdown(q) {
+        q = String(q || '').toLowerCase();
+        var items = (tzHosts || []).filter(function (h) {
+          if (!h || !h.hostId) return false;
+          if (selectedHostIds.indexOf(h.hostId) !== -1) return false;
+          if (!q) return true;
+          var label = String(h.hostName || h.hostId).toLowerCase();
+          return label.indexOf(q) !== -1 || String(h.hostId).indexOf(q) !== -1;
+        });
+        if (!items.length) {
+          hostDropdownEl.innerHTML = '<div class="ms-no-result">暂无结果</div>';
+          hostDropdownEl.classList.remove('ms-dropdown--hidden');
+          return;
+        }
+        hostDropdownEl.innerHTML = items.map(function (h) {
+          return '<div class="ms-option" data-host-id="' + h.hostId + '">' + String(h.hostName || h.hostId) + '</div>';
+        }).join('');
+        hostDropdownEl.classList.remove('ms-dropdown--hidden');
+        hostDropdownEl.querySelectorAll('.ms-option').forEach(function (opt) {
+          opt.addEventListener('click', function () {
+            var hid = opt.getAttribute('data-host-id');
+            if (!hid) return;
+            if (selectedHostIds.indexOf(hid) === -1) selectedHostIds.push(hid);
+            lsRenderHostSelected();
+            hostInput.value = '';
+            hostDropdownEl.classList.add('ms-dropdown--hidden');
+          });
+        });
+      }
+
+      function lsRenderAccSelected() {
+        accSelectedEl.innerHTML = (selectedAccUsernames || []).map(function (u) {
+          return '<span class="ms-tag" data-account-username="' + u + '">' +
+            String(accByUsername[u] || u) +
+            '<i class="fas fa-times ms-tag-remove" data-account-username="' + u + '"></i>' +
+            '</span>';
+        }).join('');
+        accSelectedEl.querySelectorAll('.ms-tag-remove').forEach(function (btn) {
+          btn.addEventListener('click', function () {
+            var u = btn.getAttribute('data-account-username');
+            selectedAccUsernames = (selectedAccUsernames || []).filter(function (x) { return x !== u; });
+            accDropdownEl.classList.add('ms-dropdown--hidden');
+            lsRenderAccSelected();
+          });
+        });
+      }
+
+      function lsRenderAccDropdown(q) {
+        q = String(q || '').toLowerCase();
+        var items = (tzAccounts || []).filter(function (a) {
+          if (!a || !a.accountUsername) return false;
+          if (selectedAccUsernames.indexOf(a.accountUsername) !== -1) return false;
+          if (!q) return true;
+          var label = String(a.accountUsername).toLowerCase();
+          return label.indexOf(q) !== -1;
+        });
+        if (!items.length) {
+          accDropdownEl.innerHTML = '<div class="ms-no-result">暂无结果</div>';
+          accDropdownEl.classList.remove('ms-dropdown--hidden');
+          return;
+        }
+        accDropdownEl.innerHTML = items.map(function (a) {
+          return '<div class="ms-option" data-account-username="' + a.accountUsername + '">' + String(a.accountUsername) + '</div>';
+        }).join('');
+        accDropdownEl.classList.remove('ms-dropdown--hidden');
+        accDropdownEl.querySelectorAll('.ms-option').forEach(function (opt) {
+          opt.addEventListener('click', function () {
+            var u = opt.getAttribute('data-account-username');
+            if (!u) return;
+            if (selectedAccUsernames.indexOf(u) === -1) selectedAccUsernames.push(u);
+            lsRenderAccSelected();
+            accInput.value = '';
+            accDropdownEl.classList.add('ms-dropdown--hidden');
+          });
+        });
+      }
+
+      lsRenderHostSelected();
+      lsRenderAccSelected();
+
+      hostInput.addEventListener('focus', function () { lsRenderHostDropdown(hostInput.value); });
+      hostInput.addEventListener('input', function () { lsRenderHostDropdown(hostInput.value); });
+      accInput.addEventListener('focus', function () { lsRenderAccDropdown(accInput.value); });
+      accInput.addEventListener('input', function () { lsRenderAccDropdown(accInput.value); });
+
+      try {
+        if (window.__lsGenMsDocClickHandler) document.removeEventListener('click', window.__lsGenMsDocClickHandler);
+        window.__lsGenMsDocClickHandler = function (e) {
+          if (hostWrap && !hostWrap.contains(e.target)) hostDropdownEl.classList.add('ms-dropdown--hidden');
+          if (accWrap && !accWrap.contains(e.target)) accDropdownEl.classList.add('ms-dropdown--hidden');
+        };
+        document.addEventListener('click', window.__lsGenMsDocClickHandler);
+      } catch (err) {}
+    }, 0);
+  }
+
+  function bindLiveScheduleEvents() {
+    var root = document.getElementById('lsRoot');
+    if (!root) return;
+    if (root.getAttribute('data-bound') === '1') return;
+    root.setAttribute('data-bound', '1');
+
+    // Ensure base modal buttons
+    var modalCancel = document.getElementById('lsModalCancel');
+    if (modalCancel) modalCancel.addEventListener('click', function () { lsHideModal(); });
+    var modalClose = document.getElementById('lsModalClose');
+    if (modalClose) modalClose.addEventListener('click', function () { lsHideModal(); });
+    var editCancel = document.getElementById('lsEditAvailabilityCancel');
+    if (editCancel) editCancel.addEventListener('click', function () { lsCloseEditAvailability(); });
+    var editClose = document.getElementById('lsEditAvailabilityClose');
+    if (editClose) editClose.addEventListener('click', function () { lsCloseEditAvailability(); });
+
+    var editSave = document.getElementById('lsEditAvailabilitySave');
+    if (editSave) {
+      editSave.addEventListener('click', function () {
+        var overlay = document.getElementById('lsEditAvailabilityOverlay');
+        var availId = overlay ? overlay.getAttribute('data-edit-id') : null;
+        if (!availId) return;
+        var startAt = (document.getElementById('lsEditAvailStart').value || '').trim();
+        var endAt = (document.getElementById('lsEditAvailEnd').value || '').trim();
+        var tzEl = document.getElementById('lsEditAvailTimeZone');
+        var editTz = tzEl && tzEl.value ? String(tzEl.value) : lsDisplayTimeZone;
+        var sMs = lsWallTimeToMs(startAt, editTz);
+        var eMs = lsWallTimeToMs(endAt, editTz);
+        if (!(sMs < eMs)) {
+          showToast('时间区间不合法（开始需小于结束）', 'warn');
+          return;
+        }
+        var dateStart = lsDateStrFromDateTime(startAt);
+        var dateEnd = lsDateStrFromDateTime(endAt);
+        if (!dateStart || dateStart !== dateEnd) {
+          showToast('仅支持同一天编辑/合并（开始与结束必须在同一日期）', 'warn');
+          return;
+        }
+
+        var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        var startAtMerchant = lsMsToStr(sMs);
+        var endAtMerchant = lsMsToStr(eMs);
+
+        if (availId === '__new__') {
+          var hidNew = overlay.getAttribute('data-new-host-id') || lsHostDrawerHostId;
+          var dayExpected = overlay.getAttribute('data-new-day') || lsHostDrawerDayDate;
+          if (!hidNew) {
+            showToast(t('ls.drawer.add_slot_no_host'), 'warn');
+            return;
+          }
+          if (!dayExpected || dateStart !== dayExpected) {
+            showToast(t('ls.drawer.add_slot_day_mismatch'), 'warn');
+            return;
+          }
+          var meta = lsResolveHostMetaForDrawer(hidNew);
+          lsHostAvailabilities.push({
+            id: 'ha_' + Date.now(),
+            hostId: hidNew,
+            hostName: meta.hostName,
+            userId: meta.userId,
+            liveAccountUsername: meta.liveAccountUsername,
+            startAt: startAtMerchant,
+            endAt: endAtMerchant,
+            timeZone: editTz,
+            source: 'merchant_manual',
+            updatedAt: nowStr,
+            cancelled: false
+          });
+          lsMergeHostAvailabilitiesForDay(hidNew, dateStart);
+          (lsMerchantTargets || []).forEach(function (targ) {
+            targ.status = 'needs_regen';
+            targ.updatedAt = nowStr;
+          });
+          lsSaveAll();
+          document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+          if (lsHostDrawerHostId && lsHostDrawerDayDate) lsRenderHostDrawerContent();
+          lsCloseEditAvailability();
+          showToast('保存成功：已合并并标记需重新生成初排', 'success');
+          return;
+        }
+
+        var avail = (lsHostAvailabilities || []).find(function (x) { return x.id === availId; });
+        if (!avail) return;
+        lsHostAvailabilities = lsHostAvailabilities.map(function (x) {
+          if (x.id !== availId) return x;
+          return Object.assign({}, x, { startAt: startAtMerchant, endAt: endAtMerchant, timeZone: editTz, cancelled: false, updatedAt: nowStr });
+        });
+
+        // Same host + same day: auto-merge overlapping/adjacent segments.
+        lsMergeHostAvailabilitiesForDay(avail.hostId, dateStart);
+
+        // Mark targets to require regeneration of planned allocation.
+        (lsMerchantTargets || []).forEach(function (t) {
+          t.status = 'needs_regen';
+          t.updatedAt = nowStr;
+        });
+
+        lsSaveAll();
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+        if (lsHostDrawerHostId && lsHostDrawerDayDate) lsRenderHostDrawerContent();
+        lsCloseEditAvailability();
+        showToast('保存成功：已合并并标记需重新生成初排', 'success');
+      });
+    }
+
+    function lsUpdateHostGenToolbar() {
+      var btn = document.getElementById('lsHostAvailGenBtn');
+      var cnt = document.getElementById('lsHostAvailGenCount');
+      var selAll = document.getElementById('lsHostSelectAllPicks');
+      if (!btn && !cnt && !selAll) return;
+      var n = document.querySelectorAll('.ls-host-row-pick:checked').length;
+      if (btn) btn.disabled = n === 0;
+      if (cnt) cnt.textContent = lsT('ls.host.selected_n', String(n));
+      if (selAll) {
+        var all = document.querySelectorAll('.ls-host-row-pick').length;
+        selAll.checked = all > 0 && n === all;
+        selAll.indeterminate = n > 0 && n < all;
+      }
+    }
+
+    function lsUpdateHostBatchBar() {
+      var bar = document.getElementById('lsHostBatchBar');
+      var lead = document.getElementById('lsHostBatchLead');
+      var delBtn = document.getElementById('lsHostBatchDelete');
+      if (!bar || !lead || !delBtn) return;
+      var selected = Array.prototype.map.call(document.querySelectorAll('.ls-host-row-check:checked'), function (cb) {
+        return cb.getAttribute('data-id');
+      }).filter(Boolean);
+      var n = selected.length;
+      bar.style.display = n > 0 ? '' : 'none';
+      lead.textContent = n > 0 ? ('已选中 ' + n + ' 条空闲段') : '请选择要作废的空闲段';
+      delBtn.disabled = n === 0;
+
+      var selectAll = document.getElementById('lsHostSelectAll');
+      if (selectAll) {
+        var all = document.querySelectorAll('.ls-host-row-check');
+        var allCount = all.length;
+        selectAll.checked = allCount > 0 && n === allCount;
+        selectAll.indeterminate = n > 0 && n < allCount;
+      }
+    }
+
+    // Root delegated click handling
+    root.addEventListener('click', function (e) {
+      var t = e.target;
+      var btn = t.closest && t.closest('[data-id],button');
+      var target = e.target;
+
+      var batchAddRowBtn = target.closest && target.closest('#lsAvailBatchAddRow');
+      if (batchAddRowBtn) {
+        var batchTbody = document.getElementById('lsAvailBatchTbody');
+        if (batchTbody) {
+          var firstHostSel = batchTbody.querySelector('.ls-avail-batch-host');
+          var hostsPick = [];
+          if (firstHostSel) {
+            Array.prototype.forEach.call(firstHostSel.querySelectorAll('option'), function (opt) {
+              if (opt.value) hostsPick.push({ hostId: opt.value, hostName: opt.textContent || opt.value });
+            });
+          }
+          var refDateInp = batchTbody.querySelector('.ls-avail-batch-date');
+          var defaultDay = refDateInp && refDateInp.value ? refDateInp.value : (lsActiveWeekStart || (lsGetPeriodSeeds().startAt || ''));
+          var lastHostSel = batchTbody.querySelector('tr.ls-avail-batch-row:last-child .ls-avail-batch-host');
+          var lastTzSel = batchTbody.querySelector('tr.ls-avail-batch-row:last-child .ls-avail-batch-tz');
+          var defHost = lastHostSel && lastHostSel.value ? lastHostSel.value : (hostsPick[0] && hostsPick[0].hostId);
+          var defTz = lastTzSel && lastTzSel.value ? lastTzSel.value : lsDisplayTimeZone;
+          batchTbody.insertAdjacentHTML('beforeend', lsAvailBatchRowHtml(hostsPick, defaultDay, '09:00', '18:00', defHost, defTz));
+        }
+        return;
+      }
+      var batchRemoveBtn = target.closest && target.closest('.ls-avail-batch-remove');
+      if (batchRemoveBtn) {
+        var tr = batchRemoveBtn.closest('tr');
+        var pTbody = tr && tr.parentNode;
+        if (pTbody && pTbody.querySelectorAll('tr').length > 1) {
+          tr.remove();
+        } else {
+          showToast(t('ls.host.batch_keep_one_row'), 'warn');
+        }
+        return;
+      }
+
+      // Tabs
+      var tabBtn = target.closest && target.closest('[data-ls-tab]');
+      if (tabBtn) {
+        var tab = tabBtn.getAttribute('data-ls-tab');
+        if (!tab) return;
+        lsActiveTab = tab;
+        // Sync tab button active styles (color + underline)
+        var lsTabsEl = document.getElementById('lsTabs');
+        if (lsTabsEl) {
+          var allTabBtns = lsTabsEl.querySelectorAll('[data-ls-tab]');
+          allTabBtns.forEach(function (b) {
+            var v = b.getAttribute('data-ls-tab');
+            var active = v === lsActiveTab;
+            b.classList.toggle('or-tab--active', active);
+          });
+        }
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleTab(tab);
+        return;
+      }
+
+      // 主播排期：场次状态 Tab
+      var sessTabBtn = target.closest && target.closest('[data-ls-session-tab]');
+      if (sessTabBtn) {
+        lsSessionListFilter.tab = sessTabBtn.getAttribute('data-ls-session-tab') || 'draft';
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+        return;
+      }
+
+      // Host matrix: week switching
+      var weekPrevBtn = target.closest && target.closest('#lsWeekPrev');
+      if (weekPrevBtn) {
+        lsActiveWeekStart = lsAddDaysToDateStr(lsActiveWeekStart || lsGetPeriodSeeds().startAt, -7);
+        lsHostDrawerHostId = null;
+        lsHostDrawerDayDate = null;
+        // close drawer if open
+        var d = document.getElementById('lsHostDrawer');
+        var o = document.getElementById('lsHostDrawerOverlay');
+        if (d) d.classList.remove('ha-settle-drawer--open');
+        if (o) o.classList.remove('ha-settle-drawer-overlay--open');
+        if (d) d.setAttribute('aria-hidden', 'true');
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+        return;
+      }
+      var weekNextBtn = target.closest && target.closest('#lsWeekNext');
+      if (weekNextBtn) {
+        lsActiveWeekStart = lsAddDaysToDateStr(lsActiveWeekStart || lsGetPeriodSeeds().startAt, 7);
+        lsHostDrawerHostId = null;
+        lsHostDrawerDayDate = null;
+        var d2 = document.getElementById('lsHostDrawer');
+        var o2 = document.getElementById('lsHostDrawerOverlay');
+        if (d2) d2.classList.remove('ha-settle-drawer--open');
+        if (o2) o2.classList.remove('ha-settle-drawer-overlay--open');
+        if (d2) d2.setAttribute('aria-hidden', 'true');
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+        return;
+      }
+      var weekThisBtn = target.closest && target.closest('#lsWeekThis');
+      if (weekThisBtn) {
+        var base = (lsMerchantTargets && lsMerchantTargets.length ? lsMerchantTargets[0].periodStart : '') || lsGetPeriodSeeds().startAt;
+        lsActiveWeekStart = base;
+        lsHostDrawerHostId = null;
+        lsHostDrawerDayDate = null;
+        var d3 = document.getElementById('lsHostDrawer');
+        var o3 = document.getElementById('lsHostDrawerOverlay');
+        if (d3) d3.classList.remove('ha-settle-drawer--open');
+        if (o3) o3.classList.remove('ha-settle-drawer-overlay--open');
+        if (d3) d3.setAttribute('aria-hidden', 'true');
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+        return;
+      }
+
+      // Host matrix: open drawer
+      var matrixCell = target.closest && target.closest('.ls-host-matrix-cell[data-open-host-drawer="1"]');
+      if (matrixCell) {
+        var hid = matrixCell.getAttribute('data-host-id');
+        var dayDateStr = matrixCell.getAttribute('data-day-date');
+        if (hid && dayDateStr && window.lsOpenHostDrawer) {
+          window.lsOpenHostDrawer(hid, dayDateStr);
+        }
+        return;
+      }
+
+      // Host import
+      var importBtn = target.closest && target.closest('#lsHostImportBtn');
+      if (importBtn) {
+        var fileEl = document.getElementById('lsHostImportFile');
+        if (fileEl) fileEl.click();
+        return;
+      }
+
+      // Template download (MVP)
+      var tplBtn = target.closest && target.closest('#lsHostTemplateBtn');
+      if (tplBtn) {
+        showToast('模板下载（MVP Mock）', 'info');
+        return;
+      }
+
+      // Host drawer segment actions (MVP)
+      var availRestoreBtn = target.closest && target.closest('.ls-avail-restore');
+      if (availRestoreBtn) {
+        var restoreId = availRestoreBtn.getAttribute('data-avail-id');
+        if (!restoreId) return;
+        lsShowModal(
+          '确认恢复该空闲段？',
+          '<div style="font-size:14px;color:var(--text-subtext)">恢复后该空闲段将重新参与后续初排生成。</div>',
+          '恢复',
+          function () {
+            lsHostAvailabilities = lsHostAvailabilities.map(function (s) {
+              if (s.id !== restoreId) return s;
+              return Object.assign({}, s, { cancelled: false, updatedAt: new Date().toISOString().slice(0, 16).replace('T', ' ') });
+            });
+            var restored = (lsHostAvailabilities || []).find(function (s) { return s.id === restoreId; });
+            if (restored && restored.hostId) {
+              var d = lsDateStrFromDateTime(restored.startAt);
+              if (d) lsMergeHostAvailabilitiesForDay(restored.hostId, d);
+            }
+            var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            (lsMerchantTargets || []).forEach(function (t) {
+              t.status = 'needs_regen';
+              t.updatedAt = nowStr;
+            });
+            lsSaveAll();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+            lsRenderHostDrawerContent();
+            lsHideModal();
+            showToast('已恢复：已标记需重新生成初排', 'success');
+          }
+        );
+        return;
+      }
+
+      var availCancelBtn = target.closest && target.closest('.ls-avail-cancel');
+      if (availCancelBtn) {
+        var cancelId = availCancelBtn.getAttribute('data-avail-id');
+        if (!cancelId) return;
+        lsShowModal(
+          '确认作废该空闲段？',
+          '<div style="font-size:14px;color:var(--text-subtext)">作废后该空闲段将不再参与后续初排生成。</div>',
+          '作废',
+          function () {
+            var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            lsHostAvailabilities = lsHostAvailabilities.map(function (s) {
+              if (s.id !== cancelId) return s;
+              return Object.assign({}, s, { cancelled: true, updatedAt: nowStr });
+            });
+            (lsMerchantTargets || []).forEach(function (t) {
+              t.status = 'needs_regen';
+              t.updatedAt = nowStr;
+            });
+            lsSaveAll();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+            lsRenderHostDrawerContent();
+            lsHideModal();
+            showToast('已作废：已标记需重新生成初排', 'success');
+          }
+        );
+        return;
+      }
+
+      var availAddManualBtn = target.closest && target.closest('#lsAvailAddManual');
+      if (availAddManualBtn) {
+        lsOpenAddAvailabilityManual();
+        return;
+      }
+
+      var availEditBtn = target.closest && target.closest('.ls-avail-edit');
+      if (availEditBtn) {
+        var editAvailId = availEditBtn.getAttribute('data-avail-id');
+        if (editAvailId) lsOpenEditAvailability(editAvailId);
+        return;
+      }
+
+      // Host edit/delete/conflict
+      var editBtn = target.closest && target.closest('.ls-host-edit');
+      if (editBtn) {
+        var id = editBtn.getAttribute('data-id');
+        if (id) lsOpenEditAvailability(id);
+        return;
+      }
+
+      var delBtn = target.closest && target.closest('.ls-host-delete');
+      if (delBtn) {
+        var delId = delBtn.getAttribute('data-id');
+        if (!delId) return;
+        lsShowModal(
+          '确认作废该空闲段？',
+          '<div style="font-size:14px;color:var(--text-subtext)">作废后该空闲段将不再参与后续初排生成。</div>',
+          '作废',
+          function () {
+            lsHostAvailabilities = lsHostAvailabilities.filter(function (s) { return s.id !== delId; });
+            lsSaveAll();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+            lsHideModal();
+            showToast('已作废', 'success');
+          }
+        );
+        return;
+      }
+
+      var bulkDelBtn = target.closest && target.closest('#lsHostBatchDelete');
+      if (bulkDelBtn) {
+        var selectedIds = Array.prototype.map.call(document.querySelectorAll('.ls-host-row-check:checked'), function (cb) {
+          return cb.getAttribute('data-id');
+        }).filter(Boolean);
+        if (!selectedIds.length) return;
+        lsShowModal(
+          '确认作废选中空闲段？',
+          '<div style="font-size:14px;color:var(--text-subtext)">将移除这 ' + selectedIds.length + ' 条空闲段，并影响后续初排生成。</div>',
+          '作废选中',
+          function () {
+            lsHostAvailabilities = lsHostAvailabilities.filter(function (s) { return selectedIds.indexOf(s.id) === -1; });
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+            showToast('已作废 ' + selectedIds.length + ' 条', 'success');
+          }
+        );
+        return;
+      }
+
+      var conflictBtn = target.closest && target.closest('.ls-host-conflict');
+      if (conflictBtn) {
+        var cid = conflictBtn.getAttribute('data-id');
+        var conflictMap = lsComputeAvailabilityConflicts(lsHostAvailabilities);
+        var reasons = conflictMap[cid] || [];
+        lsShowModal(
+          '冲突原因',
+          reasons.length ? '<div>' + reasons.map(function (r) { return '<div style="margin:6px 0">• ' + r + '</div>'; }).join('') + '</div>' : '<div style="color:var(--text-subtext)">暂无冲突</div>',
+          '知道了',
+          function () { lsHideModal(); }
+        );
+        // hide ok button label on close? handled by okLabel
+        return;
+      }
+
+      // Targets: generate
+      var generateBtn = target.closest && target.closest('.ls-generate-for-account');
+      if (generateBtn) {
+        lsTargetsPeriodStartFilter = (lsMerchantTargets.find(function (x) { return x.id === generateBtn.getAttribute('data-id'); }) || {}).periodStart || lsTargetsPeriodStartFilter;
+        lsShowModal(
+          '自动排期？',
+          '<div style="font-size:14px;color:var(--text-subtext)">将根据空闲段与目标小时数生成排期（MVP Mock）。</div>',
+          '自动排期',
+          function () {
+            lsHideModal();
+            lsGenerateInitialSchedule();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleTargetsTab();
+          }
+        );
+        return;
+      }
+
+      var hostAvailGen = target.closest && target.closest('#lsHostAvailGenBtn');
+      if (hostAvailGen) {
+        var pickIds = Array.prototype.map.call(document.querySelectorAll('.ls-host-row-pick:checked'), function (cb) {
+          return cb.getAttribute('data-host-id');
+        }).filter(Boolean);
+        if (!pickIds.length) {
+          showToast('请先勾选主播', 'warn');
+          return;
+        }
+        lsOpenGenerateInitialScheduleModal({ initialHostIds: pickIds, prefillAllAccounts: true });
+        return;
+      }
+
+      var hostAvailAddSlot = target.closest && target.closest('#lsHostAvailAddSlotBtn');
+      if (hostAvailAddSlot) {
+        lsOpenAddAvailabilityHostDayPicker();
+        return;
+      }
+
+      var addTargetBtn = target.closest && target.closest('#lsTargetsAdd');
+      if (addTargetBtn) {
+        var addAccounts = (function () {
+          var set = {};
+          (lsMerchantTargets || []).forEach(function (t) { if (t && t.liveAccountUsername) set[t.liveAccountUsername] = true; });
+          (lsHostAvailabilities || []).forEach(function (s) { if (s && s.liveAccountUsername) set[s.liveAccountUsername] = true; });
+          return Object.keys(set).sort();
+        })();
+
+        var addPeriodsMap = (function () {
+          var set = {};
+          (lsMerchantTargets || []).forEach(function (t) {
+            if (t && t.periodStart) set[t.periodStart] = t.periodEnd || '';
+          });
+          if (lsActiveWeekStart && !set[lsActiveWeekStart]) {
+            set[lsActiveWeekStart] = lsAddDaysToDateStr(lsActiveWeekStart, 6) || '';
+          }
+          return set;
+        })();
+        var addPeriods = Object.keys(addPeriodsMap).sort().map(function (ps) { return { startAt: ps, endAt: addPeriodsMap[ps] }; });
+
+        lsShowModal(
+          '新增直播目标',
+          '<div class="form-group">' +
+          '  <label class="form-label">直播账号</label>' +
+          '  <select class="select" id="lsAddTargetAccountSelect" style="width:100%">' +
+          (addAccounts.length
+            ? addAccounts.map(function (a) { return '<option value="' + String(a) + '">' + a + '</option>'; }).join('')
+            : '<option value="">暂无账号</option>') +
+          '  </select>' +
+          '</div>' +
+          '<div class="form-group" style="margin-top:12px">' +
+          '  <label class="form-label">周期</label>' +
+          '  <select class="select" id="lsAddTargetPeriodSelect" style="width:100%">' +
+          (addPeriods.length
+            ? addPeriods.map(function (p) {
+              var sel = lsActiveWeekStart && lsActiveWeekStart === p.startAt ? ' selected' : '';
+              return '<option value="' + p.startAt + '"' + sel + '>' + p.startAt + ' ~ ' + p.endAt + '</option>';
+            }).join('')
+            : '<option value="">暂无周期</option>') +
+          '  </select>' +
+          '</div>' +
+          '<div class="form-group" style="margin-top:12px">' +
+          '  <label class="form-label">目标小时数</label>' +
+          '  <input class="input" type="number" min="0" step="0.5" id="lsAddTargetHoursInput" placeholder="例如 4 或 4.5" style="width:100%" />' +
+          '</div>' +
+          '<div style="font-size:12px;color:var(--text-subtext);margin-top:12px">说明：同账号同周期会自动合并目标小时数（MVP Mock）。</div>',
+          '新增',
+          function () {
+            var account = document.getElementById('lsAddTargetAccountSelect') ? document.getElementById('lsAddTargetAccountSelect').value : '';
+            var periodStart = document.getElementById('lsAddTargetPeriodSelect') ? document.getElementById('lsAddTargetPeriodSelect').value : '';
+            var hoursVal = document.getElementById('lsAddTargetHoursInput') ? parseFloat(document.getElementById('lsAddTargetHoursInput').value) : NaN;
+
+            if (!account) { showToast('请选择直播账号', 'warn'); return; }
+            if (!periodStart) { showToast('请选择周期', 'warn'); return; }
+            if (!(hoursVal >= 0)) { showToast('请输入目标小时数（>=0）', 'warn'); return; }
+
+            var nowStr = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            var existing = (lsMerchantTargets || []).find(function (t) {
+              return t && t.liveAccountUsername === account && t.periodStart === periodStart;
+            });
+
+            if (existing) {
+              existing.targetHours = (Number(existing.targetHours) || 0) + hoursVal;
+              // If already generated, mark needs_regen
+              if ((Number(existing.plannedHours) || 0) > 0 && existing.status !== '已同步') existing.status = 'needs_regen';
+              existing.updatedAt = nowStr;
+            } else {
+              lsMerchantTargets.push({
+                id: 't_' + Date.now(),
+                liveAccountUsername: account,
+                periodStart: periodStart,
+                periodEnd: addPeriodsMap[periodStart] || '',
+                targetHours: hoursVal,
+                plannedHours: 0,
+                acceptedHours: 0,
+                status: '未生成',
+                updatedAt: nowStr
+              });
+            }
+
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleTargetsTab();
+            showToast('新增成功', 'success');
+          }
+        );
+        return;
+      }
+
+      var saveTargetsBtn = target.closest && target.closest('#lsTargetsSave');
+      if (saveTargetsBtn) {
+        // save inline edits
+        var curStart = lsActiveWeekStart || '';
+        document.querySelectorAll('.ls-target-hours-input').forEach(function (inp) {
+          var id = inp.getAttribute('data-id');
+          var val = parseFloat(inp.value);
+          if (isNaN(val)) val = 0;
+          lsMerchantTargets = lsMerchantTargets.map(function (x) {
+            if (x.id !== id) return x;
+            if (curStart && x.periodStart && String(x.periodStart) < String(curStart)) return x; // past periods are locked
+            x.targetHours = val;
+            x.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            return x;
+          });
+        });
+
+        // Same account + same period: auto-merge by summing targetHours.
+        (function () {
+          var merged = {};
+          (lsMerchantTargets || []).forEach(function (t) {
+            if (!t) return;
+            if (!t.periodStart) return;
+            var key = String(t.liveAccountUsername || '') + '|' + String(t.periodStart || '');
+            if (!merged[key]) {
+              merged[key] = Object.assign({}, t);
+              return;
+            }
+            merged[key].targetHours = (Number(merged[key].targetHours) || 0) + (Number(t.targetHours) || 0);
+            merged[key].plannedHours = (Number(merged[key].plannedHours) || 0) + (Number(t.plannedHours) || 0);
+            merged[key].acceptedHours = (Number(merged[key].acceptedHours) || 0) + (Number(t.acceptedHours) || 0);
+            // Keep latest updatedAt
+            merged[key].updatedAt = (merged[key].updatedAt && t.updatedAt) ? merged[key].updatedAt > t.updatedAt ? merged[key].updatedAt : t.updatedAt : (t.updatedAt || merged[key].updatedAt);
+            // If already generated (plannedHours>0) but targets changed -> mark needs_regen
+            if (Number(merged[key].plannedHours) > 0 && merged[key].status !== '已同步') merged[key].status = 'needs_regen';
+          });
+          lsMerchantTargets = Object.keys(merged).map(function (k) { return merged[k]; });
+        })();
+
+        lsSaveAll();
+        showToast('目标已保存', 'success');
+        return;
+      }
+
+      // Targets: cancel/delete
+      var cancelTargetBtn = target.closest && target.closest('.ls-target-cancel');
+      if (cancelTargetBtn) {
+        var cancelId = cancelTargetBtn.getAttribute('data-id');
+        if (!cancelId) return;
+        var cur = (lsMerchantTargets || []).find(function (x) { return x.id === cancelId; });
+        lsShowModal(
+          '确认作废目标？',
+          '<div style="font-size:14px;color:var(--text-subtext)">作废后该目标不会出现在当前列表中。该目标已生成的排期数据（MVP）不会自动删除。</div>',
+          '作废',
+          function () {
+            lsMerchantTargets = (lsMerchantTargets || []).filter(function (x) { return x.id !== cancelId; });
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleTargetsTab();
+            showToast('已作废目标', 'success');
+          }
+        );
+        return;
+      }
+
+      // Batch / session list actions（主播排期）
+      var viewBatch = target.closest && target.closest('.ls-batch-view');
+      var viewSess = target.closest && target.closest('.ls-sess-view');
+      if (viewBatch || viewSess) {
+        var bid = viewBatch ? viewBatch.getAttribute('data-id') : (viewSess ? viewSess.getAttribute('data-batch-id') : '');
+        var viewSid = viewSess ? viewSess.getAttribute('data-session-id') : '';
+        if (viewSid && viewSess) {
+          var bView = lsScheduleBatches.find(function (b) { return b.id === bid; });
+          var sView = bView && (bView.sessions || []).find(function (s) { return s.id === viewSid; });
+          if (sView && (sView.livePhase === 'live' || sView.livePhase === 'ended')) {
+            lsOpenSessionLiveEndedDetailModal(bid, viewSid);
+            return;
+          }
+        }
+        lsBatchDrawerBatchId = bid;
+        if (window.lsOpenBatchDrawer) window.lsOpenBatchDrawer(bid, viewSid || null);
+        return;
+      }
+
+      var pushBatch = target.closest && target.closest('.ls-batch-push');
+      var pushSess = target.closest && target.closest('.ls-sess-push');
+      var batchPushToolbar = target.closest && target.closest('#lsSessBatchPush');
+      if (batchPushToolbar) {
+        var byBatch = {};
+        document.querySelectorAll('.ls-sess-row-check:checked').forEach(function (cb) {
+          var bid = cb.getAttribute('data-batch-id');
+          var sid = cb.getAttribute('data-session-id');
+          if (!bid || !sid) return;
+          byBatch[bid] = byBatch[bid] || [];
+          byBatch[bid].push(sid);
+        });
+        var keys = Object.keys(byBatch);
+        if (!keys.length) return;
+        var totalCnt = 0;
+        keys.forEach(function (k) { totalCnt += byBatch[k].length; });
+        lsShowModal(
+          '批量推送给主播？',
+          '<div style="font-size:14px;color:var(--text-subtext)">将对选中的 ' + totalCnt + ' 个场次发起主播确认（Relay segments 接受/拒绝）。</div>',
+          '确认推送',
+          function () {
+            keys.forEach(function (bid) {
+              var b = lsScheduleBatches.find(function (x) { return x.id === bid; });
+              if (b) lsPushSessionsToHost(b, byBatch[bid]);
+            });
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            showToast('已推送 ' + totalCnt + ' 个场次（MVP Mock）', 'success');
+          }
+        );
+        return;
+      }
+
+      var batchSyncToolbar = target.closest && target.closest('#lsSessBatchSync');
+      if (batchSyncToolbar) {
+        var byBatchSync = {};
+        document.querySelectorAll('.ls-sess-row-check:checked').forEach(function (cb) {
+          var bid = cb.getAttribute('data-batch-id');
+          var sid = cb.getAttribute('data-session-id');
+          if (!bid || !sid) return;
+          byBatchSync[bid] = byBatchSync[bid] || [];
+          byBatchSync[bid].push(sid);
+        });
+        var syncKeys = Object.keys(byBatchSync);
+        if (!syncKeys.length) return;
+        var syncItems = [];
+        syncKeys.forEach(function (bid) {
+          var bSyncBatch = lsScheduleBatches.find(function (x) { return x.id === bid; });
+          if (!bSyncBatch || bSyncBatch.status !== 'waiting_sync') return;
+          byBatchSync[bid].forEach(function (sid) {
+            var sess = (bSyncBatch.sessions || []).find(function (s) { return s.id === sid; });
+            if (!sess || sess.cancelled || sess.syncStatus === 'synced') return;
+            var sidx = (bSyncBatch.sessions || []).indexOf(sess);
+            syncItems.push({ b: bSyncBatch, s: sess, idx: sidx < 0 ? 0 : sidx });
+          });
+        });
+        if (!syncItems.length) {
+          showToast(t('ls.toast.batch_sync_none'), 'warn');
+          return;
+        }
+        lsShowModal(
+          t('ls.modal.batch_sync_title'),
+          '<div style="font-size:14px;color:var(--text-subtext)">' + t('ls.modal.batch_sync_body').replace('{0}', String(syncItems.length)) + '</div>',
+          t('ls.btn.sync_tiktok'),
+          function () {
+            syncItems.forEach(function (item) {
+              lsApplyTikTokSyncToSession(item.b, item.s, item.idx);
+            });
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            showToast(t('ls.toast.batch_sync_done').replace('{0}', String(syncItems.length)), 'success');
+          }
+        );
+        return;
+      }
+
+      if (pushBatch || pushSess) {
+        var pushId = pushSess ? pushSess.getAttribute('data-batch-id') : pushBatch.getAttribute('data-id');
+        var pushSessionId = pushSess ? pushSess.getAttribute('data-session-id') : null;
+        var batch = lsScheduleBatches.find(function (b) { return b.id === pushId; });
+        if (!batch) return;
+        var body = pushSessionId
+          ? '<div style="font-size:14px;color:var(--text-subtext)">将仅向该场次的主播发起确认/拒绝请求。</div>'
+          : '<div style="font-size:14px;color:var(--text-subtext)">将向该批次内尚未推送的场次全部发起主播确认。</div>';
+        lsShowModal(
+          '确认推送给主播端？',
+          body,
+          '确认推送',
+          function () {
+            if (pushSessionId) {
+              lsPushSessionsToHost(batch, [pushSessionId]);
+            } else {
+              var draftIds = (batch.sessions || []).filter(function (s) {
+                return s && !s.cancelled && !s.pushedToHost;
+              }).map(function (s) { return s.id; });
+              lsPushSessionsToHost(batch, draftIds);
+            }
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            showToast('已推送给主播端（MVP Mock）', 'success');
+          }
+        );
+        return;
+      }
+
+      var syncBatch = target.closest && target.closest('.ls-batch-sync');
+      if (syncBatch) {
+        var syncId = syncBatch.getAttribute('data-id');
+        var sb = lsScheduleBatches.find(function (b) { return b.id === syncId; });
+        if (!sb) return;
+        if (!lsIsBatchReadyForSync(sb)) {
+          showToast('未满足全部接受条件，无法同步', 'warn');
+          return;
+        }
+        lsShowModal(
+          '批量同步 TikTok',
+          '<div style="font-size:14px;color:var(--text-subtext)">将为该批次创建 Live Event（MVP Mock）。</div>',
+          '开始同步',
+          function () {
+            (sb.sessions || []).forEach(function (s, idx) {
+              if (s.syncStatus === 'synced') return;
+              lsApplyTikTokSyncToSession(sb, s, idx);
+            });
+            sb.status = 'synced';
+            sb.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            (lsMerchantTargets || []).forEach(function (t) {
+              if (t.periodStart !== sb.periodStart) return;
+              if ((Number(t.plannedHours) || 0) > 0) t.status = '已同步';
+              t.updatedAt = sb.updatedAt;
+            });
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            showToast('同步完成', 'success');
+          }
+        );
+        return;
+      }
+
+      var syncSessBtn = target.closest && target.closest('.ls-sess-sync-tt');
+      if (syncSessBtn) {
+        var sbid = syncSessBtn.getAttribute('data-batch-id');
+        var ssid = syncSessBtn.getAttribute('data-session-id');
+        var bSync = lsScheduleBatches.find(function (b) { return b.id === sbid; });
+        if (!bSync) return;
+        var sessSync = (bSync.sessions || []).find(function (s) { return s.id === ssid; });
+        if (!sessSync) return;
+        if (bSync.status !== 'waiting_sync') {
+          showToast('当前场次不在「待同步」阶段', 'warn');
+          return;
+        }
+        if (sessSync.syncStatus === 'synced') {
+          showToast('该场次已同步', 'info');
+          return;
+        }
+        lsShowModal(
+          '同步 TikTok',
+          '<div style="font-size:14px;color:var(--text-subtext)">将为该直播场次创建 TikTok Live Event（MVP Mock）。</div>',
+          '开始同步',
+          function () {
+            var idx = (bSync.sessions || []).indexOf(sessSync);
+            lsApplyTikTokSyncToSession(bSync, sessSync, idx < 0 ? 0 : idx);
+            bSync.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            showToast('场次已同步', 'success');
+          }
+        );
+        return;
+      }
+
+      var editSessBtn = target.closest && target.closest('.ls-sess-edit');
+      if (editSessBtn) {
+        var ebid = editSessBtn.getAttribute('data-batch-id');
+        var esid = editSessBtn.getAttribute('data-session-id');
+        lsOpenSessionEditModal(ebid, esid);
+        return;
+      }
+
+      var cancelSessBtn = target.closest && target.closest('.ls-sess-cancel');
+      if (cancelSessBtn) {
+        var cbid = cancelSessBtn.getAttribute('data-batch-id');
+        var csid = cancelSessBtn.getAttribute('data-session-id');
+        var bCan = lsScheduleBatches.find(function (b) { return b.id === cbid; });
+        if (!bCan) return;
+        var sessCan = (bCan.sessions || []).find(function (s) { return s.id === csid; });
+        if (!sessCan) return;
+        lsShowModal(
+          '取消排期？',
+          '<div style="font-size:14px;color:var(--text-subtext)">取消后该场次将不再出现在列表中（MVP Mock）。</div>',
+          '取消排期',
+          function () {
+            sessCan.cancelled = true;
+            bCan.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            lsSaveAll();
+            lsHideModal();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            showToast('已取消场次', 'success');
+          }
+        );
+        return;
+      }
+
+      var mockLiveBtn = target.closest && target.closest('.ls-sess-mock-live');
+      if (mockLiveBtn) {
+        var mbid = mockLiveBtn.getAttribute('data-batch-id');
+        var msid = mockLiveBtn.getAttribute('data-session-id');
+        var bM = lsScheduleBatches.find(function (b) { return b.id === mbid; });
+        if (!bM) return;
+        var sM = (bM.sessions || []).find(function (s) { return s.id === msid; });
+        if (!sM) return;
+        sM.livePhase = 'live';
+        bM.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        lsSaveAll();
+        if (lsActiveTab === 'batches') document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+        if (window.lsRenderBatchDrawerContent) lsRenderBatchDrawerContent(mbid, 'sessions');
+        showToast('已模拟开播（MVP）', 'success');
+        return;
+      }
+
+      var mockEndBtn = target.closest && target.closest('.ls-sess-mock-end');
+      if (mockEndBtn) {
+        var ebid2 = mockEndBtn.getAttribute('data-batch-id');
+        var esid2 = mockEndBtn.getAttribute('data-session-id');
+        var bE = lsScheduleBatches.find(function (b) { return b.id === ebid2; });
+        if (!bE) return;
+        var sE = (bE.sessions || []).find(function (s) { return s.id === esid2; });
+        if (!sE) return;
+        sE.livePhase = 'ended';
+        bE.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+        lsSaveAll();
+        if (lsActiveTab === 'batches') document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+        if (window.lsRenderBatchDrawerContent) lsRenderBatchDrawerContent(ebid2, 'sessions');
+        showToast('已模拟下播（MVP）', 'success');
+        return;
+      }
+    });
+
+    // Root delegated change handling for selects/inputs
+    root.addEventListener('change', function (e) {
+      var target = e.target;
+
+      if (target && target.id === 'lsSessSelectAll') {
+        var on = !!target.checked;
+        document.querySelectorAll('.ls-sess-row-check').forEach(function (cb) { cb.checked = on; });
+        var nSel = document.querySelectorAll('.ls-sess-row-check:checked').length;
+        var bp = document.getElementById('lsSessBatchPush');
+        var bs = document.getElementById('lsSessBatchSync');
+        if (bp) bp.disabled = nSel === 0;
+        if (bs) bs.disabled = nSel === 0;
+        return;
+      }
+      if (target && target.classList && target.classList.contains('ls-sess-row-check')) {
+        var bp2 = document.getElementById('lsSessBatchPush');
+        var bs2 = document.getElementById('lsSessBatchSync');
+        var n = document.querySelectorAll('.ls-sess-row-check:checked').length;
+        if (bp2) bp2.disabled = n === 0;
+        if (bs2) bs2.disabled = n === 0;
+        var all = document.querySelectorAll('.ls-sess-row-check').length;
+        var sa = document.getElementById('lsSessSelectAll');
+        if (sa) {
+          sa.checked = all > 0 && n === all;
+          sa.indeterminate = n > 0 && n < all;
+        }
+        return;
+      }
+
+      // Host filters
+      if (target && target.id === 'lsHostStatus') {
+        lsHostFilter.status = target.value;
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+      }
+      if (target && target.id === 'lsHostSearch') {
+        lsHostFilter.host = target.value;
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+      }
+      if (target && target.id === 'lsTimeZoneSelect') {
+        lsDisplayTimeZone = target.value;
+        try { localStorage.setItem(LS_TIMEZONE_DISPLAY_KEY, lsDisplayTimeZone); } catch (e) {}
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+        if (lsHostDrawerHostId && lsHostDrawerDayDate) lsRenderHostDrawerContent();
+      }
+      if (target && target.id === 'lsHostSelectAll') {
+        var checkedAll = !!target.checked;
+        document.querySelectorAll('.ls-host-row-check').forEach(function (cb) { cb.checked = checkedAll; });
+        lsUpdateHostBatchBar();
+      }
+      if (target && target.classList && target.classList.contains('ls-host-row-check')) {
+        lsUpdateHostBatchBar();
+      }
+      if (target && target.id === 'lsHostSelectAllPicks') {
+        var onAll = !!target.checked;
+        document.querySelectorAll('.ls-host-row-pick').forEach(function (cb) { cb.checked = onAll; });
+        lsUpdateHostGenToolbar();
+        return;
+      }
+      if (target && target.classList && target.classList.contains('ls-host-row-pick')) {
+        lsUpdateHostGenToolbar();
+        return;
+      }
+    });
+
+    root.addEventListener('input', function (e) {
+      var target = e.target;
+      if (target && target.id === 'lsSessionSearch') {
+        lsSessionListFilter.q = target.value;
+        document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+      }
+    });
+
+    // File parsing
+    var fileEl = document.getElementById('lsHostImportFile');
+    if (fileEl) {
+      fileEl.addEventListener('change', function () {
+        var file = fileEl.files && fileEl.files[0];
+        if (!file) return;
+        var reader = new FileReader();
+        reader.onload = function () {
+          try {
+            var text = String(reader.result || '');
+            // Expected columns: hostName, liveAccountUsername(optional), startAt, endAt
+            // Optional header is ignored if first row contains 'host'.
+            var lines = text.split(/\r?\n/).map(function (l) { return l.trim(); }).filter(Boolean);
+            if (!lines.length) { showToast('文件为空', 'warn'); return; }
+            var first = lines[0].toLowerCase();
+            var startIdx = first.indexOf('host') !== -1 ? 1 : 0;
+            var imported = [];
+            for (var i = startIdx; i < lines.length; i++) {
+              var cols = lines[i].split(',').map(function (c) { return c.trim(); });
+              if (cols.length < 3) continue;
+              var hostName = cols[0];
+              var liveAcc = cols.length >= 4 ? cols[1] : '';
+              var startAt = cols.length >= 4 ? cols[2] : cols[1];
+              var endAt = cols.length >= 4 ? cols[3] : cols[2];
+              imported.push({
+                id: 'ha_imp_' + Date.now() + '_' + i,
+                hostId: 'imp_' + hostName,
+                hostName: hostName,
+                liveAccountUsername: liveAcc || null,
+                startAt: startAt,
+                endAt: endAt,
+                source: '导入',
+                updatedAt: new Date().toISOString().slice(0, 16).replace('T', ' ')
+              });
+            }
+            if (!imported.length) { showToast('未解析到可用行', 'warn'); return; }
+            lsHostAvailabilities = lsHostAvailabilities.concat(imported);
+            lsSaveAll();
+            document.getElementById('lsTabBody').innerHTML = renderLiveScheduleHostAvailTab();
+            showToast('导入成功 ' + imported.length + ' 条', 'success');
+          } catch (err) {
+            showToast('导入失败：' + err, 'warn');
+          }
+        };
+        reader.readAsText(file);
+      });
+    }
+
+    // Drawer close
+    var closeBtn = document.getElementById('lsBatchDrawerClose');
+    if (closeBtn) {
+      closeBtn.addEventListener('click', function () {
+        lsCloseBatchDrawer();
+      });
+    }
+
+    var overlay = document.getElementById('lsBatchDrawerOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', function () { lsCloseBatchDrawer(); });
+    }
+
+    // Drawer tab switching
+    var drawer = document.getElementById('lsBatchDrawer');
+    if (drawer) {
+      drawer.addEventListener('click', function (e) {
+        var tab = e.target.closest && e.target.closest('[data-ls-drawer-tab]');
+        if (!tab) return;
+        var val = tab.getAttribute('data-ls-drawer-tab');
+        lsRenderBatchDrawerContent(lsBatchDrawerBatchId, val);
+      });
+    }
+
+    // Host drawer close
+    var hostCloseBtn = document.getElementById('lsHostDrawerClose');
+    if (hostCloseBtn) {
+      hostCloseBtn.addEventListener('click', function () {
+        lsCloseHostDrawer();
+      });
+    }
+
+    var hostOverlay = document.getElementById('lsHostDrawerOverlay');
+    if (hostOverlay) {
+      hostOverlay.addEventListener('click', function () { lsCloseHostDrawer(); });
+    }
+
+    // Host drawer tab switching
+    var hostDrawer = document.getElementById('lsHostDrawer');
+    if (hostDrawer) {
+      hostDrawer.addEventListener('click', function (e) {
+        var tab = e.target.closest && e.target.closest('[data-ls-drawer-tab]');
+        if (!tab) return;
+        var val = tab.getAttribute('data-ls-drawer-tab');
+        lsHostDrawerTab = val || 'availability';
+        lsRenderHostDrawerContent();
+      });
+    }
+
+    function lsCloseBatchDrawer() {
+      var d = document.getElementById('lsBatchDrawer');
+      var o = document.getElementById('lsBatchDrawerOverlay');
+      if (d) d.classList.remove('ha-settle-drawer--open');
+      if (o) o.classList.remove('ha-settle-drawer-overlay--open');
+      if (d) d.setAttribute('aria-hidden', 'true');
+    }
+
+    function lsCloseHostDrawer() {
+      var d = document.getElementById('lsHostDrawer');
+      var o = document.getElementById('lsHostDrawerOverlay');
+      if (d) d.classList.remove('ha-settle-drawer--open');
+      if (o) o.classList.remove('ha-settle-drawer-overlay--open');
+      if (d) d.setAttribute('aria-hidden', 'true');
+    }
+
+    // Expose open/close/render helpers to outer functions via closure scope
+    window.lsOpenBatchDrawer = function (batchId, scrollToSessionId) {
+      var batch = lsScheduleBatches.find(function (b) { return b.id === batchId; });
+      if (!batch) return;
+      lsBatchDrawerBatchId = batchId;
+      var d = document.getElementById('lsBatchDrawer');
+      var o = document.getElementById('lsBatchDrawerOverlay');
+      if (d) d.classList.add('ha-settle-drawer--open');
+      if (o) o.classList.add('ha-settle-drawer-overlay--open');
+      if (d) d.setAttribute('aria-hidden', 'false');
+      var title = document.getElementById('lsBatchDrawerTitle');
+      var subtitle = document.getElementById('lsBatchDrawerSubtitle');
+      if (title) title.textContent = (batch.id || '-');
+      if (subtitle) subtitle.textContent = batch.periodStart + ' ~ ' + batch.periodEnd;
+      lsRenderBatchDrawerContent(batchId, 'sessions');
+      if (scrollToSessionId) {
+        setTimeout(function () {
+          var anchorId = 'lsDrawerSess_' + String(scrollToSessionId).replace(/[^a-zA-Z0-9_-]/g, '_');
+          var el = document.getElementById(anchorId);
+          if (el && typeof el.scrollIntoView === 'function') el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }, 50);
+      }
+    };
+
+    window.lsRenderBatchDrawerContent = function (batchId, drawerTab) {
+      lsRenderBatchDrawerContent(batchId, drawerTab);
+    };
+
+    window.lsOpenHostDrawer = function (hostId, dayDateStr) {
+      lsHostDrawerHostId = hostId;
+      lsHostDrawerDayDate = dayDateStr;
+      lsHostDrawerTab = 'availability';
+
+      var d = document.getElementById('lsHostDrawer');
+      var o = document.getElementById('lsHostDrawerOverlay');
+      if (d) d.classList.add('ha-settle-drawer--open');
+      if (o) o.classList.add('ha-settle-drawer-overlay--open');
+      if (d) d.setAttribute('aria-hidden', 'false');
+
+      var title = document.getElementById('lsHostDrawerTitle');
+      var host = (lsHostAvailabilities || []).find(function (s) { return s.hostId === hostId; });
+      if (title) title.textContent = (host && host.hostName) ? host.hostName : hostId;
+
+      lsRenderHostDrawerContent();
+    };
+
+    function lsRenderBatchDrawerContent(batchId, drawerTab) {
+      var batch = lsScheduleBatches.find(function (b) { return b.id === batchId; });
+      if (!batch) return;
+      var content = '';
+      if (drawerTab === 'segments') {
+        content = renderLiveScheduleSegmentsTable(batchId);
+      } else {
+        content = renderLiveScheduleSessionsTable(batchId);
+      }
+      var el = document.getElementById('lsBatchDrawerContent');
+      if (el) el.innerHTML = content;
+
+      // bind segment decision controls (delegated via root change)
+      if (drawerTab === 'segments') {
+        // delegated via root: find selects inside drawer by attribute
+        var selects = document.querySelectorAll('.ls-seg-decision-select');
+        selects.forEach(function (sel) {
+          sel.addEventListener('change', function () {
+            var segId = sel.getAttribute('data-seg-id');
+            var val = sel.value;
+            var reasonInput = document.getElementById('lsSegReason_' + segId);
+            var reason = reasonInput ? reasonInput.value : '';
+            (batch.sessions || []).forEach(function (s) {
+              (s.segments || []).forEach(function (seg) {
+                if (seg.id !== segId) return;
+                seg.decisionStatus = val;
+                if (val !== 'rejected') seg.decisionReason = '';
+                else seg.decisionReason = (reason || '').trim();
+              });
+            });
+            batch.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+            lsSaveAll();
+            lsRecomputeBatchStatuses();
+
+            // update targets acceptedHours from accepted segments (UI only)
+            lsUpdateMerchantAcceptedHours(batch);
+
+            // refresh batch list table if user is on it
+            if (lsActiveTab === 'batches') document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
+            // refresh segments table in drawer only
+            lsRenderBatchDrawerContent(batchId, 'segments');
+          });
+        });
+      }
+    }
+
+    function lsUpdateMerchantAcceptedHours(batch) {
+      // acceptedHours per account from accepted segments duration.
+      var acceptedByAcc = {};
+      (batch.sessions || []).forEach(function (s) {
+        (s.segments || []).forEach(function (seg) {
+          if (seg.decisionStatus !== 'accepted') return;
+          var durH = (lsStrToMs(seg.endAt) - lsStrToMs(seg.startAt)) / 3600000;
+          acceptedByAcc[s.liveAccountUsername] = (acceptedByAcc[s.liveAccountUsername] || 0) + (durH || 0);
+        });
+      });
+      lsMerchantTargets.forEach(function (t) {
+        if (t.periodStart !== batch.periodStart) return;
+        var acc = t.liveAccountUsername;
+        var val = acceptedByAcc[acc] || 0;
+        t.acceptedHours = Math.round(val * 100) / 100;
+        if ((Number(t.plannedHours) || 0) > 0) {
+          if (batch.status === 'waiting_sync') t.status = '可同步';
+          else if (batch.status === 'waiting_host') t.status = '等待主播确认';
+          else if (batch.status === 'synced') t.status = '已同步';
+        }
+        t.updatedAt = new Date().toISOString().slice(0, 16).replace('T', ' ');
+      });
+      lsSaveAll();
+    }
+
+    // Segment table renderer (needs access to global state)
+    function renderLiveScheduleSegmentsTable(batchId) {
+      var batch = lsScheduleBatches.find(function (b) { return b.id === batchId; });
+      if (!batch) return '<div class="ha-rules-empty-state"><span class="ha-rules-empty-text">Not found.</span></div>';
+
+      var segRows = [];
+      (batch.sessions || []).forEach(function (s) {
+        (s.segments || []).forEach(function (seg, idx) {
+          var planned = (seg.startAtMs != null && seg.endAtMs != null)
+            ? (lsMsToStrDisplay(seg.startAtMs) + '–' + lsMsToStrDisplay(seg.endAtMs))
+            : (seg.startAt + '–' + seg.endAt);
+          var decision = seg.decisionStatus || 'pending';
+          var reason = seg.decisionReason || '';
+          segRows.push(
+            '<tr>' +
+            '<td>' + seg.id + '</td>' +
+            '<td>' + (seg.hostName || seg.hostId || '-') + '</td>' +
+            '<td>' + planned + '</td>' +
+            '<td>' +
+            '<select class="select ls-seg-decision-select" data-seg-id="' + seg.id + '"' + (batch.status === 'synced' || !s.pushedToHost ? ' disabled' : '') + '>' +
+            '<option value="pending"' + (decision === 'pending' ? ' selected' : '') + '>待确认</option>' +
+            '<option value="accepted"' + (decision === 'accepted' ? ' selected' : '') + '>接受</option>' +
+            '<option value="rejected"' + (decision === 'rejected' ? ' selected' : '') + '>拒绝</option>' +
+            '</select>' +
+            '</td>' +
+            '<td>' +
+            '<input class="input" style="max-width:240px" id="lsSegReason_' + seg.id + '" value="' + reason.replace(/"/g, '&quot;') + '"' + (decision === 'rejected' && batch.status !== 'synced' ? '' : ' disabled') + ' placeholder="拒绝原因（可选）" />' +
+            '</td>' +
+            '<td>' + (decision === 'accepted' ? '<span class="badge badge-success">accepted</span>' : decision === 'rejected' ? '<span class="badge badge-warning">rejected</span>' : '<span class="badge badge-secondary">pending</span>') + '</td>' +
+            '</tr>'
+          );
+        });
+      });
+
+      return '<div class="ha-settle-table-wrap" style="padding:0"><table class="ha-settle-table"><thead><tr>' +
+        '<th>Segment ID</th><th>Host</th><th>计划时间</th><th>决策</th><th>拒绝原因</th><th>状态</th>' +
+        '</tr></thead><tbody>' + (segRows.length ? segRows.join('') : '<tr><td colspan="6" class="ha-settle-empty ha-rules-empty-state"><span class="ha-rules-empty-text">暂无 segments</span></td></tr>') + '</tbody></table></div>';
+    }
+
+  function renderLiveScheduleSessionsTable(batchId) {
+      var batch = lsScheduleBatches.find(function (b) { return b.id === batchId; });
+      if (!batch) return '<div class="ha-rules-empty-state"><span class="ha-rules-empty-text">Not found.</span></div>';
+
+      var cards = [];
+      (batch.sessions || []).forEach(function (s) {
+        if (s.cancelled) return;
+        var total = (s.segments || []).length;
+        var accepted = (s.segments || []).filter(function (seg) { return seg.decisionStatus === 'accepted'; }).length;
+        var rejected = (s.segments || []).filter(function (seg) { return seg.decisionStatus === 'rejected'; }).length;
+        var status = rejected > 0 ? '被拒绝' : (accepted === total && total > 0 ? '已接受' : '待主播确认');
+        var genHint = (s.conflictReason || s.availabilityReason || '');
+        var mockBtns = '';
+        if (s.syncStatus === 'synced') {
+          if (s.livePhase === 'live') {
+            mockBtns = '<button type="button" class="btn btn-ghost btn-sm ls-sess-mock-end" data-batch-id="' + batchId + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-stop-circle"></i> 模拟下播</button>';
+          } else if (s.livePhase !== 'ended') {
+            mockBtns = '<button type="button" class="btn btn-ghost btn-sm ls-sess-mock-live" data-batch-id="' + batchId + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-broadcast-tower"></i> 模拟开播</button>';
+          }
+        }
+        var jumpSeg = (batch.status !== 'synced'
+          ? '<button type="button" class="btn btn-ghost btn-sm" data-jump-tab="segments" data-batch="' + batchId + '"><i class="fas fa-list"></i> Relay segments</button>'
+          : '<span class="badge badge-success">synced</span>');
+        var safeDomId = String(s.id || 'sess').replace(/[^a-zA-Z0-9_-]/g, '_');
+        cards.push(
+          '<div class="ls-sess-drawer-session" id="lsDrawerSess_' + safeDomId + '" data-session-id="' + String(s.id || '').replace(/"/g, '&quot;') + '">' +
+          '<div class="ls-sess-drawer-session__head">' +
+          '<div class="ls-sess-drawer-session__title">' +
+          '<span class="ls-sess-drawer-session__sid">' + lsEscHtml(lsFormatScheduleIdDisplay(s.scheduleId)) + '</span>' +
+          '<span class="ls-sess-drawer-session__name">' + lsEscHtml(s.eventName || '') + '</span>' +
+          '<span class="ls-sess-drawer-session__meta">' + lsEscHtml(lsSessionPhaseLabel(s.livePhase)) + ' · ' + total + ' 段 · ' + lsEscHtml(status) + '</span>' +
+          '</div>' +
+          '<div class="ls-sess-drawer-session__actions">' + jumpSeg + (mockBtns ? ' ' + mockBtns : '') + '</div>' +
+          '</div>' +
+          (genHint ? '<p class="ls-sess-drawer-session__hint">生成提示：' + lsEscHtml(genHint) + '</p>' : '') +
+          lsRenderSessionDetailReadonlyHtml(batch, s) +
+          '</div>'
+        );
+      });
+
+      return '<div class="ls-sess-drawer-sessions">' + (cards.length ? cards.join('') : '<div class="ha-rules-empty-state"><span class="ha-rules-empty-text">' + t('ls.readonly.empty_sessions') + '</span></div>') + '</div>';
+    }
+  }
+
+  function renderLiveSettings() {
+    return (
+      '<div class="live-settings-page">' +
+        '<div class="live-settings-header">' +
+          '<h1 class="page-title">' + t('live_settings.title') + '</h1>' +
+          '<p>' + t('live_settings.desc') + '</p>' +
+        '</div>' +
+        '<div class="live-settings-grid">' +
+          '<a class="live-settings-card" href="#/live/settings/flash-sale">' +
+            '<div class="live-settings-card__icon"><i class="fas fa-tags"></i></div>' +
+            '<div class="live-settings-card__content">' +
+              '<h2>' + t('live_settings.flash_title') + '</h2>' +
+              '<p>' + t('live_settings.flash_desc') + '</p>' +
+            '</div>' +
+            '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+          '</a>' +
+          '<div class="live-settings-card live-settings-card--disabled">' +
+            '<div class="live-settings-card__icon"><i class="fas fa-comments"></i></div>' +
+            '<div class="live-settings-card__content">' +
+              '<h2>' + t('live_settings.comments_title') + '</h2>' +
+              '<p>' + t('live_settings.comments_desc') + '</p>' +
+              '<span class="live-settings-card__badge">' + t('live_settings.existing') + '</span>' +
+            '</div>' +
+            '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+          '</div>' +
+          '<div class="live-settings-card live-settings-card--disabled">' +
+            '<div class="live-settings-card__icon"><i class="fas fa-tv"></i></div>' +
+            '<div class="live-settings-card__content">' +
+              '<h2>' + t('live_settings.cast_title') + '</h2>' +
+              '<p>' + t('live_settings.cast_desc') + '</p>' +
+              '<span class="live-settings-card__badge">' + t('live_settings.existing') + '</span>' +
+            '</div>' +
+            '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderLiveSettingsFlashSale() {
+    return (
+      '<div class="live-settings-detail-page">' +
+        '<div class="live-settings-detail-top">' +
+          '<a class="live-settings-back" href="#/live/settings"><i class="fas fa-arrow-left"></i><span>' + t('live_settings.back') + '</span></a>' +
+        '</div>' +
+        '<div class="live-settings-embed-card">' +
+          '<iframe class="live-settings-embed-frame" src="./pages/live/auto-setting-flash-sale.html?embed=1" title="' + t('live_settings.flash_title') + '"></iframe>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
   function render(routeId) {
     var app = document.getElementById('app');
     if (!app) return;
@@ -6528,6 +11649,9 @@
     else if (routeId === 'discover') app.innerHTML = renderDiscover();
     else if (routeId === 'outreach') app.innerHTML = renderOutreach();
     else if (routeId === 'analytics') app.innerHTML = renderAnalytics();
+    else if (routeId === 'live_schedule') app.innerHTML = renderLiveSchedule();
+    else if (routeId === 'live_settings') app.innerHTML = renderLiveSettings();
+    else if (routeId === 'live_settings_flash_sale') app.innerHTML = renderLiveSettingsFlashSale();
     else if (routeId === 'settlement') {
       tcPanel = 'ha_settlement';
       app.innerHTML = renderAnalytics();
@@ -6559,6 +11683,9 @@
   function bindPageEvents(routeId) {
     if (routeId === 'creators') {
       bindCrmEvents();
+    }
+    if (routeId === 'live_schedule') {
+      bindLiveScheduleEvents();
     }
     if (routeId === 'hourly-pay-rules') {
       document.querySelectorAll('.hpr-mode-tabs .or-tab').forEach(function (tab) {
@@ -7520,7 +12647,7 @@
 
   function updateSidebarLang() {
     var navMap = {
-      'Dashboard': 'nav.dashboard', 'Live Calendar': 'nav.live_calendar', 'Live Console': 'nav.live_console',
+      'Dashboard': 'nav.dashboard', 'Live Calendar': 'nav.live_calendar', 'Live Schedule': 'nav.live_schedule', 'Live Console': 'nav.live_console',
       'Live Settings': 'nav.live_settings', 'Live Products': 'nav.live_products', 'Merchant Center': 'nav.merchant',
       'Find Creators': 'nav.find_creators', 'Outreach': 'nav.outreach', 'Creator CRM': 'nav.creator_crm',
       'Analytics (Soon)': 'nav.analytics', 'Analytics': 'nav.analytics', 'Tenant Center': 'nav.tenant_center', 'Settlement': 'tc.ha_settlement', 'Profile': 'nav.profile', 'Account': 'nav.account'
@@ -7609,13 +12736,13 @@
 
     function onHashChange() {
       var path = getRoute();
-      if (getRole() === 'live' && path.indexOf('affiliate') === 0) {
+      if (getRole() === 'live' && path.indexOf('affiliate') === 0 && path !== 'affiliate/analytics') {
         window.location.hash = '#/';
         return;
       }
       var routeId = ROUTES[path];
       if (path === '') routeId = getRole() === 'affiliate' ? 'discover' : 'dashboard';
-      if (!routeId) routeId = 'creators';
+      if (!routeId) routeId = getRole() === 'affiliate' ? 'creators' : 'dashboard';
       render(routeId);
     }
     window.addEventListener('hashchange', onHashChange);
