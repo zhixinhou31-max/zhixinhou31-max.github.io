@@ -26,6 +26,90 @@
       'live_settings.cast_desc': 'Bind a TV device code to a room name for easy mobile casting and device management.',
       'live_settings.existing': 'Existing module',
       'live_settings.back': 'Back to Live Settings',
+      'live_settings.fc_title': 'Intelligent Field Control',
+      'live_settings.fc_desc': 'Assign decision models per LIVE account. Anchor copy is saved per account and model.',
+      'live_settings.fc_page_sub': 'Catalog is platform-managed. One account can use multiple models.',
+      'live_settings.fc_tab_models': 'Models',
+      'live_settings.fc_tab_accounts': 'LIVE accounts',
+      'live_settings.fc_models_intro': 'Assign models to accounts (catalog blurbs are read-only). Edit anchor copy on the LIVE accounts tab.',
+      'live_settings.fc_model_badge': 'In catalog',
+      'live_settings.fc_model_nonstd_name': 'Opsique · Non-standard live mid-stream decisions',
+      'live_settings.fc_model_nonstd_desc': 'Keep talking vs. auto pin guidance for non-standard product rooms.',
+      'live_settings.fc_model_tiktok_pin_name': 'TikTok official Smart Pin',
+      'live_settings.fc_model_tiktok_pin_desc': 'TikTok’s own smart pin and product switch signals. What you get depends on Shop and LIVE rules in your region.',
+      'live_settings.fc_accounts_intro': 'Each row is one account–model link. Add another link to bind the same account to an additional model. Remove unlinks only that pair.',
+      'live_settings.fc_add_config': 'Add LIVE accounts',
+      'live_settings.fc_empty_title': 'No LIVE accounts linked yet',
+      'live_settings.fc_empty_desc': 'Add account–model links to turn on field control.',
+      'live_settings.fc_modal_title': 'Add account–model links',
+      'live_settings.fc_modal_subtitle': 'Link LIVE accounts to the decision models they should use. You can edit links anytime from this page.',
+      'live_settings.fc_modal_step1': 'Pick accounts',
+      'live_settings.fc_modal_step2': 'Models to link',
+      'live_settings.fc_modal_search_ph': 'Search name or handle',
+      'live_settings.fc_modal_search_expand_hint': 'Focus or click to show the list. Type to filter by name or @handle.',
+      'live_settings.fc_modal_summary_incomplete': 'Select at least one account and one model.',
+      'live_settings.fc_modal_summary_counts': '{{ac}} accounts · {{mc}} models',
+      'live_settings.fc_modal_accounts_label': 'Accounts',
+      'live_settings.fc_modal_models_label': 'Models',
+      'live_settings.fc_modal_models_hint': 'Select one or more. Every account you picked above will be linked to each model you check.',
+      'live_settings.fc_modal_confirm': 'Save',
+      'live_settings.fc_col_account': 'Live Account',
+      'live_settings.fc_col_region': 'Market',
+      'live_settings.fc_col_current_model': 'Model',
+      'live_settings.fc_col_actions': 'Actions',
+      'live_settings.fc_remove': 'Unlink',
+      'live_settings.fc_toast_select_model': 'Select at least one model.',
+      'live_settings.fc_toast_select_accounts': 'Select at least one account.',
+      'live_settings.fc_toast_modal_done': 'Saved.',
+      'live_settings.fc_toast_no_new_binding': 'Those links already exist—every selected account already has all of the models you chose.',
+      'live_settings.fc_toast_removed': 'Unlinked.',
+      'live_settings.fc_tab_prompts': 'Anchor copy',
+      'live_settings.fc_model_configure_copy': 'Edit copy',
+      'live_settings.fc_model_copy_need_binding': 'Link a LIVE account first.',
+      'live_settings.fc_model_copy_edit_on_accounts': 'Edit anchor copy on the LIVE accounts tab.',
+      'live_settings.fc_model_no_anchor_copy': 'Not supported for this model.',
+      'live_settings.fc_copy_back_models': 'All models',
+      'live_settings.fc_copy_page_title': 'Anchor copy',
+      'live_settings.fc_prompt_group_keep': 'Keep',
+      'live_settings.fc_prompt_group_keep_desc': 'Same pin—conversion, urgency, chat, fallback.',
+      'live_settings.fc_prompt_group_switch': 'Switch',
+      'live_settings.fc_prompt_group_switch_desc': 'Before you switch the pinned SKU.',
+      'live_settings.fc_prompt_intro': 'Each card is one moment for this account and model. Write the host line as plain text (no placeholders). Use the sparkle to draft or polish.',
+      'live_settings.fc_prompt_group_scenarios': '{{n}} scenarios',
+      'live_settings.fc_copy_unsaved': 'Unsaved',
+      'live_settings.fc_copy_leave_confirm': 'Discard unsaved changes?',
+      'live_settings.fc_copy_breadcrumb_a11y': 'Intelligent field control',
+      'live_settings.fc_prompt_field_manual': 'Host line',
+      'live_settings.fc_prompt_char_limit_hint': 'About 3–5 lines on the host app.',
+      'live_settings.fc_prompt_ai_icon_a11y': 'Draft or polish with AI',
+      'live_settings.fc_prompt_ai_template_applied': 'Starter inserted—you can edit.',
+      'live_settings.fc_prompt_ai_stub_polish': 'Polish when the model is connected; your text is saved.',
+      'live_settings.fc_prompt_save': 'Save',
+      'live_settings.fc_prompt_reset_one': 'Reset to default',
+      'live_settings.fc_prompt_reset_all': 'Reset all',
+      'live_settings.fc_prompt_saved': 'Saved.',
+      'live_settings.fc_prompt_reset_all_confirm': 'Reset all scenarios? This can’t be undone.',
+      'live_settings.fc_prompt.title_PUSH_CONVERSION': 'Push conversion',
+      'live_settings.fc_prompt.desc_PUSH_CONVERSION': 'Nudge viewers to buy.',
+      'live_settings.fc_prompt.default_PUSH_CONVERSION': 'Point to what’s on screen, restate why it’s worth it, then give one clear buy cue.',
+      'live_settings.fc_prompt.title_REBUILD_INTEREST': 'Rebuild interest',
+      'live_settings.fc_prompt.desc_REBUILD_INTEREST': 'Bring attention back to the pitch.',
+      'live_settings.fc_prompt.default_REBUILD_INTEREST': 'In one tight pass, give the top two reasons viewers should care about what you’re showing.',
+      'live_settings.fc_prompt.title_CREATE_URGENCY': 'Create urgency',
+      'live_settings.fc_prompt.desc_CREATE_URGENCY': 'Why act now (stock, price, bonus).',
+      'live_settings.fc_prompt.default_CREATE_URGENCY': 'Say why this is the right buy right now—stock, deal, or perk—in a few words.',
+      'live_settings.fc_prompt.title_ANSWER_HESITATION': 'Answer hesitation',
+      'live_settings.fc_prompt.desc_ANSWER_HESITATION': 'Handle doubt in one beat.',
+      'live_settings.fc_prompt.default_ANSWER_HESITATION': 'Name one common doubt, answer in one sentence, tie back to value.',
+      'live_settings.fc_prompt.title_BOOST_TRAFFIC': 'Boost traffic',
+      'live_settings.fc_prompt.desc_BOOST_TRAFFIC': 'More chat and clicks.',
+      'live_settings.fc_prompt.default_BOOST_TRAFFIC': 'Drop a simple chat question or poll to wake up the room.',
+      'live_settings.fc_prompt.title_PREPARE_SWITCH': 'Prepare switch',
+      'live_settings.fc_prompt.desc_PREPARE_SWITCH': 'Before you change the pinned SKU.',
+      'live_settings.fc_prompt.default_PREPARE_SWITCH': 'In one line, tease what you’re about to pin, then switch the pin.',
+      'live_settings.fc_prompt.title_MAINTAIN': 'Fallback',
+      'live_settings.fc_prompt.desc_MAINTAIN': 'Steady, safe default.',
+      'live_settings.fc_prompt.default_MAINTAIN': 'Hold the energy and repeat the core offer on what’s pinned.',
       'nav.find_creators': 'Find Creators', 'nav.outreach': 'Outreach', 'nav.creator_crm': 'Creator CRM',
       'nav.analytics': 'Analytics', 'nav.tenant_center': 'Tenant Center', 'nav.profile': 'Profile', 'nav.account': 'Account',
       // common
@@ -600,11 +684,20 @@
       'ls.btn.cancel_schedule': 'Cancel schedule',
       'ls.btn.sync_tiktok': 'Sync to TikTok',
       'ls.btn.view': 'View details',
+      'ls.btn.fix_issue': 'Fix Issue',
       'ls.select_all': 'Select all',
       'ls.modal.batch_sync_title': 'Sync TikTok for selected sessions?',
       'ls.modal.batch_sync_body': 'TikTok Live Events will be created for {0} session(s) (MVP mock).',
       'ls.toast.batch_sync_none': 'No sessions available to sync.',
       'ls.toast.batch_sync_done': 'Synced {0} session(s) (MVP mock).',
+      'lc.title': 'Host schedule calendar',
+      'lc.intro': 'Monthly view of sessions from Live schedule. Same data as the Live schedule page.',
+      'lc.prev_month': 'Previous month',
+      'lc.next_month': 'Next month',
+      'lc.today': 'Today',
+      'lc.open_schedule': 'Open Live schedule',
+      'lc.more': '+{0} more',
+      'lc.empty_day': '—',
       'ls.targets.save': 'Save targets',
       'ls.targets.generate': 'Generate schedule',
       'ls.targets.add': 'Add target',
@@ -731,6 +824,90 @@
       'live_settings.cast_desc': '绑定电视设备码与房间名称，便于移动端投屏和设备管理。',
       'live_settings.existing': '现有模块',
       'live_settings.back': '返回直播设置',
+      'live_settings.fc_title': '智能场控',
+      'live_settings.fc_desc': '为直播账号分配决策模型；主播话术按「账号 + 模型」保存。',
+      'live_settings.fc_page_sub': '模型目录由平台维护；同账号可绑定多个模型。',
+      'live_settings.fc_tab_models': '模型',
+      'live_settings.fc_tab_accounts': '直播账号',
+      'live_settings.fc_models_intro': '将模型分配给账号（目录说明只读）。主播话术在「直播账号」页按组合编辑。',
+      'live_settings.fc_model_badge': '目录内',
+      'live_settings.fc_model_nonstd_name': 'Opsique · 非标品直播间场中决策',
+      'live_settings.fc_model_nonstd_desc': '非标品场景的「继续讲 / 自动切品」类提示。',
+      'live_settings.fc_model_tiktok_pin_name': 'TikTok 官方智能 Pin 品',
+      'live_settings.fc_model_tiktok_pin_desc': 'TikTok 官方智能挂车与切品信号，实际能力以各市场 Shop / 直播规则与店铺资质为准。',
+      'live_settings.fc_accounts_intro': '每行表示一条「账号 + 模型」关联。同一账号可再次添加以绑定更多模型；解绑仅解除该行对应的一对关系。',
+      'live_settings.fc_add_config': '添加账号',
+      'live_settings.fc_empty_title': '还没有关联直播账号',
+      'live_settings.fc_empty_desc': '添加账号与模型的关联后即可启用场控。',
+      'live_settings.fc_modal_title': '添加账号与模型关联',
+      'live_settings.fc_modal_subtitle': '为直播账号指定要使用的决策模型；之后仍可在此页增删关联。',
+      'live_settings.fc_modal_step1': '选择账号',
+      'live_settings.fc_modal_step2': '要关联的模型',
+      'live_settings.fc_modal_search_ph': '搜索名称或账号',
+      'live_settings.fc_modal_search_expand_hint': '点击或聚焦输入框展开列表；输入名称或 @账号 筛选。',
+      'live_settings.fc_modal_summary_incomplete': '请至少各选一项账号与模型。',
+      'live_settings.fc_modal_summary_counts': '已选 {{ac}} 个账号 · {{mc}} 个模型',
+      'live_settings.fc_modal_accounts_label': '账号',
+      'live_settings.fc_modal_models_label': '模型',
+      'live_settings.fc_modal_models_hint': '可多选。上方勾选的每个账号，都会与这里勾选的全部模型建立关联。',
+      'live_settings.fc_modal_confirm': '保存',
+      'live_settings.fc_col_account': '直播账号',
+      'live_settings.fc_col_region': '市场',
+      'live_settings.fc_col_current_model': '模型',
+      'live_settings.fc_col_actions': '操作',
+      'live_settings.fc_remove': '解绑',
+      'live_settings.fc_toast_select_model': '请至少选择一个模型。',
+      'live_settings.fc_toast_select_accounts': '请至少选择一个账号。',
+      'live_settings.fc_toast_modal_done': '已保存。',
+      'live_settings.fc_toast_no_new_binding': '所选账号已包含本次勾选的全部模型，未新增关联。',
+      'live_settings.fc_toast_removed': '已解绑。',
+      'live_settings.fc_tab_prompts': '主播话术',
+      'live_settings.fc_model_configure_copy': '编辑话术',
+      'live_settings.fc_model_copy_need_binding': '请先绑定直播账号。',
+      'live_settings.fc_model_copy_edit_on_accounts': '主播话术请在「直播账号」页编辑。',
+      'live_settings.fc_model_no_anchor_copy': '此模型不支持话术。',
+      'live_settings.fc_copy_back_models': '返回模型列表',
+      'live_settings.fc_copy_page_title': '主播话术',
+      'live_settings.fc_prompt_group_keep': 'Keep 场景',
+      'live_settings.fc_prompt_group_keep_desc': '挂车不变：逼单、紧迫、互动、兜底等。',
+      'live_settings.fc_prompt_group_switch': 'Switch 场景',
+      'live_settings.fc_prompt_group_switch_desc': '换挂车前使用。',
+      'live_settings.fc_prompt_intro': '每张卡对应一种直播瞬间。直接写口播（无变量）；角标可起草或润色。',
+      'live_settings.fc_prompt_group_scenarios': '{{n}} 个场景',
+      'live_settings.fc_copy_unsaved': '未保存',
+      'live_settings.fc_copy_leave_confirm': '放弃未保存的更改？',
+      'live_settings.fc_copy_breadcrumb_a11y': '智能场控',
+      'live_settings.fc_prompt_field_manual': '口播稿',
+      'live_settings.fc_prompt_char_limit_hint': '与主播端约 3～5 行展示一致。',
+      'live_settings.fc_prompt_ai_icon_a11y': 'AI 起草或润色',
+      'live_settings.fc_prompt_ai_template_applied': '已插入起句，可直接改。',
+      'live_settings.fc_prompt_ai_stub_polish': '润色接入后生效；当前内容会保存。',
+      'live_settings.fc_prompt_save': '保存',
+      'live_settings.fc_prompt_reset_one': '恢复默认',
+      'live_settings.fc_prompt_reset_all': '全部恢复默认',
+      'live_settings.fc_prompt_saved': '已保存。',
+      'live_settings.fc_prompt_reset_all_confirm': '全部恢复默认？无法撤销。',
+      'live_settings.fc_prompt.title_PUSH_CONVERSION': '逼单 / 促成交',
+      'live_settings.fc_prompt.desc_PUSH_CONVERSION': '推动下单。',
+      'live_settings.fc_prompt.default_PUSH_CONVERSION': '结合当前画面上的挂车，再说清这件货的价值，给一个明确的下单动作。',
+      'live_settings.fc_prompt.title_REBUILD_INTEREST': '重新讲卖点',
+      'live_settings.fc_prompt.desc_REBUILD_INTEREST': '把注意力拉回卖点。',
+      'live_settings.fc_prompt.default_REBUILD_INTEREST': '围绕当前挂车，一两句话讲透最打动人的两点。',
+      'live_settings.fc_prompt.title_CREATE_URGENCY': '制造紧迫感',
+      'live_settings.fc_prompt.desc_CREATE_URGENCY': '库存、时限或权益压力。',
+      'live_settings.fc_prompt.default_CREATE_URGENCY': '说明为什么现在拍最划算（库存/价格/赠品等）。',
+      'live_settings.fc_prompt.title_ANSWER_HESITATION': '消除犹豫',
+      'live_settings.fc_prompt.desc_ANSWER_HESITATION': '一句话打消顾虑。',
+      'live_settings.fc_prompt.default_ANSWER_HESITATION': '点出一个常见顾虑，一句话回应，再回扣价值。',
+      'live_settings.fc_prompt.title_BOOST_TRAFFIC': '拉互动 / 提 CTR',
+      'live_settings.fc_prompt.desc_BOOST_TRAFFIC': '提高互动与点击。',
+      'live_settings.fc_prompt.default_BOOST_TRAFFIC': '抛一个简单的互动问题或口令，带动评论和停留。',
+      'live_settings.fc_prompt.title_PREPARE_SWITCH': '准备切品',
+      'live_settings.fc_prompt.desc_PREPARE_SWITCH': '换挂车前的话术。',
+      'live_settings.fc_prompt.default_PREPARE_SWITCH': '用一句话预告马上要挂的那件，再切换挂车。',
+      'live_settings.fc_prompt.title_MAINTAIN': '兜底',
+      'live_settings.fc_prompt.desc_MAINTAIN': '稳妥的常态话术。',
+      'live_settings.fc_prompt.default_MAINTAIN': '稳住节奏，围绕当前挂车重复权益和信任点。',
       'nav.find_creators': '找达人', 'nav.outreach': '达人触达', 'nav.creator_crm': '达人管理',
       'nav.analytics': '数据分析', 'nav.tenant_center': '租户中心', 'nav.profile': '个人资料', 'nav.account': '账户设置',
       // common
@@ -1305,11 +1482,20 @@
       'ls.btn.cancel_schedule': '取消排期',
       'ls.btn.sync_tiktok': '同步 TikTok',
       'ls.btn.view': '查看详情',
+      'ls.btn.fix_issue': '处理异常',
       'ls.select_all': '全选',
       'ls.modal.batch_sync_title': '批量同步 TikTok？',
       'ls.modal.batch_sync_body': '将为选中的 {0} 个场次创建 TikTok Live Event（MVP Mock）。',
       'ls.toast.batch_sync_none': '没有可同步的场次。',
       'ls.toast.batch_sync_done': '已同步 {0} 个场次（MVP Mock）。',
+      'lc.title': '主播排期日历',
+      'lc.intro': '按月查看主播排期场次，数据与「直播排期」一致。',
+      'lc.prev_month': '上月',
+      'lc.next_month': '下月',
+      'lc.today': '今天',
+      'lc.open_schedule': '打开直播排期',
+      'lc.more': '还有 {0} 场',
+      'lc.empty_day': '—',
       'ls.targets.save': '保存目标小时数',
       'ls.targets.generate': '自动排期',
       'ls.targets.add': '新增直播目标',
@@ -1527,6 +1713,448 @@
     });
   }
 
+  var FIELD_CONTROL_STORAGE_KEY = 'wahool_field_control_v1';
+  var fieldControlModalEscapeBound = false;
+  /** Platform catalog (tenant read-only). */
+  var fieldControlCatalog = [
+    { id: 'model_nonstandard_live', nameKey: 'live_settings.fc_model_nonstd_name', descKey: 'live_settings.fc_model_nonstd_desc', anchorCopy: true },
+    { id: 'model_tiktok_official_smart_pin', nameKey: 'live_settings.fc_model_tiktok_pin_name', descKey: 'live_settings.fc_model_tiktok_pin_desc', anchorCopy: false }
+  ];
+  var fieldControlAnchorCopyModelId = null;
+  var fieldControlAnchorCopyAccountId = null;
+  var lfcAnchorCopyDirty = false;
+  var lfcAnchorCopyBaseline = null;
+  var lfcAnchorCopyActiveModelId = null;
+  var lfcAnchorCopyActiveAccountId = null;
+  var lfcAnchorCopyBeforeunloadBound = false;
+  var anchorPromptScenarioIdsKeep = ['PUSH_CONVERSION', 'REBUILD_INTEREST', 'CREATE_URGENCY', 'ANSWER_HESITATION', 'BOOST_TRAFFIC', 'MAINTAIN'];
+  var anchorPromptScenarioIdsSwitch = ['PREPARE_SWITCH'];
+  var tenantLiveAccountsFieldControl = [
+    { id: 'la_us_1', name: 'Wahool Official US', handle: '@wahool_official_us', region: 'US' },
+    { id: 'la_uk_1', name: 'Wahool UK Live', handle: '@wahool_uk_live', region: 'UK' },
+    { id: 'la_sea_1', name: 'SEA Flagship', handle: '@wahool_sea_flagship', region: 'SG' },
+    { id: 'la_de_1', name: 'EU Outlet DE', handle: '@wahool_de_outlet', region: 'DE' }
+  ];
+  function fieldControlCatalogFind(modelId) {
+    for (var i = 0; i < fieldControlCatalog.length; i++) {
+      if (fieldControlCatalog[i].id === modelId) return fieldControlCatalog[i];
+    }
+    return null;
+  }
+  function fieldControlModelDisplayName(modelId) {
+    var m = fieldControlCatalogFind(modelId);
+    return m ? t(m.nameKey) : (modelId || '—');
+  }
+  function fieldControlTenantAccountById(accountId) {
+    for (var i = 0; i < tenantLiveAccountsFieldControl.length; i++) {
+      if (tenantLiveAccountsFieldControl[i].id === accountId) return tenantLiveAccountsFieldControl[i];
+    }
+    return null;
+  }
+  function fieldControlAccountsBoundToModel(modelId) {
+    var amap = normalizeFieldControlAccountModel(fieldControlState.accountModel || {});
+    var out = [];
+    tenantLiveAccountsFieldControl.forEach(function (acc) {
+      var mids = amap[acc.id] || [];
+      if (mids.indexOf(modelId) !== -1) out.push(acc);
+    });
+    return out;
+  }
+  function fieldControlCopyRouteValid(accountId, modelId) {
+    var cm = fieldControlCatalogFind(modelId);
+    if (!cm || !cm.anchorCopy) return false;
+    if (!fieldControlTenantAccountById(accountId)) return false;
+    var amap = normalizeFieldControlAccountModel(fieldControlState.accountModel || {});
+    var mids = amap[accountId] || [];
+    return mids.indexOf(modelId) !== -1;
+  }
+  function fieldControlResolveCopyLegacyRedirect(modelId) {
+    var amap = normalizeFieldControlAccountModel(fieldControlState.accountModel || {});
+    for (var i = 0; i < tenantLiveAccountsFieldControl.length; i++) {
+      var acc = tenantLiveAccountsFieldControl[i];
+      var mids = amap[acc.id] || [];
+      if (mids.indexOf(modelId) !== -1) {
+        return '#/live/settings/field-control/accounts/' + encodeURIComponent(acc.id) + '/models/' + encodeURIComponent(modelId) + '/copy';
+      }
+    }
+    return '#/live/settings/field-control/models';
+  }
+  /** Normalize storage: accountId -> string[] of model ids (deduped). Migrates legacy string values. */
+  function normalizeFieldControlAccountModel(raw) {
+    var out = {};
+    if (!raw || typeof raw !== 'object') return out;
+    Object.keys(raw).forEach(function (id) {
+      var v = raw[id];
+      var list = [];
+      if (typeof v === 'string' && v) list = [v];
+      else if (Array.isArray(v)) list = v.slice();
+      var seen = {};
+      var arr = [];
+      for (var i = 0; i < list.length; i++) {
+        var m = list[i];
+        if (typeof m !== 'string' || !m || seen[m]) continue;
+        seen[m] = true;
+        arr.push(m);
+      }
+      if (arr.length) out[id] = arr;
+    });
+    return out;
+  }
+  function fieldControlAccountModelNeedsStringMigration(raw) {
+    if (!raw || typeof raw !== 'object') return false;
+    for (var k in raw) {
+      if (Object.prototype.hasOwnProperty.call(raw, k) && typeof raw[k] === 'string') return true;
+    }
+    return false;
+  }
+  function fieldControlDefaultState() {
+    return { accountModel: {} };
+  }
+  function loadFieldControlState() {
+    var empty = fieldControlDefaultState();
+    try {
+      var raw = localStorage.getItem(FIELD_CONTROL_STORAGE_KEY);
+      if (!raw) return empty;
+      var parsed = JSON.parse(raw);
+      if (!parsed || typeof parsed !== 'object') return empty;
+      if (parsed.accountModel && typeof parsed.accountModel === 'object') {
+        var rawAm = parsed.accountModel;
+        var normalized = normalizeFieldControlAccountModel(rawAm);
+        if (fieldControlAccountModelNeedsStringMigration(rawAm)) {
+          try { localStorage.setItem(FIELD_CONTROL_STORAGE_KEY, JSON.stringify({ accountModel: normalized })); } catch (e2) {}
+        }
+        return { accountModel: normalized };
+      }
+      if (parsed.enabledAccountIds && Array.isArray(parsed.enabledAccountIds) && fieldControlCatalog.length) {
+        var am = {};
+        var mid = fieldControlCatalog[0].id;
+        parsed.enabledAccountIds.forEach(function (id) { am[id] = [mid]; });
+        var migrated = { accountModel: normalizeFieldControlAccountModel(am) };
+        try { localStorage.setItem(FIELD_CONTROL_STORAGE_KEY, JSON.stringify(migrated)); } catch (e2) {}
+        return migrated;
+      }
+    } catch (e) {}
+    return empty;
+  }
+  var fieldControlState = loadFieldControlState();
+  function persistFieldControlState() {
+    try { localStorage.setItem(FIELD_CONTROL_STORAGE_KEY, JSON.stringify({ accountModel: fieldControlState.accountModel || {} })); } catch (e) {}
+  }
+
+  var ANCHOR_PROMPTS_STORAGE_KEY = 'wahool_anchor_prompts_v1';
+  var anchorPromptScenarioIds = ['PUSH_CONVERSION', 'REBUILD_INTEREST', 'CREATE_URGENCY', 'ANSWER_HESITATION', 'BOOST_TRAFFIC', 'PREPARE_SWITCH', 'MAINTAIN'];
+
+  function buildDefaultAnchorScenarios() {
+    var o = {};
+    anchorPromptScenarioIds.forEach(function (id) {
+      o[id] = { mode: 'manual', manual: t('live_settings.fc_prompt.default_' + id), aiHint: '' };
+    });
+    return o;
+  }
+
+  /** Strip legacy {{…}} placeholders; guide scripts are plain text only. */
+  function migrateAnchorPlaceholderText(str) {
+    if (!str || typeof str !== 'string') return str;
+    return str
+      .replace(/\{\{[\s\S]*?\}\}/g, '')
+      .replace(/[ \t]{2,}/g, ' ')
+      .replace(/\s+([，。！？、；：,.!?;:])/g, '$1')
+      .replace(/^\s+|\s+$/g, '');
+  }
+
+  function mergeRawAnchorScenarios(rawScenarios) {
+    var defaults = buildDefaultAnchorScenarios();
+    var merged = {};
+    anchorPromptScenarioIds.forEach(function (id) {
+      var s = rawScenarios && rawScenarios[id];
+      var base = defaults[id];
+      var manual = s && typeof s.manual === 'string' ? migrateAnchorPlaceholderText(s.manual) : base.manual;
+      var aiHint = s && typeof s.aiHint === 'string' ? migrateAnchorPlaceholderText(s.aiHint) : '';
+      merged[id] = {
+        mode: 'manual',
+        manual: manual,
+        aiHint: aiHint
+      };
+    });
+    return merged;
+  }
+
+  function loadAnchorPromptState() {
+    var diskBA = {};
+    var legacyByModel = null;
+    try {
+      var raw = localStorage.getItem(ANCHOR_PROMPTS_STORAGE_KEY);
+      if (raw) {
+        var parsed = JSON.parse(raw);
+        if (parsed && parsed.byAccountModel && typeof parsed.byAccountModel === 'object') {
+          diskBA = parsed.byAccountModel;
+        } else if (parsed && parsed.byModel && typeof parsed.byModel === 'object') {
+          legacyByModel = parsed.byModel;
+        } else if (parsed && parsed.scenarios && typeof parsed.scenarios === 'object') {
+          legacyByModel = { model_nonstandard_live: { scenarios: parsed.scenarios } };
+        }
+      }
+    } catch (e) {}
+    var byAccountModel = {};
+    var amap = normalizeFieldControlAccountModel(fieldControlState.accountModel || {});
+    tenantLiveAccountsFieldControl.forEach(function (acc) {
+      var mids = amap[acc.id] || [];
+      mids.forEach(function (mid) {
+        var m = fieldControlCatalogFind(mid);
+        if (!m || !m.anchorCopy) return;
+        var rs = null;
+        if (diskBA[acc.id] && diskBA[acc.id][mid] && diskBA[acc.id][mid].scenarios) {
+          rs = diskBA[acc.id][mid].scenarios;
+        } else if (legacyByModel && legacyByModel[mid] && legacyByModel[mid].scenarios) {
+          rs = legacyByModel[mid].scenarios;
+        }
+        if (!byAccountModel[acc.id]) byAccountModel[acc.id] = {};
+        byAccountModel[acc.id][mid] = { scenarios: rs ? mergeRawAnchorScenarios(rs) : buildDefaultAnchorScenarios() };
+      });
+    });
+    return { byAccountModel: byAccountModel };
+  }
+
+  var anchorPromptState = loadAnchorPromptState();
+
+  function persistAnchorPromptState() {
+    try {
+      localStorage.setItem(ANCHOR_PROMPTS_STORAGE_KEY, JSON.stringify({ byAccountModel: anchorPromptState.byAccountModel || {} }));
+    } catch (e) {}
+  }
+
+  function collectAnchorPromptStateFromDom(accountId, modelId) {
+    var scenarios = {};
+    var root = null;
+    document.querySelectorAll('.lfc-prompt-page').forEach(function (el) {
+      if (el.getAttribute('data-lfc-account-id') === accountId && el.getAttribute('data-lfc-model-id') === modelId) root = el;
+    });
+    if (!root) return scenarios;
+    anchorPromptScenarioIds.forEach(function (id) {
+      var card = root.querySelector('.lfc-prompt-card[data-prompt-scenario="' + id + '"]');
+      if (!card) return;
+      var manualTa = card.querySelector('textarea[data-field="manual"]');
+      var raw = manualTa ? manualTa.value : '';
+      var cap = lfcHostLineMaxChars();
+      scenarios[id] = {
+        mode: 'manual',
+        manual: raw.length > cap ? raw.slice(0, cap) : raw,
+        aiHint: ''
+      };
+    });
+    return scenarios;
+  }
+
+  /** Host app cue line: ~3–5 lines on phone; zh denser per line than Latin. */
+  function lfcHostLineMaxChars() {
+    return getLang() === 'zh' ? 80 : 160;
+  }
+
+  function lfcUpdateHostLineCharCount(ta) {
+    if (!ta) return;
+    var card = ta.closest('.lfc-prompt-card');
+    var cc = card && card.querySelector('.lfc-prompt-charcount');
+    var m = parseInt(ta.getAttribute('data-lfc-host-max'), 10);
+    if (!m || isNaN(m)) m = lfcHostLineMaxChars();
+    var n = ta.value.length;
+    if (cc) {
+      cc.textContent = n + ' / ' + m;
+      cc.classList.toggle('lfc-prompt-charcount--warn', n >= m);
+      cc.classList.toggle('lfc-prompt-charcount--near', n >= Math.floor(m * 0.9) && n < m);
+    }
+  }
+
+  function lfcClampHostLineTa(ta) {
+    if (!ta) return;
+    var m = parseInt(ta.getAttribute('data-lfc-host-max'), 10);
+    if (!m || isNaN(m)) m = lfcHostLineMaxChars();
+    if (ta.value.length > m) ta.value = ta.value.slice(0, m);
+  }
+
+  function lfcBindHostLineCharLimits() {
+    document.querySelectorAll('.lfc-prompt-textarea[data-field="manual"]').forEach(function (ta) {
+      var max = lfcHostLineMaxChars();
+      ta.setAttribute('data-lfc-host-max', String(max));
+      ta.setAttribute('maxlength', String(max));
+      lfcClampHostLineTa(ta);
+      lfcUpdateHostLineCharCount(ta);
+      ta.addEventListener('input', function () {
+        lfcClampHostLineTa(ta);
+        lfcUpdateHostLineCharCount(ta);
+      });
+    });
+  }
+
+  function lfcAnchorPromptDispatchInput(el) {
+    if (!el) return;
+    el.dispatchEvent(new Event('input', { bubbles: true }));
+  }
+
+  /**
+   * Optional host integration (still supported):
+   * window.opsiqueAnchorAiAssist({ scenarioId, manual, intent: 'generate'|'polish', aiHint, setManual(text) })
+   * Or: opsiqueAnchorAiGenerate / opsiqueAnchorAiPolish as before.
+   */
+  function lfcAnchorPromptRunAiAssist(scenarioId, card) {
+    var manualTa = card.querySelector('textarea[data-field="manual"]');
+    var manual = manualTa ? String(manualTa.value || '') : '';
+    var trimmed = manual.trim();
+    var intent = trimmed ? 'polish' : 'generate';
+    var payload = {
+      scenarioId: scenarioId,
+      manual: manual,
+      intent: intent,
+      aiHint: '',
+      setManual: function (text) {
+        if (manualTa) {
+          var m = lfcHostLineMaxChars();
+          var s = text != null ? String(text) : '';
+          if (s.length > m) s = s.slice(0, m);
+          manualTa.value = s;
+          manualTa.setAttribute('data-lfc-host-max', String(m));
+          lfcAnchorPromptDispatchInput(manualTa);
+          lfcUpdateHostLineCharCount(manualTa);
+        }
+      }
+    };
+
+    if (typeof window.opsiqueAnchorAiAssist === 'function') {
+      try {
+        window.opsiqueAnchorAiAssist(payload);
+        return;
+      } catch (e) {}
+    }
+
+    if (!trimmed) {
+      if (typeof window.opsiqueAnchorAiGenerate === 'function') {
+        try {
+          window.opsiqueAnchorAiGenerate({
+            scenarioId: scenarioId,
+            manual: manual,
+            aiHint: '',
+            setManual: payload.setManual
+          });
+          return;
+        } catch (e) {}
+      }
+      if (manualTa) {
+        var m0 = lfcHostLineMaxChars();
+        var tpl = t('live_settings.fc_prompt.default_' + scenarioId);
+        manualTa.value = tpl.length > m0 ? tpl.slice(0, m0) : tpl;
+        lfcAnchorPromptDispatchInput(manualTa);
+        lfcUpdateHostLineCharCount(manualTa);
+        try {
+          manualTa.focus();
+          var n = manualTa.value.length;
+          manualTa.setSelectionRange(n, n);
+        } catch (e2) {}
+        showToast(t('live_settings.fc_prompt_ai_template_applied'), 'success');
+      }
+      return;
+    }
+
+    if (typeof window.opsiqueAnchorAiPolish === 'function') {
+      try {
+        window.opsiqueAnchorAiPolish({
+          scenarioId: scenarioId,
+          manual: manual,
+          aiHint: '',
+          setManual: payload.setManual
+        });
+        return;
+      } catch (e) {}
+    }
+    showToast(t('live_settings.fc_prompt_ai_stub_polish'), 'info');
+  }
+
+  function parseFieldControlModelCopyPath(path) {
+    if (!path || typeof path !== 'string') return null;
+    var m = path.match(/^live\/settings\/field-control\/accounts\/([^/]+)\/models\/([^/]+)\/copy$/);
+    if (m) return { accountId: m[1], modelId: m[2] };
+    var legacy = path.match(/^live\/settings\/field-control\/models\/([^/]+)\/copy$/);
+    if (legacy) return { legacy: true, modelId: legacy[1] };
+    return null;
+  }
+
+  function lfcAnchorCopyUiSetDirty(show) {
+    var el = document.getElementById('lfcAnchorUnsaved');
+    if (el) el.classList.toggle('lfc-anchor-editor__unsaved--hidden', !show);
+  }
+
+  function lfcAnchorCopyRecomputeDirty(accountId, modelId) {
+    if (lfcAnchorCopyBaseline === null) return;
+    var now = JSON.stringify(collectAnchorPromptStateFromDom(accountId, modelId));
+    lfcAnchorCopyDirty = now !== lfcAnchorCopyBaseline;
+    lfcAnchorCopyUiSetDirty(lfcAnchorCopyDirty);
+  }
+
+  function lfcAnchorCopySetBaseline(accountId, modelId) {
+    lfcAnchorCopyBaseline = JSON.stringify(collectAnchorPromptStateFromDom(accountId, modelId));
+    lfcAnchorCopyDirty = false;
+    lfcAnchorCopyUiSetDirty(false);
+  }
+
+  function lfcAnchorCopyResetTracking() {
+    lfcAnchorCopyBaseline = null;
+    lfcAnchorCopyDirty = false;
+    lfcAnchorCopyActiveModelId = null;
+    lfcAnchorCopyActiveAccountId = null;
+    var el = document.getElementById('lfcAnchorUnsaved');
+    if (el) el.classList.add('lfc-anchor-editor__unsaved--hidden');
+  }
+
+  function ensureLfcAnchorCopyBeforeunload() {
+    if (lfcAnchorCopyBeforeunloadBound) return;
+    lfcAnchorCopyBeforeunloadBound = true;
+    window.addEventListener('beforeunload', function (e) {
+      if (!lfcAnchorCopyDirty) return;
+      e.preventDefault();
+      e.returnValue = '';
+    });
+  }
+
+  function bindLfcAnchorCopyPage(accountId, modelId) {
+    if (!modelId || !accountId) return;
+    var root = null;
+    document.querySelectorAll('.lfc-prompt-page').forEach(function (el) {
+      if (el.getAttribute('data-lfc-account-id') === accountId && el.getAttribute('data-lfc-model-id') === modelId) root = el;
+    });
+    if (!root) return;
+    lfcAnchorCopyActiveModelId = modelId;
+    lfcAnchorCopyActiveAccountId = accountId;
+    lfcAnchorCopySetBaseline(accountId, modelId);
+    ensureLfcAnchorCopyBeforeunload();
+    function bump() { lfcAnchorCopyRecomputeDirty(accountId, modelId); }
+    root.addEventListener('input', bump);
+    root.addEventListener('change', bump);
+    root.addEventListener('click', function (e) {
+      var aiIcon = e.target.closest('.lfc-prompt-ai-icon-btn');
+      if (aiIcon) {
+        var sid = aiIcon.getAttribute('data-scenario');
+        var card = aiIcon.closest('.lfc-prompt-card');
+        if (sid && card) {
+          lfcAnchorPromptRunAiAssist(sid, card);
+          setTimeout(bump, 0);
+        }
+      }
+    });
+    function guardNav(e) {
+      if (!lfcAnchorCopyDirty) return;
+      if (!window.confirm(t('live_settings.fc_copy_leave_confirm'))) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }
+    document.querySelectorAll('.lfc-model-copy__crumb-link').forEach(function (a) {
+      a.addEventListener('click', guardNav);
+    });
+    var back = document.querySelector('.live-settings-back');
+    if (back) back.addEventListener('click', guardNav);
+    document.querySelectorAll('.lfc-tabs .lfc-tab').forEach(function (a) {
+      a.addEventListener('click', guardNav);
+    });
+  }
+
   const ROLE_KEY = 'wahool_role';
   const ROUTES = {
     'affiliate/creators': 'creators',
@@ -1537,9 +2165,13 @@
     'affiliate/settlement': 'settlement',
     'benefits-store': 'benefits-store',
     'hosts/hourly-pay-rules': 'hourly-pay-rules',
+    'live/calendar': 'live_calendar',
     'live/schedule': 'live_schedule',
     'live/settings': 'live_settings',
-    'live/settings/flash-sale': 'live_settings_flash_sale'
+    'live/settings/flash-sale': 'live_settings_flash_sale',
+    'live/settings/field-control': 'live_settings_field_control_accounts',
+    'live/settings/field-control/accounts': 'live_settings_field_control_accounts',
+    'live/settings/field-control/models': 'live_settings_field_control_models'
   };
 
   function getRole() { return localStorage.getItem(ROLE_KEY) || 'live'; }
@@ -1612,7 +2244,7 @@
     document.querySelectorAll('.sidebar-primary-icon[data-route]').forEach(function (a) {
       var navRoute = a.getAttribute('data-route');
       var isActive = navRoute === routeId ||
-        (navRoute === 'live_settings' && routeId === 'live_settings_flash_sale') ||
+        (navRoute === 'live_settings' && (routeId === 'live_settings_flash_sale' || routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy')) ||
         (navRoute === 'tenant_center_shared' && routeId === 'analytics');
       a.classList.toggle('active', isActive);
     });
@@ -6968,6 +7600,8 @@
   var lsTargetsPeriodStartFilter = '';
   // 主播排期列表：按「直播场次」维度 + 状态 Tab（暂存/待确认/待同步/待直播/直播中/已直播）
   var lsSessionListFilter = { tab: 'draft', q: '' };
+  /** 主播排期日历当前展示月 YYYY-MM */
+  var lcCalMonthStr = '';
 
   /** i18n helper: replace {0} {1} in t(key) */
   function lsT(key, a0, a1) {
@@ -8533,6 +9167,163 @@
     return renderLiveScheduleBatchesTab();
   }
 
+  function lcCalPad2(n) { return (n < 10 ? '0' : '') + n; }
+
+  function lcCalEnsureMonth() {
+    if (!lcCalMonthStr) {
+      var n = new Date();
+      lcCalMonthStr = n.getFullYear() + '-' + lcCalPad2(n.getMonth() + 1);
+    }
+  }
+
+  function lcCalShiftMonth(delta) {
+    lcCalEnsureMonth();
+    var p = lcCalMonthStr.split('-');
+    var y = parseInt(p[0], 10);
+    var m = parseInt(p[1], 10) - 1;
+    var d = new Date(y, m + delta, 1);
+    lcCalMonthStr = d.getFullYear() + '-' + lcCalPad2(d.getMonth() + 1);
+  }
+
+  function lcCalCollectSessionsByDate() {
+    lsLoadOrSeed();
+    lsRecomputeBatchStatuses();
+    var byDate = {};
+    (lsScheduleBatches || []).forEach(function (b) {
+      (b.sessions || []).forEach(function (s) {
+        if (!s || s.cancelled) return;
+        var ps = s.plannedStartAt || '';
+        if (!ps) return;
+        var dateStr = lsDateStrFromDateTime(ps);
+        if (!dateStr) return;
+        if (!byDate[dateStr]) byDate[dateStr] = [];
+        var st = lsComputeSessionRowStatus(b, s);
+        byDate[dateStr].push({ batchId: b.id, session: s, status: st });
+      });
+    });
+    Object.keys(byDate).forEach(function (d) {
+      byDate[d].sort(function (a, b) {
+        return (lsStrToMs(a.session.plannedStartAt || '') - lsStrToMs(b.session.plannedStartAt || ''));
+      });
+    });
+    return byDate;
+  }
+
+  function renderLiveScheduleCalendarPage() {
+    lcCalEnsureMonth();
+    var parts = lcCalMonthStr.split('-');
+    var y = parseInt(parts[0], 10);
+    var m0 = parseInt(parts[1], 10) - 1;
+    var monthLabel = new Date(y, m0, 1).toLocaleString(getLang() === 'zh' ? 'zh-CN' : 'en-US', { month: 'long', year: 'numeric' });
+    var firstDow = new Date(y, m0, 1).getDay();
+    var firstMon = (firstDow + 6) % 7;
+    var dim = new Date(y, m0 + 1, 0).getDate();
+    var totalCells = Math.ceil((firstMon + dim) / 7) * 7;
+    var byDate = lcCalCollectSessionsByDate();
+    var tn = new Date();
+    var todayStr = tn.getFullYear() + '-' + lcCalPad2(tn.getMonth() + 1) + '-' + lcCalPad2(tn.getDate());
+    var isZh = getLang() === 'zh';
+    var wds = isZh ? ['一', '二', '三', '四', '五', '六', '日'] : ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'];
+    var weekHeader = '<div class="lc-cal-weekdays">' + wds.map(function (w) {
+      return '<div class="lc-cal-weekday">' + lsEscHtml(w) + '</div>';
+    }).join('') + '</div>';
+
+    var cells = [];
+    for (var i = 0; i < totalCells; i++) {
+      if (i < firstMon || (i - firstMon + 1) > dim) {
+        cells.push('<div class="lc-cal-cell lc-cal-cell--pad" aria-hidden="true"></div>');
+        continue;
+      }
+      var dayNum = i - firstMon + 1;
+      var dateStr = y + '-' + lcCalPad2(m0 + 1) + '-' + lcCalPad2(dayNum);
+      var list = byDate[dateStr] || [];
+      var isToday = dateStr === todayStr;
+      var maxShow = 3;
+      var shown = list.slice(0, maxShow);
+      var rest = Math.max(0, list.length - maxShow);
+
+      var evHtml = shown.map(function (item) {
+        var s = item.session;
+        var st = item.status || '';
+        var stCls = st ? (' lc-cal-event--' + st) : '';
+        var dd = lsSessionDetailDisplay(s);
+        var rawTitle = (dd.subject || s.eventName || '').trim() || (s.liveAccountUsername || '');
+        var disp = rawTitle.length > 36 ? rawTitle.slice(0, 36) + '…' : rawTitle;
+        var dispEsc = lsEscHtml(disp);
+        var tm = lsTimeStrFromDateTime(s.plannedStartAt || '') || '';
+        return '<button type="button" class="lc-cal-event' + stCls + '" title="' + lsEscHtml(rawTitle) + '">' +
+          '<span class="lc-cal-event-time">' + lsEscHtml(tm) + '</span>' +
+          '<span class="lc-cal-event-title">' + dispEsc + '</span></button>';
+      }).join('');
+
+      if (rest > 0) {
+        evHtml += '<div class="lc-cal-more">' + lsEscHtml(t('lc.more').replace('{0}', String(rest))) + '</div>';
+      }
+
+      var dayLabel = String(dayNum);
+      cells.push(
+        '<div class="lc-cal-cell lc-cal-cell--day' + (isToday ? ' lc-cal-cell--today' : '') + '" data-lc-date="' + dateStr + '">' +
+        '<div class="lc-cal-daynum">' + lsEscHtml(dayLabel) + '</div>' +
+        '<div class="lc-cal-day-body">' + (evHtml || '<span class="lc-cal-empty-day">' + lsEscHtml(t('lc.empty_day')) + '</span>') + '</div>' +
+        '</div>'
+      );
+    }
+
+    var legendItems = [
+      '<span class="lc-cal-legend-item"><i class="lc-cal-dot lc-cal-dot--draft"></i>' + lsEscHtml(t('ls.sess.draft')) + '</span>',
+      '<span class="lc-cal-legend-item"><i class="lc-cal-dot lc-cal-dot--pending_confirm"></i>' + lsEscHtml(t('ls.sess.pending_confirm')) + '</span>',
+      '<span class="lc-cal-legend-item"><i class="lc-cal-dot lc-cal-dot--pending_sync"></i>' + lsEscHtml(t('ls.sess.pending_sync')) + '</span>',
+      '<span class="lc-cal-legend-item"><i class="lc-cal-dot lc-cal-dot--pending_live"></i>' + lsEscHtml(t('ls.sess.pending_live')) + '</span>',
+      '<span class="lc-cal-legend-item"><i class="lc-cal-dot lc-cal-dot--live"></i>' + lsEscHtml(t('ls.sess.live')) + '</span>',
+      '<span class="lc-cal-legend-item"><i class="lc-cal-dot lc-cal-dot--ended"></i>' + lsEscHtml(t('ls.sess.ended')) + '</span>'
+    ].join('');
+
+    return '' +
+      '<div class="ha-settle-content lc-live-schedule-cal" id="lcCalRoot">' +
+      '<div class="ha-settle-card">' +
+      '<div class="ha-settle-intro lc-cal-intro">' +
+      '<h3 class="ha-rules-title">' + t('lc.title') + '</h3>' +
+      '<p class="ha-settle-desc">' + t('lc.intro') + '</p>' +
+      '</div>' +
+      '<div class="lc-cal-toolbar">' +
+      '<div class="lc-cal-toolbar-left">' +
+      '<button type="button" class="btn btn-ghost btn-sm" id="lcCalPrev" aria-label="' + lsEscHtml(t('lc.prev_month')) + '"><i class="fas fa-chevron-left"></i></button>' +
+      '<button type="button" class="btn btn-ghost btn-sm" id="lcCalNext" aria-label="' + lsEscHtml(t('lc.next_month')) + '"><i class="fas fa-chevron-right"></i></button>' +
+      '<button type="button" class="btn btn-secondary btn-sm" id="lcCalToday">' + lsEscHtml(t('lc.today')) + '</button>' +
+      '</div>' +
+      '<div class="lc-cal-toolbar-center">' + lsEscHtml(monthLabel) + '</div>' +
+      '<div class="lc-cal-toolbar-right">' +
+      '<a class="btn btn-primary btn-sm" id="lcCalGoSchedule" href="#/live/schedule">' + lsEscHtml(t('lc.open_schedule')) + '</a>' +
+      '</div>' +
+      '</div>' +
+      '<div class="lc-cal-legend">' + legendItems + '</div>' +
+      weekHeader +
+      '<div class="lc-cal-grid">' + cells.join('') + '</div>' +
+      '</div>' +
+      '</div>';
+  }
+
+  function bindLiveCalendarEvents() {
+    var prev = document.getElementById('lcCalPrev');
+    var next = document.getElementById('lcCalNext');
+    var todayBtn = document.getElementById('lcCalToday');
+    var root = document.getElementById('lcCalRoot');
+    if (prev) prev.addEventListener('click', function () { lcCalShiftMonth(-1); render('live_calendar'); });
+    if (next) next.addEventListener('click', function () { lcCalShiftMonth(1); render('live_calendar'); });
+    if (todayBtn) todayBtn.addEventListener('click', function () {
+      var n = new Date();
+      lcCalMonthStr = n.getFullYear() + '-' + lcCalPad2(n.getMonth() + 1);
+      render('live_calendar');
+    });
+    if (root) root.addEventListener('click', function (e) {
+      var ev = e.target && e.target.closest && e.target.closest('.lc-cal-event');
+      if (ev) {
+        e.preventDefault();
+        window.location.hash = '#/live/schedule';
+      }
+    });
+  }
+
   function renderLiveScheduleHostAvailTab() {
     var weekStart = lsActiveWeekStart;
     if (!weekStart) {
@@ -9036,7 +9827,16 @@
       ended: 'fa-flag-checkered'
     };
     var sessStatusCounts = lsCountSessionsByStatus();
-    var tabHtml = '<div class="or-tabs" id="lsSessionTabs">' + tabDef.map(function (t) {
+    var fixIssueCount = 0;
+    try {
+      fixIssueCount = (typeof haLiveSessionAbnormalCount === 'function')
+        ? (haLiveSessionAbnormalCount() || 0)
+        : 0;
+    } catch (e) {
+      fixIssueCount = 0;
+    }
+    var fixIssueLabel = t('ls.btn.fix_issue') + ' (' + fixIssueCount + ')';
+    var tabsOnlyHtml = '<div class="or-tabs" id="lsSessionTabs">' + tabDef.map(function (t) {
       var on = t.key === activeTab;
       var cnt = sessStatusCounts[t.key] != null ? sessStatusCounts[t.key] : 0;
       var ic = sessTabIcons[t.key] || 'fa-circle';
@@ -9044,6 +9844,11 @@
         '<i class="fas ' + ic + '"></i> ' + t.label +
         '<span class="or-tab-count">' + cnt + '</span></button>';
     }).join('') + '</div>';
+    var tabHtml = '' +
+      '<div class="ls-sess-tabs-head" style="display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">' +
+      tabsOnlyHtml +
+      '<button type="button" class="btn btn-secondary btn-sm" id="lsFixIssueEntry"><i class="fas fa-exclamation-triangle"></i> ' + lsEscHtml(fixIssueLabel) + '</button>' +
+      '</div>';
 
     var qRaw = (lsSessionListFilter.q || '').trim().toLowerCase();
 
@@ -10659,6 +11464,16 @@
         return;
       }
 
+      // 主播排期：快捷入口 -> 租户中心「主播直播场次」处理异常
+      var fixIssueEntryBtn = target.closest && target.closest('#lsFixIssueEntry');
+      if (fixIssueEntryBtn) {
+        tcPanel = 'ha_settlement';
+        haSettleActiveTab = 'past_lives';
+        haPastLivesView = 'abnormal';
+        window.location.hash = '#/tenant-center';
+        return;
+      }
+
       // Host matrix: week switching
       var weekPrevBtn = target.closest && target.closest('#lsWeekPrev');
       if (weekPrevBtn) {
@@ -11701,6 +12516,601 @@
     }
   }
 
+  function renderLiveSettingsFieldControlShell(activeTab, bodyHtml) {
+    var isAccounts = activeTab === 'accounts';
+    var isModels = activeTab === 'models';
+    return (
+      '<div class="live-settings-detail-page lfc-page">' +
+        '<div class="live-settings-detail-top">' +
+          '<a class="live-settings-back" href="#/live/settings"><i class="fas fa-arrow-left"></i><span>' + t('live_settings.back') + '</span></a>' +
+        '</div>' +
+        '<div class="lfc-hero">' +
+          '<h1 class="page-title lfc-page-title">' + t('live_settings.fc_title') + '</h1>' +
+          '<p class="lfc-page__sub">' + t('live_settings.fc_page_sub') + '</p>' +
+        '</div>' +
+        '<div class="lfc-tabs">' +
+          '<a class="lfc-tab' + (isAccounts ? ' lfc-tab--active' : '') + '" href="#/live/settings/field-control/accounts">' + t('live_settings.fc_tab_accounts') + '</a>' +
+          '<a class="lfc-tab' + (isModels ? ' lfc-tab--active' : '') + '" href="#/live/settings/field-control/models">' + t('live_settings.fc_tab_models') + '</a>' +
+        '</div>' +
+        '<div class="lfc-tab-panel">' + bodyHtml + '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderFieldControlModelsBody() {
+    var cards = fieldControlCatalog.map(function (m) {
+      var foot;
+      if (!m.anchorCopy) {
+        foot = '<p class="lfc-model-card__no-anchor">' + t('live_settings.fc_model_no_anchor_copy') + '</p>';
+      } else {
+        var bound = fieldControlAccountsBoundToModel(m.id);
+        if (!bound.length) {
+          foot = '<p class="lfc-model-card__no-anchor">' + t('live_settings.fc_model_copy_need_binding') + '</p>';
+        } else {
+          foot =
+            '<p class="lfc-model-card__no-anchor lfc-model-card__anchor-hint">' +
+            t('live_settings.fc_model_copy_edit_on_accounts') +
+            '</p>';
+        }
+      }
+      return (
+        '<div class="lfc-model-card">' +
+          '<div class="lfc-model-card__top">' +
+            '<span class="lfc-model-card__badge">' + t('live_settings.fc_model_badge') + '</span>' +
+          '</div>' +
+          '<h3 class="lfc-model-card__name">' + t(m.nameKey) + '</h3>' +
+          '<p class="lfc-model-card__desc">' + t(m.descKey) + '</p>' +
+          '<p class="lfc-model-card__id"><code>' + lsEscHtml(m.id) + '</code></p>' +
+          foot +
+        '</div>'
+      );
+    });
+    return (
+      '<div class="lfc-card lfc-card--flush">' +
+        '<section class="lfc-section">' +
+          '<p class="lfc-section__lede">' + t('live_settings.fc_models_intro') + '</p>' +
+          '<div class="lfc-model-grid">' + cards.join('') + '</div>' +
+        '</section>' +
+      '</div>'
+    );
+  }
+
+  function renderFieldControlAccountsBody() {
+    var am = normalizeFieldControlAccountModel(fieldControlState.accountModel || {});
+    var bindings = [];
+    tenantLiveAccountsFieldControl.forEach(function (acc) {
+      var mids = am[acc.id];
+      if (!mids || !mids.length) return;
+      mids.forEach(function (mid) {
+        bindings.push({ acc: acc, mid: mid });
+      });
+    });
+    bindings.sort(function (a, b) {
+      var c = String(a.acc.name || '').localeCompare(String(b.acc.name || ''));
+      if (c !== 0) return c;
+      return String(fieldControlModelDisplayName(a.mid)).localeCompare(String(fieldControlModelDisplayName(b.mid)));
+    });
+    var rowHtml = bindings.map(function (b) {
+      var label = fieldControlModelDisplayName(b.mid);
+      var cmRow = fieldControlCatalogFind(b.mid);
+      var copyLink =
+        cmRow && cmRow.anchorCopy
+          ? '<a class="btn btn-secondary btn-sm lfc-acc-anchor-copy" href="#/live/settings/field-control/accounts/' +
+            encodeURIComponent(b.acc.id) +
+            '/models/' +
+            encodeURIComponent(b.mid) +
+            '/copy">' +
+            t('live_settings.fc_model_configure_copy') +
+            '</a>'
+          : '';
+      return (
+        '<tr class="lfc-table-row">' +
+          '<td class="lfc-table-cell">' + lsEscHtml(b.acc.name) + '</td>' +
+          '<td class="lfc-table-cell"><span class="lfc-region-tag">' + lsEscHtml(b.acc.region) + '</span></td>' +
+          '<td class="lfc-table-cell">' + lsEscHtml(label) + '</td>' +
+          '<td class="lfc-table-cell lfc-table-cell--actions">' +
+            '<span class="lfc-table-actions">' +
+            copyLink +
+            '<button type="button" class="btn btn-secondary btn-sm lfc-acc-remove" data-account-id="' + lsEscHtml(b.acc.id) + '" data-model-id="' + lsEscHtml(b.mid) + '">' + t('live_settings.fc_remove') + '</button>' +
+            '</span>' +
+          '</td>' +
+        '</tr>'
+      );
+    });
+    var modalModelRows = fieldControlCatalog.map(function (m) {
+      return (
+        '<label class="lfc-modal-acc-row lfc-modal-model-row">' +
+          '<input type="checkbox" class="lfc-modal-model-cb" data-model-id="' + lsEscHtml(m.id) + '" />' +
+          '<span class="lfc-modal-acc-meta">' +
+            '<span class="lfc-modal-acc-name">' + lsEscHtml(t(m.nameKey)) + '</span>' +
+            '<span class="lfc-modal-model-id"><code>' + lsEscHtml(m.id) + '</code></span>' +
+          '</span>' +
+        '</label>'
+      );
+    }).join('');
+    var modalRows = tenantLiveAccountsFieldControl.map(function (acc) {
+      var handlePlain = String(acc.handle || '').replace(/^@+/, '');
+      var searchRaw = (acc.name + ' ' + acc.handle + ' ' + handlePlain + ' ' + acc.region).toLowerCase();
+      return (
+        '<label class="lfc-modal-acc-row" data-lfc-search="' + lsEscHtml(searchRaw) + '">' +
+          '<input type="checkbox" class="lfc-modal-acc-cb" data-account-id="' + acc.id + '" />' +
+          '<span class="lfc-modal-acc-meta">' +
+            '<span class="lfc-modal-acc-name">' + lsEscHtml(acc.name) + '</span>' +
+            '<span class="lfc-modal-acc-sub">' + lsEscHtml(acc.handle) + '</span>' +
+            '<span class="lfc-region-tag lfc-region-tag--compact">' + lsEscHtml(acc.region) + '</span>' +
+          '</span>' +
+        '</label>'
+      );
+    });
+    var hasRows = bindings.length > 0;
+    return (
+      '<div class="lfc-card">' +
+        '<div class="lfc-accounts-toolbar">' +
+          '<p class="lfc-section__lede lfc-card__lede--toolbar">' + t('live_settings.fc_accounts_intro') + '</p>' +
+          '<button type="button" class="btn btn-primary lfc-open-add-modal">' + t('live_settings.fc_add_config') + '</button>' +
+        '</div>' +
+        (hasRows
+          ? '<div class="lfc-table-wrap">' +
+            '<table class="lfc-table">' +
+              '<thead><tr>' +
+                '<th>' + t('live_settings.fc_col_account') + '</th>' +
+                '<th>' + t('live_settings.fc_col_region') + '</th>' +
+                '<th>' + t('live_settings.fc_col_current_model') + '</th>' +
+                '<th>' + t('live_settings.fc_col_actions') + '</th>' +
+              '</tr></thead>' +
+              '<tbody>' + rowHtml.join('') + '</tbody>' +
+            '</table>' +
+          '</div>'
+          : '<div class="lfc-accounts-empty">' +
+            '<div class="lfc-accounts-empty__icon" aria-hidden="true"><i class="fas fa-inbox"></i></div>' +
+            '<p class="lfc-accounts-empty__title">' + t('live_settings.fc_empty_title') + '</p>' +
+            '<p class="lfc-accounts-empty__desc">' + t('live_settings.fc_empty_desc') + '</p>' +
+          '</div>') +
+      '</div>' +
+      '<div class="lfc-modal-overlay lfc-modal-overlay--hidden" id="lfcAddConfigOverlay">' +
+        '<div class="lfc-modal" role="dialog" aria-modal="true" aria-labelledby="lfcAddConfigTitle" aria-describedby="lfcModalSubtitle" tabindex="-1">' +
+          '<div class="lfc-modal__head">' +
+            '<div class="lfc-modal__head-text">' +
+              '<h3 class="lfc-modal__title" id="lfcAddConfigTitle">' + t('live_settings.fc_modal_title') + '</h3>' +
+              '<p class="lfc-modal__subtitle" id="lfcModalSubtitle">' + t('live_settings.fc_modal_subtitle') + '</p>' +
+            '</div>' +
+            '<button type="button" class="lfc-modal__close lfc-add-modal-close" aria-label="' + lsEscHtml(t('common.close')) + '"><i class="fas fa-times"></i></button>' +
+          '</div>' +
+          '<div class="lfc-modal__body">' +
+            '<div class="lfc-modal__section">' +
+              '<div class="lfc-modal__section-head">' +
+                '<span class="lfc-modal__step" aria-hidden="true">1</span>' +
+                '<p class="lfc-modal__section-title">' + t('live_settings.fc_modal_step1') + '</p>' +
+              '</div>' +
+              '<div class="lfc-modal__field">' +
+                '<label class="lfc-modal__label" for="lfcModalSearch">' + t('live_settings.fc_modal_accounts_label') + '</label>' +
+                '<div class="lfc-modal__search-wrap">' +
+                  '<span class="lfc-modal__search-icon" aria-hidden="true"><i class="fas fa-search"></i></span>' +
+                  '<input type="search" id="lfcModalSearch" class="lfc-modal__search" placeholder="' + lsEscHtml(t('live_settings.fc_modal_search_ph')) + '" autocomplete="off" />' +
+                '</div>' +
+                '<p class="lfc-modal__search-hint" id="lfcModalSearchHint">' + t('live_settings.fc_modal_search_expand_hint') + '</p>' +
+              '</div>' +
+              '<div class="lfc-modal__list lfc-modal__list-scroll" id="lfcModalAccountList">' + modalRows.join('') + '</div>' +
+            '</div>' +
+            '<div class="lfc-modal__section lfc-modal__section--last">' +
+              '<div class="lfc-modal__section-head">' +
+                '<span class="lfc-modal__step" aria-hidden="true">2</span>' +
+                '<p class="lfc-modal__section-title">' + t('live_settings.fc_modal_step2') + '</p>' +
+              '</div>' +
+              '<div class="lfc-modal__field">' +
+                '<span class="lfc-modal__label" id="lfcModalModelsLabel">' + t('live_settings.fc_modal_models_label') + '</span>' +
+                '<p class="lfc-modal__search-hint lfc-modal-models-hint">' + t('live_settings.fc_modal_models_hint') + '</p>' +
+                '<div class="lfc-modal__list lfc-modal__list--open lfc-modal-model-list lfc-modal__list-scroll" id="lfcModalModelList" role="group" aria-labelledby="lfcModalModelsLabel">' +
+                  modalModelRows +
+                '</div>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+          '<div class="lfc-modal__foot">' +
+            '<div class="lfc-modal__foot-inner">' +
+              '<p class="lfc-modal__summary" id="lfcModalSummary" role="status" aria-live="polite"></p>' +
+              '<div class="lfc-modal__foot-actions">' +
+                '<button type="button" class="btn btn-secondary lfc-add-modal-close">' + t('common.cancel') + '</button>' +
+                '<button type="button" class="btn btn-primary" id="lfcModalConfirm" disabled>' + t('live_settings.fc_modal_confirm') + '</button>' +
+              '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderFieldControlPromptScenarioCard(id, st, defs) {
+    var cur = st[id] || defs[id];
+    var manualVal = cur.manual != null ? String(cur.manual) : '';
+    var maxC = lfcHostLineMaxChars();
+    var showVal = manualVal.length > maxC ? manualVal.slice(0, maxC) : manualVal;
+    var countDisp = showVal.length;
+    return (
+      '<div class="lfc-prompt-card lfc-card" data-prompt-scenario="' + id + '">' +
+        '<div class="lfc-prompt-card__head">' +
+          '<div class="lfc-prompt-card__titles">' +
+            '<h3 class="lfc-prompt-card__title">' + t('live_settings.fc_prompt.title_' + id) + '</h3>' +
+            '<p class="lfc-prompt-card__desc">' + t('live_settings.fc_prompt.desc_' + id) + '</p>' +
+          '</div>' +
+          '<code class="lfc-prompt-code">' + id + '</code>' +
+        '</div>' +
+        '<div class="lfc-prompt-editor">' +
+          '<div class="lfc-prompt-editor__block">' +
+            '<label class="lfc-prompt-label" for="lfc-prompt-manual-' + id + '">' + t('live_settings.fc_prompt_field_manual') + '</label>' +
+            '<div class="lfc-prompt-field">' +
+              '<textarea id="lfc-prompt-manual-' + id + '" class="lfc-prompt-textarea lfc-prompt-textarea--with-ai" data-scenario="' + id + '" data-field="manual" data-lfc-host-max="' + maxC + '" maxlength="' + maxC + '" rows="4" autocomplete="off">' + lsEscHtml(showVal) + '</textarea>' +
+              '<button type="button" class="lfc-prompt-ai-icon-btn" data-scenario="' + id + '" aria-label="' + lsEscHtml(t('live_settings.fc_prompt_ai_icon_a11y')) + '" title="' + lsEscHtml(t('live_settings.fc_prompt_ai_icon_a11y')) + '">' +
+                '<i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i>' +
+              '</button>' +
+            '</div>' +
+            '<div class="lfc-prompt-meta">' +
+              '<span class="lfc-prompt-char-hint">' + t('live_settings.fc_prompt_char_limit_hint') + '</span>' +
+              '<span class="lfc-prompt-charcount' + (countDisp >= maxC ? ' lfc-prompt-charcount--warn' : countDisp >= Math.floor(maxC * 0.9) ? ' lfc-prompt-charcount--near' : '') + '" aria-live="polite">' + countDisp + ' / ' + maxC + '</span>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+        '<div class="lfc-prompt-card__footer">' +
+          '<button type="button" class="btn btn-secondary btn-sm lfc-prompt-reset-one" data-scenario="' + id + '">' + t('live_settings.fc_prompt_reset_one') + '</button>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderFieldControlModelCopyBody(accountId, modelId) {
+    var defs = buildDefaultAnchorScenarios();
+    var bm = anchorPromptState.byAccountModel && anchorPromptState.byAccountModel[accountId] && anchorPromptState.byAccountModel[accountId][modelId];
+    var st = (bm && bm.scenarios) ? bm.scenarios : defs;
+    var keepCards = anchorPromptScenarioIdsKeep.map(function (id) {
+      return renderFieldControlPromptScenarioCard(id, st, defs);
+    }).join('');
+    var switchCards = anchorPromptScenarioIdsSwitch.map(function (id) {
+      return renderFieldControlPromptScenarioCard(id, st, defs);
+    }).join('');
+    var escMid = lsEscHtml(modelId);
+    var escAid = lsEscHtml(accountId);
+    var cat = fieldControlCatalogFind(modelId);
+    var modelTitle = cat ? t(cat.nameKey) : modelId;
+    var acc = fieldControlTenantAccountById(accountId);
+    var accountLine = acc ? lsEscHtml(acc.name) : escAid;
+    var keepN = anchorPromptScenarioIdsKeep.length;
+    var switchN = anchorPromptScenarioIdsSwitch.length;
+    var keepCountLabel = t('live_settings.fc_prompt_group_scenarios').replace(/\{\{n\}\}/g, String(keepN));
+    var switchCountLabel = t('live_settings.fc_prompt_group_scenarios').replace(/\{\{n\}\}/g, String(switchN));
+    return (
+      '<div class="lfc-model-copy">' +
+        '<nav class="lfc-model-copy__breadcrumb" aria-label="' + lsEscHtml(t('live_settings.fc_copy_breadcrumb_a11y')) + '">' +
+          '<a class="lfc-model-copy__crumb-link" href="#/live/settings/field-control/models">' + t('live_settings.fc_tab_models') + '</a>' +
+          '<span class="lfc-model-copy__crumb-sep" aria-hidden="true">/</span>' +
+          '<span class="lfc-model-copy__crumb-current">' + t('live_settings.fc_copy_page_title') + '</span>' +
+        '</nav>' +
+        '<header class="lfc-model-copy__header">' +
+          '<h2 class="lfc-model-copy__heading">' + t('live_settings.fc_copy_page_title') + '</h2>' +
+          '<p class="lfc-model-copy__account-line">' + accountLine + '</p>' +
+          '<p class="lfc-model-copy__model-name">' + lsEscHtml(modelTitle) + '</p>' +
+          '<p class="lfc-model-copy__model-id"><code>' + escMid + '</code></p>' +
+          '<p class="lfc-section__lede lfc-model-copy__lede">' + t('live_settings.fc_prompt_intro') + '</p>' +
+        '</header>' +
+        '<div class="lfc-anchor-editor" id="lfcAnchorEditor">' +
+          '<div class="lfc-anchor-editor__toolbar">' +
+            '<div class="lfc-anchor-editor__toolbar-left">' +
+              '<span id="lfcAnchorUnsaved" class="lfc-anchor-editor__unsaved lfc-anchor-editor__unsaved--hidden" role="status" aria-live="polite">' + t('live_settings.fc_copy_unsaved') + '</span>' +
+            '</div>' +
+            '<div class="lfc-anchor-editor__actions">' +
+              '<button type="button" class="btn btn-secondary btn-sm" id="lfcPromptResetAll" data-lfc-account-id="' + escAid + '" data-lfc-model-id="' + escMid + '">' + t('live_settings.fc_prompt_reset_all') + '</button>' +
+              '<button type="button" class="btn btn-primary" id="lfcPromptSave" data-lfc-account-id="' + escAid + '" data-lfc-model-id="' + escMid + '">' + t('live_settings.fc_prompt_save') + '</button>' +
+            '</div>' +
+          '</div>' +
+          '<div class="lfc-anchor-editor__body">' +
+            '<div class="lfc-prompt-page" data-lfc-account-id="' + escAid + '" data-lfc-model-id="' + escMid + '">' +
+              '<section class="lfc-prompt-group lfc-prompt-group--keep" aria-labelledby="lfc-prompt-group-keep">' +
+                '<div class="lfc-prompt-group__head">' +
+                  '<span class="lfc-prompt-group__accent" aria-hidden="true"></span>' +
+                  '<div class="lfc-prompt-group__head-text">' +
+                    '<div class="lfc-prompt-group__title-row">' +
+                      '<h3 class="lfc-prompt-group__title" id="lfc-prompt-group-keep">' + t('live_settings.fc_prompt_group_keep') + '</h3>' +
+                      '<span class="lfc-prompt-group__count">' + lsEscHtml(keepCountLabel) + '</span>' +
+                    '</div>' +
+                    '<p class="lfc-prompt-group__lede">' + t('live_settings.fc_prompt_group_keep_desc') + '</p>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="lfc-prompt-card-list">' + keepCards + '</div>' +
+              '</section>' +
+              '<section class="lfc-prompt-group lfc-prompt-group--switch" aria-labelledby="lfc-prompt-group-switch">' +
+                '<div class="lfc-prompt-group__head">' +
+                  '<span class="lfc-prompt-group__accent" aria-hidden="true"></span>' +
+                  '<div class="lfc-prompt-group__head-text">' +
+                    '<div class="lfc-prompt-group__title-row">' +
+                      '<h3 class="lfc-prompt-group__title" id="lfc-prompt-group-switch">' + t('live_settings.fc_prompt_group_switch') + '</h3>' +
+                      '<span class="lfc-prompt-group__count">' + lsEscHtml(switchCountLabel) + '</span>' +
+                    '</div>' +
+                    '<p class="lfc-prompt-group__lede">' + t('live_settings.fc_prompt_group_switch_desc') + '</p>' +
+                  '</div>' +
+                '</div>' +
+                '<div class="lfc-prompt-card-list">' + switchCards + '</div>' +
+              '</section>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderLiveSettingsFieldControlForRoute(routeId) {
+    var tab = 'accounts';
+    var body = renderFieldControlAccountsBody();
+    if (routeId === 'live_settings_field_control_models') {
+      tab = 'models';
+      body = renderFieldControlModelsBody();
+    } else if (routeId === 'live_settings_field_control_model_copy') {
+      tab = 'models';
+      body =
+        fieldControlAnchorCopyModelId && fieldControlAnchorCopyAccountId
+          ? renderFieldControlModelCopyBody(fieldControlAnchorCopyAccountId, fieldControlAnchorCopyModelId)
+          : renderFieldControlModelsBody();
+    }
+    return renderLiveSettingsFieldControlShell(tab, body);
+  }
+
+  function fieldControlReloadCurrentView() {
+    anchorPromptState = loadAnchorPromptState();
+    var path = getRoute();
+    var routeId = ROUTES[path];
+    fieldControlAnchorCopyModelId = null;
+    fieldControlAnchorCopyAccountId = null;
+    if (!routeId) {
+      var copyParsed = parseFieldControlModelCopyPath(path);
+      if (copyParsed) {
+        if (copyParsed.legacy && copyParsed.modelId) {
+          window.location.hash = fieldControlResolveCopyLegacyRedirect(copyParsed.modelId);
+          return;
+        }
+        if (copyParsed.accountId && copyParsed.modelId && fieldControlCopyRouteValid(copyParsed.accountId, copyParsed.modelId)) {
+          routeId = 'live_settings_field_control_model_copy';
+          fieldControlAnchorCopyModelId = copyParsed.modelId;
+          fieldControlAnchorCopyAccountId = copyParsed.accountId;
+        } else if (copyParsed.accountId && copyParsed.modelId) {
+          window.location.hash = '#/live/settings/field-control/models';
+          return;
+        }
+      }
+    }
+    if (routeId !== 'live_settings_field_control_models' && routeId !== 'live_settings_field_control_accounts' && routeId !== 'live_settings_field_control_model_copy') return;
+    var app = document.getElementById('app');
+    if (!app) return;
+    app.innerHTML = renderLiveSettingsFieldControlForRoute(routeId);
+    bindFieldControlPageEvents();
+  }
+
+  function fieldControlModalTokenMatchesBlob(blob, token) {
+    if (!token || !token.length) return true;
+    if (blob.indexOf(token) !== -1) return true;
+    if (token.length < 2) return false;
+    var i = 0;
+    for (var c = 0; c < blob.length && i < token.length; c++) {
+      if (blob.charAt(c) === token.charAt(i)) i++;
+    }
+    return i === token.length;
+  }
+
+  function fieldControlModalSyncConfirmState() {
+    var nAcc = document.querySelectorAll('.lfc-modal-acc-cb:checked').length;
+    var nModel = document.querySelectorAll('.lfc-modal-model-cb:checked').length;
+    var sumEl = document.getElementById('lfcModalSummary');
+    var btn = document.getElementById('lfcModalConfirm');
+    if (sumEl) {
+      sumEl.textContent = nAcc > 0 && nModel > 0
+        ? t('live_settings.fc_modal_summary_counts').replace(/\{\{ac\}\}/g, String(nAcc)).replace(/\{\{mc\}\}/g, String(nModel))
+        : t('live_settings.fc_modal_summary_incomplete');
+    }
+    if (btn) btn.disabled = nAcc === 0 || nModel === 0;
+  }
+
+  function fieldControlModalFilter(searchEl) {
+    var raw = (searchEl && searchEl.value != null ? String(searchEl.value) : '').trim();
+    var lower = raw.toLowerCase();
+    var tokens = lower.split(/\s+/).filter(function (t) { return t.length > 0; });
+    var accList = document.getElementById('lfcModalAccountList');
+    if (!accList) return;
+    accList.querySelectorAll('.lfc-modal-acc-row').forEach(function (row) {
+      var blob = (row.getAttribute('data-lfc-search') || '').toLowerCase();
+      var hide = false;
+      if (tokens.length) {
+        hide = !tokens.every(function (tok) {
+          var stripped = tok.indexOf('@') === 0 ? tok.slice(1) : tok;
+          return fieldControlModalTokenMatchesBlob(blob, tok) || fieldControlModalTokenMatchesBlob(blob, stripped);
+        });
+      }
+      row.classList.toggle('lfc-modal-acc-row--hidden', hide);
+    });
+  }
+
+  function fieldControlModalExpandAccountList() {
+    var list = document.getElementById('lfcModalAccountList');
+    var hint = document.getElementById('lfcModalSearchHint');
+    if (list) list.classList.add('lfc-modal__list--open');
+    if (hint) hint.classList.add('lfc-modal__search-hint--hidden');
+    var searchEl = document.getElementById('lfcModalSearch');
+    fieldControlModalFilter(searchEl || { value: '' });
+  }
+
+  function fieldControlOpenAddModal() {
+    var overlay = document.getElementById('lfcAddConfigOverlay');
+    if (!overlay) return;
+    overlay.classList.remove('lfc-modal-overlay--hidden');
+    document.querySelectorAll('.lfc-modal-acc-cb').forEach(function (cb) { cb.checked = false; });
+    var list = document.getElementById('lfcModalAccountList');
+    if (list) list.classList.remove('lfc-modal__list--open');
+    var hint = document.getElementById('lfcModalSearchHint');
+    if (hint) hint.classList.remove('lfc-modal__search-hint--hidden');
+    var search = document.getElementById('lfcModalSearch');
+    if (search) search.value = '';
+    var accListReset = document.getElementById('lfcModalAccountList');
+    if (accListReset) {
+      accListReset.querySelectorAll('.lfc-modal-acc-row').forEach(function (row) {
+        row.classList.remove('lfc-modal-acc-row--hidden');
+      });
+    }
+    document.querySelectorAll('.lfc-modal-model-cb').forEach(function (cb) { cb.checked = false; });
+    fieldControlModalSyncConfirmState();
+    requestAnimationFrame(function () {
+      var s = document.getElementById('lfcModalSearch');
+      if (s) s.focus();
+    });
+  }
+
+  function fieldControlCloseAddModal() {
+    var overlay = document.getElementById('lfcAddConfigOverlay');
+    if (overlay) overlay.classList.add('lfc-modal-overlay--hidden');
+  }
+
+  function bindFieldControlPageEvents() {
+    var openBtn = document.querySelector('.lfc-open-add-modal');
+    if (openBtn) openBtn.addEventListener('click', function () { fieldControlOpenAddModal(); });
+    var overlay = document.getElementById('lfcAddConfigOverlay');
+    if (overlay) {
+      overlay.addEventListener('click', function (e) {
+        if (e.target === overlay) fieldControlCloseAddModal();
+      });
+      overlay.addEventListener('change', function (e) {
+        var el = e.target;
+        if (!el || !el.classList) return;
+        if (el.classList.contains('lfc-modal-acc-cb') || el.classList.contains('lfc-modal-model-cb')) fieldControlModalSyncConfirmState();
+      });
+    }
+    if (!fieldControlModalEscapeBound) {
+      fieldControlModalEscapeBound = true;
+      document.addEventListener('keydown', function (e) {
+        if (e.key !== 'Escape') return;
+        var o = document.getElementById('lfcAddConfigOverlay');
+        if (!o || o.classList.contains('lfc-modal-overlay--hidden')) return;
+        fieldControlCloseAddModal();
+      });
+    }
+    document.querySelectorAll('.lfc-add-modal-close').forEach(function (btn) {
+      btn.addEventListener('click', function () { fieldControlCloseAddModal(); });
+    });
+    var searchEl = document.getElementById('lfcModalSearch');
+    if (searchEl) {
+      searchEl.addEventListener('focus', function () { fieldControlModalExpandAccountList(); });
+      searchEl.addEventListener('input', function () { fieldControlModalExpandAccountList(); });
+    }
+    var confirmBtn = document.getElementById('lfcModalConfirm');
+    if (confirmBtn) {
+      confirmBtn.addEventListener('click', function () {
+        var modelIds = [];
+        document.querySelectorAll('.lfc-modal-model-cb:checked').forEach(function (cb) {
+          var mid = cb.getAttribute('data-model-id');
+          if (mid) modelIds.push(mid);
+        });
+        if (!modelIds.length) {
+          showToast(t('live_settings.fc_toast_select_model'), 'warn');
+          return;
+        }
+        var ids = [];
+        document.querySelectorAll('.lfc-modal-acc-cb:checked').forEach(function (cb) {
+          var id = cb.getAttribute('data-account-id');
+          if (id) ids.push(id);
+        });
+        if (!ids.length) {
+          showToast(t('live_settings.fc_toast_select_accounts'), 'warn');
+          return;
+        }
+        if (!fieldControlState.accountModel) fieldControlState.accountModel = {};
+        fieldControlState.accountModel = normalizeFieldControlAccountModel(fieldControlState.accountModel);
+        var added = 0;
+        ids.forEach(function (accId) {
+          if (!fieldControlState.accountModel[accId]) fieldControlState.accountModel[accId] = [];
+          var arr = fieldControlState.accountModel[accId];
+          modelIds.forEach(function (modelId) {
+            if (arr.indexOf(modelId) === -1) {
+              arr.push(modelId);
+              added++;
+            }
+          });
+        });
+        if (!added) {
+          showToast(t('live_settings.fc_toast_no_new_binding'), 'info');
+          return;
+        }
+        persistFieldControlState();
+        fieldControlCloseAddModal();
+        showToast(t('live_settings.fc_toast_modal_done'));
+        fieldControlReloadCurrentView();
+      });
+    }
+    document.querySelectorAll('.lfc-acc-remove').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var id = btn.getAttribute('data-account-id');
+        var mid = btn.getAttribute('data-model-id');
+        if (!id || !mid || !fieldControlState.accountModel) return;
+        fieldControlState.accountModel = normalizeFieldControlAccountModel(fieldControlState.accountModel);
+        var arr = fieldControlState.accountModel[id];
+        if (!arr || !arr.length) return;
+        var ix = arr.indexOf(mid);
+        if (ix !== -1) arr.splice(ix, 1);
+        if (!arr.length) delete fieldControlState.accountModel[id];
+        if (anchorPromptState.byAccountModel && anchorPromptState.byAccountModel[id] && anchorPromptState.byAccountModel[id][mid]) {
+          delete anchorPromptState.byAccountModel[id][mid];
+          if (!Object.keys(anchorPromptState.byAccountModel[id]).length) delete anchorPromptState.byAccountModel[id];
+          persistAnchorPromptState();
+        }
+        persistFieldControlState();
+        showToast(t('live_settings.fc_toast_removed'));
+        fieldControlReloadCurrentView();
+      });
+    });
+    var savePrompts = document.getElementById('lfcPromptSave');
+    if (savePrompts) {
+      savePrompts.addEventListener('click', function () {
+        var mid = savePrompts.getAttribute('data-lfc-model-id');
+        var aid = savePrompts.getAttribute('data-lfc-account-id');
+        if (!mid || !aid || !anchorPromptState.byAccountModel) return;
+        if (!anchorPromptState.byAccountModel[aid]) anchorPromptState.byAccountModel[aid] = {};
+        if (!anchorPromptState.byAccountModel[aid][mid]) anchorPromptState.byAccountModel[aid][mid] = { scenarios: buildDefaultAnchorScenarios() };
+        anchorPromptState.byAccountModel[aid][mid].scenarios = collectAnchorPromptStateFromDom(aid, mid);
+        persistAnchorPromptState();
+        lfcAnchorCopySetBaseline(aid, mid);
+        showToast(t('live_settings.fc_prompt_saved'));
+      });
+    }
+    var resetAllPrompts = document.getElementById('lfcPromptResetAll');
+    if (resetAllPrompts) {
+      resetAllPrompts.addEventListener('click', function () {
+        var mid = resetAllPrompts.getAttribute('data-lfc-model-id');
+        var aid = resetAllPrompts.getAttribute('data-lfc-account-id');
+        if (!mid || !aid || !anchorPromptState.byAccountModel) return;
+        if (!window.confirm(t('live_settings.fc_prompt_reset_all_confirm'))) return;
+        anchorPromptState.byAccountModel[aid][mid] = { scenarios: buildDefaultAnchorScenarios() };
+        persistAnchorPromptState();
+        fieldControlReloadCurrentView();
+        showToast(t('live_settings.fc_prompt_saved'));
+      });
+    }
+    document.querySelectorAll('.lfc-prompt-reset-one').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var sid = btn.getAttribute('data-scenario');
+        if (!sid || anchorPromptScenarioIds.indexOf(sid) === -1) return;
+        var page = btn.closest('.lfc-prompt-page');
+        var mid = page && page.getAttribute('data-lfc-model-id');
+        var aid = page && page.getAttribute('data-lfc-account-id');
+        if (!mid || !aid || !anchorPromptState.byAccountModel) return;
+        var defs = buildDefaultAnchorScenarios();
+        if (!anchorPromptState.byAccountModel[aid]) anchorPromptState.byAccountModel[aid] = {};
+        if (!anchorPromptState.byAccountModel[aid][mid]) anchorPromptState.byAccountModel[aid][mid] = { scenarios: buildDefaultAnchorScenarios() };
+        anchorPromptState.byAccountModel[aid][mid].scenarios[sid] = Object.assign({}, defs[sid]);
+        persistAnchorPromptState();
+        fieldControlReloadCurrentView();
+        showToast(t('live_settings.fc_prompt_saved'));
+      });
+    });
+    lfcBindHostLineCharLimits();
+    var saveAnchor = document.getElementById('lfcPromptSave');
+    var anchorMidPost = saveAnchor && saveAnchor.getAttribute('data-lfc-model-id');
+    var anchorAidPost = saveAnchor && saveAnchor.getAttribute('data-lfc-account-id');
+    if (anchorMidPost && anchorAidPost) bindLfcAnchorCopyPage(anchorAidPost, anchorMidPost);
+  }
+
   function renderLiveSettings() {
     return (
       '<div class="live-settings-page">' +
@@ -11709,6 +13119,14 @@
           '<p>' + t('live_settings.desc') + '</p>' +
         '</div>' +
         '<div class="live-settings-grid">' +
+          '<a class="live-settings-card" href="#/live/settings/field-control">' +
+            '<div class="live-settings-card__icon"><i class="fas fa-wand-magic-sparkles"></i></div>' +
+            '<div class="live-settings-card__content">' +
+              '<h2>' + t('live_settings.fc_title') + '</h2>' +
+              '<p>' + t('live_settings.fc_desc') + '</p>' +
+            '</div>' +
+            '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+          '</a>' +
           '<a class="live-settings-card" href="#/live/settings/flash-sale">' +
             '<div class="live-settings-card__icon"><i class="fas fa-tags"></i></div>' +
             '<div class="live-settings-card__content">' +
@@ -11765,9 +13183,13 @@
     else if (routeId === 'discover') app.innerHTML = renderDiscover();
     else if (routeId === 'outreach') app.innerHTML = renderOutreach();
     else if (routeId === 'analytics') app.innerHTML = renderAnalytics();
+    else if (routeId === 'live_calendar') app.innerHTML = renderLiveScheduleCalendarPage();
     else if (routeId === 'live_schedule') app.innerHTML = renderLiveSchedule();
     else if (routeId === 'live_settings') app.innerHTML = renderLiveSettings();
     else if (routeId === 'live_settings_flash_sale') app.innerHTML = renderLiveSettingsFlashSale();
+    else if (routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy') {
+      app.innerHTML = renderLiveSettingsFieldControlForRoute(routeId);
+    }
     else if (routeId === 'settlement') {
       tcPanel = 'ha_settlement';
       app.innerHTML = renderAnalytics();
@@ -11800,8 +13222,15 @@
     if (routeId === 'creators') {
       bindCrmEvents();
     }
+    if (routeId === 'live_calendar') {
+      bindLiveCalendarEvents();
+    }
     if (routeId === 'live_schedule') {
       bindLiveScheduleEvents();
+    }
+    if (routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy') {
+      bindFieldControlPageEvents();
+      return;
     }
     if (routeId === 'hourly-pay-rules') {
       document.querySelectorAll('.hpr-mode-tabs .or-tab').forEach(function (tab) {
@@ -12856,7 +14285,64 @@
         window.location.hash = '#/';
         return;
       }
+      var legacyCopyRedirect = parseFieldControlModelCopyPath(path);
+      if (legacyCopyRedirect && legacyCopyRedirect.legacy && legacyCopyRedirect.modelId) {
+        window.location.hash = fieldControlResolveCopyLegacyRedirect(legacyCopyRedirect.modelId);
+        return;
+      }
+      if (path === 'live/settings/field-control/prompts') {
+        window.location.hash = fieldControlResolveCopyLegacyRedirect('model_nonstandard_live');
+        return;
+      }
+      var nextCopyEarly = parseFieldControlModelCopyPath(path);
+      var nextOnCopyEarly = !!(
+        nextCopyEarly &&
+        !nextCopyEarly.legacy &&
+        nextCopyEarly.accountId &&
+        nextCopyEarly.modelId &&
+        fieldControlCopyRouteValid(nextCopyEarly.accountId, nextCopyEarly.modelId)
+      );
+      var sameCopyPair =
+        nextOnCopyEarly &&
+        lfcAnchorCopyActiveModelId &&
+        lfcAnchorCopyActiveAccountId &&
+        nextCopyEarly.modelId === lfcAnchorCopyActiveModelId &&
+        nextCopyEarly.accountId === lfcAnchorCopyActiveAccountId;
+      if (lfcAnchorCopyDirty && (lfcAnchorCopyActiveModelId || lfcAnchorCopyActiveAccountId)) {
+        if (!nextOnCopyEarly || !sameCopyPair) {
+          if (!window.confirm(t('live_settings.fc_copy_leave_confirm'))) {
+            window.location.hash =
+              '#/live/settings/field-control/accounts/' +
+              encodeURIComponent(lfcAnchorCopyActiveAccountId) +
+              '/models/' +
+              encodeURIComponent(lfcAnchorCopyActiveModelId) +
+              '/copy';
+            return;
+          }
+          lfcAnchorCopyResetTracking();
+        }
+      } else if (!nextOnCopyEarly) {
+        lfcAnchorCopyActiveModelId = null;
+        lfcAnchorCopyActiveAccountId = null;
+        lfcAnchorCopyBaseline = null;
+        lfcAnchorCopyDirty = false;
+      }
       var routeId = ROUTES[path];
+      fieldControlAnchorCopyModelId = null;
+      fieldControlAnchorCopyAccountId = null;
+      if (!routeId) {
+        var cp = parseFieldControlModelCopyPath(path);
+        if (cp && !cp.legacy && cp.accountId && cp.modelId) {
+          if (fieldControlCopyRouteValid(cp.accountId, cp.modelId)) {
+            routeId = 'live_settings_field_control_model_copy';
+            fieldControlAnchorCopyModelId = cp.modelId;
+            fieldControlAnchorCopyAccountId = cp.accountId;
+          } else {
+            window.location.hash = '#/live/settings/field-control/models';
+            return;
+          }
+        }
+      }
       if (path === '') routeId = getRole() === 'affiliate' ? 'discover' : 'dashboard';
       if (!routeId) routeId = getRole() === 'affiliate' ? 'creators' : 'dashboard';
       render(routeId);
