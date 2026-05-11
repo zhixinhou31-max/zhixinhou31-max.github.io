@@ -20,12 +20,149 @@
       'live_settings.desc': 'Configure live operation modules from one place.',
       'live_settings.flash_title': 'Auto-Setting Flash Sale',
       'live_settings.flash_desc': 'Create and manage reusable flash sale templates, submission schedules, and task execution for TikTok creator deals.',
+      'live_settings.aps_card_title': 'Smart Product Selection',
+      'live_settings.aps_card_desc':
+        'Build a lineup from the host profile and pack strategy; new/best SKU pools live on Product Cargo Pools and sync locally.',
+      'live_settings.cargo_card_title': 'Product Cargo Pools',
+      'live_settings.cargo_card_desc':
+        'Ops maintains weekly uploads (CSV links) for new and bestseller inventories; AI selection reads this shared cargo.',
+      'live_settings.packs_card_title': 'Product Packs',
+      'live_settings.packs_card_desc': 'Pending and TAP-synced Packs; sync, review, or delete drafts.',
       'live_settings.comments_title': 'Auto-Comments Library',
       'live_settings.comments_desc': 'Preset comments that can be auto-triggered during your livestream to boost engagement and keep the chat lively.',
       'live_settings.cast_title': 'Casting Device',
       'live_settings.cast_desc': 'Bind a TV device code to a room name for easy mobile casting and device management.',
       'live_settings.existing': 'Existing module',
       'live_settings.back': 'Back to Live Settings',
+      'lprod.back_hub': 'Back',
+      'lprod.hub_title': 'Live commerce products',
+      'lprod.hub_intro': 'Live product library and ops-maintained inventories used as inputs for AI selection.',
+      'lprod.card_library_title': 'Live product library',
+      'lprod.card_library_desc': 'Merchant-facing catalog synced from Shop (existing feature — placeholder).',
+      'lprod.card_library_badge': 'Soon',
+      'lprod.card_ops_title': 'Operational selection pool',
+      'lprod.card_ops_desc':
+        'Upload Excel for new/hot SKUs over time (merged by PID); review abnormal tabs.',
+      'lprod.ops_title': 'Operational selection pool',
+      'lprod.ops_lead':
+        'Maintain your catalog here (manual rows + Excel merges by PID). Use Smart Product Selection above for AI-assisted bundle generation from your pools.',
+      'lprod.tab_new': 'New arrivals',
+      'lprod.tab_hot': 'Best sellers',
+      'lprod.tab_collecting': 'Collecting',
+      'lprod.tab_abnormal': 'Abnormal',
+      'lprod.collecting_hint':
+        'Tasks below are created when you upload New / Hot Excel: rows with image and key facts merge in immediately; PID / link–only rows queue for async enrichment. They move to pools when done; retry if failed.',
+      'lprod.col_target_pool': 'Target pool',
+      'lprod.col_collect_status': 'Status',
+      'lprod.target_pool_new': 'New',
+      'lprod.target_pool_hot': 'Hot',
+      'lprod.status_collecting': 'Collecting…',
+      'lprod.status_failed': 'Failed',
+      'lprod.retry_collect': 'Retry',
+      'lprod.add_collect_queue': 'Add to queue',
+      'lprod.collect_pid_ph': 'PID',
+      'lprod.collect_link_ph': 'Product link (optional)',
+      'lprod.collect_need_pid': 'Enter a PID.',
+      'lprod.collect_done': 'Collected into {{pool}} pool.',
+      'lprod.collect_fail_hint': 'Upstream timeout or parse error.',
+      'lprod.abnormal_no_upload_hint':
+        'Abnormal lists are system-routed or migrated from history. Upload Excel only on New / Hot tabs.',
+      'lprod.sub_eliminate': 'Suggested elimination',
+      'lprod.sub_exclude': 'Suggested exclusion',
+      'lprod.tabs_new_strat_nav_a11y': 'Switch new-pool strategy lists',
+      'lprod.sub_new_all': 'All',
+      'lprod.sub_new_similar': 'Similar hot',
+      'lprod.sub_new_highpot': 'High-potential new',
+      'lprod.sub_new_scale': 'Diffusion & scale',
+      'lprod.col_similar_hot_ref': 'Similar hot (ref.)',
+      'lprod.col_avg_impression': 'AVG.IMPRESSION',
+      'lprod.col_avg_atc_co': 'AVG.ATC% / AVG.CO',
+      'lprod.empty_new_strat_hint': 'No rows match this strategy under current filters.',
+      'lprod.tabs_hot_strat_nav_a11y': 'Switch hot-pool strategy lists',
+      'lprod.sub_hot_all': 'All',
+      'lprod.sub_hot_similar_new': 'Similar new link',
+      'lprod.sub_hot_scale': 'Diffusion & scale',
+      'lprod.col_similar_new_ref': 'Similar new (ref.)',
+      'lprod.col_ctr': 'CTR',
+      'lprod.col_stock': 'Stock',
+      'lprod.empty_hot_strat_hint': 'No rows match this hot-pool strategy under current filters.',
+      'lprod.upload_excel': 'Upload Excel',
+      'lprod.upload_excel_new': 'Upload new',
+      'lprod.upload_excel_hot': 'Upload hot',
+      'lprod.upload_hint':
+        'First worksheet is read (.xlsx / .xls; CSV supported offline). Rows merge by PID (same PID updates). Headers EN/ZH. Optional columns: Sale price / 销售价, description / 卖点, variant image URLs / 变体图 (comma, |, or newline), sizes / 尺码. Use New / Hot tabs for uploads; abnormal lists are managed separately.',
+      'lprod.remove_row': 'Remove',
+      'lprod.import_merged': 'Processed {{n}} rows from file (matched PIDs updated, others appended).',
+      'lprod.import_merge_and_queue': 'Merged {{m}} rows into inventory; {{q}} rows added to Collecting.',
+      'lprod.import_queued_only': '{{q}} rows added to Collecting (awaiting enrichment).',
+      'lprod.pagination_label': 'Table pagination',
+      'lprod.page_prev': 'Previous',
+      'lprod.page_next': 'Next',
+      'lprod.page_status': '{{start}}–{{end}} of {{total}} items',
+      'lprod.parser_missing': 'Excel parser failed to load. Check network or refresh the page.',
+      'lprod.open_smart_selection': 'Smart product selection',
+      'lprod.open_smart_selection_sub': 'AI bundles from your ops pools',
+      'lprod.back_ops_from_smart': 'Back to operational selection pool',
+      'lprod.parse_failed': 'Could not read rows. Use the first sheet, check headers, or try UTF-8 CSV.',
+      'lprod.copy_pid': 'Copy PID',
+      'lprod.copied': 'Copied',
+      'lprod.col_select': 'Select',
+      'lprod.select_page': 'Select this page',
+      'lprod.filter_keyword': 'Search',
+      'lprod.filter_keyword_ph': 'Title, PID, shop…',
+      'lprod.filter_price': 'Sale price (range)',
+      'lprod.filter_all': 'All',
+      'lprod.filter_price_filled': 'Has price',
+      'lprod.filter_price_empty': 'No price',
+      'lprod.filter_min_sess': 'Min LIVE sessions',
+      'lprod.filter_min_gmv': 'Min 30d GMV',
+      'lprod.filter_hosts': 'Collaborators',
+      'lprod.filter_hosts_hint': 'Hold ⌘ or Ctrl while clicking for multi-select',
+      'lprod.filter_hosts_help':
+        'Keeps SKUs appearing in collaborators\' sampled PIDs (Tenant Center union). Collaborators without samples add no narrowing.',
+      'lprod.filter_hosts_search_ph': 'Search and select host…',
+      'lprod.filter_hosts_clear_all': 'Clear all',
+      'lprod.filter_hosts_empty': 'No matches',
+      'lprod.filter_hosts_remove_chip': 'Remove {{name}}',
+      'lprod.filter_search_btn': 'Search',
+      'lprod.filter_reset': 'Reset',
+      'lprod.filter_section_title': 'Search & filters',
+      'lprod.bulk_copy_pid': 'Copy selected PIDs',
+      'lprod.bulk_selected_meta': '{{n}} / {{max}}',
+      'lprod.ab_bulk_selected_meta': '{{n}} selected · max {{max}}',
+      'lprod.bulk_remove_selected': 'Remove selected',
+      'lprod.bulk_removed_toast': 'Removed {{n}} rows',
+      'lprod.bulk_limit_toast': 'You can select up to {{max}} products at once.',
+      'lprod.col_product': 'Product',
+      'lprod.col_price_sale': 'Price',
+      'lprod.col_variants': 'Variants',
+      'lprod.sale_price_label': 'Sale:',
+      'lprod.col_thumb': 'Image',
+      'lprod.col_name': 'Product',
+      'lprod.col_shop': 'Shop · rating',
+      'lprod.col_product_rating': 'Product rating',
+      'lprod.col_listing': 'Listed at',
+      'lprod.col_sess': 'LIVE sessions',
+      'lprod.col_hosts': 'LIVE hosts',
+      'lprod.col_gmv30': '30d GMV',
+      'lprod.sort_dir_asc': 'ascending',
+      'lprod.sort_dir_desc': 'descending',
+      'lprod.sort_aria': '{{col}}. Sorted {{dir}}. Activate to reverse.',
+      'lprod.sort_aria_idle': '{{col}}. Activate to sort ascending.',
+      'lprod.col_uploader': 'Uploader · uploaded at',
+      'lprod.col_reason': 'Reason',
+      'lprod.col_actions': 'Actions',
+      'lprod.tabs_nav_a11y': 'Switch inventory tabs',
+      'lprod.tabs_ab_nav_a11y': 'Switch abnormal lists',
+      'lprod.row_actions_a11y': 'Row actions',
+      'lprod.empty': 'No rows yet.',
+      'lprod.empty_sku_title': 'No products yet',
+      'lprod.empty_sku_hint':
+        'Use Upload new / Upload hot above to import SKUs or merge updates by PID.',
+      'lprod.empty_collect_title': 'No collecting tasks',
+      'lprod.empty_collect_hint': 'Placeholder rows from New/Hot uploads (PID-only or link-only) enqueue here.',
+      'lprod.empty_ab_title': 'No abnormal records',
+      'lprod.empty_ab_hint': 'System-routed items appear here when present.',
       'live_settings.fc_title': 'Intelligent Field Control',
       'live_settings.fc_desc': 'Assign decision models per LIVE account. Anchor copy is saved per account and model.',
       'live_settings.fc_page_sub': 'Catalog is platform-managed. One account can use multiple models.',
@@ -110,6 +247,276 @@
       'live_settings.fc_prompt.title_MAINTAIN': 'Fallback',
       'live_settings.fc_prompt.desc_MAINTAIN': 'Steady, safe default.',
       'live_settings.fc_prompt.default_MAINTAIN': 'Hold the energy and repeat the core offer on what’s pinned.',
+      // Smart Product Selection (Live Settings)
+      'aps.title': 'Smart Product Selection',
+      'aps.subtitle':
+        'Work top to bottom: host → upload at least one pool (new and/or best seller) → pack strategy → generate. Expand Selection criteria when you need to change the default ranges.',
+      'aps.flow_steps_aria': 'Selection workflow',
+      'aps.flow_step_host': 'Host & profile',
+      'aps.flow_step_pools': 'Product pools',
+      'aps.flow_step_strategy': 'Pack strategy',
+      'aps.flow_step_run': 'Generate & review results',
+      'aps.host_label': 'Host',
+      'aps.host_placeholder': 'Select a host',
+      'aps.reference_host_label': 'Reference collaborator',
+      'aps.reference_host_placeholder': 'Optional — use another host\'s historical live pins',
+      'aps.reference_host_help':
+        'Narrows candidates using products this reference host historically pinned in live streams, then intersects with your imported new/best pools before generation.',
+      'aps.gen_hint_reference_overlap':
+        'No overlap between that host\'s historical live-pinned SKUs and your pools — clear the selector, pick another reference, or expand pools.',
+      'aps.host_card_title': 'Host profile',
+      'aps.host_tags_title': 'Host profile tags',
+      'aps.host_tags_select_hint': 'Select a host to view profile tags.',
+      'aps.host_pref_from_tenant_scheduled': 'Scheduled host under your tenant; align selection with assigned Live Events.',
+      'aps.host_pref_from_tenant_affiliate': 'Affiliate creator under your tenant; align selection with their live content style.',
+      'aps.upload_section': 'Product data sources',
+      'aps.upload_new_title': 'New Product Pool',
+      'aps.upload_new_hint': 'Upload CSV or XLSX listing products to evaluate as new introductions.',
+      'aps.upload_best_title': 'Best Seller Product Pool',
+      'aps.upload_best_hint': 'Upload CSV or XLSX with proven performers for GMV-aligned picks.',
+      'aps.upload_btn': 'Upload file',
+      'aps.upload_drop': 'CSV or XLSX',
+      'aps.upload_status_idle': 'No file uploaded',
+      'aps.upload_status_ready': 'Imported',
+      'aps.upload_products': '{{n}} products',
+      'aps.strategy_section': 'Product package strategy',
+      'aps.total_label': 'Total product count',
+      'aps.new_ratio_label': 'New product ratio',
+      'aps.best_ratio_label': 'Best seller ratio',
+      'aps.mix_ratio_note_new_only': 'Only the new product pool is uploaded. The full lineup will be new products, so no mix ratio applies.',
+      'aps.mix_ratio_note_best_only': 'Only the best seller pool is uploaded. The full lineup will be best sellers, so no mix ratio applies.',
+      'aps.count_summary': 'Total: {{t}} · New products: {{n}} · Best sellers: {{b}}',
+      'aps.generate': 'Generate lineup',
+      'aps.generating': 'Generating lineup…',
+      'aps.ai_result': 'Recommendation result',
+      'aps.empty_state':
+        'Upload at least one pool, set pack strategy, then generate. The hint next to the button shows what’s missing.',
+      'aps.summary_total': 'Selected products',
+      'aps.summary_new': 'New products',
+      'aps.summary_best': 'Best sellers',
+      'aps.summary_categories': 'Main recommended categories',
+      'aps.summary_logic': 'Selection logic',
+      'aps.hero_title': 'Hero products',
+      'aps.table_title': 'Recommended product list',
+      'aps.col_pid': 'PID',
+      'aps.col_name': 'Product Name',
+      'aps.col_pid_name_media': 'PID & product title',
+      'aps.col_pool': 'Pool Type',
+      'aps.col_cat': 'Category',
+      'aps.col_price': 'Price',
+      'aps.col_stock': 'Stock',
+      'aps.col_score': 'Profile match score',
+      'aps.col_reason': 'Recommendation reason',
+      'aps.pool_new': 'New',
+      'aps.pool_best': 'Best Seller',
+      'aps.score_strong': 'Strong Match',
+      'aps.score_good': 'Good Match',
+      'aps.score_test': 'Test Candidate',
+      'aps.score_weak': 'Not Recommended',
+      'aps.action_regenerate': 'Regenerate',
+      'aps.action_export': 'Export products',
+      'aps.remove': 'Remove',
+      'aps.toast_export': 'Exported.',
+      'aps.host_line_placeholder': '—',
+      'aps.tags_none': 'No profile tags yet. Add tags for this host in host settings so recommendations can align with positioning.',
+      'aps.pack_toolbar_link': 'Product Packs',
+      'aps.upload_remove': 'Remove file',
+      'aps.gen_hint_host': 'Select a host to enable generation.',
+      'aps.gen_hint_pool_either': 'Upload at least one product pool (new or best seller).',
+      'aps.gen_hint_pool_new': 'Upload a New Product Pool file.',
+      'aps.gen_hint_pool_best': 'Upload a Best Seller Pool file.',
+      'aps.gen_hint_total': 'Enter a total product count of at least 1.',
+      'aps.gen_hint_live_days': 'Enter N (last days) between 1 and 365 for the high GMV profile window.',
+      'aps.gen_hint_live_account': 'Select a live account to apply the high GMV product profile.',
+      'aps.live_gmv_scope_title': 'High GMV product profile',
+      'aps.live_gmv_scope_check': 'Use live-stream GMV in the last N days (by account) to match a high GMV product profile',
+      'aps.live_gmv_days_label': 'Last N days',
+      'aps.live_gmv_account_label': 'Live account',
+      'aps.live_gmv_account_placeholder': 'Select live account',
+      'aps.live_gmv_scope_help':
+        'When on, rankings favor a high-GMV profile using that account’s live GMV in the window you set. Metrics depend on TikTok data freshness and what this account can access.',
+      'aps.logic_live_gmv_scope': ' High GMV product profile: {{account}}, last {{days}} days (live GMV window).',
+      'aps.range_pool_new': 'New pool',
+      'aps.range_pool_best': 'Best seller pool',
+      'aps.strategy_section_mix': 'Scale & mix',
+      'aps.strategy_section_filters': 'Selection criteria',
+      'aps.strategy_filters_summary': 'When not set, matching uses all products by default.',
+      'aps.strategy_filters_hint': 'Set a min and max per row. New and best seller pools can differ.',
+      'aps.range_col_lo': 'Min',
+      'aps.range_col_hi': 'Max',
+      'aps.range_footnote': '% = percent of sale or rate. Listing uses calendar dates. Price = currency amount.',
+      'aps.range_dim_sep': ', ',
+      'aps.range_summary_new': 'New value bands: ',
+      'aps.range_between_pools': '; ',
+      'aps.range_summary_best': 'Best seller bands: ',
+      'aps.range_summary_end': '. ',
+      'aps.range_field_listing': 'Listing date',
+      'aps.range_field_stock': 'Stock',
+      'aps.range_field_flashDiscount': 'Flash discount rate',
+      'aps.range_field_price': 'Price',
+      'aps.range_field_liveShare': 'LIVE share',
+      'aps.range_field_ctr': 'CTR',
+      'aps.range_field_cvr': 'CO',
+      'aps.logic_summary_blurb': 'Mix for {{name}}: {{n}} new slots and {{b}} best-seller slots; focus categories: {{cats}}.',
+      'aps.logic_ops_feed_note':
+        'Source: Operational product library new/hot feeds (abnormal-tab PIDs are excluded).',
+      'aps.logic_ops_cargo_fallback': 'Empty ops lists fall back to Product Cargo Pools (if uploaded).',
+      'aps.pool_feed_ops_new': 'Operational · New',
+      'aps.pool_feed_ops_hot': 'Operational · Hot',
+      'aps.col_strategies': 'Strategy hits',
+      'aps.strat_none': '—',
+      'aps.strat_panel_title': 'Selection strategy thresholds',
+      'aps.strat_panel_sub':
+        'Switches and thresholds feed scoring. With live data, metrics align to TikTok product stats; labeled “avg” fields expect rolling session windows.',
+      'aps.strat_group_new': 'New products',
+      'aps.strat_group_best': 'Best sellers',
+      'aps.strat_demo_note':
+        'Similarity uses multi-signal matching (text, category tokens, image cues; optional vector search per tenant). Production rules use rolling session averages; this demo approximates with per-SKU rollups.',
+      'aps.strat_ck_similar_hot': 'New · similar to hot',
+      'aps.strat_ck_high_pot': 'New · high potential',
+      'aps.strat_ck_new_scale': 'New · scale / rollout',
+      'aps.strat_ck_sim_link': 'Hot · similar new link',
+      'aps.strat_ck_hot_scale': 'Hot · scale / rollout',
+      'aps.strat_ck_hot_return': 'Hot · comeback',
+      'aps.strat_f_sim_new_hot': 'New vs hot similarity ≥ (%)',
+      'aps.strat_f_sim_best_new': 'Hot vs new similarity ≥ (%)',
+      'aps.strat_f_hp_sess': 'High-potential min live sessions',
+      'aps.strat_f_hp_imp': 'High-potential min impressions (avg)',
+      'aps.strat_f_hp_atc': 'High-potential min ATC % (avg)',
+      'aps.strat_f_hp_cvr': 'High-potential min CO % (avg)',
+      'aps.strat_f_hp_days': 'High-potential min days since listing',
+      'aps.strat_f_scale_sess': 'New scale min live sessions',
+      'aps.strat_f_scale_ctr': 'New scale min CTR % (avg)',
+      'aps.strat_f_scale_atc': 'New scale min ATC % (avg)',
+      'aps.strat_f_scale_cvr': 'New scale min CO % (avg)',
+      'aps.strat_f_scale_stk': 'New scale min stock (avg)',
+      'aps.strat_f_hot_sess': 'Hot scale min live sessions',
+      'aps.strat_f_hot_gmv': 'Hot scale min GMV (avg, $)',
+      'aps.strat_f_hot_ctr': 'Hot scale min CTR % (avg)',
+      'aps.strat_f_hot_atc': 'Hot scale min ATC % (avg)',
+      'aps.strat_f_hot_cvr': 'Hot scale min checkout (CO %, avg)',
+      'aps.strat_f_hot_stk': 'Hot scale min stock (avg)',
+      'aps.strat_f_hot_ret_days': 'Hot comeback min days since last feature',
+      'aps.strat_f_hot_ret_stk': 'Hot comeback min stock',
+      'aps.strat_similar_hot': 'Similar hot match',
+      'aps.strat_high_potential': 'High potential',
+      'aps.strat_new_scale': 'New scale / rollout',
+      'aps.strat_similar_new_link': 'Similar to new link',
+      'aps.strat_hot_scale': 'Hot scale',
+      'aps.strat_hot_return': 'Hot comeback',
+      'aps.strat_host_tag_fit': 'Host tag overlap',
+      'live_settings.packs_title': 'Product Packs',
+      'live_settings.packs_desc':
+        'Saved lineups show as Pending TAP sync or Synced to TAP. Pending packs can sync, open, or delete; synced packs are view-only.',
+      'live_settings.packs_empty': 'No Packs yet. Generate a lineup in Smart Product Selection and save it here.',
+      'aps.pack_col_name': 'Pack name',
+      'aps.pack_col_host': 'Host',
+      'aps.pack_col_skus': 'Products',
+      'aps.pack_col_updated': 'Saved at',
+      'aps.packs_section_pending': 'Pending TAP sync',
+      'aps.packs_section_synced': 'Synced to TAP',
+      'aps.packs_pending_empty': 'No packs pending sync.',
+      'aps.packs_synced_empty': 'No synced packs yet.',
+      'aps.pack_open': 'Open',
+      'aps.pack_view': 'View',
+      'aps.pack_sync_tap': 'Sync to TAP',
+      'aps.pack_sync_tap_confirm': 'Mark this Pack as synced to TAP? It becomes view-only afterward.',
+      'aps.pack_sync_tap_done': 'Marked as synced to TAP.',
+      'aps.pack_delete': 'Delete',
+      'aps.pack_delete_confirm': 'Delete this Pack? This cannot be undone.',
+      'aps.pack_opened': 'Pack loaded into the editor.',
+      'aps.pack_detail_title': 'Pack detail',
+      'aps.pack_detail_subtitle': 'Saved product lines only.',
+      'aps.pack_detail_meta':
+        '<strong>{{name}}</strong> · {{host}} · {{when}} · {{n}} products',
+      'aps.pack_detail_not_found': 'This Pack was not found or has no saved products.',
+      'aps.pack_detail_back': 'Back to Packs',
+      'aps.pack_detail_open_editor': 'Open in editor',
+      'aps.pack_detail_copy_selected': 'Copy selected PIDs',
+      'aps.pack_detail_select_all': 'Select all',
+      'aps.pack_detail_toast_copied': 'Copied {{n}} PIDs.',
+      'aps.pack_detail_toast_capped': 'Copied {{n}} PIDs (max {{max}} per copy).',
+      'aps.pack_detail_copy_limit_hint': 'Up to {{max}} PIDs per copy.',
+      'aps.pack_detail_toast_none': 'Select at least one row to copy.',
+      'aps.pack_detail_badge_synced': 'Synced to TAP',
+      'aps.pack_restore_skipped_synced': 'This Pack is synced to TAP and can’t be opened in the editor.',
+      'aps.workspace_subtitle':
+        'Operational new and hot lists are the primary feed (abnormal PIDs excluded). Adjust strategy thresholds below; cargo uploads only substitute when an ops-side pool is empty.',
+      'aps.host_country': 'Country',
+      'aps.host_main_cat': 'Main category',
+      'aps.host_perf_title': 'Recent performance',
+      'aps.host_perf_top_cat': 'Top GMV category',
+      'aps.host_perf_ctr': 'Avg CTR',
+      'aps.host_perf_atc': 'Avg ATC',
+      'aps.host_perf_cvr': 'Avg CO',
+      'aps.host_perf_skus': 'Best seller SKUs',
+      'aps.host_samples_title': 'Samples',
+      'aps.th_col_product': 'Product',
+      'aps.sample_ready': 'Ready',
+      'aps.sample_shipping': 'Shipping',
+      'aps.sample_not_sent': 'Not sent',
+      'aps.sample_rejected': 'Rejected',
+      'aps.host_pref_title': 'Preference summary',
+      'aps.host_edit_profile': 'Edit tags in host profile',
+      'aps.mid_pools_title': 'Product pools',
+      'aps.cargo_snap_title': 'Pool snapshot',
+      'aps.cargo_snap_desc':
+        'Counts mirror what Generate will read: Operational library first (new/hot tabs), excluding abnormal-tab PIDs. Reload after Excel merges; cargo pools only substitute when an ops tab is empty.',
+      'aps.cargo_snap_ready': 'Links ready',
+      'aps.cargo_snap_updated': 'Last saved update',
+      'aps.cargo_snap_manage': 'Manage pools',
+      'aps.cargo_snap_reload': 'Reload from browser',
+      'aps.cargo_snap_never': 'Not saved yet',
+      'aps.cargo_snap_reloaded': 'Reloaded saved pools.',
+      'aps.cargo_page_lead':
+        'Upload TikTok product links weekly (CSV). Smart Selection reads the cargo maintained here.',
+      'aps.cargo_go_selection': 'Smart selection',
+      'aps.tab_pool_new': 'New pool',
+      'aps.tab_pool_best': 'Best seller pool',
+      'aps.pool_upload_hint_link': 'Template must include TikTok product links (one per line or first CSV column).',
+      'aps.pool_col_img': 'Image',
+      'aps.pool_col_link': 'Link',
+      'aps.pool_col_gmv': 'GMV',
+      'aps.pool_col_atc': 'ATC',
+      'aps.pool_col_tags': 'Tags',
+      'aps.pool_col_status': 'Status',
+      'aps.pool_col_level': 'Winner level',
+      'aps.pool_status_new': 'New',
+      'aps.pool_status_potential': 'Potential',
+      'aps.pool_status_testing': 'Testing',
+      'aps.level_scaling': 'Scaling',
+      'aps.level_stable': 'Stable',
+      'aps.level_revival': 'Revival',
+      'aps.pool_enrich_pending': 'Enriching',
+      'aps.pool_enrich_ok': 'Ready',
+      'aps.pool_enrich_err': 'Failed',
+      'aps.pool_refresh_enrich': 'Refresh enrichment',
+      'aps.pool_filter_search': 'Search name or PID',
+      'aps.pool_filter_cat': 'Category',
+      'aps.pool_filter_all_cat': 'All categories',
+      'aps.pool_filter_price': 'Price',
+      'aps.pack_section_title': 'AI product package',
+      'aps.threshold_link': 'New / best thresholds',
+      'aps.threshold_saved': 'Thresholds saved.',
+      'aps.threshold_page_title': 'Selection thresholds',
+      'aps.threshold_page_sub': 'Defaults can be tightened or relaxed by ops; align with merchant and category governance.',
+      'aps.threshold_back': 'Back to selection',
+      'aps.threshold_new_section': 'New pool thresholds',
+      'aps.threshold_best_section': 'Best seller thresholds',
+      'aps.threshold_save': 'Save thresholds',
+      'aps.threshold_shop_rating_label': 'Min shop rating',
+      'aps.col_angle': 'Selling angle',
+      'aps.col_risk': 'Risk notes',
+      'aps.summary_risk': 'Estimated risk',
+      'aps.risk_low': 'Low',
+      'aps.risk_medium': 'Medium',
+      'aps.risk_high': 'High',
+      'aps.upload_parse_empty': 'No valid product links found in file.',
+      'aps.gen_hint_enrich': 'Wait until all links are enriched; fix failed rows or refresh.',
+      'aps.packs_migrated_hint':
+        'Use Smart Product Selection to save packages and copy PIDs (legacy packs are not migrated).',
+      'aps.page_notice':
+        'Recommendations use your uploads and configuration. Listing details are enriched from TikTok links. Saved packages stay in this workspace for PID export.',
       'nav.find_creators': 'Find Creators', 'nav.outreach': 'Outreach', 'nav.creator_crm': 'Creator CRM',
       'nav.analytics': 'Analytics', 'nav.tenant_center': 'Tenant Center', 'nav.profile': 'Profile', 'nav.account': 'Account',
       // common
@@ -178,11 +585,12 @@
       'discover.ai.hint': 'Describe the creators you need in natural language. AI will match and recommend relevant TikTok creators.',
       'discover.ai.conversation': 'Conversation',
       'discover.ai.welcome': 'Tell me what kind of creators you are looking for and I will find the best matches.',
-      'discover.ai.indev_badge': 'In dev',
-      'discover.ai.indev_title': 'We’re polishing this AI search',
-      'discover.ai.indev_desc': 'Today this is a guided demo. Real-time creator matching and history will be enabled soon.',
+      'discover.ai.indev_badge': 'Beta',
+      'discover.ai.indev_title': 'AI creator search',
+      'discover.ai.indev_desc':
+        'Describe the creators you want in plain language; matches follow your tenant rules and sessions stay in this workspace.',
       'discover.results': 'Results', 'discover.add_leads': 'Add selected to leads',
-      'discover.found': 'creators found', 'discover.test_data': 'Test data',
+      'discover.found': 'creators found', 'discover.test_data': 'Sample',
       'discover.added': 'Added', 'discover.add_single': 'Add to leads',
       'discover.toast.success': 'Added {0} creators to CRM',
       'discover.toast.partial': 'Added {0}, skipped {1} (already in CRM)',
@@ -286,7 +694,7 @@
       'tc.cancel_subscription': 'Cancel Subscription', 'tc.benefits_store': 'Benefits Store',
       'tc.benefits_store_desc_live': 'Plans for Live streaming',
       'tc.benefits_store_desc_affiliate': 'Plans for Affiliate', 'tc.benefits_usage': 'Benefits & Usage', 'tc.available_days': 'Available Days',
-      'tc.show_more': 'Show More', 'tc.liveq_basic': 'LiveQ Basic', 'tc.liveq_pro': 'LiveQ PRO', 'tc.additional_seats': 'Additional Seats - 60 days', 'tc.pending': 'Pending',
+      'tc.show_more': 'Show More', 'tc.liveq_basic': 'Opsique Basic', 'tc.liveq_pro': 'Opsique PRO', 'tc.additional_seats': 'Additional Seats - 60 days', 'tc.pending': 'Pending',
       'tc.days_remaining': 'days remaining', 'tc.current_billing_period': 'Current Billing Period', 'tc.plan_effect_date': 'Your plan will take effect on Mar 1, 2026.',
       'tc.set_remaining': 'Set remaining / Total', 'tc.chatbot_assistant': 'ChatBot Assistant', 'tc.comprehensive_schedule': 'Comprehensive Live Schedule Management',
       'tc.total_days': 'Total', 'tc.per_6_months': '/ 6 Months', 'tc.per_day': '/ Day', 'tc.price_49': '$49.00', 'tc.price_1999': '$19.99',
@@ -332,8 +740,9 @@
       'tc.tts.complete_login': 'Complete Seller Center Login',
       'tc.tts.manage_login': 'Enter Seller Center',
       'tc.tts.toast_login_connected': 'Seller Center login connected',
-      'tc.host_affiliate': 'Host & Affiliate', 'tc.ha_manage': 'Management', 'tc.ha_settlement': 'Settlement',
+      'tc.host_affiliate': 'Host & Affiliate', 'tc.ha_manage': 'Management', 'tc.ha_creator_samples': 'Creator Samples', 'tc.ha_settlement': 'Settlement',
       'tc.ha_manage_desc': 'Manage Host & Affiliate profiles and link them with your tenant.',
+      'tc.ha_creator_samples_desc': 'See which creators hold each sample. Same product ID merges into one row; import in bulk with the template below.',
       'tc.ha_settlement_desc': 'Create statements and approve creator payouts.',
       'tc.ha.settle_tab_batch': 'Statements',
       'tc.ha.settle_tab_withdraw': 'Withdrawals',
@@ -423,6 +832,42 @@
       'tc.ha.account_info': 'Account Info', 'tc.ha.active': 'Active', 'tc.ha.inactive': 'Inactive',
       'tc.ha.host_card_desc': 'Scheduled host. Assigned Live Events by merchant. No live account auth required. Go live per Event.',
       'tc.ha.affiliate_card_desc': 'Can use Quick Go Live. Must authorize live streaming account. Flexible broadcast anytime.',
+      'tc.ha.profile_tags': 'Profile tags',
+      'tc.ha.profile_tags_ph': 'Type a tag and press Enter or Add',
+      'tc.ha.profile_tags_none': 'No tags yet',
+      'tc.ha.profile_tag_add': 'Add',
+      'tc.ha.profile_tag_remove_aria': 'Remove tag',
+      'tc.ha.profile_tag_limit': 'You can add up to 12 tags.',
+      'tc.ha.profile_tag_dup': 'This tag already exists.',
+      'tc.ha.profile_tag_empty': 'Enter a tag first.',
+      'tc.ha.sample_pids': 'Sample Owned',
+      'tc.ha.cs_col_product': 'Product',
+      'tc.ha.cs_col_sample_owned': 'Creators',
+      'tc.ha.cs_col_bound': 'Bound',
+      'tc.ha.cs_remove': 'Remove assignment',
+      'tc.ha.cs_download_tpl': 'Download template',
+      'tc.ha.cs_upload': 'Import .xlsx',
+      'tc.ha.cs_empty_title': 'No samples yet',
+      'tc.ha.cs_empty_body': 'Download the template, enter each creator\'s ID and product PID, then import the file.',
+      'tc.ha.cs_tpl_sheet': 'Template',
+      'tc.ha.cs_tpl_id': 'Creator ID',
+      'tc.ha.cs_tpl_name': 'Name (for reference)',
+      'tc.ha.cs_tpl_product': 'Product title',
+      'tc.ha.cs_tpl_pid': 'Product ID (PID)',
+      'tc.ha.cs_tpl_image': 'Image URL (optional)',
+      'tc.ha.cs_rows_removed': 'Assignment removed.',
+      'tc.ha.cs_upload_ok': 'Import complete: {added} added, {skipped} skipped.',
+      'tc.ha.cs_upload_missing_xlsx': 'Spreadsheet reader unavailable. Refresh the page and try again.',
+      'tc.ha.cs_upload_no_pid': 'Rows without a PID were skipped.',
+      'tc.ha.cs_filters_title': 'Filters',
+      'tc.ha.cs_filter_ph_creator': 'Creator name',
+      'tc.ha.cs_filter_ph_product': 'Product title',
+      'tc.ha.cs_filter_ph_pid': 'PID',
+      'tc.ha.cs_filter_search': 'Search',
+      'tc.ha.cs_filter_reset': 'Reset',
+      'tc.ha.cs_no_match_title': 'No matching rows',
+      'tc.ha.cs_no_match_hint': 'Try adjusting or clearing one of the filters above.',
+      'tc.ha.sample_items_saved': 'Samples updated.',
       'tc.ha.rules_title': 'Rules',
       'tc.ha.rules_desc': 'Set payout rules for hourly pay and commission. Used when generating statements.',
       'tc.ha.rules_merchant': 'Merchant default',
@@ -687,9 +1132,9 @@
       'ls.btn.fix_issue': 'Fix Issue',
       'ls.select_all': 'Select all',
       'ls.modal.batch_sync_title': 'Sync TikTok for selected sessions?',
-      'ls.modal.batch_sync_body': 'TikTok Live Events will be created for {0} session(s) (MVP mock).',
+      'ls.modal.batch_sync_body': 'TikTok Live Events will be created for {0} session(s).',
       'ls.toast.batch_sync_none': 'No sessions available to sync.',
-      'ls.toast.batch_sync_done': 'Synced {0} session(s) (MVP mock).',
+      'ls.toast.batch_sync_done': 'Synced {0} session(s).',
       'lc.title': 'Host schedule calendar',
       'lc.intro': 'Monthly view of sessions from Live schedule. Same data as the Live schedule page.',
       'lc.prev_month': 'Previous month',
@@ -794,10 +1239,12 @@
       'ls.gmv.ccy_hint': 'GMV currency comes from the server (live room). Current: {0}',
       'ls.banner.host_checkin': 'Host hasn’t checked in.',
       'ls.readonly.empty_sessions': 'No sessions',
+      'ls.sess.mark_live': 'Mark as live',
+      'ls.sess.mark_end': 'Mark as ended',
       'ls.detail.seg_hosts': 'Hosts',
       'ls.format.gmv_label': 'Direct GMV: {0}',
       'ls.edit.hint_streamed': 'After the stream ends, only actual start/end times and GMV can be edited.',
-      'ls.edit.hint_full': 'Edit all schedule fields (MVP preview).',
+      'ls.edit.hint_full': 'You can edit all schedule fields for this booking.',
       'ls.modal.seg_hosts_title': 'Host segments',
       'ls.seg.empty': 'No segments yet',
       'ls.seg.del_disabled': 'Cannot delete',
@@ -818,12 +1265,414 @@
       'live_settings.desc': '在一个入口中管理直播相关功能设置。',
       'live_settings.flash_title': '自动设置秒杀',
       'live_settings.flash_desc': '创建并管理 TikTok Creator Flash Sale 的模版、提报排期和任务执行。',
+      'live_settings.aps_card_title': '智能选品',
+      'live_settings.aps_card_desc':
+        '基于主播画像与组品策略生成推荐；新品/爆款池在「商品货盘」统一维护并与当前工作区同步。',
+      'live_settings.cargo_card_title': '商品货盘',
+      'live_settings.cargo_card_desc':
+        '运营按周维护新品与爆款链接（CSV）；智能选品始终读取此处货盘。',
+      'live_settings.packs_card_title': '货品 Pack',
+      'live_settings.packs_card_desc': '区分待同步与已同步 Pack，可进行同步、查看或删除。',
       'live_settings.comments_title': '自动评论库',
       'live_settings.comments_desc': '预设评论内容，在直播过程中自动触发，提升互动和评论活跃度。',
       'live_settings.cast_title': '投屏设备',
       'live_settings.cast_desc': '绑定电视设备码与房间名称，便于移动端投屏和设备管理。',
       'live_settings.existing': '现有模块',
+      // 智能选品（直播设置）
+      'aps.title': '智能选品',
+      'aps.subtitle':
+        '自上而下：选主播 → 至少上传一个商品池（新品与/或爆款）→ 配置组品策略 → 生成。若要改默认区间，展开「选品条件」。',
+      'aps.flow_steps_aria': '选品流程',
+      'aps.flow_step_host': '主播与画像',
+      'aps.flow_step_pools': '商品池',
+      'aps.flow_step_strategy': '组品策略',
+      'aps.flow_step_run': '生成并查看结果',
+      'aps.host_label': '主播',
+      'aps.host_placeholder': '请选择主播',
+      'aps.reference_host_label': '参考主播（缩小范围）',
+      'aps.reference_host_placeholder': '不参考其他主播 · 全程使用上方货盘',
+      'aps.reference_host_help':
+        '先按所选参考主播历史直播中的挂车商品收窄候选范围，再与当前新品/爆款池取交集后参与生成。',
+      'aps.gen_hint_reference_overlap':
+        '参考主播历史直播挂车商品与当前商品池没有交集；请换人、清空「参考主播」或扩充池内商品。',
+      'aps.host_card_title': '主播画像',
+      'aps.host_tags_title': '主播画像标签',
+      'aps.host_tags_select_hint': '请选择主播以查看画像标签。',
+      'aps.host_pref_from_tenant_scheduled': '租户下的排期主播，可按已分配直播活动对齐组品。',
+      'aps.host_pref_from_tenant_affiliate': '租户下的带货达人，可结合其授权账号与内容风格组品。',
+      'aps.upload_section': '商品数据源',
+      'aps.upload_new_title': '新品池',
+      'aps.upload_new_hint': '上传 CSV 或 XLSX，列出待评估的新品。',
+      'aps.upload_best_title': '爆款池',
+      'aps.upload_best_hint': '上传 CSV 或 XLSX，列出历史表现稳定的爆款。',
+      'aps.upload_btn': '上传文件',
+      'aps.upload_drop': '支持 CSV / XLSX',
+      'aps.upload_status_idle': '尚未上传',
+      'aps.upload_status_ready': '已导入',
+      'aps.upload_products': '{{n}} 个商品',
+      'aps.strategy_section': '组品策略',
+      'aps.total_label': '选品数量',
+      'aps.new_ratio_label': '新品占比',
+      'aps.best_ratio_label': '爆款占比',
+      'aps.mix_ratio_note_new_only': '当前只上传了新品池，组合将全部为新品，无需设置占比。',
+      'aps.mix_ratio_note_best_only': '当前只上传了爆款池，组合将全部为爆款，无需设置占比。',
+      'aps.count_summary': '合计 {{t}} 个 · 新品 {{n}} · 爆款 {{b}}',
+      'aps.generate': '智能生成组合',
+      'aps.generating': '正在生成推荐组合…',
+      'aps.ai_result': '智能推荐结果',
+      'aps.empty_state': '至少上传一个商品池并配置策略后生成；按钮旁提示会说明缺项。',
+      'aps.summary_total': '选中商品',
+      'aps.summary_new': '新品',
+      'aps.summary_best': '爆款',
+      'aps.summary_categories': '主推类目',
+      'aps.summary_logic': '组合逻辑摘要',
+      'aps.hero_title': '主推货品',
+      'aps.table_title': '推荐清单',
+      'aps.col_pid': 'PID',
+      'aps.col_name': '商品名称',
+      'aps.col_pid_name_media': 'PID & 商品名称',
+      'aps.col_pool': '来源池',
+      'aps.col_cat': '类目',
+      'aps.col_price': '价格',
+      'aps.col_stock': '库存',
+      'aps.col_score': '画像匹配分',
+      'aps.col_reason': '推荐理由',
+      'aps.pool_new': '新品',
+      'aps.pool_best': '爆款',
+      'aps.score_strong': '强匹配',
+      'aps.score_good': '较佳',
+      'aps.score_test': '试错',
+      'aps.score_weak': '不推荐',
+      'aps.action_regenerate': '重新生成',
+      'aps.action_export': '导出商品',
+      'aps.remove': '移除',
+      'aps.toast_export': '已导出。',
+      'aps.host_line_placeholder': '—',
+      'aps.tags_none': '暂未配置主播画像标签。请在主播资料中补充标签，便于推荐策略对齐。',
+      'aps.pack_toolbar_link': '货品 Pack 管理',
+      'aps.upload_remove': '移除文件',
+      'aps.gen_hint_host': '请先选择主播后再生成。',
+      'aps.gen_hint_pool_either': '请至少上传新品池或爆款池中的一个。',
+      'aps.gen_hint_pool_new': '请上传新品池文件。',
+      'aps.gen_hint_pool_best': '请上传爆款池文件。',
+      'aps.gen_hint_total': '选品数量请填写大于 0 的数字。',
+      'aps.gen_hint_live_days': '「近 N 天」请填写 1～365 之间的整数。',
+      'aps.gen_hint_live_account': '启用「高 GMV 商品画像」时，请选择直播账号。',
+      'aps.live_gmv_scope_title': '高 GMV 商品画像',
+      'aps.live_gmv_scope_check': '参考所选直播账号近 N 天直播带货 GMV，对齐高 GMV 商品画像',
+      'aps.live_gmv_days_label': '近 N 天',
+      'aps.live_gmv_account_label': '直播账号',
+      'aps.live_gmv_account_placeholder': '请选择直播账号',
+      'aps.live_gmv_scope_help':
+        '开启后，按所选账号在该窗口内的直播 GMV 倾向高 GMV 画像；具体数值取决于 TikTok 数据更新与账号授权范围。',
+      'aps.logic_live_gmv_scope': ' 高 GMV 商品画像：{{account}}，近 {{days}} 天（直播 GMV 窗口）。',
+      'aps.range_pool_new': '新品',
+      'aps.range_pool_best': '爆款',
+      'aps.strategy_section_mix': '规模与占比',
+      'aps.strategy_section_filters': '选品条件',
+      'aps.strategy_filters_summary': '未设置时，默认从全部商品中匹配',
+      'aps.strategy_filters_hint': '每行填最小值与最大值；新品池与爆款池可分别设置。',
+      'aps.range_col_lo': '最小',
+      'aps.range_col_hi': '最大',
+      'aps.range_footnote': '带 % 的项为百分比；上架时间为日期区间；价格为金额。',
+      'aps.range_dim_sep': '，',
+      'aps.range_summary_new': '新品数值区间：',
+      'aps.range_between_pools': '；',
+      'aps.range_summary_best': '爆款数值区间：',
+      'aps.range_summary_end': '。',
+      'aps.range_field_listing': '上架时间',
+      'aps.range_field_stock': '库存',
+      'aps.range_field_flashDiscount': '秒杀折扣率',
+      'aps.range_field_price': '价格',
+      'aps.range_field_liveShare': '直播占比',
+      'aps.range_field_ctr': 'CTR',
+      'aps.range_field_cvr': 'CO',
+      'aps.logic_summary_blurb': '{{name}} 本期 {{n}} 个新品位、{{b}} 个爆品位；主推类目：{{cats}}。',
+      'aps.logic_ops_feed_note': '数据源：运营选品库「新品/爆品」（异常 Tab 中的 PID 不参与）。',
+      'aps.logic_ops_cargo_fallback': '若运营侧某一池为空，则回退到「商品货盘」中已上传的数据（如有）。',
+      'aps.pool_feed_ops_new': '运营库 · 新品',
+      'aps.pool_feed_ops_hot': '运营库 · 爆品',
+      'aps.col_strategies': '策略命中',
+      'aps.strat_none': '—',
+      'aps.strat_panel_title': '选品策略阈值',
+      'aps.strat_panel_sub':
+        '开关与阈值参与评分。有直播数据时对齐 TikTok 商品指标；标注「均值口径」的项在正式环境按近 N 场滚动聚合（演示为单 SKU 近似）。',
+      'aps.strat_group_new': '选新品',
+      'aps.strat_group_best': '选爆品',
+      'aps.strat_demo_note':
+        '相似度综合文本、类目、图像等多维信号（可按租户启用向量/图搜）。正式环境指标对齐近 N 场滚动均值；当前演示用单 SKU 聚合近似。',
+      'aps.strat_ck_similar_hot': '新品 · 相似爆品',
+      'aps.strat_ck_high_pot': '新品 · 高潜',
+      'aps.strat_ck_new_scale': '新品 · 扩散/放量',
+      'aps.strat_ck_sim_link': '爆品 · 相似新链',
+      'aps.strat_ck_hot_scale': '爆品 · 扩散/放量',
+      'aps.strat_ck_hot_return': '爆品 · 回归',
+      'aps.strat_f_sim_new_hot': '新品对标爆品 · 相似度 ≥（%）',
+      'aps.strat_f_sim_best_new': '爆品对标新品 · 相似度 ≥（%）',
+      'aps.strat_f_hp_sess': '高潜 · 最小直播场次',
+      'aps.strat_f_hp_imp': '高潜 · 最小曝光（均值口径）',
+      'aps.strat_f_hp_atc': '高潜 · 最小 ATC%（均值口径）',
+      'aps.strat_f_hp_cvr': '高潜 · 最小 CO%（均值口径）',
+      'aps.strat_f_hp_days': '高潜 · 最小上架天数（天）',
+      'aps.strat_f_scale_sess': '新品放量 · 最小直播场次',
+      'aps.strat_f_scale_ctr': '新品放量 · 最小 CTR%（均值口径）',
+      'aps.strat_f_scale_atc': '新品放量 · 最小 ATC%（均值口径）',
+      'aps.strat_f_scale_cvr': '新品放量 · 最小 CO%（均值口径）',
+      'aps.strat_f_scale_stk': '新品放量 · 最小库存（均值口径）',
+      'aps.strat_f_hot_sess': '爆品放量 · 最小直播场次',
+      'aps.strat_f_hot_gmv': '爆品放量 · 最小 GMV（$，均值口径）',
+      'aps.strat_f_hot_ctr': '爆品放量 · 最小 CTR%（均值口径）',
+      'aps.strat_f_hot_atc': '爆品放量 · 最小 ATC%（均值口径）',
+      'aps.strat_f_hot_cvr': '爆品放量 · 最小 CO%（均值口径）',
+      'aps.strat_f_hot_stk': '爆品放量 · 最小库存（均值口径）',
+      'aps.strat_f_hot_ret_days': '爆品回归 · 距上次主推最小天数',
+      'aps.strat_f_hot_ret_stk': '爆品回归 · 最小库存',
+      'aps.strat_similar_hot': '相似爆品',
+      'aps.strat_high_potential': '高潜信号',
+      'aps.strat_new_scale': '新品扩散/放量',
+      'aps.strat_similar_new_link': '相似新链接',
+      'aps.strat_hot_scale': '爆品扩散/放量',
+      'aps.strat_hot_return': '爆品回归',
+      'aps.strat_host_tag_fit': '主播标签重合',
+      'live_settings.packs_title': '货品 Pack',
+      'live_settings.packs_desc':
+        'Pack 分为「待同步」与「已同步」两类：待同步可打开详情、删除或同步至 TAP；已同步仅供查看。',
+      'live_settings.packs_empty': '暂无 Pack。请在「智能选品」中生成结果后保存。',
+      'aps.pack_col_name': 'Pack 名称',
+      'aps.pack_col_host': '主播',
+      'aps.pack_col_skus': '商品数',
+      'aps.pack_col_updated': '保存时间',
+      'aps.packs_section_pending': '待同步',
+      'aps.packs_section_synced': '已同步',
+      'aps.packs_pending_empty': '暂无待同步的 Pack。',
+      'aps.packs_synced_empty': '暂无已同步的 Pack。',
+      'aps.pack_open': '打开',
+      'aps.pack_view': '查看',
+      'aps.pack_sync_tap': '同步 TAP',
+      'aps.pack_sync_tap_confirm': '将此 Pack 标记为已同步至 TAP？之后仅可查看，无法删除或再次同步。',
+      'aps.pack_sync_tap_done': '已标记为同步至 TAP。',
+      'aps.pack_delete': '删除',
+      'aps.pack_delete_confirm': '确定删除此 Pack？无法恢复。',
+      'aps.pack_opened': '已加载到编辑器。',
+      'aps.pack_detail_title': 'Pack 详情',
+      'aps.pack_detail_subtitle': '仅展示本 Pack 已保存的货品信息。',
+      'aps.pack_detail_meta':
+        '<strong>{{name}}</strong> · {{host}} · {{when}} · {{n}} 个商品',
+      'aps.pack_detail_not_found': '未找到该 Pack，或其中没有已保存的商品。',
+      'aps.pack_detail_back': '返回 Pack 列表',
+      'aps.pack_detail_open_editor': '在选品编辑器中打开',
+      'aps.pack_detail_copy_selected': '复制所选 PID',
+      'aps.pack_detail_select_all': '全选',
+      'aps.pack_detail_toast_copied': '已复制 {{n}} 个 PID。',
+      'aps.pack_detail_toast_capped': '已复制 {{n}} 个 PID（单次最多 {{max}} 个）。',
+      'aps.pack_detail_copy_limit_hint': '每次复制最多 {{max}} 个 PID。',
+      'aps.pack_detail_toast_none': '请先勾选要复制的商品。',
+      'aps.pack_detail_badge_synced': '已同步至 TAP',
+      'aps.pack_restore_skipped_synced': '该 Pack 已同步至 TAP，无法在选品编辑器中打开。',
+      'aps.workspace_subtitle':
+        '默认读取「运营选品库」新品/爆品（已排除异常 Tab PID）；下方为策略阈值。单侧运营池为空时用「商品货盘」自动替补。',
+      'aps.host_country': '地区',
+      'aps.host_main_cat': '主类目',
+      'aps.host_perf_title': '近期表现',
+      'aps.host_perf_top_cat': '主力类目 GMV',
+      'aps.host_perf_ctr': 'Avg CTR',
+      'aps.host_perf_atc': 'Avg ATC',
+      'aps.host_perf_cvr': 'Avg CO',
+      'aps.host_perf_skus': '在售爆款数',
+      'aps.host_samples_title': '样品',
+      'aps.th_col_product': '商品',
+      'aps.sample_ready': '已到样',
+      'aps.sample_shipping': '寄样中',
+      'aps.sample_not_sent': '未寄样',
+      'aps.sample_rejected': '已拒样',
+      'aps.host_pref_title': '偏好摘要',
+      'aps.host_edit_profile': '在主播资料中维护标签',
+      'aps.mid_pools_title': '商品池',
+      'aps.cargo_snap_title': '货盘快照',
+      'aps.cargo_snap_desc':
+        '计数与生成读取一致：优先运营新品/爆品（异常不参与），Excel 合并后点此「重新加载」。仅当某一池在运营侧为空时用货盘上传替补。',
+      'aps.cargo_snap_ready': '采集就绪',
+      'aps.cargo_snap_updated': '货盘最近保存',
+      'aps.cargo_snap_manage': '维护货盘',
+      'aps.cargo_snap_reload': '从本地重新加载',
+      'aps.cargo_snap_never': '尚未保存',
+      'aps.cargo_snap_reloaded': '已从本地重新加载货盘。',
+      'aps.cargo_page_lead':
+        '建议运营每周上传一次商品链接（CSV）。智能选品工作台实时读取当前货盘。',
+      'aps.cargo_go_selection': '智能选品',
+      'aps.tab_pool_new': '新品池',
+      'aps.tab_pool_best': '爆款池',
+      'aps.pool_upload_hint_link': '模板内需包含 TikTok 商品链接（每行一个或 CSV 首列）。',
+      'aps.pool_col_img': '主图',
+      'aps.pool_col_link': '链接',
+      'aps.pool_col_gmv': 'GMV',
+      'aps.pool_col_atc': 'ATC',
+      'aps.pool_col_tags': '标签',
+      'aps.pool_col_status': '状态',
+      'aps.pool_col_level': '爆品质级',
+      'aps.pool_status_new': '新品',
+      'aps.pool_status_potential': '潜力',
+      'aps.pool_status_testing': '试播',
+      'aps.level_scaling': '放量',
+      'aps.level_stable': '稳定爆款',
+      'aps.level_revival': '回归',
+      'aps.pool_enrich_pending': '采集中',
+      'aps.pool_enrich_ok': '已就绪',
+      'aps.pool_enrich_err': '失败',
+      'aps.pool_refresh_enrich': '刷新采集状态',
+      'aps.pool_filter_search': '搜索商品名或 PID',
+      'aps.pool_filter_cat': '类目',
+      'aps.pool_filter_all_cat': '全部类目',
+      'aps.pool_filter_price': '价格',
+      'aps.pack_section_title': 'AI 组货包',
+      'aps.threshold_link': '新品 / 爆款阈值配置',
+      'aps.threshold_saved': '阈值已保存。',
+      'aps.threshold_page_title': '选品阈值',
+      'aps.threshold_page_sub': '以下为选品风控与门槛配置，可按商家与类目策略调整并沉淀为默认模板。',
+      'aps.threshold_back': '返回智能选品',
+      'aps.threshold_new_section': '新品池阈值',
+      'aps.threshold_best_section': '爆款池阈值',
+      'aps.threshold_save': '保存阈值',
+      'aps.threshold_shop_rating_label': '店铺评分下限',
+      'aps.col_angle': '建议话术角度',
+      'aps.col_risk': '风险备注',
+      'aps.summary_risk': '综合风险',
+      'aps.risk_low': '低',
+      'aps.risk_medium': '中',
+      'aps.risk_high': '高',
+      'aps.upload_parse_empty': '未解析到有效商品链接，请检查模板。',
+      'aps.gen_hint_enrich': '请等待全部链接采集成功后再生成；失败行请修正后重新上传或点击刷新。',
+      'aps.packs_migrated_hint': '历史列表已合并至「智能选品」；请在新工作台保存组货并复制 PID（旧数据不自动迁移）。',
+      'aps.page_notice':
+        '推荐结果依据上传与店铺配置生成；商品详情由链接采集补全。组货包保存在当前工作区，便于导出与复制 PID。',
       'live_settings.back': '返回直播设置',
+      'lprod.back_hub': '返回',
+      'lprod.hub_title': '直播商品',
+      'lprod.hub_intro': '承接「直播商品库」运营能力，并为智能选品提供统一货源数据。',
+      'lprod.card_library_title': '直播商品库',
+      'lprod.card_library_desc': '店铺在售商品统一视图（平台同步能力）。',
+      'lprod.card_library_badge': '存量',
+      'lprod.card_ops_title': '运营选品库',
+      'lprod.card_ops_desc':
+        '长期沉淀新品/爆品（定期上传 Excel，按 PID 合并）、异常货品分流。',
+      'lprod.ops_title': '运营选品库',
+      'lprod.ops_lead':
+        '在本页维护货品清单（表格手工管理 + Excel 按 PID 合并）；需要时通过上方「智能选品」从货盘生成推荐组货。',
+      'lprod.tab_new': '新品',
+      'lprod.tab_hot': '爆品',
+      'lprod.tab_collecting': '采集中',
+      'lprod.tab_abnormal': '异常商品',
+      'lprod.collecting_hint':
+        '以下任务由「新品 / 爆品」Excel 上传自动生成：已含商品图与关键信息的行会直接入库；仅含 PID 或链接、待补全字段的行会进入队列异步采集。完成后进入对应池子，失败可重采。',
+      'lprod.col_target_pool': '目标池',
+      'lprod.col_collect_status': '状态',
+      'lprod.target_pool_new': '新品池',
+      'lprod.target_pool_hot': '爆品池',
+      'lprod.status_collecting': '采集中…',
+      'lprod.status_failed': '采集失败',
+      'lprod.retry_collect': '重采',
+      'lprod.add_collect_queue': '加入采集队列',
+      'lprod.collect_pid_ph': '商品 PID',
+      'lprod.collect_link_ph': '商品链接（可选）',
+      'lprod.collect_need_pid': '请填写 PID。',
+      'lprod.collect_done': '已采集并归入「{{pool}}」池。',
+      'lprod.collect_fail_hint': '上游超时或解析失败，可重试。',
+      'lprod.abnormal_no_upload_hint': '异常清单由系统分流或历史数据汇聚；日常请在「新品」「爆品」Tab 上传 Excel。',
+      'lprod.sub_eliminate': '建议淘汰',
+      'lprod.sub_exclude': '建议排除',
+      'lprod.tabs_new_strat_nav_a11y': '切换新品策略分层',
+      'lprod.sub_new_all': '全部',
+      'lprod.sub_new_similar': '相似爆品',
+      'lprod.sub_new_highpot': '高潜新品',
+      'lprod.sub_new_scale': '扩散 & 放量',
+      'lprod.col_similar_hot_ref': '相似爆品',
+      'lprod.col_avg_impression': 'AVG.IMPRESSION',
+      'lprod.col_avg_atc_co': 'AVG.ATC% / AVG.CO',
+      'lprod.empty_new_strat_hint': '在当前筛选与爆品池语境下暂无符合该策略的行。',
+      'lprod.tabs_hot_strat_nav_a11y': '切换爆品策略分层',
+      'lprod.sub_hot_all': '全部',
+      'lprod.sub_hot_similar_new': '相似新链',
+      'lprod.sub_hot_scale': '扩散 & 放量',
+      'lprod.col_similar_new_ref': '相似新品（参考）',
+      'lprod.col_ctr': 'CTR',
+      'lprod.col_stock': '库存',
+      'lprod.empty_hot_strat_hint': '在当前筛选与新品池语境下暂无符合该爆品策略的行。',
+      'lprod.upload_excel': '上传 Excel',
+      'lprod.upload_excel_new': '上传新品',
+      'lprod.upload_excel_hot': '上传爆品',
+      'lprod.upload_hint':
+        '首张工作表读取，按 PID 合并更新。可选表头：销售价、卖点/描述、变体图（多个 HTTPS 链接可用英文逗号、| 或换行分隔）、尺码（如 S,M,L）。请在「新品」「爆品」Tab 上传；异常清单单独维护。',
+      'lprod.remove_row': '移除',
+      'lprod.import_merged': '已处理文件中的 {{n}} 条（PID 命中则覆盖，其余追加）。',
+      'lprod.import_merge_and_queue': '直接入库 {{m}} 条，{{q}} 条已进入「采集中」队列补全。',
+      'lprod.import_queued_only': '已有 {{q}} 条进入「采集中」队列（待异步补全）。',
+      'lprod.pagination_label': '列表分页',
+      'lprod.page_prev': '上一页',
+      'lprod.page_next': '下一页',
+      'lprod.page_status': '第 {{start}}–{{end}} 条，共 {{total}} 条',
+      'lprod.parser_missing': 'Excel 解析库未加载，请检查网络后刷新页面。',
+      'lprod.open_smart_selection': '智能选品',
+      'lprod.open_smart_selection_sub': '基于货盘生成推荐组货',
+      'lprod.back_ops_from_smart': '返回运营选品库',
+      'lprod.parse_failed': '未读到有效数据，请确认首个工作表、表头或使用 UTF-8 CSV。',
+      'lprod.copy_pid': '复制 PID',
+      'lprod.copied': '已复制',
+      'lprod.col_select': '选择',
+      'lprod.select_page': '全选本页',
+      'lprod.filter_keyword': '关键词',
+      'lprod.filter_keyword_ph': '商品名、PID、店铺…',
+      'lprod.filter_price': '销售价区间',
+      'lprod.filter_all': '全部',
+      'lprod.filter_price_filled': '已填价格',
+      'lprod.filter_price_empty': '未填价格',
+      'lprod.filter_min_sess': '直播场次 ≥',
+      'lprod.filter_min_gmv': '30天 GMV ≥',
+      'lprod.filter_hosts': '主播',
+      'lprod.filter_hosts_hint': '按住 Ctrl 或 ⌘ 可多选',
+      'lprod.filter_hosts_help':
+        '与租户「合作达人 & 主播」成员的持样 PID 取并集过滤；任一已选成员的持样含该 PID 即命中（未维护持样的人不参与收窄）。',
+      'lprod.filter_hosts_search_ph': '搜索并选择主播…',
+      'lprod.filter_hosts_clear_all': '清空所选',
+      'lprod.filter_hosts_empty': '暂无匹配',
+      'lprod.filter_hosts_remove_chip': '移除 {{name}}',
+      'lprod.filter_search_btn': '搜索',
+      'lprod.filter_reset': '重置',
+      'lprod.filter_section_title': '筛选条件',
+      'lprod.bulk_copy_pid': '复制已选 PID',
+      'lprod.bulk_selected_meta': '{{n}} / {{max}}',
+      'lprod.ab_bulk_selected_meta': '已选 {{n}} 条 · 最多 {{max}}',
+      'lprod.bulk_remove_selected': '批量移除',
+      'lprod.bulk_removed_toast': '已移除 {{n}} 条',
+      'lprod.bulk_limit_toast': '一次最多选择 {{max}} 个商品。',
+      'lprod.col_product': '商品',
+      'lprod.col_price_sale': '价格',
+      'lprod.col_variants': '变体',
+      'lprod.sale_price_label': '销售价:',
+      'lprod.col_thumb': '商品图',
+      'lprod.col_name': '商品名',
+      'lprod.col_shop': '店铺名 · 评分',
+      'lprod.col_product_rating': '商品评分',
+      'lprod.col_listing': '上架时间',
+      'lprod.col_sess': '直播场次数',
+      'lprod.col_hosts': '直播主播数',
+      'lprod.col_gmv30': '最近30天 GMV',
+      'lprod.sort_dir_asc': '升序',
+      'lprod.sort_dir_desc': '降序',
+      'lprod.sort_aria': '{{col}}。当前为{{dir}}，再次点击可反转。',
+      'lprod.sort_aria_idle': '{{col}}。点击后按升序排列，再次点击切换升降序。',
+      'lprod.col_uploader': '上传人 · 上传时间',
+      'lprod.col_reason': '原因',
+      'lprod.col_actions': '操作',
+      'lprod.tabs_nav_a11y': '切换货品分区',
+      'lprod.tabs_ab_nav_a11y': '切换异常子表',
+      'lprod.row_actions_a11y': '行操作',
+      'lprod.empty': '暂无数据',
+      'lprod.empty_sku_title': '暂无商品',
+      'lprod.empty_sku_hint': '使用上方「上传新品」或「上传爆品」导入 SKU，或与已有数据按 PID 合并更新。',
+      'lprod.empty_collect_title': '暂无采集任务',
+      'lprod.empty_collect_hint': '在新品 / 爆品池中导入仅含 PID 或商品链接、尚缺详情的行时，会自动进入此列表等待采集。',
+      'lprod.empty_ab_title': '暂无异常记录',
+      'lprod.empty_ab_hint': '系统分流或迁移的建议淘汰 / 排除会出现在对应列表。',
       'live_settings.fc_title': '智能场控',
       'live_settings.fc_desc': '为直播账号分配决策模型；主播话术按「账号 + 模型」保存。',
       'live_settings.fc_page_sub': '模型目录由平台维护；同账号可绑定多个模型。',
@@ -976,11 +1825,11 @@
       'discover.ai.hint': '用自然语言描述你需要的达人，AI 会匹配并推荐相关的 TikTok 达人。',
       'discover.ai.conversation': '对话',
       'discover.ai.welcome': '告诉我你要找什么样的达人，我会为你匹配最佳结果。',
-      'discover.ai.indev_badge': '内测中',
-      'discover.ai.indev_title': 'AI 搜索正在打磨中',
-      'discover.ai.indev_desc': '当前为引导式 Demo，后续会接入实时达人匹配与历史记录。',
+      'discover.ai.indev_badge': '公测',
+      'discover.ai.indev_title': 'AI 达人搜索',
+      'discover.ai.indev_desc': '用自然语言描述目标画像；匹配遵循组织规则，会话记录保存在当前工作区。',
       'discover.results': '结果', 'discover.add_leads': '添加所选到线索',
-      'discover.found': '个达人', 'discover.test_data': '测试数据',
+      'discover.found': '个达人', 'discover.test_data': '示例',
       'discover.added': '已添加', 'discover.add_single': '添加到线索',
       'discover.toast.success': '已添加 {0} 个达人到 CRM',
       'discover.toast.partial': '已添加 {0} 个，跳过 {1} 个（已存在）',
@@ -1085,7 +1934,7 @@
       'tc.cancel_subscription': '取消订阅', 'tc.benefits_store': '权益商店',
       'tc.benefits_store_desc_live': '直播业务套餐',
       'tc.benefits_store_desc_affiliate': '联盟达人业务套餐', 'tc.benefits_usage': '权益与使用', 'tc.available_days': '可用天数',
-      'tc.show_more': '显示更多', 'tc.liveq_basic': 'LiveQ Basic', 'tc.liveq_pro': 'LiveQ PRO', 'tc.additional_seats': '附加席位 - 60 天', 'tc.pending': '待生效',
+      'tc.show_more': '显示更多', 'tc.liveq_basic': 'Opsique Basic', 'tc.liveq_pro': 'Opsique PRO', 'tc.additional_seats': '附加席位 - 60 天', 'tc.pending': '待生效',
       'tc.days_remaining': '天剩余', 'tc.current_billing_period': '当前账单周期', 'tc.plan_effect_date': '您的套餐将于 2026年3月1日 生效。',
       'tc.set_remaining': '套剩余 / 共', 'tc.chatbot_assistant': 'ChatBot 助手', 'tc.comprehensive_schedule': '直播排期综合管理',
       'tc.total_days': '共', 'tc.per_6_months': '/ 6 个月', 'tc.per_day': '/ 天', 'tc.price_49': '$49.00', 'tc.price_1999': '$19.99',
@@ -1131,8 +1980,9 @@
       'tc.tts.complete_login': '完成 Seller Center 登录',
       'tc.tts.manage_login': '进入 Seller Center',
       'tc.tts.toast_login_connected': 'Seller Center 登录已连接',
-      'tc.host_affiliate': '合作主播&达人', 'tc.ha_manage': '合作主播&达人', 'tc.ha_settlement': '主播&达人结算',
+      'tc.host_affiliate': '合作主播&达人', 'tc.ha_manage': '合作主播&达人', 'tc.ha_creator_samples': '达人样品', 'tc.ha_settlement': '主播&达人结算',
       'tc.ha_manage_desc': '管理 Host 与 Affiliate 账号，并与当前租户绑定。',
+      'tc.ha_creator_samples_desc': '按商品查看谁在持样；相同 PID 合并为一行。可用下方模板批量导入。',
       'tc.ha_settlement_desc': '将直播排期生成 Creator 结算批次，并对 Creator 提现申请进行审批。',
       'tc.ha.settle_tab_batch': '结算单',
       'tc.ha.settle_tab_withdraw': '提现',
@@ -1222,6 +2072,42 @@
       'tc.ha.account_info': '账号信息', 'tc.ha.active': '启用', 'tc.ha.inactive': '停用',
       'tc.ha.host_card_desc': '排期主播。商家分配直播活动。无需授权直播账号。按活动开播。',
       'tc.ha.affiliate_card_desc': '可使用快速开播。需授权直播账号。灵活开播。',
+      'tc.ha.profile_tags': '画像标签',
+      'tc.ha.profile_tags_ph': '输入标签后按回车或点添加',
+      'tc.ha.profile_tags_none': '暂无标签',
+      'tc.ha.profile_tag_add': '添加',
+      'tc.ha.profile_tag_remove_aria': '移除标签',
+      'tc.ha.profile_tag_limit': '最多添加 12 个标签。',
+      'tc.ha.profile_tag_dup': '该标签已存在。',
+      'tc.ha.profile_tag_empty': '请先输入标签。',
+      'tc.ha.sample_pids': '持有样品',
+      'tc.ha.cs_col_product': '商品',
+      'tc.ha.cs_col_sample_owned': '持样人',
+      'tc.ha.cs_col_bound': '绑定时间',
+      'tc.ha.cs_remove': '移除绑定',
+      'tc.ha.cs_download_tpl': '下载模板',
+      'tc.ha.cs_upload': '导入表格',
+      'tc.ha.cs_empty_title': '暂无样品',
+      'tc.ha.cs_empty_body': '下载模板，填写主播/达人 ID 与商品 PID 后导入即可。',
+      'tc.ha.cs_tpl_sheet': '模板',
+      'tc.ha.cs_tpl_id': '主播/达人 ID',
+      'tc.ha.cs_tpl_name': '姓名（对照）',
+      'tc.ha.cs_tpl_product': '商品名称',
+      'tc.ha.cs_tpl_pid': '商品 PID',
+      'tc.ha.cs_tpl_image': '商品图 URL（可选）',
+      'tc.ha.cs_rows_removed': '已移除该绑定。',
+      'tc.ha.cs_upload_ok': '导入完成：新增 {added} 条，跳过 {skipped} 条。',
+      'tc.ha.cs_upload_missing_xlsx': '无法读取表格，请刷新页面后重试。',
+      'tc.ha.cs_upload_no_pid': '已跳过未填写 PID 的行。',
+      'tc.ha.cs_filters_title': '筛选条件',
+      'tc.ha.cs_filter_ph_creator': '持样人姓名',
+      'tc.ha.cs_filter_ph_product': '商品名称',
+      'tc.ha.cs_filter_ph_pid': '商品 PID',
+      'tc.ha.cs_filter_search': '搜索',
+      'tc.ha.cs_filter_reset': '重置',
+      'tc.ha.cs_no_match_title': '没有匹配结果',
+      'tc.ha.cs_no_match_hint': '可尝试修改或清空上方筛选。',
+      'tc.ha.sample_items_saved': '样品数据已更新。',
       'tc.ha.rules_title': '规则',
       'tc.ha.rules_desc': '配置 Creator 结算计算规则，用于生成结算批次时自动计算时薪和 CPS。',
       'tc.ha.rules_merchant': '商家级默认',
@@ -1485,9 +2371,9 @@
       'ls.btn.fix_issue': '处理异常',
       'ls.select_all': '全选',
       'ls.modal.batch_sync_title': '批量同步 TikTok？',
-      'ls.modal.batch_sync_body': '将为选中的 {0} 个场次创建 TikTok Live Event（MVP Mock）。',
+      'ls.modal.batch_sync_body': '将为选中的 {0} 个场次创建 TikTok Live Event。',
       'ls.toast.batch_sync_none': '没有可同步的场次。',
-      'ls.toast.batch_sync_done': '已同步 {0} 个场次（MVP Mock）。',
+      'ls.toast.batch_sync_done': '已同步 {0} 个场次。',
       'lc.title': '主播排期日历',
       'lc.intro': '按月查看主播排期场次，数据与「直播排期」一致。',
       'lc.prev_month': '上月',
@@ -1592,10 +2478,12 @@
       'ls.gmv.ccy_hint': 'GMV 币种由服务端按直播间商品币种下发，当前：{0}',
       'ls.banner.host_checkin': '主播尚未在 App 打卡上播。',
       'ls.readonly.empty_sessions': '暂无场次',
+      'ls.sess.mark_live': '标记直播中',
+      'ls.sess.mark_end': '标记已结束',
       'ls.detail.seg_hosts': '主播信息',
       'ls.format.gmv_label': 'Direct GMV：{0}',
       'ls.edit.hint_streamed': '已直播：仅可编辑实际上下播与 GMV。',
-      'ls.edit.hint_full': '可编辑全部排期字段（MVP 预览）。',
+      'ls.edit.hint_full': '可编辑本次排期的全部字段。',
       'ls.modal.seg_hosts_title': '主播分段',
       'ls.seg.empty': '暂无分段',
       'ls.seg.del_disabled': '不可删除',
@@ -2167,8 +3055,16 @@
     'hosts/hourly-pay-rules': 'hourly-pay-rules',
     'live/calendar': 'live_calendar',
     'live/schedule': 'live_schedule',
+    'live/products': 'live_products',
+    'live/products/operational': 'live_products_operational',
+    'live/products/smart-selection': 'live_products_smart_selection',
+    'live/products/smart-selection/thresholds': 'live_products_smart_selection_thresholds',
     'live/settings': 'live_settings',
     'live/settings/flash-sale': 'live_settings_flash_sale',
+    'live/settings/ai-product-selection': 'live_settings_ai_product_selection',
+    'live/settings/ai-product-selection/thresholds': 'live_settings_aps_thresholds',
+    'live/settings/product-cargo-pools': 'live_settings_product_cargo_pools',
+    'live/settings/product-packs': 'live_settings_product_packs',
     'live/settings/field-control': 'live_settings_field_control_accounts',
     'live/settings/field-control/accounts': 'live_settings_field_control_accounts',
     'live/settings/field-control/models': 'live_settings_field_control_models'
@@ -2244,7 +3140,12 @@
     document.querySelectorAll('.sidebar-primary-icon[data-route]').forEach(function (a) {
       var navRoute = a.getAttribute('data-route');
       var isActive = navRoute === routeId ||
-        (navRoute === 'live_settings' && (routeId === 'live_settings_flash_sale' || routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy')) ||
+        (navRoute === 'live_products' &&
+          (routeId === 'live_products' ||
+            routeId === 'live_products_operational' ||
+            routeId === 'live_products_smart_selection' ||
+            routeId === 'live_products_smart_selection_thresholds')) ||
+        (navRoute === 'live_settings' && (routeId === 'live_settings_flash_sale' || routeId === 'live_settings_ai_product_selection' || routeId === 'live_settings_aps_thresholds' || routeId === 'live_settings_product_cargo_pools' || routeId === 'live_settings_product_packs' || routeId === 'live_settings_pack_detail' || routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy')) ||
         (navRoute === 'tenant_center_shared' && routeId === 'analytics');
       a.classList.toggle('active', isActive);
     });
@@ -3633,6 +4534,7 @@
     nav += '<div class="tc-nav-block">' +
       '<div class="tc-nav-title"><i class="fas fa-users"></i> ' + t('tc.host_affiliate') + '</div>' +
       '<a href="#" class="tc-nav-item' + (tcPanel === 'ha_manage' ? ' tc-nav-item--active' : '') + '" data-tc-panel="ha_manage">' + t('tc.ha_manage') + '</a>' +
+      '<a href="#" class="tc-nav-item' + (tcPanel === 'ha_creator_samples' ? ' tc-nav-item--active' : '') + '" data-tc-panel="ha_creator_samples">' + t('tc.ha_creator_samples') + '</a>' +
       '<a href="#" class="tc-nav-item' + (tcPanel === 'ha_settlement' ? ' tc-nav-item--active' : '') + '" data-tc-panel="ha_settlement">' + t('tc.ha_settlement') + '</a>' +
     '</div><div class="tc-nav-divider"></div>';
     nav += '<div class="tc-nav-block">' +
@@ -3734,6 +4636,90 @@
           '</div>' +
         '</div>' +
       '</div>';
+    }
+    if (panel === 'ha_creator_samples') {
+      return (
+        '<div class="tc-creator-samples-page">' +
+        '<div class="tc-panel-header">' +
+        '<div class="tc-ha-head">' +
+        '<h2 class="tc-section-title">' +
+        lsEscHtml(t('tc.ha_creator_samples')) +
+        '</h2>' +
+        '<p class="tc-ha-desc">' +
+        lsEscHtml(t('tc.ha_creator_samples_desc')) +
+        '</p>' +
+        '</div>' +
+        '<div class="tc-cs-toolbar">' +
+        '<div class="tc-cs-toolbar-actions">' +
+        '<button type="button" class="btn btn-secondary btn-sm" id="haCsDownloadTpl"><i class="fas fa-download"></i><span>' +
+        lsEscHtml(t('tc.ha.cs_download_tpl')) +
+        '</span></button>' +
+        '<button type="button" class="btn btn-primary btn-sm" id="haCsUploadBtn"><i class="fas fa-file-import"></i><span>' +
+        lsEscHtml(t('tc.ha.cs_upload')) +
+        '</span></button>' +
+        '<input type="file" id="haCsFileInput" class="tc-cs-file-input" accept=".xlsx,.xls" />' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="tc-cs-filters" id="haCsFiltersBar" role="search" aria-label="' +
+        lsEscHtml(t('tc.ha.cs_filters_title')) +
+        '">' +
+        '<div class="tc-cs-filters-title">' +
+        lsEscHtml(t('tc.ha.cs_filters_title')) +
+        '</div>' +
+        '<div class="tc-cs-filters-row">' +
+        '<div class="tc-cs-filter-field">' +
+        '<label class="tc-cs-filter-label" for="haCsFilterCreator">' +
+        lsEscHtml(t('tc.ha.cs_col_sample_owned')) +
+        '</label>' +
+        '<input type="text" id="haCsFilterCreator" class="input tc-cs-filter-input" autocomplete="off" placeholder="' +
+        lsEscHtml(t('tc.ha.cs_filter_ph_creator')) +
+        '" />' +
+        '</div>' +
+        '<div class="tc-cs-filter-field">' +
+        '<label class="tc-cs-filter-label" for="haCsFilterProduct">' +
+        lsEscHtml(t('tc.ha.cs_col_product')) +
+        '</label>' +
+        '<input type="text" id="haCsFilterProduct" class="input tc-cs-filter-input" autocomplete="off" placeholder="' +
+        lsEscHtml(t('tc.ha.cs_filter_ph_product')) +
+        '" />' +
+        '</div>' +
+        '<div class="tc-cs-filter-field">' +
+        '<label class="tc-cs-filter-label" for="haCsFilterPid">' +
+        lsEscHtml(t('tc.ha.cs_tpl_pid')) +
+        '</label>' +
+        '<input type="text" id="haCsFilterPid" class="input tc-cs-filter-input" autocomplete="off" placeholder="' +
+        lsEscHtml(t('tc.ha.cs_filter_ph_pid')) +
+        '" />' +
+        '</div>' +
+        '<div class="tc-cs-filter-actions">' +
+        '<button type="button" class="btn btn-primary btn-sm" id="haCsFilterSearch"><i class="fas fa-search"></i><span>' +
+        lsEscHtml(t('tc.ha.cs_filter_search')) +
+        '</span></button>' +
+        '<button type="button" class="btn btn-secondary btn-sm" id="haCsFilterReset"><span>' +
+        lsEscHtml(t('tc.ha.cs_filter_reset')) +
+        '</span></button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="tc-cs-table-wrap">' +
+        '<table class="tc-cs-table">' +
+        '<thead><tr>' +
+        '<th>' +
+        lsEscHtml(t('tc.ha.cs_col_product')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('tc.ha.cs_col_sample_owned')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('tc.ha.cs_col_bound')) +
+        '</th>' +
+        '</tr></thead>' +
+        '<tbody id="haCreatorSamplesTbody"></tbody>' +
+        '</table>' +
+        '</div>' +
+        '</div>'
+      );
     }
     if (panel === 'ha_settlement') {
       return '' +
@@ -3838,7 +4824,7 @@
     var benefit1 = planType === 'affiliate' ? t('tc.affiliate_benefit_creators') : t('tc.live_benefit_sets');
     var benefit2 = planType === 'affiliate' ? t('tc.affiliate_benefit_find') : t('tc.live_benefit_hours');
     var benefit3 = planType === 'affiliate' ? t('tc.affiliate_benefit_outreach') : t('tc.live_benefit_schedule');
-    var planLabel = planType === 'affiliate' ? 'LiveQ Affiliate' : 'LiveQ Live';
+    var planLabel = planType === 'affiliate' ? 'Opsique Affiliate' : 'Opsique Live';
     return '<div class="tc-plan-card">' +
             '<div class="tc-plan-head">' +
               '<span class="tc-plan-name tc-plan-name--gradient">' + planLabel + ' Basic</span>' +
@@ -3897,14 +4883,300 @@
   var haManageSearchName = '';
   var haManageSearchContact = '';
   var haManageInviteType = 'host';
+  var haCreatorSamplesAppliedFilters = { holder: '', product: '', pid: '' };
   var haManageUsers = [
-    { id: 1, type: 'host', name: 'Maribel Maldonado', avatar: 'https://i.pravatar.cc/96?img=1', phone: '5858773515', email: 'Maribelsuniqueboutique@gmail.com', active: true, upcomingEvents: 3, lastEventAt: 'Feb 18, 2025 20:00', liveAccount: { username: 'homechef_mike', country: 'US' } },
-    { id: 2, type: 'host', name: 'Priscilla Melendez', avatar: 'https://i.pravatar.cc/96?img=2', phone: '5858773516', email: null, active: true, upcomingEvents: 0, lastEventAt: 'Feb 10, 2025 19:30', liveAccount: { username: 'priscilla_live', country: 'CN' } },
-    { id: 3, type: 'host', name: 'Francine Feero', avatar: null, phone: null, email: 'francine@example.com', active: true, upcomingEvents: 1, lastEventAt: null, liveAccount: { username: 'francine_f', country: 'DE' } },
-    { id: 4, type: 'affiliate', name: 'Zee McAllister', avatar: 'https://i.pravatar.cc/96?img=4', phone: '+1 2255632553', email: '907528432@gmail.com', active: true, liveAccount: { authorized: true, username: 'dawnsummer_', country: 'US', accountInfo: { avatar: 'https://i.pravatar.cc/96?img=4', name: 'Mollymayfashion', uid: '7000714532876273410', status: 'Active', type: 'Creator', lastUpdate: 'Jan 29, 2022 16:00:38' } }, lastLiveAt: 'Feb 20, 2025 14:30', totalBroadcasts: 12 },
+    {
+      id: 1,
+      type: 'host',
+      name: 'Maribel Maldonado',
+      avatar: 'https://i.pravatar.cc/96?img=1',
+      phone: '5858773515',
+      email: 'Maribelsuniqueboutique@gmail.com',
+      active: true,
+      upcomingEvents: 3,
+      lastEventAt: 'Feb 18, 2025 20:00',
+      liveAccount: { username: 'homechef_mike', country: 'US' },
+      sampleItems: [
+        { pid: '8800123456789012345', productName: '不锈钢保温杯 500ml', boundAt: '2026-03-15T10:00:00.000Z', imageUrl: 'https://picsum.photos/id/30/200/200' },
+        { pid: '8800123456789012346', productName: '硅胶厨房收纳套装', boundAt: '2026-04-02T14:20:00.000Z', imageUrl: '' }
+      ]
+    },
+    {
+      id: 2,
+      type: 'host',
+      name: 'Priscilla Melendez',
+      avatar: 'https://i.pravatar.cc/96?img=2',
+      phone: '5858773516',
+      email: null,
+      active: true,
+      upcomingEvents: 0,
+      lastEventAt: 'Feb 10, 2025 19:30',
+      liveAccount: { username: 'priscilla_live', country: 'CN' },
+      sampleItems: [
+        { pid: '8800999000111222333', productName: '智能手表表带（多色）', boundAt: '2026-04-10T09:15:00.000Z', imageUrl: 'https://picsum.photos/id/250/200/200' }
+      ]
+    },
+    {
+      id: 3,
+      type: 'host',
+      name: 'Francine Feero',
+      avatar: null,
+      phone: null,
+      email: 'francine@example.com',
+      active: true,
+      upcomingEvents: 1,
+      lastEventAt: null,
+      liveAccount: { username: 'francine_f', country: 'DE' },
+      sampleItems: [
+        { pid: '8800777666555444333', productName: '亚麻午睡毯', boundAt: '2026-05-01T16:45:00.000Z', imageUrl: '' }
+      ]
+    },
+    {
+      id: 4,
+      type: 'affiliate',
+      name: 'Zee McAllister',
+      avatar: 'https://i.pravatar.cc/96?img=4',
+      phone: '+1 2255632553',
+      email: '907528432@gmail.com',
+      active: true,
+      liveAccount: { authorized: true, username: 'dawnsummer_', country: 'US', accountInfo: { avatar: 'https://i.pravatar.cc/96?img=4', name: 'Mollymayfashion', uid: '7000714532876273410', status: 'Active', type: 'Creator', lastUpdate: 'Jan 29, 2022 16:00:38' } },
+      lastLiveAt: 'Feb 20, 2025 14:30',
+      totalBroadcasts: 12,
+      sampleItems: [
+        { pid: '8800111222333444555', productName: '宠物自动喂食器', boundAt: '2026-05-05T11:00:00.000Z', imageUrl: 'https://picsum.photos/id/237/200/200' }
+      ]
+    },
     { id: 5, type: 'affiliate', name: 'John McAllister', avatar: 'https://i.pravatar.cc/96?img=5', phone: '+1 2255632553', email: null, active: false, liveAccount: { authorized: false }, lastLiveAt: null, totalBroadcasts: 0 },
-    { id: 6, type: 'affiliate', name: 'Alex Chen', avatar: 'https://i.pravatar.cc/96?img=6', phone: '5858773520', email: 'alex.chen@example.com', active: true, liveAccount: { authorized: true, username: 'alexlive_', country: 'US', accountInfo: { avatar: 'https://i.pravatar.cc/96?img=6', name: 'AlexCreator', uid: '8000825643987384521', status: 'Active', type: 'Creator', lastUpdate: 'Feb 15, 2025 10:30:22' } }, lastLiveAt: null, totalBroadcasts: 0 }
+    {
+      id: 6,
+      type: 'affiliate',
+      name: 'Alex Chen',
+      avatar: 'https://i.pravatar.cc/96?img=6',
+      phone: '5858773520',
+      email: 'alex.chen@example.com',
+      active: true,
+      liveAccount: { authorized: true, username: 'alexlive_', country: 'US', accountInfo: { avatar: 'https://i.pravatar.cc/96?img=6', name: 'AlexCreator', uid: '8000825643987384521', status: 'Active', type: 'Creator', lastUpdate: 'Feb 15, 2025 10:30:22' } },
+      lastLiveAt: null,
+      totalBroadcasts: 0,
+      sampleItems: [
+        { pid: '8800999000111222333', productName: '智能手表表带（多色）', boundAt: '2026-05-08T08:00:00.000Z', imageUrl: 'https://picsum.photos/id/250/200/200' }
+      ]
+    }
   ];
+
+  var HA_PROFILE_STORAGE_KEY = 'wahool_tc_ha_profile_v1';
+  var HA_PROFILE_TAGS_MAX = 12;
+  var HA_PROFILE_TAG_LEN_MAX = 24;
+  var HA_SAMPLE_PIDS_MAX = 500;
+  var HA_CS_IMG_PLACEHOLDER =
+    'data:image/svg+xml,' +
+    encodeURIComponent(
+      '<svg xmlns="http://www.w3.org/2000/svg" width="56" height="56" viewBox="0 0 56 56"><rect fill="#e8ecf1" width="56" height="56" rx="8"/><path fill="#94a3b8" d="M18 38h20V24l-4 6-4-5-4 5-4-6v13zm2-16a3.5 3.5 0 110-7 3.5 3.5 0 010 7z"/></svg>'
+    );
+
+  function haEnsureProfileFields(u) {
+    if (!u) return;
+    if (!u.profileTags || !Array.isArray(u.profileTags)) u.profileTags = [];
+    if (!u.sampleItems || !Array.isArray(u.sampleItems)) u.sampleItems = [];
+    if (u.samplePids && Array.isArray(u.samplePids) && u.samplePids.length && !u.sampleItems.length) {
+      u.sampleItems = u.samplePids
+        .map(function (pid) {
+          var p = String(pid || '').trim();
+          return p ? { pid: p, productName: '', boundAt: '', imageUrl: '' } : null;
+        })
+        .filter(Boolean);
+    }
+    if (u.samplePids) delete u.samplePids;
+  }
+
+  function haNormalizeSampleItem(it) {
+    if (typeof it === 'string') {
+      var s = String(it || '').trim();
+      return s ? { pid: s, productName: '', boundAt: '', imageUrl: '' } : null;
+    }
+    if (!it || typeof it !== 'object') return null;
+    var pid = String(it.pid || '').trim();
+    if (!pid) return null;
+    return {
+      pid: pid,
+      productName: String(it.productName || it.product_name || '').trim(),
+      boundAt: String(it.boundAt || it.bound_at || '').trim(),
+      imageUrl: String(it.imageUrl || it.image_url || it.productImage || '').trim()
+    };
+  }
+
+  function haFormatSampleBoundAt(iso) {
+    if (!iso) return '—';
+    try {
+      var d = new Date(iso);
+      if (isNaN(d.getTime())) return iso;
+      return d.toLocaleString(getLang() === 'zh' ? 'zh-CN' : 'en-US', { dateStyle: 'short', timeStyle: 'short' });
+    } catch (e) {
+      return iso;
+    }
+  }
+
+  function haProfileStorageReadBag() {
+    try {
+      var raw = localStorage.getItem(HA_PROFILE_STORAGE_KEY);
+      if (!raw) return {};
+      var j = JSON.parse(raw);
+      return j && typeof j === 'object' ? j : {};
+    } catch (err) {
+      return {};
+    }
+  }
+
+  function haProfileStorageApplyFromLocal() {
+    var bag = haProfileStorageReadBag();
+    (haManageUsers || []).forEach(function (u) {
+      haEnsureProfileFields(u);
+      var ex = bag[String(u.id)];
+      if (!ex || typeof ex !== 'object') return;
+      if (Array.isArray(ex.profileTags)) {
+        u.profileTags = ex.profileTags
+          .map(function (x) {
+            return String(x || '').trim();
+          })
+          .filter(Boolean)
+          .slice(0, HA_PROFILE_TAGS_MAX);
+      }
+      var exItems = Array.isArray(ex.sampleItems) ? ex.sampleItems : [];
+      var hasNewItems = exItems.some(function (it) {
+        return haNormalizeSampleItem(it);
+      });
+      if (Array.isArray(ex.samplePids) && ex.samplePids.length && !hasNewItems) {
+        u.sampleItems = ex.samplePids
+          .map(function (x) {
+            var p = String(x || '').trim();
+            return p ? { pid: p, productName: '', boundAt: '', imageUrl: '' } : null;
+          })
+          .filter(Boolean)
+          .slice(0, HA_SAMPLE_PIDS_MAX);
+      } else if (Array.isArray(ex.sampleItems)) {
+        u.sampleItems = ex.sampleItems
+          .map(haNormalizeSampleItem)
+          .filter(Boolean)
+          .slice(0, HA_SAMPLE_PIDS_MAX);
+      }
+    });
+  }
+
+  function haProfileStoragePersist() {
+    try {
+      var bag = {};
+      (haManageUsers || []).forEach(function (u) {
+        haEnsureProfileFields(u);
+        var items = (u.sampleItems || []).slice();
+        if (u.profileTags.length || items.length) {
+          bag[String(u.id)] = { profileTags: u.profileTags.slice(), sampleItems: items };
+        }
+      });
+      localStorage.setItem(HA_PROFILE_STORAGE_KEY, JSON.stringify(bag));
+    } catch (err) {}
+  }
+
+  haProfileStorageApplyFromLocal();
+
+  /** 将租户中心「合作主播&达人」成员转为智能选品使用的主播画像结构 */
+  function apsMapTenantUserToSmartHost(u) {
+    if (!u || !u.active) return null;
+    var id = 'tc_ha_' + u.id;
+    var country = (u.liveAccount && u.liveAccount.country) || '';
+    haEnsureProfileFields(u);
+    var tags = [];
+    if (u.profileTags && u.profileTags.length) {
+      u.profileTags.forEach(function (tg) {
+        var s = String(tg || '').trim();
+        if (s && tags.indexOf(s) === -1) tags.push(s);
+      });
+    }
+    var samples = [];
+    if (u.sampleItems && u.sampleItems.length) {
+      u.sampleItems.forEach(function (it) {
+        var pid = String((it && it.pid) || '').trim();
+        if (!pid) return;
+        var title = String((it && it.productName) || '').trim();
+        var label = title ? title + ' · ' + pid : pid;
+        samples.push({ productName: label, status: 'sample' });
+      });
+    }
+    return {
+      id: id,
+      hostNumericId: u.id,
+      name: u.name,
+      avatar: (u.name && u.name[0]) ? u.name[0].toUpperCase() : '?',
+      country: country || 'US',
+      mainCategory: 'General',
+      tags: tags,
+      preference:
+        (u.type === 'host' ? t('aps.host_pref_from_tenant_scheduled') : t('aps.host_pref_from_tenant_affiliate')) +
+        ' ' +
+        (u.name || '') +
+        '.',
+      categoryBias: [],
+      perf: { topCatGmv: '–', ctr: '–', atc: '–', cvr: '–', bestSkuCount: 0 },
+      samples: samples
+    };
+  }
+
+  function apsHostsForSmartSelection() {
+    if (typeof haManageUsers === 'undefined' || !haManageUsers || !haManageUsers.length) return [];
+    var out = [];
+    haManageUsers.forEach(function (u) {
+      var m = apsMapTenantUserToSmartHost(u);
+      if (m) out.push(m);
+    });
+    return out;
+  }
+
+  function apsGetSmartHostById(hostId) {
+    if (!hostId) return null;
+    return apsHostsForSmartSelection().filter(function (h) {
+      return h.id === hostId;
+    })[0];
+  }
+
+  /** 参考主播持样 PID 集合（租户中心用户在「样品」列表里记录的 PID）；无持样或无此人时返回 null（表示不过滤）。 */
+  function apsTenantSamplePidNormMapForSmartHostId(smartHostId) {
+    if (!smartHostId) return null;
+    var h = apsGetSmartHostById(smartHostId);
+    if (!h || h.hostNumericId == null) return null;
+    var u =
+      typeof haManageUsers !== 'undefined' && haManageUsers
+        ? haManageUsers.filter(function (x) {
+            return x.id === h.hostNumericId;
+          })[0]
+        : null;
+    if (!u || !u.sampleItems || !u.sampleItems.length) return null;
+    var map = {};
+    u.sampleItems.forEach(function (it) {
+      var pid = String((it && it.pid) || '').trim();
+      var k = pid ? pid.toLowerCase() : '';
+      if (k) map[k] = true;
+    });
+    return Object.keys(map).length ? map : null;
+  }
+
+  function apsReferenceHasPoolOverlap(rt, smartRefId) {
+    var set = apsTenantSamplePidNormMapForSmartHostId(smartRefId);
+    if (!set) return true;
+    function hitPool(up) {
+      if (!up || !up.rows || !up.rows.length) return false;
+      var ix;
+      for (ix = 0; ix < up.rows.length; ix++) {
+        var rr = up.rows[ix];
+        if (!rr || rr.enrichStatus !== 'ok') continue;
+        var k = String(rr.pid || '')
+          .trim()
+          .toLowerCase();
+        if (k && set[k]) return true;
+      }
+      return false;
+    }
+    return hitPool(rt.uploadNew) || hitPool(rt.uploadBest);
+  }
+
   function haGetMerchantLiveAccountCountries() {
     var countries = [];
     (haManageUsers || []).forEach(function (u) {
@@ -3944,6 +5216,553 @@
     });
   }
 
+  function haProfileAddTag(userId, raw) {
+    var u = haManageUsers.filter(function (x) { return x.id === userId; })[0];
+    if (!u) return;
+    haEnsureProfileFields(u);
+    var s = String(raw || '').trim();
+    if (!s) {
+      showToast(t('tc.ha.profile_tag_empty'), 'warn');
+      return;
+    }
+    if (s.length > HA_PROFILE_TAG_LEN_MAX) s = s.substring(0, HA_PROFILE_TAG_LEN_MAX);
+    if (u.profileTags.indexOf(s) >= 0) {
+      showToast(t('tc.ha.profile_tag_dup'), 'warn');
+      return;
+    }
+    if (u.profileTags.length >= HA_PROFILE_TAGS_MAX) {
+      showToast(t('tc.ha.profile_tag_limit'), 'warn');
+      return;
+    }
+    u.profileTags.push(s);
+    haProfileStoragePersist();
+    renderHaManageUserList();
+  }
+
+  function haCreatorSamplesActiveUsers() {
+    return (haManageUsers || []).filter(function (u) {
+      return u && u.active;
+    });
+  }
+
+  function haCreatorSamplesGroupedRows() {
+    var byPid = {};
+    haCreatorSamplesActiveUsers().forEach(function (u) {
+      haEnsureProfileFields(u);
+      (u.sampleItems || []).forEach(function (it, ix) {
+        var pid = String((it && it.pid) || '').trim();
+        if (!pid) return;
+        var key = pid.toLowerCase();
+        if (!byPid[key]) {
+          byPid[key] = {
+            pid: pid,
+            displayName: '',
+            imageUrl: '',
+            instances: []
+          };
+        }
+        var g = byPid[key];
+        var nm = String((it && it.productName) || '').trim();
+        if (nm) {
+          if (!g.displayName || nm.length > g.displayName.length) g.displayName = nm;
+        }
+        var im = String((it && it.imageUrl) || '').trim();
+        if (im && !g.imageUrl) g.imageUrl = im;
+        g.instances.push({ user: u, item: it, index: ix });
+      });
+    });
+    return Object.keys(byPid)
+      .map(function (k) {
+        var g = byPid[k];
+        g.instances.sort(function (a, b) {
+          return (a.user.id || 0) - (b.user.id || 0);
+        });
+        return g;
+      })
+      .sort(function (a, b) {
+        return String(a.pid).localeCompare(String(b.pid));
+      });
+  }
+
+  function haCreatorSamplesFilterNorm(s) {
+    return String(s || '')
+      .trim()
+      .toLowerCase();
+  }
+
+  function haCreatorSamplesGetFilterStateFromInputs() {
+    function val(id) {
+      var el = document.getElementById(id);
+      return el ? String(el.value || '') : '';
+    }
+    return {
+      holder: val('haCsFilterCreator'),
+      product: val('haCsFilterProduct'),
+      pid: val('haCsFilterPid')
+    };
+  }
+
+  function haCreatorSamplesApplyFiltersFromInputs() {
+    var f = haCreatorSamplesGetFilterStateFromInputs();
+    haCreatorSamplesAppliedFilters = {
+      holder: f.holder,
+      product: f.product,
+      pid: f.pid
+    };
+  }
+
+  function haCreatorSamplesResetFilters() {
+    haCreatorSamplesAppliedFilters = { holder: '', product: '', pid: '' };
+    ['haCsFilterCreator', 'haCsFilterProduct', 'haCsFilterPid'].forEach(function (fid) {
+      var el = document.getElementById(fid);
+      if (el) el.value = '';
+    });
+  }
+
+  function haCreatorSamplesGetFilterState() {
+    return {
+      holder: haCreatorSamplesAppliedFilters.holder,
+      product: haCreatorSamplesAppliedFilters.product,
+      pid: haCreatorSamplesAppliedFilters.pid
+    };
+  }
+
+  function haCreatorSamplesMatchesFilters(group, f) {
+    var holderQ = haCreatorSamplesFilterNorm(f.holder);
+    var productQ = haCreatorSamplesFilterNorm(f.product);
+    var pidQ = haCreatorSamplesFilterNorm(f.pid);
+    if (!holderQ && !productQ && !pidQ) return true;
+
+    if (pidQ && String(group.pid).toLowerCase().indexOf(pidQ) < 0) return false;
+
+    if (productQ) {
+      var prodHit = String(group.displayName || '').toLowerCase().indexOf(productQ) >= 0;
+      if (!prodHit) {
+        var j;
+        for (j = 0; j < group.instances.length; j++) {
+          var it = group.instances[j].item;
+          if (String((it && it.productName) || '').toLowerCase().indexOf(productQ) >= 0) {
+            prodHit = true;
+            break;
+          }
+        }
+      }
+      if (!prodHit) return false;
+    }
+
+    if (holderQ) {
+      var holderHit = false;
+      var k;
+      for (k = 0; k < group.instances.length; k++) {
+        var u = group.instances[k].user;
+        if (String((u && u.name) || '').toLowerCase().indexOf(holderQ) >= 0) {
+          holderHit = true;
+          break;
+        }
+      }
+      if (!holderHit) return false;
+    }
+
+    return true;
+  }
+
+  function haCreatorSamplesRenderTableBody() {
+    var tbody = document.getElementById('haCreatorSamplesTbody');
+    if (!tbody) return;
+    var allGroups = haCreatorSamplesGroupedRows();
+    var filterState = haCreatorSamplesGetFilterState();
+    var hasFilters =
+      !!haCreatorSamplesFilterNorm(filterState.holder) ||
+      !!haCreatorSamplesFilterNorm(filterState.product) ||
+      !!haCreatorSamplesFilterNorm(filterState.pid);
+    var groups = hasFilters
+      ? allGroups.filter(function (g) {
+          return haCreatorSamplesMatchesFilters(g, filterState);
+        })
+      : allGroups;
+    if (!allGroups.length) {
+      tbody.innerHTML =
+        '<tr><td colspan="3" class="tc-cs-empty-cell">' +
+        '<div class="tc-cs-empty" role="status">' +
+        '<div class="tc-cs-empty-icon" aria-hidden="true"><i class="fas fa-box-open"></i></div>' +
+        '<div class="tc-cs-empty-title">' +
+        lsEscHtml(t('tc.ha.cs_empty_title')) +
+        '</div>' +
+        '<p class="tc-cs-empty-desc">' +
+        lsEscHtml(t('tc.ha.cs_empty_body')) +
+        '</p>' +
+        '</div></td></tr>';
+      return;
+    }
+    if (!groups.length) {
+      tbody.innerHTML =
+        '<tr><td colspan="3" class="tc-cs-empty-cell">' +
+        '<div class="tc-cs-empty tc-cs-empty--muted" role="status">' +
+        '<div class="tc-cs-empty-icon tc-cs-empty-icon--sm" aria-hidden="true"><i class="fas fa-search"></i></div>' +
+        '<div class="tc-cs-empty-title">' +
+        lsEscHtml(t('tc.ha.cs_no_match_title')) +
+        '</div>' +
+        '<p class="tc-cs-empty-desc">' +
+        lsEscHtml(t('tc.ha.cs_no_match_hint')) +
+        '</p>' +
+        '</div></td></tr>';
+      return;
+    }
+    tbody.innerHTML = groups
+      .map(function (group) {
+        var imgSrc = group.imageUrl ? lsEscHtml(group.imageUrl) : HA_CS_IMG_PLACEHOLDER;
+        var prodTitle = String(group.displayName || '').trim();
+        var ownersHtml = group.instances
+          .map(function (inst) {
+            var u = inst.user;
+            var ix = inst.index;
+            return (
+              '<div class="tc-cs-owner-line">' +
+              '<span class="tc-cs-owner-meta">' +
+              lsEscHtml(u.name || '') +
+              ' <span class="tc-cs-owner-id">ID ' +
+              u.id +
+              '</span></span>' +
+              '<button type="button" class="tc-cs-remove-btn ha-cs-remove" data-ha-cs-user="' +
+              u.id +
+              '" data-ha-cs-ix="' +
+              ix +
+              '" aria-label="' +
+              lsEscHtml(t('tc.ha.cs_remove')) +
+              '"><i class="fas fa-times"></i></button>' +
+              '</div>'
+            );
+          })
+          .join('');
+        var boundsHtml = group.instances
+          .map(function (inst) {
+            return (
+              '<div class="tc-cs-bound-line">' + lsEscHtml(haFormatSampleBoundAt(inst.item.boundAt)) + '</div>'
+            );
+          })
+          .join('');
+        return (
+          '<tr>' +
+          '<td class="tc-cs-product-cell">' +
+          '<div class="tc-cs-product-inner">' +
+          '<img class="tc-cs-product-img" src="' +
+          imgSrc +
+          '" alt="" loading="lazy" />' +
+          '<div class="tc-cs-product-text">' +
+          '<div class="tc-cs-product-name">' +
+          lsEscHtml(prodTitle || '—') +
+          '</div>' +
+          '<code class="tc-cs-pid">' +
+          lsEscHtml(group.pid) +
+          '</code>' +
+          '</div></div></td>' +
+          '<td class="tc-cs-owners-cell">' +
+          ownersHtml +
+          '</td>' +
+          '<td class="tc-cs-bound-cell">' +
+          boundsHtml +
+          '</td>' +
+          '</tr>'
+        );
+      })
+      .join('');
+    tbody.querySelectorAll('.tc-cs-product-img').forEach(function (img) {
+      img.addEventListener('error', function onImgErr() {
+        img.removeEventListener('error', onImgErr);
+        if (img.getAttribute('data-cs-img-fallback') === '1') return;
+        img.setAttribute('data-cs-img-fallback', '1');
+        img.src = HA_CS_IMG_PLACEHOLDER;
+      });
+    });
+  }
+
+  function haCreatorSamplesRemoveAt(userId, itemIndex) {
+    var u = haManageUsers.filter(function (x) {
+      return x.id === userId;
+    })[0];
+    if (!u || !u.active) return;
+    haEnsureProfileFields(u);
+    if (itemIndex < 0 || itemIndex >= u.sampleItems.length) return;
+    u.sampleItems.splice(itemIndex, 1);
+    haProfileStoragePersist();
+    showToast(t('tc.ha.cs_rows_removed'), 'success');
+    haCreatorSamplesRenderTableBody();
+    renderHaManageUserList();
+  }
+
+  function haCreatorSamplesDownloadTemplate() {
+    if (typeof XLSX === 'undefined') {
+      showToast(t('tc.ha.cs_upload_missing_xlsx'), 'warn');
+      return;
+    }
+    var head = [
+      t('tc.ha.cs_tpl_id'),
+      t('tc.ha.cs_tpl_name'),
+      t('tc.ha.cs_tpl_product'),
+      t('tc.ha.cs_tpl_pid'),
+      t('tc.ha.cs_tpl_image')
+    ];
+    var ws = XLSX.utils.aoa_to_sheet([head]);
+    var wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, t('tc.ha.cs_tpl_sheet').slice(0, 31));
+    XLSX.writeFile(wb, 'creator-samples-template.xlsx');
+  }
+
+  function haCreatorSamplesMapColumns(headerRow) {
+    var n = headerRow.length;
+    var idx = { id: -1, name: -1, product: -1, pid: -1, image: -1 };
+    for (var c = 0; c < n; c++) {
+      var cell = String(headerRow[c] || '').trim();
+      var low = cell.replace(/\s+/g, ' ').toLowerCase();
+      if (idx.pid < 0 && (/货号/.test(cell) || /^pid$/i.test(low) || cell === 'PID')) idx.pid = c;
+      else if (idx.image < 0 && (/图片|商品图|image|img|url|photo|封面|link/i.test(cell) && !/姓名|name\s*\(/.test(cell))) idx.image = c;
+      else if (idx.product < 0 && (/样品|商品名称|sample|product name/i.test(cell) && !/达人|主播|姓名/.test(cell))) idx.product = c;
+      else if (idx.name < 0 && (cell === '姓名' || /^name\s*\(/i.test(cell) || (low === 'name' && !/sample|product|样品/.test(low)))) idx.name = c;
+      else if (idx.id < 0 && (/主播|达人|host|affiliate|creator/i.test(cell) && /id|编号/i.test(cell))) idx.id = c;
+    }
+    if (idx.id < 0) {
+      for (var c1 = 0; c1 < n; c1++) {
+        var t1 = String(headerRow[c1] || '').trim();
+        if (/^id$/i.test(t1) || /编号/.test(t1)) {
+          idx.id = c1;
+          break;
+        }
+      }
+    }
+    if (n <= 3) {
+      idx.id = 0;
+      idx.name = n >= 2 ? 1 : -1;
+      idx.product = -1;
+      idx.pid = n >= 3 ? 2 : Math.max(0, n - 1);
+      idx.image = -1;
+    } else if (n === 4) {
+      if (idx.id < 0) idx.id = 0;
+      if (idx.name < 0) idx.name = 1;
+      if (idx.product < 0) idx.product = 2;
+      if (idx.pid < 0) idx.pid = 3;
+      idx.image = -1;
+    } else {
+      if (idx.id < 0) idx.id = 0;
+      if (idx.name < 0) idx.name = 1;
+      if (idx.product < 0) idx.product = 2;
+      if (idx.pid < 0) idx.pid = 3;
+      if (idx.image < 0) idx.image = n >= 5 ? 4 : -1;
+    }
+    return idx;
+  }
+
+  function haCreatorSamplesImportRows(rows) {
+    if (!rows || !rows.length) return;
+    var headerAt = 0;
+    for (var tryR = 0; tryR < Math.min(4, rows.length); tryR++) {
+      var j = (rows[tryR] || []).join(' ');
+      if (/pid|PID|达人|主播|id/i.test(j)) {
+        headerAt = tryR;
+        break;
+      }
+    }
+    var headerRow = rows[headerAt] || [];
+    var col = haCreatorSamplesMapColumns(headerRow);
+    var added = 0;
+    var skipped = 0;
+    for (var r = headerAt + 1; r < rows.length; r++) {
+      var line = rows[r] || [];
+      var rawId = line[col.id];
+      var userId = parseInt(String(rawId || '').trim(), 10);
+      if (isNaN(userId)) {
+        skipped++;
+        continue;
+      }
+      var u = haManageUsers.filter(function (x) {
+        return x.id === userId;
+      })[0];
+      if (!u || !u.active) {
+        skipped++;
+        continue;
+      }
+      haEnsureProfileFields(u);
+      var fileName = String(line[col.name] || '').trim();
+      if (fileName && u.name && fileName !== u.name) {
+        /* optional name check — still import */
+      }
+      var productName = col.product >= 0 ? String(line[col.product] || '').trim() : '';
+      var imageUrl = col.image >= 0 ? String(line[col.image] || '').trim() : '';
+      var pid = String(line[col.pid] || '').trim();
+      if (!pid) {
+        skipped++;
+        continue;
+      }
+      if (u.sampleItems.length >= HA_SAMPLE_PIDS_MAX) {
+        skipped++;
+        continue;
+      }
+      var dup = u.sampleItems.some(function (x) {
+        return String(x.pid || '') === pid;
+      });
+      if (dup) {
+        skipped++;
+        continue;
+      }
+      u.sampleItems.push({
+        pid: pid,
+        productName: productName,
+        imageUrl: imageUrl,
+        boundAt: new Date().toISOString()
+      });
+      added++;
+    }
+    haProfileStoragePersist();
+    haCreatorSamplesRenderTableBody();
+    renderHaManageUserList();
+    showToast(
+      t('tc.ha.cs_upload_ok').replace('{added}', String(added)).replace('{skipped}', String(skipped)),
+      added ? 'success' : 'warn'
+    );
+  }
+
+  function haCreatorSamplesOnFileSelect(file) {
+    if (!file) return;
+    if (typeof XLSX === 'undefined') {
+      showToast(t('tc.ha.cs_upload_missing_xlsx'), 'warn');
+      return;
+    }
+    var reader = new FileReader();
+    reader.onload = function () {
+      try {
+        var data = new Uint8Array(reader.result);
+        var wb = XLSX.read(data, { type: 'array' });
+        var sn = wb.SheetNames[0];
+        var sheet = wb.Sheets[sn];
+        var rows = XLSX.utils.sheet_to_json(sheet, { header: 1, defval: '' });
+        haCreatorSamplesImportRows(rows);
+      } catch (err) {
+        showToast(t('tc.ha.cs_upload_missing_xlsx'), 'warn');
+      }
+    };
+    reader.readAsArrayBuffer(file);
+  }
+
+  function bindHaCreatorSamplesEvents() {
+    haCreatorSamplesAppliedFilters = { holder: '', product: '', pid: '' };
+    haCreatorSamplesRenderTableBody();
+    var dl = document.getElementById('haCsDownloadTpl');
+    if (dl) dl.addEventListener('click', haCreatorSamplesDownloadTemplate);
+    var up = document.getElementById('haCsUploadBtn');
+    var fi = document.getElementById('haCsFileInput');
+    if (up && fi) {
+      up.addEventListener('click', function () {
+        fi.click();
+      });
+      fi.addEventListener('change', function () {
+        var f = fi.files && fi.files[0];
+        haCreatorSamplesOnFileSelect(f);
+        fi.value = '';
+      });
+    }
+    var tbody = document.getElementById('haCreatorSamplesTbody');
+    if (tbody) {
+      tbody.addEventListener('click', function (e) {
+        var btn = e.target.closest('.ha-cs-remove');
+        if (!btn) return;
+        var uid = parseInt(btn.getAttribute('data-ha-cs-user'), 10);
+        var ix = parseInt(btn.getAttribute('data-ha-cs-ix'), 10);
+        if (!isNaN(uid) && !isNaN(ix)) haCreatorSamplesRemoveAt(uid, ix);
+      });
+    }
+    var searchBtn = document.getElementById('haCsFilterSearch');
+    if (searchBtn && searchBtn.getAttribute('data-ha-cs-search-bound') !== '1') {
+      searchBtn.setAttribute('data-ha-cs-search-bound', '1');
+      searchBtn.addEventListener('click', function () {
+        haCreatorSamplesApplyFiltersFromInputs();
+        haCreatorSamplesRenderTableBody();
+      });
+    }
+    var resetBtn = document.getElementById('haCsFilterReset');
+    if (resetBtn && resetBtn.getAttribute('data-ha-cs-reset-bound') !== '1') {
+      resetBtn.setAttribute('data-ha-cs-reset-bound', '1');
+      resetBtn.addEventListener('click', function () {
+        haCreatorSamplesResetFilters();
+        haCreatorSamplesRenderTableBody();
+      });
+    }
+    var filtBar = document.getElementById('haCsFiltersBar');
+    if (filtBar && filtBar.getAttribute('data-ha-cs-filter-keybound') !== '1') {
+      filtBar.setAttribute('data-ha-cs-filter-keybound', '1');
+      filtBar.addEventListener('keydown', function (e) {
+        if (e.key !== 'Enter') return;
+        if (!e.target || !e.target.classList || !e.target.classList.contains('tc-cs-filter-input')) return;
+        e.preventDefault();
+        haCreatorSamplesApplyFiltersFromInputs();
+        haCreatorSamplesRenderTableBody();
+      });
+    }
+  }
+
+  function haProfileRemoveTag(userId, tagIndex) {
+    var u = haManageUsers.filter(function (x) { return x.id === userId; })[0];
+    if (!u) return;
+    haEnsureProfileFields(u);
+    if (tagIndex < 0 || tagIndex >= u.profileTags.length) return;
+    u.profileTags.splice(tagIndex, 1);
+    haProfileStoragePersist();
+    renderHaManageUserList();
+  }
+
+  function haRenderTenantProfilePanel(u) {
+    haEnsureProfileFields(u);
+    var tagsInner = u.profileTags.length
+      ? u.profileTags
+          .map(function (tg, ix) {
+            return (
+              '<span class="ha-profile-tag">' +
+              '<span class="ha-profile-tag-txt">' +
+              lsEscHtml(tg) +
+              '</span>' +
+              '<button type="button" class="ha-tag-remove" data-ha-user-id="' +
+              u.id +
+              '" data-ha-tag-ix="' +
+              ix +
+              '" aria-label="' +
+              lsEscHtml(t('tc.ha.profile_tag_remove_aria')) +
+              '"><i class="fas fa-times"></i></button></span>'
+            );
+          })
+          .join('')
+      : '<span class="ha-ext-empty">' + lsEscHtml(t('tc.ha.profile_tags_none')) + '</span>';
+    var nPids = (u.sampleItems && u.sampleItems.length) || 0;
+    return (
+      '<div class="ha-card-ext">' +
+      '<div class="ha-ext-col ha-ext-col--tags">' +
+      '<div class="ha-ext-label">' +
+      lsEscHtml(t('tc.ha.profile_tags')) +
+      '</div>' +
+      '<div class="ha-tag-row">' +
+      tagsInner +
+      '</div>' +
+      '<div class="ha-tag-add-row">' +
+      '<input type="text" class="ha-tag-input" data-ha-user-id="' +
+      u.id +
+      '" maxlength="' +
+      (HA_PROFILE_TAG_LEN_MAX + 8) +
+      '" placeholder="' +
+      lsEscHtml(t('tc.ha.profile_tags_ph')) +
+      '" />' +
+      '<button type="button" class="btn btn-secondary btn-sm ha-tag-add-btn" data-ha-user-id="' +
+      u.id +
+      '">' +
+      lsEscHtml(t('tc.ha.profile_tag_add')) +
+      '</button></div></div>' +
+      '<div class="ha-ext-col ha-ext-col--samples">' +
+      '<div class="ha-ext-label ha-ext-label--sample-owned">' +
+      lsEscHtml(t('tc.ha.sample_pids')) +
+      '</div>' +
+      '<p class="ha-sample-pids-count-only">' +
+      lsEscHtml(String(nPids)) +
+      '</p>' +
+      '</div></div>'
+    );
+  }
+
   function renderHaManageUserList() {
     var listEl = document.getElementById('haUserList');
     if (!listEl) return;
@@ -3962,7 +5781,33 @@
       var authHtml = isHost ? '<div class="host-desc"><i class="fas fa-calendar-check"></i> Scheduled host · Go live per Event</div>' + hostEventsHtml : (u.liveAccount && u.liveAccount.authorized ? '<div class="auth-status"><span class="platform-icon"><i class="fab fa-tiktok"></i></span><span>Authorized (</span><a class="auth-link ha-account-info-link" data-id="' + u.id + '">' + u.liveAccount.username + '</a><span>)</span><span class="quick-go-live-tag">Quick Go Live</span></div>' + (u.lastLiveAt ? '<div class="last-live"><i class="fas fa-video"></i> Last live: ' + u.lastLiveAt + '</div>' : '<div class="last-live never"><i class="fas fa-video"></i> Never gone live</div>') : '<div class="auth-status"><span class="platform-icon"><i class="fab fa-tiktok"></i></span><button type="button" class="auth-unauthorize">Unauthorize</button></div><div class="last-live never"><i class="fas fa-video"></i> Never gone live</div>');
       var avatarHtml = u.avatar ? '<img class="user-avatar" src="' + u.avatar + '" alt="' + u.name + '">' : '<div class="user-avatar-placeholder"><i class="fas fa-user"></i></div>';
       var metaHtml = (u.phone ? '<span class="user-meta-item"><i class="fas fa-phone"></i> ' + u.phone + '</span>' : '') + (u.email ? '<span class="user-meta-item"><i class="fas fa-envelope"></i> ' + u.email + '</span>' : '') + (!u.phone && !u.email ? '<span class="user-meta-item user-meta-empty">No contact</span>' : '');
-      return '<div class="user-card" data-id="' + u.id + '">' + avatarHtml + '<div class="user-info"><div class="user-name">' + u.name + '<span class="user-type-badge ' + u.type + '">' + (isHost ? t('tc.ha.host') : t('tc.ha.affiliate')) + '</span></div><div class="user-meta">' + metaHtml + '</div><div class="user-secondary">' + authHtml + '</div></div><div class="user-actions"><span class="status-label">' + (u.active ? t('tc.ha.active') : t('tc.ha.inactive')) + '</span><div class="toggle ha-toggle' + (u.active ? ' active' : '') + '" data-id="' + u.id + '"></div></div></div>';
+      return (
+        '<div class="user-card" data-id="' +
+        u.id +
+        '">' +
+        '<div class="user-card__row">' +
+        avatarHtml +
+        '<div class="user-info">' +
+        '<div class="user-name">' +
+        u.name +
+        '<span class="user-type-badge ' +
+        u.type +
+        '">' +
+        (isHost ? t('tc.ha.host') : t('tc.ha.affiliate')) +
+        '</span></div><div class="user-meta">' +
+        metaHtml +
+        '</div><div class="user-secondary">' +
+        authHtml +
+        '</div></div><div class="user-actions"><span class="status-label">' +
+        (u.active ? t('tc.ha.active') : t('tc.ha.inactive')) +
+        '</span><div class="toggle ha-toggle' +
+        (u.active ? ' active' : '') +
+        '" data-id="' +
+        u.id +
+        '"></div></div></div>' +
+        haRenderTenantProfilePanel(u) +
+        '</div>'
+      );
     }).join('');
   }
 
@@ -4069,10 +5914,34 @@
     if (nameInput) nameInput.addEventListener('keypress', function (e) { if (e.key === 'Enter') haManageDoSearch(); });
     if (contactInput) contactInput.addEventListener('keypress', function (e) { if (e.key === 'Enter') haManageDoSearch(); });
     listEl.addEventListener('click', function (e) {
+      var tagRm = e.target.closest('.ha-tag-remove');
+      if (tagRm) {
+        var uidR = parseInt(tagRm.getAttribute('data-ha-user-id'), 10);
+        var tix = parseInt(tagRm.getAttribute('data-ha-tag-ix'), 10);
+        if (!isNaN(uidR) && !isNaN(tix)) haProfileRemoveTag(uidR, tix);
+        return;
+      }
+      var tagAdd = e.target.closest('.ha-tag-add-btn');
+      if (tagAdd) {
+        var uidA = parseInt(tagAdd.getAttribute('data-ha-user-id'), 10);
+        if (!isNaN(uidA)) {
+          var inpA = listEl.querySelector('.ha-tag-input[data-ha-user-id="' + uidA + '"]');
+          haProfileAddTag(uidA, inpA ? inpA.value : '');
+        }
+        return;
+      }
       var toggle = e.target.closest('.ha-toggle');
       if (toggle) { var id = parseInt(toggle.getAttribute('data-id'), 10); if (!isNaN(id)) haManageToggleActive(id); return; }
       var link = e.target.closest('.ha-account-info-link');
       if (link) { var id = parseInt(link.getAttribute('data-id'), 10); if (!isNaN(id)) haManageOpenAccountInfoModal(id); return; }
+    });
+    listEl.addEventListener('keydown', function (e) {
+      if (e.key !== 'Enter') return;
+      var inp = e.target.closest('.ha-tag-input');
+      if (!inp || !listEl.contains(inp)) return;
+      e.preventDefault();
+      var uid = parseInt(inp.getAttribute('data-ha-user-id'), 10);
+      if (!isNaN(uid)) haProfileAddTag(uid, inp.value);
     });
     document.querySelectorAll('.ha-invite-host').forEach(function (btn) {
       btn.addEventListener('click', function () { haManageOpenInviteModal('host'); });
@@ -7406,6 +9275,7 @@
 
   function bindTenantCenterPanelEvents(panel) {
     if (panel === 'ha_manage') bindHaManageEvents();
+    if (panel === 'ha_creator_samples') bindHaCreatorSamplesEvents();
     if (panel === 'ha_settlement') bindHaSettlementEvents();
     if (panel === 'tenant_tts') {
       document.querySelectorAll('.tc-tts-tab').forEach(function (tabBtn) {
@@ -8043,7 +9913,7 @@
               subject: 'Live Event A',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'Mock pending sync · ready to sync (success path).'
+              remarkEn: 'Awaiting TikTok Live Event sync; host roster confirmed.'
             },
             segments: [
               { id: 'seg-ps-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-26 18:00', endAt: '2026-03-26 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8069,7 +9939,7 @@
               subject: 'Live Event B',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'PS mock: second session, multi-host plan.'
+              remarkEn: 'Three host segments confirmed for this slot.'
             },
             segments: [
               { id: 'seg-ps-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-27 18:00', endAt: '2026-03-27 19:15', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8094,7 +9964,7 @@
               subject: 'Live Event B2',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'PS mock: TikTok Live Event sync in progress.'
+              remarkEn: 'TikTok Live Event sync in progress.'
             },
             segments: [
               { id: 'seg-ps-003-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-26 18:00', endAt: '2026-03-26 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8121,7 +9991,7 @@
               subject: 'Live Event B3',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'PS mock: sync failed (system error).'
+              remarkEn: 'Live Event sync failed — retry after fixing the reported error.'
             },
             segments: [
               { id: 'seg-ps-004-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-27 18:00', endAt: '2026-03-27 19:15', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8146,7 +10016,7 @@
               subject: 'Live Event OK-1',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'Mock: pending sync · ready (success).'
+              remarkEn: 'Ready for TikTok Live Event sync.'
             },
             segments: [
               { id: 'seg-ps-005-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-28 10:00', endAt: '2026-03-28 11:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8171,7 +10041,7 @@
               subject: 'Live Event OK-2',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'Mock: another row ready to sync successfully.'
+              remarkEn: 'Additional slot ready for TikTok sync.'
             },
             segments: [
               { id: 'seg-ps-006-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-29 10:00', endAt: '2026-03-29 11:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8196,7 +10066,7 @@
               subject: 'Live Event Fail-Auth-2',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'Mock: sync failed · live account login expired (duplicate case).'
+              remarkEn: 'Sync failed — live account authorization expired; re-connect and retry.'
             },
             segments: [
               { id: 'seg-ps-007-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-30 14:00', endAt: '2026-03-30 15:30', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8222,7 +10092,7 @@
               subject: 'Live Event Fail-Other-2',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'Mock: sync failed · other / system error message.'
+              remarkEn: 'Sync failed — upstream error (see failure detail).'
             },
             segments: [
               { id: 'seg-ps-008-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-31 19:00', endAt: '2026-03-31 20:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8246,7 +10116,7 @@
               subject: 'Live Event C',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'PL mock: synced, waiting to go live.'
+              remarkEn: 'Synced with TikTok; scheduled to go live.'
             },
             segments: [
               { id: 'seg-pl-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-27 18:00', endAt: '2026-03-27 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8270,7 +10140,7 @@
               subject: 'Live Event D',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'PL mock: waiting to live, 3 segments.'
+              remarkEn: 'Scheduled with three confirmed host segments.'
             },
             segments: [
               { id: 'seg-pl-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-28 18:00', endAt: '2026-03-28 19:30', decisionStatus: 'accepted', decisionReason: '', gmv: 0, gmvRemark: '', actualStartAt: '', actualEndAt: '' },
@@ -8295,7 +10165,7 @@
               subject: 'Live Event E',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'LI mock: live, editable actual times & GMV.'
+              remarkEn: 'Live — you can edit actual segment times and GMV.'
             },
             segments: [
               { id: 'seg-li-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-28 18:00', endAt: '2026-03-28 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 5200.25, gmvRemark: 'Strong start', actualStartAt: '2026-03-28 18:01', actualEndAt: '2026-03-28 18:58' },
@@ -8320,7 +10190,7 @@
               subject: 'Live Event F',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'LI mock: another live session.'
+              remarkEn: 'Live — multiple segments in progress.'
             },
             segments: [
               { id: 'seg-li-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-29 18:00', endAt: '2026-03-29 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 2800.00, gmvRemark: 'OK', actualStartAt: '2026-03-29 18:00', actualEndAt: '2026-03-29 18:55' },
@@ -8345,7 +10215,7 @@
               subject: 'Live Event G',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'EN mock: ended session, streamed view.'
+              remarkEn: 'Ended — performance metrics finalized.'
             },
             segments: [
               { id: 'seg-en-001-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-29 18:00', endAt: '2026-03-29 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 5100.00, gmvRemark: 'Complete', actualStartAt: '2026-03-29 18:00', actualEndAt: '2026-03-29 18:59' },
@@ -8370,7 +10240,7 @@
               subject: 'Live Event H',
               timeZone: lsDisplayTimeZone,
               follower: 'darren.chen',
-              remarkEn: 'EN mock: ended session #2.'
+              remarkEn: 'Ended — full session record available.'
             },
             segments: [
               { id: 'seg-en-002-h1', hostId: 'h1', hostName: 'Maribel Maldonado', startAt: '2026-03-30 18:00', endAt: '2026-03-30 19:00', decisionStatus: 'accepted', decisionReason: '', gmv: 2400.00, gmvRemark: 'Done', actualStartAt: '2026-03-30 18:00', actualEndAt: '2026-03-30 18:57' },
@@ -9123,7 +10993,7 @@
 
     lsScheduleBatches.unshift(batch);
     lsSaveAll();
-    showToast('初排生成完成（MVP Mock）', 'success');
+    showToast('初排生成完成', 'success');
 
     // Keep the selection; user can regenerate with a different host from the modal.
   }
@@ -11539,7 +13409,7 @@
       // Template download (MVP)
       var tplBtn = target.closest && target.closest('#lsHostTemplateBtn');
       if (tplBtn) {
-        showToast('模板下载（MVP Mock）', 'info');
+        showToast('模板已导出', 'info');
         return;
       }
 
@@ -11687,7 +13557,7 @@
         lsTargetsPeriodStartFilter = (lsMerchantTargets.find(function (x) { return x.id === generateBtn.getAttribute('data-id'); }) || {}).periodStart || lsTargetsPeriodStartFilter;
         lsShowModal(
           '自动排期？',
-          '<div style="font-size:14px;color:var(--text-subtext)">将根据空闲段与目标小时数生成排期（MVP Mock）。</div>',
+          '<div style="font-size:14px;color:var(--text-subtext)">将根据空闲段与目标小时数生成排期。</div>',
           '自动排期',
           function () {
             lsHideModal();
@@ -11763,7 +13633,7 @@
           '  <label class="form-label">目标小时数</label>' +
           '  <input class="input" type="number" min="0" step="0.5" id="lsAddTargetHoursInput" placeholder="例如 4 或 4.5" style="width:100%" />' +
           '</div>' +
-          '<div style="font-size:12px;color:var(--text-subtext);margin-top:12px">说明：同账号同周期会自动合并目标小时数（MVP Mock）。</div>',
+          '<div style="font-size:12px;color:var(--text-subtext);margin-top:12px">说明：同一直播账号在同一周期内会自动合并目标小时数。</div>',
           '新增',
           function () {
             var account = document.getElementById('lsAddTargetAccountSelect') ? document.getElementById('lsAddTargetAccountSelect').value : '';
@@ -11859,7 +13729,7 @@
         var cur = (lsMerchantTargets || []).find(function (x) { return x.id === cancelId; });
         lsShowModal(
           '确认作废目标？',
-          '<div style="font-size:14px;color:var(--text-subtext)">作废后该目标不会出现在当前列表中。该目标已生成的排期数据（MVP）不会自动删除。</div>',
+          '<div style="font-size:14px;color:var(--text-subtext)">作废后该目标不会出现在当前列表中；已生成的排期不会自动删除。</div>',
           '作废',
           function () {
             lsMerchantTargets = (lsMerchantTargets || []).filter(function (x) { return x.id !== cancelId; });
@@ -11918,7 +13788,7 @@
             });
             lsHideModal();
             document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
-            showToast('已推送 ' + totalCnt + ' 个场次（MVP Mock）', 'success');
+            showToast('已推送 ' + totalCnt + ' 个场次', 'success');
           }
         );
         return;
@@ -11991,7 +13861,7 @@
             }
             lsHideModal();
             document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
-            showToast('已推送给主播端（MVP Mock）', 'success');
+            showToast('已推送给主播端', 'success');
           }
         );
         return;
@@ -12008,7 +13878,7 @@
         }
         lsShowModal(
           '批量同步 TikTok',
-          '<div style="font-size:14px;color:var(--text-subtext)">将为该批次创建 Live Event（MVP Mock）。</div>',
+          '<div style="font-size:14px;color:var(--text-subtext)">将为该批次创建对应的 Live Event。</div>',
           '开始同步',
           function () {
             (sb.sessions || []).forEach(function (s, idx) {
@@ -12049,7 +13919,7 @@
         }
         lsShowModal(
           '同步 TikTok',
-          '<div style="font-size:14px;color:var(--text-subtext)">将为该直播场次创建 TikTok Live Event（MVP Mock）。</div>',
+          '<div style="font-size:14px;color:var(--text-subtext)">将为该直播场次创建 TikTok Live Event。</div>',
           '开始同步',
           function () {
             var idx = (bSync.sessions || []).indexOf(sessSync);
@@ -12082,7 +13952,7 @@
         if (!sessCan) return;
         lsShowModal(
           '取消排期？',
-          '<div style="font-size:14px;color:var(--text-subtext)">取消后该场次将不再出现在列表中（MVP Mock）。</div>',
+          '<div style="font-size:14px;color:var(--text-subtext)">取消后该场次将不再出现在当前列表。</div>',
           '取消排期',
           function () {
             sessCan.cancelled = true;
@@ -12109,7 +13979,7 @@
         lsSaveAll();
         if (lsActiveTab === 'batches') document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
         if (window.lsRenderBatchDrawerContent) lsRenderBatchDrawerContent(mbid, 'sessions');
-        showToast('已模拟开播（MVP）', 'success');
+        showToast('已标记为直播中', 'success');
         return;
       }
 
@@ -12126,7 +13996,7 @@
         lsSaveAll();
         if (lsActiveTab === 'batches') document.getElementById('lsTabBody').innerHTML = renderLiveScheduleBatchesTab();
         if (window.lsRenderBatchDrawerContent) lsRenderBatchDrawerContent(ebid2, 'sessions');
-        showToast('已模拟下播（MVP）', 'success');
+        showToast('已标记为已结束', 'success');
         return;
       }
     });
@@ -12487,9 +14357,9 @@
         var mockBtns = '';
         if (s.syncStatus === 'synced') {
           if (s.livePhase === 'live') {
-            mockBtns = '<button type="button" class="btn btn-ghost btn-sm ls-sess-mock-end" data-batch-id="' + batchId + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-stop-circle"></i> 模拟下播</button>';
+            mockBtns = '<button type="button" class="btn btn-ghost btn-sm ls-sess-mock-end" data-batch-id="' + batchId + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-stop-circle"></i> ' + lsEscHtml(t('ls.sess.mark_end')) + '</button>';
           } else if (s.livePhase !== 'ended') {
-            mockBtns = '<button type="button" class="btn btn-ghost btn-sm ls-sess-mock-live" data-batch-id="' + batchId + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-broadcast-tower"></i> 模拟开播</button>';
+            mockBtns = '<button type="button" class="btn btn-ghost btn-sm ls-sess-mock-live" data-batch-id="' + batchId + '" data-session-id="' + (s.id || '') + '"><i class="fas fa-broadcast-tower"></i> ' + lsEscHtml(t('ls.sess.mark_live')) + '</button>';
           }
         }
         var jumpSeg = (batch.status !== 'synced'
@@ -13111,6 +14981,4501 @@
     if (anchorMidPost && anchorAidPost) bindLfcAnchorCopyPage(anchorAidPost, anchorMidPost);
   }
 
+  /** ---------- Smart Product Selection (Live Settings) ---------- */
+  var APS_PACKS_STORAGE_KEY = 'wahool_aps_packages_v2';
+
+  /** Demo thresholds (editable on thresholds sub-route); used in scoring heuristics */
+  var APS_THRESHOLD_DEFAULTS = {
+    newMinCtrPct: 2.5,
+    newMinAtcPct: 3.0,
+    bestMinGmv: 3000,
+    riskShopRatingMin: 4.0
+  };
+  var APS_THRESHOLD_STORAGE_KEY = 'wahool_aps_thresholds_v2';
+  var APS_RESTORE_SESSION_KEY = 'aps_restore_pack_v1';
+  /** Pack 详情「复制 PID」单次最多条数 */
+  var APS_PID_COPY_MAX = 50;
+
+  /** 智能选品「主播」下拉数据来自租户中心「合作主播&达人」中已启用成员（haManageUsers），见 apsHostsForSmartSelection。 */
+
+  /** Demo: tenant live accounts for APS “high GMV product profile” (live GMV window) selector */
+  var APS_LIVE_ACCOUNTS_MOCK = [
+    { id: 'acct_homechef_mike', label: '@homechef_mike · US' },
+    { id: 'acct_priscilla_live', label: '@priscilla_live · CN' },
+    { id: 'acct_francine_f', label: '@francine_f · DE' },
+    { id: 'acct_alex_creator', label: '@alex_creator · US' },
+    { id: 'acct_sarah_beauty', label: '@sarah_beauty · US' }
+  ];
+
+  function apsHtmlLiveAccountOpts() {
+    return (
+      '<option value="">' + apsEscape(t('aps.live_gmv_account_placeholder')) + '</option>' +
+      APS_LIVE_ACCOUNTS_MOCK.map(function (a) {
+        return '<option value="' + apsEscape(a.id) + '">' + apsEscape(a.label) + '</option>';
+      }).join('')
+    );
+  }
+
+  function apsLiveAccountLabelById(id) {
+    if (!id) return '';
+    var a = APS_LIVE_ACCOUNTS_MOCK.filter(function (x) { return x.id === id; })[0];
+    if (!a) return id;
+    var m = /^(@\S+)/.exec(a.label);
+    return m ? m[1] : a.label;
+  }
+
+  function apsLoadPacksRaw() {
+    try {
+      var raw = localStorage.getItem(APS_PACKS_STORAGE_KEY);
+      var arr = raw ? JSON.parse(raw) : [];
+      return Array.isArray(arr) ? arr : [];
+    } catch (e) {
+      return [];
+    }
+  }
+
+  function apsSavePacksRaw(arr) {
+    try {
+      localStorage.setItem(APS_PACKS_STORAGE_KEY, JSON.stringify(arr));
+    } catch (e) {}
+  }
+
+  function apsFindPackById(packId) {
+    return apsLoadPacksRaw().filter(function (p) { return p.id === packId; })[0];
+  }
+
+  function apsDeletePackById(packId) {
+    var next = apsLoadPacksRaw().filter(function (p) { return p.id !== packId; });
+    apsSavePacksRaw(next);
+  }
+
+  function apsPackTapSynced(pack) {
+    return !!(pack && pack.tapSynced);
+  }
+
+  function apsMarkPackSyncedToTap(packId) {
+    var packs = apsLoadPacksRaw();
+    var found = false;
+    var next = packs.map(function (p) {
+      if (p.id !== packId) return p;
+      found = true;
+      return Object.assign({}, p, { tapSynced: true, tapSyncedAt: new Date().toISOString() });
+    });
+    if (!found) return false;
+    apsSavePacksRaw(next);
+    return true;
+  }
+
+  function apsParsePackDetailPath(path) {
+    var m = /^live\/settings\/pack\/(.+)$/.exec(path || '');
+    return m ? decodeURIComponent(m[1]) : '';
+  }
+
+  function apsApplyPidCopyCap(list) {
+    var cap = APS_PID_COPY_MAX;
+    if (!list || !list.length) return { pids: [], capped: false };
+    if (list.length <= cap) return { pids: list.slice(), capped: false };
+    return { pids: list.slice(0, cap), capped: true };
+  }
+
+  function apsCopyPlainTextToClipboard(text) {
+    if (text == null || text === '') return Promise.reject(new Error('empty'));
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        ta.setAttribute('readonly', '');
+        ta.style.position = 'absolute';
+        ta.style.left = '-9999px';
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+        resolve();
+      } catch (e) {
+        reject(e);
+      }
+    });
+  }
+
+  function apsCloneMeta(meta) {
+    try {
+      return JSON.parse(JSON.stringify(meta));
+    } catch (e) {
+      return null;
+    }
+  }
+
+  var APS_PRODUCT_TEMPLATES = [
+    { id: '1732301664057922293', name: 'Pleated midi dress — ink blue', category: "Women's Dresses", price: 42.9, stock: 230, listingDaysAgo: 14, liveShare: 0.35, commission: 0.15, flashDiscount: 0.22, histGmv: 12800, ctr: 0.062, cvr: 0.048, atcRate: 0.11, tags: 'flash,dress,fabric', pitch: 'pleated flare, washable' },
+    { id: '1732301664057922294', name: 'Rib knit two-piece set — sand', category: 'Matching Sets', price: 36.5, stock: 18, listingDaysAgo: 45, liveShare: 0.28, commission: 0.14, flashDiscount: 0.18, histGmv: 8400, ctr: 0.055, cvr: 0.041, atcRate: 0.09, tags: 'set,casual', pitch: 'soft stretch waist, match-ready' },
+    { id: '1732301664057922295', name: 'Linen blazer — oat', category: 'Outerwear', price: 59, stock: 72, listingDaysAgo: 90, liveShare: 0.22, commission: 0.12, flashDiscount: 0.14, histGmv: 4100, ctr: 0.039, cvr: 0.029, atcRate: 0.07, tags: 'linen,mid-price', pitch: 'breathable drape layer' },
+    { id: '1732301664057922296', name: 'Hydrating HA serum duo', category: 'Serum Skincare', price: 28, stock: 410, listingDaysAgo: 7, liveShare: 0.41, commission: 0.18, flashDiscount: 0.32, histGmv: 35200, ctr: 0.071, cvr: 0.058, atcRate: 0.15, tags: 'hydration,routine', pitch: 'before-after friendly, AM/PM' },
+    { id: '1732301664057922297', name: 'Volumizing lash duo bundle', category: 'Eye Makeup', price: 22.5, stock: 190, listingDaysAgo: 21, liveShare: 0.33, commission: 0.2, flashDiscount: 0.25, histGmv: 18900, ctr: 0.088, cvr: 0.049, atcRate: 0.12, tags: 'bundle,comparison', pitch: 'side-by-side lash lift demo' },
+    { id: '1732301664057922298', name: 'LED complexion wand', category: 'Beauty Devices', price: 79.9, stock: 34, listingDaysAgo: 120, liveShare: 0.18, commission: 0.1, flashDiscount: 0.12, histGmv: 6200, ctr: 0.031, cvr: 0.022, atcRate: 0.05, tags: 'device,education', pitch: 'needs explanation-heavy pitch' },
+    { id: '1732301664057922299', name: 'Silicone kitchen tongs pair', category: 'Kitchen Tools', price: 8.99, stock: 1200, listingDaysAgo: 60, liveShare: 0.44, commission: 0.22, flashDiscount: 0.35, histGmv: 9600, ctr: 0.092, cvr: 0.062, atcRate: 0.18, tags: 'impulse,value', pitch: 'fast grab-demo in hand' },
+    { id: '1732301664057922300', name: 'Scented reed diffuser starter', category: 'Home Decor', price: 12.49, stock: 55, listingDaysAgo: 30, liveShare: 0.31, commission: 0.16, flashDiscount: 0.2, histGmv: 3100, ctr: 0.048, cvr: 0.036, atcRate: 0.08, tags: 'interactive,ambient', pitch: 'low ticket add-on impulse' },
+    { id: '1732301664057922301', name: 'Cable organizer sleeve 6-pack', category: 'Small Accessories', price: 6.5, stock: 890, listingDaysAgo: 3, liveShare: 0.52, commission: 0.19, flashDiscount: 0.38, histGmv: 4200, ctr: 0.078, cvr: 0.054, atcRate: 0.13, tags: 'lifestyle,chatter hook', pitch: 'call-and-response SKU' },
+    { id: '1732301664057922302', name: 'Satin slip dress — rose', category: "Women's Dresses", price: 34.0, stock: 8, listingDaysAgo: 10, liveShare: 0.36, commission: 0.15, flashDiscount: 0.28, histGmv: 15200, ctr: 0.067, cvr: 0.052, atcRate: 0.1, tags: 'flash,dress,satin', pitch: 'strong visual proof item' },
+    { id: '1732301664057922303', name: 'High-rise stretch jeans — charcoal', category: 'Denim', price: 48, stock: 156, listingDaysAgo: 75, liveShare: 0.26, commission: 0.13, flashDiscount: 0.17, histGmv: 22100, ctr: 0.059, cvr: 0.044, atcRate: 0.1, tags: 'fit,demo,mid-price', pitch: '360° turnaround demo staple' },
+    { id: '1732301664057922304', name: 'SPF tinted moisturizer — universal light', category: 'Complexion', price: 26, stock: 220, listingDaysAgo: 28, liveShare: 0.34, commission: 0.17, flashDiscount: 0.21, histGmv: 9800, ctr: 0.052, cvr: 0.039, atcRate: 0.09, tags: 'daily,education', pitch: 'compare texture on-camera' },
+    { id: '1732301664057922305', name: 'Collapse storage basket set', category: 'Home Decor', price: 15.25, stock: 64, listingDaysAgo: 52, liveShare: 0.24, commission: 0.15, flashDiscount: 0.16, histGmv: 4100, ctr: 0.041, cvr: 0.033, atcRate: 0.07, tags: 'bundle,stack', pitch: 'stacking interaction moment' },
+    { id: '1732301664057922306', name: 'Wrap cardigan — cream', category: 'Knitwear', price: 39.9, stock: 42, listingDaysAgo: 18, liveShare: 0.37, commission: 0.14, flashDiscount: 0.19, histGmv: 5300, ctr: 0.045, cvr: 0.034, atcRate: 0.08, tags: 'layering,demo', pitch: 'layering story for mid ticket' },
+    { id: '1732301664057922307', name: 'Lip oil trio — mini', category: 'Lip', price: 19.9, stock: 300, listingDaysAgo: 5, liveShare: 0.48, commission: 0.21, flashDiscount: 0.3, histGmv: 14200, ctr: 0.081, cvr: 0.051, atcRate: 0.12, tags: 'bundle,gift', pitch: 'swatch + bundle math' },
+    { id: '1732301664057922308', name: 'Microfiber cleaning cloth 10-pack', category: 'Kitchen Tools', price: 9.49, stock: 22, listingDaysAgo: 100, liveShare: 0.21, commission: 0.2, flashDiscount: 0.4, histGmv: 1800, ctr: 0.036, cvr: 0.028, atcRate: 0.06, tags: 'value,stock risk', pitch: 'utility stack for traffic' }
+  ];
+
+  var APS_RANGE_KEYS_NEW = ['listing', 'stock', 'flashDiscount', 'price'];
+  var APS_RANGE_KEYS_BEST = ['stock', 'price', 'liveShare', 'ctr', 'cvr'];
+
+  var APS_RANGE_PRESETS = {
+    new: {
+      listing: { start: '2026-01-01', end: '2026-05-31' },
+      stock: { min: 30, max: 1500 },
+      flashDiscount: { min: 15, max: 35 },
+      price: { min: 12, max: 129 }
+    },
+    best: {
+      stock: { min: 50, max: 1500 },
+      price: { min: 9, max: 119 },
+      liveShare: { min: 18, max: 62 },
+      ctr: { min: 3.5, max: 10.0 },
+      cvr: { min: 2.5, max: 8.5 }
+    }
+  };
+
+  var apsRuntime = {
+    hostId: '',
+    /** 智能选品：参考租户中心另一成员的持样 PID，与导入池 PID 交集后生成 */
+    referenceHostId: '',
+    activePoolTab: 'new',
+    liveGmvScopeEnabled: false,
+    liveGmvDays: 30,
+    liveAccountId: '',
+    uploadNew: null,
+    uploadBest: null,
+    feedMeta: null,
+    totalCount: 30,
+    newRatio: 40,
+    rangeNew: JSON.parse(JSON.stringify(APS_RANGE_PRESETS.new)),
+    rangeBest: JSON.parse(JSON.stringify(APS_RANGE_PRESETS.best)),
+    products: [],
+    meta: null,
+    loading: false,
+    runSalt: 0
+  };
+
+  /** 智能选品策略（演示可调；与运营商品池联动时在生成时读取） */
+  var APS_STRATEGY_DEFAULTS = {
+    newSimilarHot: true,
+    newHighPotential: true,
+    newScale: true,
+    bestSimilarLink: true,
+    bestScale: true,
+    simNewVsHotMinPct: 70,
+    simBestVsNewMinPct: 60,
+    highPotMinLiveSessions: 3,
+    highPotMinImpressions: 1000,
+    highPotMinAtcPct: 4,
+    highPotMinCvrPct: 1.5,
+    highPotMinListingDays: 15,
+    scaleMinLiveSessions: 2,
+    scaleMinCtrPct: 5,
+    scaleMinAtcPct: 1,
+    scaleMinCvrPct: 3,
+    scaleMinStock: 50,
+    bestScaleMinSessions: 3,
+    bestScaleMinStock: 100,
+    bestTargetGmv: 500,
+    bestScaleMinCtrPct: 4.5,
+    bestScaleMinAtcPct: 1,
+    bestScaleMinCvrPct: 4
+  };
+  var APS_STRATEGY_STORAGE_KEY = 'wahool_aps_strategy_profile_v1';
+
+  function apsLoadThresholds() {
+    try {
+      var raw = localStorage.getItem(APS_THRESHOLD_STORAGE_KEY);
+      if (!raw) return Object.assign({}, APS_THRESHOLD_DEFAULTS);
+      return Object.assign({}, APS_THRESHOLD_DEFAULTS, JSON.parse(raw));
+    } catch (e1) {
+      return Object.assign({}, APS_THRESHOLD_DEFAULTS);
+    }
+  }
+
+  function apsSaveThresholds(obj) {
+    try {
+      localStorage.setItem(APS_THRESHOLD_STORAGE_KEY, JSON.stringify(obj));
+    } catch (e2) {}
+  }
+
+  function apsParseCsvLinks(text) {
+    var lines = String(text || '')
+      .split(/\r?\n/)
+      .map(function (ln) {
+        return ln.trim();
+      })
+      .filter(Boolean);
+    var links = [];
+    lines.forEach(function (line) {
+      if (/^https?:\/\//i.test(line)) {
+        links.push(line);
+        return;
+      }
+      var parts = line.split(/[,;\t]/);
+      var cell = (parts[0] || '').trim();
+      if (/^https?:\/\//i.test(cell)) links.push(cell);
+    });
+    return links;
+  }
+
+  function apsCreatePoolRowsFromLinks(links, poolKind) {
+    return links.map(function (link, i) {
+      return {
+        link: link,
+        enrichStatus: 'pending',
+        rowId: 'rw_' + poolKind + '_' + i + '_' + ((Date.now() % 100000) + i)
+      };
+    });
+  }
+
+  function apsMockEnrichApply(row, poolKind, idx) {
+    var tpl = APS_PRODUCT_TEMPLATES[idx % APS_PRODUCT_TEMPLATES.length];
+    if (Math.random() < 0.06) {
+      row.enrichStatus = 'error';
+      row.enrichError = 'link';
+      return;
+    }
+    row.enrichStatus = 'ok';
+    row.pid = String(tpl.id);
+    row.title = tpl.name;
+    row.category = tpl.category;
+    row.price = Number(tpl.price);
+    row.stock = tpl.stock;
+    row.ctr = (parseFloat(tpl.ctr) || 0) * 100;
+    row.cvr = (parseFloat(tpl.cvr) || 0) * 100;
+    row.atc = (parseFloat(tpl.atcRate) || 0) * 100;
+    row.gmv = tpl.histGmv != null ? tpl.histGmv : 0;
+    row.tags = tpl.tags || '';
+    row.shopRating = 4.05 + (idx % 6) * 0.12;
+    row.poolStatus = poolKind === 'new' ? ['new', 'potential', 'testing'][idx % 3] : '';
+    row.winnerLevel = poolKind === 'best' ? ['scaling', 'stable', 'revival'][idx % 3] : '';
+  }
+
+  function apsPoolRowsAllOk(up) {
+    if (!up || !up.rows || !up.rows.length) return true;
+    return up.rows.every(function (r) {
+      return r.enrichStatus === 'ok';
+    });
+  }
+
+  var APS_CARGO_STORAGE_KEY = 'wahool_aps_cargo_pools_v1';
+
+  function apsCargoLoad() {
+    try {
+      var raw = localStorage.getItem(APS_CARGO_STORAGE_KEY);
+      if (!raw) return { uploadNew: null, uploadBest: null, updatedAt: '' };
+      var j = JSON.parse(raw);
+      return {
+        uploadNew: j.uploadNew || null,
+        uploadBest: j.uploadBest || null,
+        updatedAt: typeof j.updatedAt === 'string' ? j.updatedAt : ''
+      };
+    } catch (eC) {
+      return { uploadNew: null, uploadBest: null, updatedAt: '' };
+    }
+  }
+
+  function apsCargoSave() {
+    try {
+      localStorage.setItem(
+        APS_CARGO_STORAGE_KEY,
+        JSON.stringify({
+          uploadNew: apsRuntime.uploadNew,
+          uploadBest: apsRuntime.uploadBest,
+          updatedAt: new Date().toISOString()
+        })
+      );
+    } catch (eCs) {}
+  }
+
+  function apsHydrateRuntimeFromCargo() {
+    var c = apsCargoLoad();
+    apsRuntime.uploadNew = c.uploadNew ? JSON.parse(JSON.stringify(c.uploadNew)) : null;
+    apsRuntime.uploadBest = c.uploadBest ? JSON.parse(JSON.stringify(c.uploadBest)) : null;
+    apsRuntime.feedMeta = {
+      mode: 'cargo',
+      updatedAt: typeof c.updatedAt === 'string' ? c.updatedAt : ''
+    };
+  }
+
+  function apsLoadStrategyProfile() {
+    try {
+      var raw = localStorage.getItem(APS_STRATEGY_STORAGE_KEY);
+      var merged = Object.assign({}, APS_STRATEGY_DEFAULTS, raw ? JSON.parse(raw) : {});
+      delete merged.bestReturn;
+      delete merged.bestReturnMinDays;
+      delete merged.bestReturnMinStock;
+      delete merged.highPotListingDaysMax;
+      delete merged.bestConsecutiveGmvSessions;
+      return merged;
+    } catch (exS) {
+      return Object.assign({}, APS_STRATEGY_DEFAULTS);
+    }
+  }
+
+  function apsSaveStrategyProfile(obj) {
+    try {
+      localStorage.setItem(APS_STRATEGY_STORAGE_KEY, JSON.stringify(obj));
+    } catch (exSv) {}
+  }
+
+  function lprodNormPid(pid) {
+    return String(pid || '').trim().toLowerCase();
+  }
+
+  function lprodExcludedPidSet(ops) {
+    var map = {};
+    ;['eliminate', 'exclude'].forEach(function (bucket) {
+      (ops[bucket] || []).forEach(function (row) {
+        var p = lprodNormPid(row.pid);
+        if (p) map[p] = true;
+      });
+    });
+    return map;
+  }
+
+  function lprodListingDaysAgo(row) {
+    var lt = row && row.listingTime ? String(row.listingTime).trim() : '';
+    if (!lt) return 28;
+    var d = Date.parse(lt);
+    if (isNaN(d)) return 28;
+    return Math.max(0, Math.floor((Date.now() - d) / 86400000));
+  }
+
+  function lprodOpsRowToApsPoolRow(row, poolKind, idx) {
+    var pid = String(row.pid || '').trim();
+    var tpl = APS_PRODUCT_TEMPLATES[idx % APS_PRODUCT_TEMPLATES.length];
+    var sale = parseFloat(String(row.salePrice || '').replace(/,/g, ''));
+    var gmv = parseFloat(String(row.gmv30d || '').replace(/,/g, ''));
+    var rate = parseFloat(String(row.shopRating || '').replace(/,/g, ''));
+    var ctrP = tpl ? tpl.ctr * 100 : 5;
+    var atcP = tpl ? tpl.atcRate * 100 : 9;
+    var cvrP = tpl ? tpl.cvr * 100 : 4;
+    var h = 0;
+    var ci;
+    for (ci = 0; ci < pid.length; ci++) h += pid.charCodeAt(ci);
+    ctrP += (h % 17) / 10;
+    atcP += (h % 13) / 10;
+    cvrP += (h % 11) / 20;
+    var link =
+      row.productLink && /^https?:\/\//i.test(String(row.productLink).trim())
+        ? String(row.productLink).trim()
+        : pid
+          ? 'https://shop.tiktok.com/view/product/' + pid
+          : '';
+    return {
+      enrichStatus: 'ok',
+      rowId: 'op_' + poolKind + '_' + (row.id || String(idx)),
+      link: link,
+      pid: pid,
+      title: row.title || pid || '—',
+      category: tpl ? tpl.category : 'General',
+      price: !isNaN(sale) && sale > 0 ? sale : tpl.price,
+      stock: tpl.stock,
+      ctr: ctrP,
+      cvr: cvrP,
+      atc: atcP,
+      gmv: !isNaN(gmv) ? gmv : tpl.histGmv,
+      tags: row.shopName ? String(row.shopName).slice(0, 120) : (tpl.tags || ''),
+      shopRating: !isNaN(rate) ? Math.min(5, rate) : 4.35,
+      poolStatus: poolKind === 'new' ? 'potential' : '',
+      winnerLevel: poolKind === 'best' ? 'scaling' : '',
+      opsSourceId: row.id,
+      listingDaysAgo: lprodListingDaysAgo(row),
+      image:
+        row.image && /^https?:\/\//i.test(String(row.image).trim())
+          ? String(row.image).trim()
+          : '',
+      shopName: row.shopName ? String(row.shopName).slice(0, 120) : '',
+      listingTime: row.listingTime ? String(row.listingTime).trim() : '',
+      variantSizesDisplay: row.variantSizesDisplay != null ? String(row.variantSizesDisplay).trim() : '',
+      liveSessionCount: row.liveSessionCount,
+      liveStreamerCount: row.liveStreamerCount,
+      gmv30d: row.gmv30d != null ? String(row.gmv30d).trim() : ''
+    };
+  }
+
+  /** 工作台货池：运营选品库优先；异常 PID 不参与；单侧为空时可回退到「商品货盘」localStorage（兼容旧演示上传） */
+  function apsHydrateRuntimePoolsPreferOps() {
+    var cargo = apsCargoLoad();
+    var ops = lprodLoadOps();
+    var excluded = lprodExcludedPidSet(ops);
+    function take(items) {
+      return (items || []).filter(function (r) {
+        var p = lprodNormPid(r.pid);
+        return p && !excluded[p];
+      });
+    }
+    var newFiltered = take(ops.newItems);
+    var hotFiltered = take(ops.hotItems);
+    var uploadNew = null;
+    var uploadBest = null;
+    if (newFiltered.length) {
+      uploadNew = {
+        fileName: t('aps.pool_feed_ops_new'),
+        rows: newFiltered.map(function (r, i) {
+          return lprodOpsRowToApsPoolRow(r, 'new', i);
+        }),
+        ok: true,
+        count: newFiltered.length
+      };
+    } else if (cargo.uploadNew && cargo.uploadNew.rows && cargo.uploadNew.rows.length) {
+      uploadNew = JSON.parse(JSON.stringify(cargo.uploadNew));
+    }
+    if (hotFiltered.length) {
+      uploadBest = {
+        fileName: t('aps.pool_feed_ops_hot'),
+        rows: hotFiltered.map(function (r, i) {
+          return lprodOpsRowToApsPoolRow(r, 'best', i);
+        }),
+        ok: true,
+        count: hotFiltered.length
+      };
+    } else if (cargo.uploadBest && cargo.uploadBest.rows && cargo.uploadBest.rows.length) {
+      uploadBest = JSON.parse(JSON.stringify(cargo.uploadBest));
+    }
+    apsRuntime.uploadNew = uploadNew;
+    apsRuntime.uploadBest = uploadBest;
+    var fromOpsCount = (!!uploadNew && newFiltered.length > 0) || (!!uploadBest && hotFiltered.length > 0);
+    var exN = ((ops.eliminate || []).length + (ops.exclude || []).length) | 0;
+    var exHit = ops.newItems.length + ops.hotItems.length - newFiltered.length - hotFiltered.length;
+    apsRuntime.feedMeta = fromOpsCount
+      ? {
+          mode: 'ops',
+          opsUpdatedAt: ops.updatedAt || '',
+          excludedTabPidsSkipped: Math.max(0, exHit),
+          excludedBuckets: exN,
+          cargoFallbackNew: !!(uploadNew && newFiltered.length === 0 && cargo.uploadNew && cargo.uploadNew.rows && cargo.uploadNew.rows.length),
+          cargoFallbackHot: !!(uploadBest && hotFiltered.length === 0 && cargo.uploadBest && cargo.uploadBest.rows && cargo.uploadBest.rows.length)
+        }
+      : {
+          mode: 'cargo',
+          updatedAt: typeof cargo.updatedAt === 'string' ? cargo.updatedAt : ''
+        };
+  }
+
+  function apsStablePidHash(pid) {
+    var s = 0;
+    var p = String(pid || '');
+    var i;
+    for (i = 0; i < p.length; i++) s = (s * 31 + p.charCodeAt(i)) >>> 0;
+    return s;
+  }
+
+  function apsPseudoRollup(pid) {
+    var h = apsStablePidHash(pid || '—');
+    return {
+      impressions: 650 + (h % 2350),
+      liveSessions: 1 + (h % 9),
+      liveStreamers: 1 + (h % 15),
+      lastFeaturedDaysAgo: 8 + (h % 42),
+      fauxStockAvg: Math.max(5, parseInt(String(30 + (h % 950)), 10))
+    };
+  }
+
+  function apsBestSimilarHotMeta(rAps, opposingRows) {
+    var out = { pid: '—', image: '', pct: 0 };
+    if (!rAps || !opposingRows || !opposingRows.length) return out;
+    var mx = -1;
+    var best = null;
+    var oi;
+    for (oi = 0; oi < opposingRows.length; oi++) {
+      var opp = opposingRows[oi];
+      var sv = apsTokenSimilarityPct(rAps.title, opp.title);
+      if (sv > mx) {
+        mx = sv;
+        best = opp;
+      }
+    }
+    if (!best || mx < 0) return out;
+    var img = '';
+    if (best.image != null) {
+      var ir = String(best.image).trim();
+      if (/^https?:\/\//i.test(ir)) img = ir;
+    }
+    return {
+      pid: String(best.pid || '—'),
+      image: img,
+      pct: mx
+    };
+  }
+
+  function apsTokenSimilarityPct(a, b) {
+    function bag(s) {
+      var keys = {};
+      String(s || '')
+        .toLowerCase()
+        .split(/[^\w\u4e00-\u9fff]+/)
+        .forEach(function (w) {
+          if (w && w.length > 1) keys[w] = true;
+        });
+      var out = {};
+      Object.keys(keys).forEach(function (k) {
+        out[k] = true;
+      });
+      return Object.keys(keys);
+    }
+    var A = bag(a);
+    var Bmap = {};
+    bag(b).forEach(function (t) {
+      Bmap[t] = true;
+    });
+    if (!A.length && !Object.keys(Bmap).length) return 0;
+    var inter = 0;
+    A.forEach(function (t) {
+      if (Bmap[t]) inter++;
+    });
+    var uni = A.length + Object.keys(Bmap).length - inter;
+    return uni <= 0 ? 0 : Math.round((100 * inter) / uni);
+  }
+
+  function apsBestTitleSimilarity(r, opposingRows) {
+    if (!opposingRows || !opposingRows.length || !r) return 0;
+    var mx = 0;
+    opposingRows.forEach(function (opp) {
+      mx = Math.max(mx, apsTokenSimilarityPct(r.title, opp.title));
+    });
+    return mx;
+  }
+
+  function apsHostTagHits(host, poolRow) {
+    if (!host || !poolRow || !host.tags || !host.tags.length) return false;
+    var blob = (poolRow.title + ' ' + poolRow.category + ' ' + poolRow.tags).toLowerCase();
+    return host.tags.some(function (tg) {
+      var t = String(tg || '').toLowerCase();
+      return t && blob.indexOf(t) >= 0;
+    });
+  }
+
+  /** 单行策略命中（演示）；returns { bonus, labels: string[], hitKeys } */
+  function apsStrategyHitsForRow(poolRowAps, pool, host, strat, opposingRows) {
+    var pid = poolRowAps.pid || '';
+    var roll = apsPseudoRollup(pid);
+    var labels = [];
+    var hitKeys = [];
+    var bonus = 0;
+    var ctr = parseFloat(poolRowAps.ctr) || 0;
+    var atc = parseFloat(poolRowAps.atc) || 0;
+    var cvr = parseFloat(poolRowAps.cvr) || 0;
+    var stock = parseInt(poolRowAps.stock, 10) || 0;
+    var gmv = parseFloat(poolRowAps.gmv) || 0;
+    var listDays =
+      poolRowAps.listingDaysAgo != null ? parseInt(String(poolRowAps.listingDaysAgo), 10) || 999 : 999;
+
+    if (apsHostTagHits(host, poolRowAps)) {
+      hitKeys.push('host_tag_fit');
+      labels.push(t('aps.strat_host_tag_fit'));
+      bonus += 12;
+    }
+
+    if (pool === 'new') {
+      var simHot = opposingRows.length
+        ? apsBestTitleSimilarity(poolRowAps, opposingRows)
+        : 0;
+      if (strat.newSimilarHot && simHot >= strat.simNewVsHotMinPct) {
+        hitKeys.push('similar_hot');
+        labels.push(t('aps.strat_similar_hot'));
+        bonus += 18;
+      }
+      if (
+        strat.newHighPotential &&
+        roll.liveSessions >= strat.highPotMinLiveSessions &&
+        roll.impressions >= strat.highPotMinImpressions &&
+        atc >= strat.highPotMinAtcPct &&
+        cvr >= strat.highPotMinCvrPct &&
+        listDays >= strat.highPotMinListingDays
+      ) {
+        hitKeys.push('high_potential');
+        labels.push(t('aps.strat_high_potential'));
+        bonus += 16;
+      }
+      if (
+        strat.newScale &&
+        roll.liveSessions >= strat.scaleMinLiveSessions &&
+        ctr >= strat.scaleMinCtrPct &&
+        atc >= strat.scaleMinAtcPct &&
+        cvr >= strat.scaleMinCvrPct &&
+        stock >= strat.scaleMinStock
+      ) {
+        hitKeys.push('new_scale');
+        labels.push(t('aps.strat_new_scale'));
+        bonus += 14;
+      }
+    } else if (pool === 'best') {
+      var simNew = opposingRows.length ? apsBestTitleSimilarity(poolRowAps, opposingRows) : 0;
+      if (strat.bestSimilarLink && simNew >= strat.simBestVsNewMinPct) {
+        hitKeys.push('similar_new_link');
+        labels.push(t('aps.strat_similar_new_link'));
+        bonus += 16;
+      }
+      if (
+        strat.bestScale &&
+        roll.liveSessions >= strat.bestScaleMinSessions &&
+        gmv >= strat.bestTargetGmv &&
+        ctr >= strat.bestScaleMinCtrPct &&
+        atc >= strat.bestScaleMinAtcPct &&
+        cvr >= strat.bestScaleMinCvrPct &&
+        stock >= strat.bestScaleMinStock
+      ) {
+        hitKeys.push('hot_scale');
+        labels.push(t('aps.strat_hot_scale'));
+        bonus += 18;
+      }
+    }
+
+    bonus = Math.min(bonus, 52);
+    return { bonus: bonus, labels: labels, hitKeys: hitKeys };
+  }
+
+  /** 智能选品页从 DOM 拉取策略并保存 */
+  function apsPullStrategyProfileFromDom() {
+    function chk(id) {
+      var el = document.getElementById(id);
+      return !!(el && el.checked);
+    }
+    function num(id, fb) {
+      var el = document.getElementById(id);
+      if (!el || el.value === '') return fb;
+      var n = parseFloat(el.value);
+      return isNaN(n) ? fb : n;
+    }
+    var o = {
+      newSimilarHot: chk('apsStratNewSimHot'),
+      newHighPotential: chk('apsStratNewHighPot'),
+      newScale: chk('apsStratNewScale'),
+      bestSimilarLink: chk('apsStratBestSimLink'),
+      bestScale: chk('apsStratBestScale'),
+      simNewVsHotMinPct: num('apsStratSimNewHot', APS_STRATEGY_DEFAULTS.simNewVsHotMinPct),
+      simBestVsNewMinPct: num('apsStratSimBestNew', APS_STRATEGY_DEFAULTS.simBestVsNewMinPct),
+      highPotMinLiveSessions: num('apsStratHpSess', APS_STRATEGY_DEFAULTS.highPotMinLiveSessions),
+      highPotMinImpressions: num('apsStratHpImp', APS_STRATEGY_DEFAULTS.highPotMinImpressions),
+      highPotMinAtcPct: num('apsStratHpAtc', APS_STRATEGY_DEFAULTS.highPotMinAtcPct),
+      highPotMinCvrPct: num('apsStratHpCvr', APS_STRATEGY_DEFAULTS.highPotMinCvrPct),
+      highPotMinListingDays: num('apsStratHpListing', APS_STRATEGY_DEFAULTS.highPotMinListingDays),
+      scaleMinLiveSessions: num('apsStratScSess', APS_STRATEGY_DEFAULTS.scaleMinLiveSessions),
+      scaleMinCtrPct: num('apsStratScCtr', APS_STRATEGY_DEFAULTS.scaleMinCtrPct),
+      scaleMinAtcPct: num('apsStratScAtc', APS_STRATEGY_DEFAULTS.scaleMinAtcPct),
+      scaleMinCvrPct: num('apsStratScCvr', APS_STRATEGY_DEFAULTS.scaleMinCvrPct),
+      scaleMinStock: num('apsStratScStk', APS_STRATEGY_DEFAULTS.scaleMinStock),
+      bestScaleMinSessions: num('apsStratHotSess', APS_STRATEGY_DEFAULTS.bestScaleMinSessions),
+      bestScaleMinStock: num('apsStratHotStk', APS_STRATEGY_DEFAULTS.bestScaleMinStock),
+      bestTargetGmv: num('apsStratHotGmv', APS_STRATEGY_DEFAULTS.bestTargetGmv),
+      bestScaleMinCtrPct: num('apsStratHotCtr', APS_STRATEGY_DEFAULTS.bestScaleMinCtrPct),
+      bestScaleMinAtcPct: num('apsStratHotAtc', APS_STRATEGY_DEFAULTS.bestScaleMinAtcPct),
+      bestScaleMinCvrPct: num('apsStratHotCvr', APS_STRATEGY_DEFAULTS.bestScaleMinCvrPct)
+    };
+    apsSaveStrategyProfile(o);
+    return o;
+  }
+
+  /** 策略开关与下方阈值字段一一对应：取消勾选时禁用对应输入，避免误以为仍在生效。 */
+  var APS_STRATEGY_CHK_FIELD_MAP = [
+    { checkboxId: 'apsStratNewSimHot', inputIds: ['apsStratSimNewHot'] },
+    {
+      checkboxId: 'apsStratNewHighPot',
+      inputIds: ['apsStratHpSess', 'apsStratHpImp', 'apsStratHpAtc', 'apsStratHpCvr', 'apsStratHpListing']
+    },
+    {
+      checkboxId: 'apsStratNewScale',
+      inputIds: ['apsStratScSess', 'apsStratScCtr', 'apsStratScAtc', 'apsStratScCvr', 'apsStratScStk']
+    },
+    { checkboxId: 'apsStratBestSimLink', inputIds: ['apsStratSimBestNew'] },
+    {
+      checkboxId: 'apsStratBestScale',
+      inputIds: ['apsStratHotSess', 'apsStratHotGmv', 'apsStratHotCtr', 'apsStratHotAtc', 'apsStratHotCvr', 'apsStratHotStk']
+    }
+  ];
+
+  function apsSyncStrategyCheckboxBoundInputs(scopeRoot) {
+    if (!scopeRoot || typeof scopeRoot.querySelector !== 'function') return;
+    APS_STRATEGY_CHK_FIELD_MAP.forEach(function (row) {
+      var cb = scopeRoot.querySelector('#' + row.checkboxId);
+      var active = !!(cb && cb.checked);
+      row.inputIds.forEach(function (iid) {
+        var inp = scopeRoot.querySelector('#' + iid);
+        if (!inp) return;
+        inp.disabled = !active;
+        var lbl = inp.closest('.aps-strat-field');
+        if (lbl) lbl.classList.toggle('aps-strat-field--disabled', !active);
+      });
+    });
+  }
+
+  function apsStrategyProfileFormHtml() {
+    var s = apsLoadStrategyProfile();
+    function ck(which) {
+      return which ? ' checked' : '';
+    }
+    function val(k) {
+      return String(s[k] != null ? s[k] : APS_STRATEGY_DEFAULTS[k]);
+    }
+    return (
+      '<details class="aps-strategy-engine-details">' +
+      '<summary class="aps-strategy-engine-summary">' +
+      '<span class="aps-strategy-engine-summary-inner">' +
+      apsEscape(t('aps.strat_panel_title')) +
+      '</span><span class="aps-strategy-engine-hint">' +
+      apsEscape(t('aps.strat_panel_sub')) +
+      '</span></summary>' +
+      '<div class="aps-strategy-engine-body">' +
+      '<div class="aps-strategy-thresholds">' +
+
+      '<section class="aps-strat-group" aria-labelledby="apsStratGroupNewTitle">' +
+      '<h3 class="aps-strat-group__title" id="apsStratGroupNewTitle">' +
+      apsEscape(t('aps.strat_group_new')) +
+      '</h3>' +
+      '<div class="aps-strategy-toggles">' +
+      '<label class="aps-strat-chip"><input type="checkbox" id="apsStratNewSimHot"' +
+      ck(s.newSimilarHot) +
+      ' /> ' +
+      apsEscape(t('aps.strat_ck_similar_hot')) +
+      '</label>' +
+      '<label class="aps-strat-chip"><input type="checkbox" id="apsStratNewHighPot"' +
+      ck(s.newHighPotential) +
+      ' /> ' +
+      apsEscape(t('aps.strat_ck_high_pot')) +
+      '</label>' +
+      '<label class="aps-strat-chip"><input type="checkbox" id="apsStratNewScale"' +
+      ck(s.newScale) +
+      ' /> ' +
+      apsEscape(t('aps.strat_ck_new_scale')) +
+      '</label>' +
+      '</div>' +
+      '<div class="aps-strategy-grid">' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_sim_new_hot')) +
+      '<input type="number" step="1" id="apsStratSimNewHot" class="aps-input" value="' +
+      val('simNewVsHotMinPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hp_sess')) +
+      '<input type="number" step="1" id="apsStratHpSess" class="aps-input" value="' +
+      val('highPotMinLiveSessions') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hp_imp')) +
+      '<input type="number" step="10" id="apsStratHpImp" class="aps-input" value="' +
+      val('highPotMinImpressions') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hp_atc')) +
+      '<input type="number" step="0.1" id="apsStratHpAtc" class="aps-input" value="' +
+      val('highPotMinAtcPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hp_cvr')) +
+      '<input type="number" step="0.1" id="apsStratHpCvr" class="aps-input" value="' +
+      val('highPotMinCvrPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hp_days')) +
+      '<input type="number" step="1" id="apsStratHpListing" class="aps-input" value="' +
+      val('highPotMinListingDays') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_scale_sess')) +
+      '<input type="number" step="1" id="apsStratScSess" class="aps-input" value="' +
+      val('scaleMinLiveSessions') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_scale_ctr')) +
+      '<input type="number" step="0.1" id="apsStratScCtr" class="aps-input" value="' +
+      val('scaleMinCtrPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_scale_atc')) +
+      '<input type="number" step="0.1" id="apsStratScAtc" class="aps-input" value="' +
+      val('scaleMinAtcPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_scale_cvr')) +
+      '<input type="number" step="0.1" id="apsStratScCvr" class="aps-input" value="' +
+      val('scaleMinCvrPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_scale_stk')) +
+      '<input type="number" step="1" id="apsStratScStk" class="aps-input" value="' +
+      val('scaleMinStock') +
+      '" /></label>' +
+      '</div>' +
+      '</section>' +
+
+      '<section class="aps-strat-group" aria-labelledby="apsStratGroupBestTitle">' +
+      '<h3 class="aps-strat-group__title" id="apsStratGroupBestTitle">' +
+      apsEscape(t('aps.strat_group_best')) +
+      '</h3>' +
+      '<div class="aps-strategy-toggles">' +
+      '<label class="aps-strat-chip"><input type="checkbox" id="apsStratBestSimLink"' +
+      ck(s.bestSimilarLink) +
+      ' /> ' +
+      apsEscape(t('aps.strat_ck_sim_link')) +
+      '</label>' +
+      '<label class="aps-strat-chip"><input type="checkbox" id="apsStratBestScale"' +
+      ck(s.bestScale) +
+      ' /> ' +
+      apsEscape(t('aps.strat_ck_hot_scale')) +
+      '</label>' +
+      '</div>' +
+      '<div class="aps-strategy-grid">' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_sim_best_new')) +
+      '<input type="number" step="1" id="apsStratSimBestNew" class="aps-input" value="' +
+      val('simBestVsNewMinPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hot_sess')) +
+      '<input type="number" step="1" id="apsStratHotSess" class="aps-input" value="' +
+      val('bestScaleMinSessions') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hot_gmv')) +
+      '<input type="number" step="50" id="apsStratHotGmv" class="aps-input" value="' +
+      val('bestTargetGmv') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hot_ctr')) +
+      '<input type="number" step="0.1" id="apsStratHotCtr" class="aps-input" value="' +
+      val('bestScaleMinCtrPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hot_atc')) +
+      '<input type="number" step="0.1" id="apsStratHotAtc" class="aps-input" value="' +
+      val('bestScaleMinAtcPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hot_cvr')) +
+      '<input type="number" step="0.1" id="apsStratHotCvr" class="aps-input" value="' +
+      val('bestScaleMinCvrPct') +
+      '" /></label>' +
+      '<label class="aps-strat-field">' +
+      apsEscape(t('aps.strat_f_hot_stk')) +
+      '<input type="number" step="5" id="apsStratHotStk" class="aps-input" value="' +
+      val('bestScaleMinStock') +
+      '" /></label>' +
+      '</div>' +
+      '</section>' +
+
+      '</div>' +
+      '<p class="aps-field-help">' +
+      apsEscape(t('aps.strat_demo_note')) +
+      '</p></div></details>'
+    );
+  }
+
+  var LIVE_OPS_INVENTORY_KEY = 'wahool_live_ops_inventory_v1';
+  var LIVE_OPS_PAGE_SIZE = 8;
+  var LIVE_OPS_BULK_PID_MAX = 50;
+
+  function lprodNormHeader(h) {
+    return String(h || '')
+      .trim()
+      .replace(/^\ufeff/, '')
+      .replace(/\s+/g, '')
+      .toLowerCase();
+  }
+
+  function lprodParseCsvRow(line) {
+    var out = [];
+    var cur = '';
+    var inQ = false;
+    var i;
+    for (i = 0; i < line.length; i++) {
+      var ch = line.charAt(i);
+      if (ch === '"') {
+        inQ = !inQ;
+        continue;
+      }
+      if (!inQ && (ch === ',' || ch === '\t')) {
+        out.push(cur.trim());
+        cur = '';
+      } else {
+        cur += ch;
+      }
+    }
+    out.push(cur.trim());
+    return out;
+  }
+
+  function lprodOpsBlank() {
+    return {
+      newItems: [],
+      hotItems: [],
+      collecting: [],
+      eliminate: [],
+      exclude: [],
+      updatedAt: ''
+    };
+  }
+
+  function lprodNormalizeCollectingEntry(raw) {
+    if (!raw || typeof raw !== 'object') return null;
+    var pool = raw.targetPool === 'best' ? 'best' : 'new';
+    var st = raw.status === 'failed' ? 'failed' : raw.status === 'collecting' ? 'collecting' : 'collecting';
+    return {
+      id: raw.id || lprodMakeOpsId('col'),
+      pid: String(raw.pid || '').trim(),
+      title: raw.title != null ? String(raw.title) : '',
+      productLink: raw.productLink != null ? String(raw.productLink).trim() : '',
+      image: raw.image != null ? String(raw.image).trim() : '',
+      targetPool: pool,
+      status: st,
+      errorMessage: raw.errorMessage != null ? String(raw.errorMessage) : '',
+      startedAt: raw.startedAt || new Date().toISOString()
+    };
+  }
+
+  function lprodLoadOps() {
+    try {
+      var raw = localStorage.getItem(LIVE_OPS_INVENTORY_KEY);
+      if (!raw) return lprodOpsBlank();
+      var j = JSON.parse(raw);
+      var coll = Array.isArray(j.collecting)
+        ? j.collecting
+            .map(lprodNormalizeCollectingEntry)
+            .filter(function (x) {
+              return x && x.pid;
+            })
+        : [];
+      return {
+        newItems: Array.isArray(j.newItems) ? j.newItems : [],
+        hotItems: Array.isArray(j.hotItems) ? j.hotItems : [],
+        collecting: coll,
+        eliminate: Array.isArray(j.eliminate) ? j.eliminate : [],
+        exclude: Array.isArray(j.exclude) ? j.exclude : [],
+        updatedAt: j.updatedAt || ''
+      };
+    } catch (eLo) {
+      return lprodOpsBlank();
+    }
+  }
+
+  function lprodSaveOpsPayload(payload) {
+    payload.updatedAt = new Date().toISOString();
+    try {
+      localStorage.setItem(LIVE_OPS_INVENTORY_KEY, JSON.stringify(payload));
+    } catch (eLs) {}
+  }
+
+  function lprodMakeOpsId(prefix) {
+    return prefix + '_' + Date.now().toString(36) + '_' + Math.floor(Math.random() * 10000);
+  }
+
+  /** Build a normal ops row when a background “collection” job finishes (demo: async simulation). */
+  function lprodRowFromCollectTask(task) {
+    var nowIso = new Date().toISOString();
+    var pid = String(task.pid || '').trim();
+    var link = task.productLink ? String(task.productLink).trim() : '';
+    var title = task.title ? String(task.title).trim() : '';
+    if (!title) title = pid ? 'PID ' + pid : '';
+    var desc =
+      typeof getLang === 'function' && getLang() === 'zh'
+        ? '采集入库'
+        : 'Collected';
+    return {
+      id: lprodMakeOpsId('op'),
+      pid: pid,
+      title: title || pid || '—',
+      image: task.image ? String(task.image).trim() : '',
+      shopName: '',
+      shopRating: '',
+      listingTime: '',
+      liveSessionCount: '',
+      liveStreamerCount: '',
+      gmv30d: '',
+      productLink: link,
+      description: desc,
+      salePrice: '',
+      variantImages: [],
+      variantSizesDisplay: '',
+      uploader: typeof currentUser !== 'undefined' && currentUser && currentUser.name ? currentUser.name : 'System',
+      uploadedAt: nowIso
+    };
+  }
+
+  function lprodHeaderIndex(headers) {
+    var colIndex = {};
+    headers.forEach(function (h, i) {
+      var n = lprodNormHeader(h);
+      if (n !== '' && colIndex[n] === undefined) colIndex[n] = i;
+    });
+    return colIndex;
+  }
+
+  function lprodResolveColumn(colIndex, aliasList) {
+    var ai;
+    for (ai = 0; ai < aliasList.length; ai++) {
+      var key = lprodNormHeader(aliasList[ai]);
+      if (colIndex[key] !== undefined) return colIndex[key];
+    }
+    return -1;
+  }
+
+  function lprodCell(row, ix) {
+    if (ix < 0) return '';
+    return row[ix] != null ? String(row[ix]).trim() : '';
+  }
+
+  function lprodCsvTextToMatrix(text) {
+    var lines = String(text || '').split(/\r?\n/).filter(function (ln) {
+      return String(ln).trim();
+    });
+    return lines.map(function (ln) {
+      return lprodParseCsvRow(ln);
+    });
+  }
+
+  function lprodPidKey(pid) {
+    return String(pid || '').trim().toLowerCase();
+  }
+
+  /** Same PID replaces row (keeps id); new PID rows append. Rows without PID always append. */
+  function lprodMergeRowsIntoList(existing, imported) {
+    var out = existing.slice();
+    var indexByPid = {};
+    var ri;
+    for (ri = 0; ri < out.length; ri++) {
+      var kk = lprodPidKey(out[ri].pid);
+      if (kk) indexByPid[kk] = ri;
+    }
+    imported.forEach(function (row) {
+      var k = lprodPidKey(row.pid);
+      if (k && indexByPid[k] !== undefined) {
+        var ix = indexByPid[k];
+        row.id = out[ix].id;
+        out[ix] = row;
+      } else {
+        out.push(row);
+        if (k) indexByPid[k] = out.length - 1;
+      }
+    });
+    return out;
+  }
+
+  function lprodOperationalBucketsEmpty(ops) {
+    return (
+      (!(ops.newItems || []).length) &&
+      (!(ops.hotItems || []).length) &&
+      (!(ops.collecting || []).length) &&
+      (!(ops.eliminate || []).length) &&
+      (!(ops.exclude || []).length)
+    );
+  }
+
+  /** 内置演示 SKU 体量上限（仅当整池 row.id 均为 demo_* 时截断），减轻首屏渲染与 localStorage 体积 */
+  var LPROD_OPS_DEMO_SKU_CAP = 20;
+
+  function lprodSkuBucketMayTrimAsDemo(rows, cap) {
+    if (!cap || cap <= 0 || !Array.isArray(rows) || rows.length <= cap) return false;
+    return rows.every(function (r) {
+      var rid = r && r.id != null ? String(r.id).trim() : '';
+      return rid !== '' && /^demo_/i.test(rid);
+    });
+  }
+
+  function lprodCapDemoOperationalSkuBuckets(ops, maxRows) {
+    var cap = typeof maxRows === 'number' && maxRows > 0 ? maxRows : LPROD_OPS_DEMO_SKU_CAP;
+    var changed = false;
+    ['newItems', 'hotItems'].forEach(function (k) {
+      var arr = ops[k];
+      if (!Array.isArray(arr) || arr.length <= cap) return;
+      if (!lprodSkuBucketMayTrimAsDemo(arr, cap)) return;
+      ops[k] = arr.slice(0, cap);
+      changed = true;
+    });
+    return changed;
+  }
+
+  /** TikTok‑style SKU id for UI: digits only, 12–22 chars. */
+  function lprodLooksLikeNumericBizPid(pid) {
+    var s = String(pid == null ? '' : pid).trim();
+    return /^[0-9]{12,22}$/.test(s);
+  }
+
+  /** Deterministic 19‑digit PID for rows that only have placeholders (stable per internal row id). */
+  function lprodSyntheticNumericPid(uniqueKey, saltIx) {
+    var s = String(uniqueKey === undefined || uniqueKey === null ? 'sku' : uniqueKey) + '\t' + String(saltIx);
+    var hi = 112589991;
+    var lo = 986301124;
+    var i;
+    for (i = 0; i < s.length; i++) {
+      var c = s.charCodeAt(i);
+      hi = (((hi << 5) - hi + c) >>> 0) >>> 0;
+      lo = ((lo * 33) ^ (c ^ (i << 3))) >>> 0;
+    }
+    var suf = ((((hi >>> 10) ^ (lo >>> 5)) >>> 0) % 900000000) + 100000000;
+    var suf6 = ('000000' + String(suf)).slice(-6);
+    return ('1732349039567' + suf6).slice(0, 19);
+  }
+
+  function lprodStrLooksEmpty(raw) {
+    if (raw == null) return true;
+    var s = String(raw).trim();
+    return !s || s === '—' || s === '-' || s === '--';
+  }
+
+  /**
+   * 非商品卖点：规则快照、池子说明（新品池 / 爆款池 / 爆品池 等）内部提示，不在商品列展示并在 backfill 时从持久化数据中剔除。
+   */
+  function lprodSkuDescriptionIsPoolOrSystemHint(txt) {
+    var s = txt != null ? String(txt).trim() : '';
+    if (!s) return false;
+    if (/^规则快照\s*[：:]/.test(s) || /^Rule snapshot\s*:/i.test(s)) return true;
+    if (/^新品池\s*[：:]/.test(s)) return true;
+    if (/^爆款池\s*[：:]/.test(s)) return true;
+    if (/^爆品池\s*[：:]/.test(s)) return true;
+    if (/^new\s+arrivals\s+pool[：:]/i.test(s)) return true;
+    if (/^best\s*sellers?\s+pool[：:]/i.test(s)) return true;
+    if (/^hot\s+items?\s+pool[：:]/i.test(s)) return true;
+    return false;
+  }
+
+  /** Stable pseudo-random product rating in [3.90, 4.50] for mock / backfill UI. */
+  function lprodSeededProductRating39To45(seedStr, poolSalt, ix) {
+    var s = String(seedStr || '') + '\0' + String(poolSalt) + '\0' + String(ix | 0);
+    var h = 0;
+    var i;
+    for (i = 0; i < s.length; i++) {
+      h = ((h << 5) - h + s.charCodeAt(i)) | 0;
+    }
+    var step = (Math.abs(h) >>> 0) % 601;
+    return (3.9 + step / 100).toFixed(2);
+  }
+
+  function lprodRowHasVariantMedia(row) {
+    var vi = row.variantImages;
+    if (Array.isArray(vi) && vi.some(Boolean)) return true;
+    if (typeof vi === 'string' && vi.trim()) {
+      var urls = (typeof lprodSplitHttpsUrls === 'function' && lprodSplitHttpsUrls(vi)) || [];
+      return urls.length > 0;
+    }
+    return !lprodStrLooksEmpty(row.variantSizesDisplay);
+  }
+
+  /** Fill empty display fields on ops SKUs without overwriting real uploads. Mutates rows in-place. Returns true when anything changed. */
+  function lprodBackfillOperationalSkuLikeRow(row, poolSalt, ix) {
+    if (!row || typeof row !== 'object') return false;
+    var zh = typeof getLang === 'function' && getLang() === 'zh';
+    var changed = false;
+
+    function mainImg(seed) {
+      var b = String(seed).replace(/[^a-z0-9_-]/gi, '');
+      return 'https://picsum.photos/seed/' + b + 'sf/176/176';
+    }
+    function vimg(seed, n) {
+      var arr = [];
+      var k;
+      var b = String(seed).replace(/[^a-z0-9_-]/gi, '');
+      for (k = 0; k < n; k++) {
+        arr.push('https://picsum.photos/seed/' + b + 'v' + k + '/96/96');
+      }
+      return arr;
+    }
+
+    var key = row.id || row.pid || row.title || 'ix_' + String(poolSalt) + '_' + ix;
+    if (!lprodLooksLikeNumericBizPid(row.pid)) {
+      row.pid = lprodSyntheticNumericPid(key, poolSalt * 2048 + ix);
+      changed = true;
+    }
+    var shops = zh
+      ? [
+          ['星尘直播严选店', '4.91'],
+          ['蔚蓝跨境家居', '4.78'],
+          ['Sunrise TikTok Bazaar', '4.82'],
+          ['Noir Minimal Studio', '4.88']
+        ]
+      : [
+          ['Stellar LIVE Select Shop', '4.91'],
+          ['Azure Cross‑Border Homeware', '4.78'],
+          ['Sunrise TikTok Bazaar', '4.82'],
+          ['Noir Minimal Studio', '4.88']
+        ];
+    if (lprodStrLooksEmpty(row.shopName)) {
+      var sp = shops[(ix + Math.abs(poolSalt | 0) * 3) % shops.length];
+      row.shopName = sp[0];
+      row.shopRating = sp[1];
+      changed = true;
+    } else if (lprodStrLooksEmpty(row.shopRating)) {
+      row.shopRating = zh ? '4.85' : '4.85';
+      changed = true;
+    }
+    var prRaw =
+      row.productRating != null && String(row.productRating).trim() !== ''
+        ? String(row.productRating).trim()
+        : row.product_rating != null
+          ? String(row.product_rating).trim()
+          : '';
+    if (!prRaw || lprodStrLooksEmpty(prRaw)) {
+      row.productRating = lprodSeededProductRating39To45(key, poolSalt, ix);
+      changed = true;
+    }
+    var imgOk = !!(row.image && /^https?:\/\//i.test(String(row.image).trim()));
+    if (!imgOk) {
+      row.image = mainImg(row.id ? String(row.id) : key);
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.salePrice)) {
+      var bucks = ((((poolSalt * 13 + ix * 73) >>> 0) % 7900) + 900) / 100;
+      row.salePrice = bucks.toFixed(2);
+      changed = true;
+    }
+    if (!lprodRowHasVariantMedia(row)) {
+      row.variantImages = vimg((row.id || key) + 'x', 3);
+      row.variantSizesDisplay = zh ? '默认 / Standard / XL' : 'Default • Standard • XL';
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.listingTime)) {
+      var day = (((ix + poolSalt * 5) >>> 0) % 27) + 1;
+      var hh = (((ix + poolSalt * 17) >>> 0) % 14) + 8;
+      var padDay = day < 10 ? '0' + day : String(day);
+      var padHr = hh < 10 ? '0' + hh : String(hh);
+      row.listingTime =
+        zh ? '2026‑04‑' + padDay + ' ' + padHr + ':20' : '2026‑04‑' + padDay + ' ' + padHr + ':20 GMT+8';
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.liveSessionCount)) {
+      row.liveSessionCount = String(8 + (((ix + poolSalt * 11) >>> 0) % 62));
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.liveStreamerCount)) {
+      row.liveStreamerCount = String(2 + (((ix + poolSalt * 7) >>> 0) % 18));
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.gmv30d)) {
+      var amt = 1880 + ((ix + poolSalt * 31 + 902) >>> 0) % 248000;
+      row.gmv30d = zh ? '$ ' + amt.toLocaleString('en-US') : '$ ' + amt.toLocaleString('en-US');
+      changed = true;
+    }
+    var phDescZh = '系统自动补齐展示字段，可在 Excel 中覆盖。';
+    var phDescEn = 'Auto-filled display fields; overwritten by your spreadsheet.';
+    var phMockLink =
+      /^https:\/\/example\.com\/p\/mock\//i.test(String(row.productLink || '').trim());
+    var dCur = row.description != null ? String(row.description).trim() : '';
+    if (dCur === phDescZh || dCur === phDescEn || lprodSkuDescriptionIsPoolOrSystemHint(dCur)) {
+      row.description = '';
+      changed = true;
+    }
+    if (phMockLink) {
+      row.productLink = '';
+      changed = true;
+    }
+    return changed;
+  }
+
+  function lprodBackfillOperationalAbnormalRow(row, salt, ix) {
+    if (!row || typeof row !== 'object') return false;
+    var changed = false;
+    function mainImg(seed) {
+      var b = String(seed).replace(/[^a-z0-9_-]/gi, '');
+      return 'https://picsum.photos/seed/' + b + 'ab/144/144';
+    }
+    var key = row.id || row.pid || row.title || 'ab_' + ix;
+    if (!lprodLooksLikeNumericBizPid(row.pid)) {
+      row.pid = lprodSyntheticNumericPid(key, salt * 4096 + ix + 99000);
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.shopName)) {
+      row.shopName = ix % 2 ? 'Riverstone Supply' : 'PixelPantry HQ';
+      row.shopRating = '4.45';
+      changed = true;
+    } else if (lprodStrLooksEmpty(row.shopRating)) {
+      row.shopRating = '4.62';
+      changed = true;
+    }
+    var imgOk = !!(row.image && /^https?:\/\//i.test(String(row.image).trim()));
+    if (!imgOk) {
+      row.image = mainImg(row.id || key);
+      changed = true;
+    }
+    if (lprodStrLooksEmpty(row.liveSessionCount)) {
+      row.liveSessionCount = String(3 + (((ix + salt * 17) >>> 0) % 40));
+      changed = true;
+    }
+    return changed;
+  }
+
+  function lprodBackfillOperationalCollectRow(row, ix) {
+    if (!row || typeof row !== 'object') return false;
+    var zh = typeof getLang === 'function' && getLang() === 'zh';
+    var key = row.id || row.pid || 'col_' + ix;
+    var ch = false;
+    if (!lprodLooksLikeNumericBizPid(row.pid)) {
+      row.pid = lprodSyntheticNumericPid(key, 760000 + ix);
+      ch = true;
+    }
+    if (lprodStrLooksEmpty(row.title) && row.pid) {
+      row.title =
+        zh ? '商品 #' + row.pid.slice(-8) : 'SKU #' + row.pid.slice(-8);
+      ch = true;
+    }
+    var linkOk =
+      row.productLink && /^https?:\/\//i.test(String(row.productLink).trim());
+    if (!linkOk && row.pid) {
+      row.productLink = 'https://example.com/p/sync/' + row.pid;
+      ch = true;
+    }
+    return ch;
+  }
+
+  /** Normalize sparse ops rows / non-numeric PIDs without clobbering real Excel fields that are populated. */
+  function lprodApplyOperationalSkuDisplayBackfill(state) {
+    if (!state || typeof state !== 'object') return false;
+    var altered = false;
+    var ix;
+    if (state.newItems && state.newItems.length) {
+      for (ix = 0; ix < state.newItems.length; ix++) {
+        if (lprodBackfillOperationalSkuLikeRow(state.newItems[ix], 1, ix)) altered = true;
+      }
+    }
+    if (state.hotItems && state.hotItems.length) {
+      for (ix = 0; ix < state.hotItems.length; ix++) {
+        if (lprodBackfillOperationalSkuLikeRow(state.hotItems[ix], 2, ix)) altered = true;
+      }
+    }
+    var coll = state.collecting || [];
+    for (ix = 0; ix < coll.length; ix++) {
+      if (lprodBackfillOperationalCollectRow(coll[ix], ix)) altered = true;
+    }
+    var elim = state.eliminate || [];
+    for (ix = 0; ix < elim.length; ix++) {
+      if (lprodBackfillOperationalAbnormalRow(elim[ix], 11, ix)) altered = true;
+    }
+    var exc = state.exclude || [];
+    for (ix = 0; ix < exc.length; ix++) {
+      if (lprodBackfillOperationalAbnormalRow(exc[ix], 97, ix)) altered = true;
+    }
+    return altered;
+  }
+
+  /** Demo rows for Collecting + 建议淘汰 + 建议排除 (rules mock). */
+  function lprodDemoAbnormalPayload(zh, uploader, iso) {
+    function pimg(seed) {
+      return 'https://picsum.photos/seed/' + String(seed).replace(/[^a-z0-9]/gi, '') + 'p/176/176';
+    }
+    return {
+      collecting: [
+        {
+          id: 'demo_lp_col_collecting',
+          pid: lprodSyntheticNumericPid('demo_lp_col_collecting', 91001),
+          title: '',
+          productLink: 'https://example.com/p/sync',
+          image: '',
+          targetPool: 'new',
+          status: 'collecting',
+          errorMessage: '',
+          startedAt: iso
+        }
+      ],
+      eliminate: [
+        {
+          id: 'demo_rule_elim_0',
+          pid: lprodSyntheticNumericPid('demo_rule_elim_0', 880101),
+          title: zh ? '树脂桌面摆件｜直播测款（低效）' : 'Resin desk decor • LIVE test underperformer',
+          image: pimg('ruleE0'),
+          shopName: zh ? '清晨造物社' : 'Dawn Maker Studio',
+          shopRating: '4.22',
+          liveSessionCount: '10',
+          uploader: uploader,
+          uploadedAt: iso,
+          reason: zh
+            ? '低效淘汰：已满 10 场试播；近 5 场平均 CTR 0.35%、加购 0.82%、成交 0.11%、GMV $7，均低于运营阈值'
+            : 'Inefficient elimination: ≥10 test sessions; last 5 avg CTR 0.35%, ATC 0.82%, checkout 0.11%, GMV $7 — below ops floor.',
+          variantImages: [],
+          variantSizesDisplay: '',
+          productLink: '',
+          description: '',
+          listingTime: '',
+          liveStreamerCount: '',
+          gmv30d: '',
+          salePrice: ''
+        },
+        {
+          id: 'demo_rule_elim_1',
+          pid: lprodSyntheticNumericPid('demo_rule_elim_1', 880102),
+          title: zh ? '便携阅读灯（曝光疲软）' : 'Clip reading lamp • weak reach',
+          image: pimg('ruleE1'),
+          shopName: zh ? '夜读工坊' : 'Night Read Lab',
+          shopRating: '4.35',
+          liveSessionCount: '8',
+          uploader: uploader,
+          uploadedAt: iso,
+          reason: zh
+            ? '低效淘汰：近 6 场平均展现 2.1k、CTR 0.41%、GMV $15，低于同池测试基线'
+            : 'Inefficient elimination: last 6 avg impr 2.1k, CTR 0.41%, GMV $15 — under pool benchmark.',
+          variantImages: [],
+          variantSizesDisplay: '',
+          productLink: '',
+          description: '',
+          listingTime: '',
+          liveStreamerCount: '',
+          gmv30d: '',
+          salePrice: ''
+        }
+      ],
+      exclude: [
+        {
+          id: 'demo_rule_exc_0',
+          pid: lprodSyntheticNumericPid('demo_rule_exc_0', 881201),
+          title: zh ? '大牌同款蓝牙耳机｜标题待复核' : 'Luxury-look TWS earbuds • title flagged',
+          image: pimg('ruleX0'),
+          shopName: zh ? '极速数码集' : 'Flash Digital Hub',
+          shopRating: '4.51',
+          liveSessionCount: '2',
+          uploader: uploader,
+          uploadedAt: iso,
+          reason: zh
+            ? '高风险商品：标题/主图关键词+图像识别相似度过高，上传已自动标险，需人工确认后是否入池'
+            : 'High-risk SKU: title + image similarity high — auto‑flagged on upload; human approval before pool.',
+          variantImages: [],
+          variantSizesDisplay: '',
+          productLink: '',
+          description: '',
+          listingTime: '',
+          liveStreamerCount: '',
+          gmv30d: '',
+          salePrice: ''
+        },
+        {
+          id: 'demo_rule_exc_1',
+          pid: lprodSyntheticNumericPid('demo_rule_exc_1', 881202),
+          title: zh ? '保温杯 480ml（店铺差评集中）' : 'Vacuum mug 480ml • shop review risk',
+          image: pimg('ruleX1'),
+          shopName: zh ? '低价百货仓' : 'Bargain Sundries Warehouse',
+          shopRating: '3.68',
+          liveSessionCount: '14',
+          uploader: uploader,
+          uploadedAt: iso,
+          reason: zh
+            ? '高风险店铺：店铺评分 3.68 < 3.9，优先排除以降低后续下架连带'
+            : 'High-risk shop: rating 3.68 < 3.9 — prioritize exclusion to limit delisting exposure.',
+          variantImages: [],
+          variantSizesDisplay: '',
+          productLink: '',
+          description: '',
+          listingTime: '',
+          liveStreamerCount: '',
+          gmv30d: '',
+          salePrice: ''
+        },
+        {
+          id: 'demo_rule_exc_2',
+          pid: lprodSyntheticNumericPid('demo_rule_exc_2', 881203),
+          title: zh ? '折叠蚊帐 1.5m（单品低分）' : 'Pop-up net 1.5m • low SKU rating',
+          image: pimg('ruleX2'),
+          shopName: zh ? '居家直供店' : 'Home Direct Outlet',
+          shopRating: '4.48',
+          liveSessionCount: '7',
+          uploader: uploader,
+          uploadedAt: iso,
+          reason: zh
+            ? '高风险商品：商品评分 3.71 < 3.9，与店铺评分解耦单独拦截'
+            : 'High-risk SKU: product rating 3.71 < 3.9 — blocked independently of shop score.',
+          variantImages: [],
+          variantSizesDisplay: '',
+          productLink: '',
+          description: '',
+          listingTime: '',
+          liveStreamerCount: '',
+          gmv30d: '',
+          salePrice: ''
+        }
+      ]
+    };
+  }
+
+  /**
+   * When 建议淘汰 & 建议排除 are both empty but other pools already have data (e.g. persisted Excel),
+   * inject only the abnormal-tab demo so local previews still show rule examples.
+   */
+  function lprodHydrateDemoAbnormalIfBothPoolsEmptyInto(state) {
+    if (!state || typeof state !== 'object') return false;
+    if ((state.eliminate || []).length || (state.exclude || []).length) return false;
+    var zh = typeof getLang === 'function' && getLang() === 'zh';
+    var uploader =
+      typeof currentUser !== 'undefined' && currentUser && currentUser.name ? currentUser.name : 'Ops';
+    var iso = '2026-03-06T06:42:18.120Z';
+    var ab = lprodDemoAbnormalPayload(zh, uploader, iso);
+    state.eliminate = ab.eliminate;
+    state.exclude = ab.exclude;
+    if (!(state.collecting || []).length) {
+      state.collecting = ab.collecting;
+    }
+    return true;
+  }
+
+  /**
+   * 策略分层「相似爆品 / 相似新链」专用演示 SKU（固定 id）；与当前语言与时间戳无关字段随调用方上下文生成。
+   * @returns {{ newSimilarHot: object[], hotSimilarNew: object[] }}
+   */
+  function lprodBuildStrategyDemonstrationSkuRows(zh, uploader, iso) {
+    function pimgS(seed) {
+      return 'https://picsum.photos/seed/' + String(seed).replace(/[^a-z0-9]/gi, '') + 'p/176/176';
+    }
+    function vimgS(seed, n) {
+      var arr = [];
+      var ks;
+      for (ks = 0; ks < n; ks++) {
+        arr.push('https://picsum.photos/seed/' + String(seed + ks).replace(/\W/g, '') + 'v/72/72');
+      }
+      return arr;
+    }
+    return {
+      newSimilarHot: [
+        {
+          id: 'demo_strat_simhot_1',
+          pid: lprodSyntheticNumericPid('demo_strat_simhot_1', 31101),
+          title: zh
+            ? '空气炸低脂系列｜热风 Air fryer oven combo XL with dial presets'
+            : 'Air fryer oven combo XL with dial presets',
+          image: pimgS('stratNH1'),
+          shopName: zh ? 'Nova Lab Kitchen LIVE' : 'Nova Lab Kitchen LIVE',
+          shopRating: '4.58',
+          productRating: '4.48',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.11,
+          sessionsAnalyzed: 4,
+          listingTime: zh ? '2026-04-10 09:20' : '2026-04-10 09:20',
+          liveSessionCount: '5',
+          liveStreamerCount: '2',
+          gmv30d: zh ? '$ 1,120' : '$ 1,120',
+          productLink: '',
+          description: '',
+          salePrice: '31.90',
+          variantImages: vimgS('stratNH1', 2),
+          variantSizesDisplay: zh ? '20L / 23L' : '20L · 23L',
+          uploader: uploader,
+          uploadedAt: iso
+        },
+        {
+          id: 'demo_strat_simhot_2',
+          pid: lprodSyntheticNumericPid('demo_strat_simhot_2', 31102),
+          title: zh
+            ? '空气炸低脂系列｜烤箱 Air fryer oven combo slim with dial presets'
+            : 'Air fryer oven combo slim with dial presets',
+          image: pimgS('stratNH2'),
+          shopName: zh ? 'Stellar LIVE Select Shop' : 'Stellar LIVE Select Shop',
+          shopRating: '4.55',
+          productRating: '4.40',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.1,
+          sessionsAnalyzed: 3,
+          listingTime: zh ? '2026-04-11 13:45' : '2026-04-11 13:45',
+          liveSessionCount: '4',
+          liveStreamerCount: '2',
+          gmv30d: zh ? '$ 890' : '$ 890',
+          productLink: '',
+          description: '',
+          salePrice: '29.90',
+          variantImages: vimgS('stratNH2', 2),
+          variantSizesDisplay: zh ? '单旋钮 / 双旋钮' : 'Single dial · Dual dial',
+          uploader: uploader,
+          uploadedAt: iso
+        },
+        {
+          id: 'demo_strat_simhot_3',
+          pid: lprodSyntheticNumericPid('demo_strat_simhot_3', 31103),
+          title: zh
+            ? '空气炸低脂系列｜家庭款 Pro air fryer oven combo glass with dial presets'
+            : 'Pro air fryer oven combo glass door with dial presets',
+          image: pimgS('stratNH3'),
+          shopName: zh ? 'Northwind Kitchen' : 'Northwind Kitchen',
+          shopRating: '4.50',
+          productRating: '4.33',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.09,
+          sessionsAnalyzed: 3,
+          listingTime: zh ? '2026-04-12 10:12' : '2026-04-12 10:12',
+          liveSessionCount: '7',
+          liveStreamerCount: '3',
+          gmv30d: zh ? '$ 2,060' : '$ 2,060',
+          productLink: '',
+          description: '',
+          salePrice: '36.50',
+          variantImages: vimgS('stratNH3', 3),
+          variantSizesDisplay: zh ? '18L / 25L / 28L' : '18L · 25L · 28L',
+          uploader: uploader,
+          uploadedAt: iso
+        }
+      ],
+      hotSimilarNew: [
+        {
+          id: 'demo_strat_hot_like_new_a',
+          pid: lprodSyntheticNumericPid('demo_strat_hot_like_new_a', 72105),
+          title: zh
+            ? '夜间滋润修护 Barrier repair cream HA boost nightly serum balm'
+            : 'Barrier repair cream HA boost nightly serum balm',
+          image: pimgS('stratHN1'),
+          shopName: zh ? 'Glow Lane Beauty LIVE' : 'Glow Lane Beauty LIVE',
+          shopRating: '4.72',
+          productRating: '4.58',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.07,
+          sessionsAnalyzed: 8,
+          listingTime: zh ? '2025-10-18 07:05' : '2025-10-18 07:05',
+          liveSessionCount: '56',
+          liveStreamerCount: '11',
+          gmv30d: zh ? '$ 18,900' : '$ 18,900',
+          productLink: '',
+          description: '',
+          salePrice: '26.99',
+          variantImages: vimgS('stratHN1', 3),
+          variantSizesDisplay: zh ? '40g / 60g' : '40g · 60g',
+          uploader: uploader,
+          uploadedAt: iso
+        },
+        {
+          id: 'demo_strat_hot_like_new_b',
+          pid: lprodSyntheticNumericPid('demo_strat_hot_like_new_b', 72106),
+          title: zh
+            ? '光感底妆前 Barrier repair cream HA boost tinted glow nightly'
+            : 'Barrier repair cream HA boost tinted glow nightly',
+          image: pimgS('stratHN2'),
+          shopName: zh ? 'Morning Dew Select' : 'Morning Dew Select',
+          shopRating: '4.61',
+          productRating: '4.52',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.08,
+          sessionsAnalyzed: 6,
+          listingTime: zh ? '2025-09-03 21:40' : '2025-09-03 21:40',
+          liveSessionCount: '34',
+          liveStreamerCount: '8',
+          gmv30d: zh ? '$ 9,400' : '$ 9,400',
+          productLink: '',
+          description: '',
+          salePrice: '24.50',
+          variantImages: vimgS('stratHN2', 2),
+          variantSizesDisplay: zh ? '30ml / 50ml' : '30ml · 50ml',
+          uploader: uploader,
+          uploadedAt: iso
+        },
+        {
+          id: 'demo_strat_hot_like_new_c',
+          pid: lprodSyntheticNumericPid('demo_strat_hot_like_new_c', 72107),
+          title: zh
+            ? '丝滑服帖妆前 Barrier repair cream HA boost tinted finish glaze'
+            : 'Barrier repair cream HA boost tinted finish glaze',
+          image: pimgS('stratHN3'),
+          shopName: zh ? 'Urban Bloom LIVE' : 'Urban Bloom LIVE',
+          shopRating: '4.55',
+          productRating: '4.44',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.09,
+          sessionsAnalyzed: 7,
+          listingTime: zh ? '2025-11-28 14:08' : '2025-11-28 14:08',
+          liveSessionCount: '29',
+          liveStreamerCount: '6',
+          gmv30d: zh ? '$ 7,200' : '$ 7,200',
+          productLink: '',
+          description: '',
+          salePrice: '23.75',
+          variantImages: vimgS('stratHN3', 2),
+          variantSizesDisplay: zh ? '色号 01 / 02' : 'Shade 01 · 02',
+          uploader: uploader,
+          uploadedAt: iso
+        }
+      ]
+    };
+  }
+
+  /**
+   * 非空池也补全策略演示行（按 row.id 去重追加入池）。有新增时返回 true。
+   */
+  function lprodMergeStrategyDemonstrationSkusInto(state) {
+    if (!state) return false;
+    var zh = typeof getLang === 'function' && getLang() === 'zh';
+    var uploader =
+      typeof currentUser !== 'undefined' && currentUser && currentUser.name ? currentUser.name : 'Ops';
+    var iso = '2026-03-06T06:42:18.120Z';
+    var pack = lprodBuildStrategyDemonstrationSkuRows(zh, uploader, iso);
+    var added = 0;
+    function mergeBucket(key, rows) {
+      var arr = state[key];
+      if (!Array.isArray(arr)) arr = state[key] = [];
+      rows.forEach(function (row) {
+        if (!row || row.id == null) return;
+        var rid = String(row.id);
+        var exists = arr.some(function (r) {
+          return r && r.id != null && String(r.id) === rid;
+        });
+        if (!exists) {
+          arr.push(row);
+          added++;
+        }
+      });
+    }
+    mergeBucket('newItems', pack.newSimilarHot);
+    mergeBucket('hotItems', pack.hotSimilarNew);
+
+    function lprodTitlesNeedleAny(rows, needle) {
+      var nl = String(needle || '').toLowerCase();
+      if (!nl) return false;
+      return (rows || []).some(function (r) {
+        return r && r.title && String(r.title).toLowerCase().indexOf(nl) >= 0;
+      });
+    }
+    function pimgM(seedM) {
+      return 'https://picsum.photos/seed/' + String(seedM).replace(/[^a-z0-9]/gi, '') + 'p/176/176';
+    }
+    function vimgM(seedM, nVar) {
+      var arrM = [];
+      var km;
+      for (km = 0; km < nVar; km++) {
+        arrM.push('https://picsum.photos/seed/' + String(seedM + km).replace(/\W/g, '') + 'v/72/72');
+      }
+      return arrM;
+    }
+    if (!lprodTitlesNeedleAny(state.hotItems, 'air fryer oven combo')) {
+      mergeBucket('hotItems', [
+        {
+          id: 'demo_strat_ref_hot_air',
+          pid: lprodSyntheticNumericPid('demo_strat_ref_hot_air', 72888),
+          title: zh
+            ? '策略参照（演示）｜Air fryer oven combo with dial presets'
+            : 'Demo ref • Air fryer oven combo with dial presets',
+          image: pimgM('strRefAir'),
+          shopName: zh ? '演示参照店' : 'Demo ref shop',
+          shopRating: '4.85',
+          productRating: '4.70',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.05,
+          sessionsAnalyzed: 12,
+          listingTime: zh ? '2025-11-02 09:10' : '2025-11-02 09:10',
+          liveSessionCount: '40',
+          liveStreamerCount: '12',
+          gmv30d: zh ? '$ 40,000' : '$ 40,000',
+          productLink: '',
+          description: '',
+          salePrice: '74.99',
+          variantImages: vimgM('strRefAir', 2),
+          variantSizesDisplay: zh ? '参照规格' : 'Ref.',
+          uploader: uploader,
+          uploadedAt: iso
+        }
+      ]);
+    }
+    if (!lprodTitlesNeedleAny(state.newItems, 'barrier repair cream')) {
+      mergeBucket('newItems', [
+        {
+          id: 'demo_strat_ref_new_barrier',
+          pid: lprodSyntheticNumericPid('demo_strat_ref_new_barrier', 31999),
+          title: zh
+            ? '策略参照（演示）｜Barrier repair cream HA boost'
+            : 'Demo ref • Barrier repair cream HA boost',
+          image: pimgM('strRefBar'),
+          shopName: zh ? '演示参照店' : 'Demo ref shop',
+          shopRating: '4.60',
+          productRating: '4.50',
+          isCounterfeitRisk: false,
+          riskSimilarityScore: 0.07,
+          sessionsAnalyzed: 4,
+          listingTime: zh ? '2026-04-01 08:50' : '2026-04-01 08:50',
+          liveSessionCount: '5',
+          liveStreamerCount: '2',
+          gmv30d: zh ? '$ 3,200' : '$ 3,200',
+          productLink: '',
+          description: '',
+          salePrice: '22.99',
+          variantImages: vimgM('strRefBar', 2),
+          variantSizesDisplay: zh ? '参照规格' : 'Ref.',
+          uploader: uploader,
+          uploadedAt: iso
+        }
+      ]);
+    }
+
+    return added > 0;
+  }
+
+  /**
+   * When all pools are empty, seed richer demo SKUs once (persisted via caller) for UI previews.
+   * @returns {boolean} true when demo was injected
+   */
+  function lprodHydrateDemoIfEmptyInto(state) {
+    if (!lprodOperationalBucketsEmpty(state)) return false;
+    var zh = typeof getLang === 'function' && getLang() === 'zh';
+    var uploader =
+      typeof currentUser !== 'undefined' && currentUser && currentUser.name ? currentUser.name : 'Ops';
+    var iso = '2026-03-06T06:42:18.120Z';
+
+    function pimg(seed) {
+      return 'https://picsum.photos/seed/' + String(seed).replace(/[^a-z0-9]/gi, '') + 'p/176/176';
+    }
+    function vimg(seed, n) {
+      var arr = [];
+      var k;
+      for (k = 0; k < n; k++) {
+        arr.push('https://picsum.photos/seed/' + String(seed + k).replace(/\W/g, '') + 'v/72/72');
+      }
+      return arr;
+    }
+
+    var stratPack = lprodBuildStrategyDemonstrationSkuRows(zh, uploader, iso);
+
+    var newItems = [
+      {
+        id: 'demo_rule_new_ok',
+        pid: lprodSyntheticNumericPid('demo_rule_new_ok', 31001),
+        title: zh
+          ? '轻润修护面霜｜透明质酸锁水｜Barrier repair cream HA boost'
+          : 'Barrier repair cream • HA boost',
+        image: pimg('ruleNok'),
+        shopName: zh ? '星尘直播严选店' : 'Stellar LIVE Select Shop',
+        shopRating: '4.62',
+        productRating: '4.55',
+        isCounterfeitRisk: false,
+        riskSimilarityScore: 0.08,
+        sessionsAnalyzed: 5,
+        listingTime: zh ? '2026-04-02 11:20' : '2026-04-02 11:20',
+        liveSessionCount: '6',
+        liveStreamerCount: '3',
+        gmv30d: zh ? '$ 4,280' : '$ 4,280',
+        productLink: '',
+        description: '',
+        salePrice: '24.90',
+        variantImages: vimg('ruleNok', 3),
+        variantSizesDisplay: zh ? '50ml / 100ml' : '50ml · 100ml',
+        uploader: uploader,
+        uploadedAt: iso
+      },
+      stratPack.newSimilarHot[0],
+      stratPack.newSimilarHot[1],
+      stratPack.newSimilarHot[2],
+      {
+        id: 'demo_rule_new_bad_store',
+        pid: lprodSyntheticNumericPid('demo_rule_new_bad_store', 31002),
+        title: zh ? '磁吸移动电源 10000mAh' : 'Magnetic power bank 10k mAh',
+        image: pimg('ruleNbs'),
+        shopName: zh ? '低价闪购小店' : 'Flash Bargain Outlet',
+        shopRating: '3.72',
+        productRating: '4.10',
+        isCounterfeitRisk: false,
+        riskSimilarityScore: 0.11,
+        sessionsAnalyzed: 4,
+        listingTime: zh ? '2026-03-28 09:15' : '2026-03-28 09:15',
+        liveSessionCount: '4',
+        liveStreamerCount: '2',
+        gmv30d: zh ? '$ 612' : '$ 612',
+        productLink: '',
+        description: '',
+        salePrice: '19.00',
+        variantImages: vimg('ruleNbs', 2),
+        variantSizesDisplay: zh ? '黑 / 白' : 'Black · White',
+        uploader: uploader,
+        uploadedAt: iso
+      },
+      {
+        id: 'demo_rule_new_bad_pid_rating',
+        pid: lprodSyntheticNumericPid('demo_rule_new_bad_pid_rating', 31003),
+        title: zh ? '宠物缓食碗 防滑底座' : 'Slow feeder bowl • non-slip base',
+        image: pimg('ruleNpr'),
+        shopName: zh ? '蔚蓝跨境家居' : 'Azure Cross‑Border Homeware',
+        shopRating: '4.45',
+        productRating: '3.64',
+        isCounterfeitRisk: false,
+        riskSimilarityScore: 0.09,
+        sessionsAnalyzed: 3,
+        listingTime: zh ? '2026-04-05 14:40' : '2026-04-05 14:40',
+        liveSessionCount: '3',
+        liveStreamerCount: '2',
+        gmv30d: zh ? '$ 388' : '$ 388',
+        productLink: '',
+        description: '',
+        salePrice: '15.50',
+        variantImages: vimg('ruleNpr', 2),
+        variantSizesDisplay: zh ? 'M / L' : 'M · L',
+        uploader: uploader,
+        uploadedAt: iso
+      },
+      {
+        id: 'demo_rule_new_counterfeit_flag',
+        pid: lprodSyntheticNumericPid('demo_rule_new_counterfeit_flag', 31004),
+        title: zh
+          ? '大牌同款石英腕表｜礼盒装（关键词待人工复核）'
+          : 'Luxury‑look quartz watch gift set • keyword review',
+        image: pimg('ruleNcf'),
+        shopName: zh ? '限时轻奢集合店' : 'Flash Luxe Collective',
+        shopRating: '4.28',
+        productRating: '4.05',
+        isCounterfeitRisk: true,
+        riskSimilarityScore: 0.86,
+        sessionsAnalyzed: 2,
+        listingTime: zh ? '2026-04-08 16:05' : '2026-04-08 16:05',
+        liveSessionCount: '2',
+        liveStreamerCount: '1',
+        gmv30d: zh ? '$ 190' : '$ 190',
+        productLink: '',
+        description: '',
+        salePrice: '89.00',
+        variantImages: vimg('ruleNcf', 3),
+        variantSizesDisplay: zh ? '礼盒 / 单表' : 'Gift box · Watch only',
+        uploader: uploader,
+        uploadedAt: iso
+      }
+    ];
+
+    var hotItems = [
+      {
+        id: 'demo_rule_hot_ok',
+        pid: lprodSyntheticNumericPid('demo_rule_hot_ok', 72001),
+        title: zh
+          ? '空气炸烤箱一体｜旋钮控温｜Air fryer oven combo with dial presets'
+          : 'Air fryer oven combo with dial presets',
+        image: pimg('ruleHok'),
+        shopName: zh ? 'Sunrise TikTok Bazaar' : 'Sunrise TikTok Bazaar',
+        shopRating: '4.88',
+        productRating: '4.72',
+        isCounterfeitRisk: false,
+        riskSimilarityScore: 0.06,
+        sessionsAnalyzed: 10,
+        listingTime: zh ? '2025-11-12 08:30' : '2025-11-12 08:30',
+        liveSessionCount: '48',
+        liveStreamerCount: '14',
+        gmv30d: zh ? '$ 52,400' : '$ 52,400',
+        productLink: '',
+        description: '',
+        salePrice: '79.99',
+        variantImages: vimg('ruleHok', 4),
+        variantSizesDisplay: zh ? '18L / 23L' : '18L · 23L',
+        uploader: uploader,
+        uploadedAt: iso
+      },
+      {
+        id: 'demo_rule_hot_eliminate',
+        pid: lprodSyntheticNumericPid('demo_rule_hot_eliminate', 72002),
+        title: zh ? '塑料收纳盒套装（测款阶段）' : 'Stackable bins bundle • live test phase',
+        image: pimg('ruleHel'),
+        shopName: zh ? 'Northwind Home' : 'Northwind Home',
+        shopRating: '4.15',
+        productRating: '4.02',
+        isCounterfeitRisk: false,
+        riskSimilarityScore: 0.14,
+        sessionsAnalyzed: 5,
+        listingTime: zh ? '2026-01-20 10:00' : '2026-01-20 10:00',
+        liveSessionCount: '12',
+        liveStreamerCount: '4',
+        gmv30d: zh ? '$ 420' : '$ 420',
+        productLink: '',
+        description: '',
+        salePrice: '22.00',
+        variantImages: vimg('ruleHel', 2),
+        variantSizesDisplay: zh ? '三件套' : '3‑pack',
+        uploader: uploader,
+        uploadedAt: iso
+      },
+      {
+        id: 'demo_rule_hot_store_risk',
+        pid: lprodSyntheticNumericPid('demo_rule_hot_store_risk', 72003),
+        title: zh ? '便携榨汁杯 无线款' : 'Portable blender cup • cordless',
+        image: pimg('ruleHsr'),
+        shopName: zh ? '新锐优选（低分店）' : 'Rising Picks Low‑Tier Shop',
+        shopRating: '3.85',
+        productRating: '4.35',
+        isCounterfeitRisk: false,
+        riskSimilarityScore: 0.12,
+        sessionsAnalyzed: 6,
+        listingTime: zh ? '2025-12-03 19:22' : '2025-12-03 19:22',
+        liveSessionCount: '22',
+        liveStreamerCount: '7',
+        gmv30d: zh ? '$ 3,100' : '$ 3,100',
+        productLink: '',
+        description: '',
+        salePrice: '34.50',
+        variantImages: vimg('ruleHsr', 3),
+        variantSizesDisplay: zh ? '300ml / 500ml' : '300ml · 500ml',
+        uploader: uploader,
+        uploadedAt: iso
+      },
+      stratPack.hotSimilarNew[0],
+      stratPack.hotSimilarNew[1],
+      stratPack.hotSimilarNew[2]
+    ];
+
+    state.newItems = newItems;
+    state.hotItems = hotItems;
+    var abDemo = lprodDemoAbnormalPayload(zh, uploader, iso);
+    state.collecting = abDemo.collecting;
+    state.eliminate = abDemo.eliminate;
+    state.exclude = abDemo.exclude;
+    return true;
+  }
+
+  /** cb(code, matrix) — code null on ok; matrix is array-of-arrays incl. header row */
+  function lprodMatrixFromFile(file, cb) {
+    var name = file && file.name ? String(file.name) : '';
+    var isXlsx = /\.xlsx$/i.test(name) || /\.xls$/i.test(name);
+    if (isXlsx) {
+      if (typeof XLSX === 'undefined') {
+        window.setTimeout(function () {
+          cb('no_xlsx', null);
+        }, 0);
+        return;
+      }
+      var rbin = new FileReader();
+      rbin.onload = function (e) {
+        try {
+          var u8 = new Uint8Array(e.target.result);
+          var wb = XLSX.read(u8, { type: 'array' });
+          var sheetName = wb.SheetNames[0];
+          if (!sheetName || !wb.Sheets[sheetName]) {
+            cb('parse', null);
+            return;
+          }
+          var ws = wb.Sheets[sheetName];
+          var aoa = XLSX.utils.sheet_to_json(ws, { header: 1, defval: '', raw: false });
+          cb(null, aoa);
+        } catch (eX) {
+          cb('parse', null);
+        }
+      };
+      rbin.onerror = function () {
+        cb('read', null);
+      };
+      rbin.readAsArrayBuffer(file);
+      return;
+    }
+    var rtxt = new FileReader();
+    rtxt.onload = function () {
+      cb(null, lprodCsvTextToMatrix(String(rtxt.result || '')));
+    };
+    rtxt.onerror = function () {
+      cb('read', null);
+    };
+    rtxt.readAsText(file);
+  }
+
+  /** kind: new | hot | eliminate | exclude */
+  function lprodSplitHttpsUrls(s) {
+    if (!s) return [];
+    var seen = {};
+    var out = [];
+    String(s)
+      .replace(/\r/g, '\n')
+      .split(/[\n|]+/)
+      .forEach(function (block) {
+        block.split(',').forEach(function (piece) {
+          var u = piece.trim();
+          if (!u || seen[u]) return;
+          if (/^https?:\/\//i.test(u)) {
+            seen[u] = true;
+            out.push(u);
+          }
+        });
+      });
+    return out;
+  }
+
+  function lprodNormalizeSizeList(s) {
+    if (!s) return '';
+    return String(s)
+      .split(/[,，、\/／\s]+/)
+      .map(function (x) {
+        return x.trim();
+      })
+      .filter(Boolean)
+      .join(', ');
+  }
+
+  /** Returns numeric string xx.xx for display/sync, or original trimmed non-numeric tail */
+  function lprodNormalizeSalePriceInput(raw) {
+    if (raw == null) return '';
+    var s = String(raw).trim().replace(/^[$¥€£￥]/i, '');
+    if (!s) return '';
+    var n = parseFloat(s.replace(/,/g, ''));
+    if (!isNaN(n)) return n.toFixed(2);
+    return '';
+  }
+
+  function lprodParseOpsMatrix(matrix, kind, defaultsUploader) {
+    if (!matrix || matrix.length < 2) return [];
+    var headerCells = (matrix[0] || []).map(function (cell) {
+      return cell == null ? '' : String(cell);
+    });
+    var hIdx = lprodHeaderIndex(headerCells);
+    var ixPid = lprodResolveColumn(hIdx, ['pid', '商品id', '商品pid', 'skuid']);
+    var ixTitle = lprodResolveColumn(hIdx, [
+      'title',
+      'productname',
+      'product_name',
+      'name',
+      '商品名',
+      'product'
+    ]);
+    if (ixPid < 0) ixPid = 0;
+    var ixImage = lprodResolveColumn(hIdx, ['image', 'thumb', 'img', 'pic', '商品图', '图片', 'imageurl']);
+    var ixShop = lprodResolveColumn(hIdx, ['shop', 'shopname', '店铺', '店铺名', 'seller']);
+    var ixRate = lprodResolveColumn(hIdx, ['rating', 'shoprating', '店铺评分', '评分']);
+    var ixListing = lprodResolveColumn(hIdx, ['listing', 'listingtime', 'listedat', '上架时间']);
+    var ixSess = lprodResolveColumn(hIdx, ['livesessions', 'sessions', 'live_sessions', '直播场次数', '场次']);
+    var ixHosts = lprodResolveColumn(hIdx, [
+      'livehosts',
+      'hosts',
+      'streamers',
+      'live_streamers',
+      '直播主播数',
+      '主播数'
+    ]);
+    var ixGmv = lprodResolveColumn(hIdx, [
+      'gmv30',
+      'gmv30d',
+      '30dgmv',
+      'recent30dgmv',
+      '最近30天gmv',
+      '30天gmv',
+      'gmv'
+    ]);
+    var ixLink = lprodResolveColumn(hIdx, ['link', 'url', 'producturl', '商品链接', '链接']);
+    var ixDesc = lprodResolveColumn(hIdx, [
+      'subtitle',
+      'description',
+      'desc',
+      'brief',
+      '卖点',
+      '描述',
+      '副标题',
+      '商品卖点',
+      '商品描述'
+    ]);
+    var ixSale = lprodResolveColumn(hIdx, [
+      'saleprice',
+      'sale_price',
+      'retailprice',
+      'retail_price',
+      'listprice',
+      'sale',
+      'unitprice',
+      '销售价'
+    ]);
+    var ixVarImg = lprodResolveColumn(hIdx, [
+      'variantimages',
+      'variant_images',
+      'varianturls',
+      'variant_urls',
+      'variantthumbs',
+      'skuimages',
+      '变体图',
+      '变体图片',
+      'sku图片'
+    ]);
+    var ixSizes = lprodResolveColumn(hIdx, [
+      'sizes',
+      'variantsizes',
+      'variant_sizes',
+      'sizeoptions',
+      '尺码',
+      '规格',
+      'size',
+      'sizesku'
+    ]);
+    var ixUp = lprodResolveColumn(hIdx, ['uploader', 'uploadby', '上传人']);
+    var ixUpAt = lprodResolveColumn(hIdx, ['uploaded', 'uploadedat', '上传时间']);
+    var ixReasonElim = lprodResolveColumn(hIdx, ['eliminationreason', '淘汰原因', 'reason', '原因']);
+    var ixReasonExcl = lprodResolveColumn(hIdx, ['exclusionreason', '排除原因', 'reason', '原因']);
+    var ixReason =
+      kind === 'eliminate' ? ixReasonElim : kind === 'exclude' ? ixReasonExcl : lprodResolveColumn(hIdx, ['reason', '原因']);
+    if (kind === 'eliminate' && ixReason < 0) ixReason = ixReasonElim;
+    if (kind === 'exclude' && ixReason < 0) ixReason = ixReasonExcl;
+    var rows = [];
+    var r;
+    var maxIx = Math.max(
+      ixPid,
+      ixTitle,
+      ixImage,
+      ixShop,
+      ixRate,
+      ixListing,
+      ixSess,
+      ixHosts,
+      ixGmv,
+      ixLink,
+      ixDesc,
+      ixSale,
+      ixVarImg,
+      ixSizes,
+      ixUp,
+      ixUpAt,
+      ixReason
+    );
+    for (r = 1; r < matrix.length; r++) {
+      var raw = matrix[r] || [];
+      var cells = [];
+      var ci;
+      for (ci = 0; ci <= maxIx; ci++) {
+        cells[ci] = raw[ci] == null ? '' : String(raw[ci]).trim();
+      }
+      if (!cells.some(function (c) { return c; })) continue;
+      var pid = lprodCell(cells, ixPid).replace(/^pid[:：]\s*/i, '');
+      var title = lprodCell(cells, ixTitle);
+      if (!pid && !title) continue;
+      var nowIso = new Date().toISOString();
+      var base = {
+        id: lprodMakeOpsId('op'),
+        pid: pid,
+        title: title || pid || '—',
+        image: lprodCell(cells, ixImage),
+        shopName: lprodCell(cells, ixShop),
+        shopRating: lprodCell(cells, ixRate),
+        listingTime: lprodCell(cells, ixListing),
+        liveSessionCount: lprodCell(cells, ixSess),
+        liveStreamerCount: lprodCell(cells, ixHosts),
+        gmv30d: lprodCell(cells, ixGmv),
+        productLink: lprodCell(cells, ixLink),
+        description: lprodCell(cells, ixDesc),
+        salePrice: lprodNormalizeSalePriceInput(lprodCell(cells, ixSale)),
+        variantImages: lprodSplitHttpsUrls(lprodCell(cells, ixVarImg)),
+        variantSizesDisplay: lprodNormalizeSizeList(lprodCell(cells, ixSizes)),
+        uploader: lprodCell(cells, ixUp) || defaultsUploader,
+        uploadedAt: lprodCell(cells, ixUpAt) || nowIso
+      };
+      if (kind === 'eliminate' || kind === 'exclude') {
+        base.reason = lprodCell(cells, ixReason) || (getLang() === 'zh' ? '未填写' : '—');
+        rows.push(base);
+      } else {
+        rows.push(base);
+      }
+    }
+    return rows;
+  }
+
+  /** True when the spreadsheet row already looks enriched (merge straight into pool). */
+  function lprodRowHasCollectedPayload(row) {
+    if (!row) return false;
+    var img = row.image != null ? String(row.image).trim() : '';
+    if (img && /^https?:\/\//i.test(img)) return true;
+    var vars = row.variantImages;
+    if (
+      Array.isArray(vars) &&
+      vars.some(function (u) {
+        return u && /^https?:\/\//i.test(String(u).trim());
+      })
+    ) {
+      return true;
+    }
+    var desc = row.description != null ? String(row.description).trim() : '';
+    if (desc && desc !== '—') return true;
+    var shop = row.shopName != null ? String(row.shopName).trim() : '';
+    if (shop) {
+      var g = row.gmv30d != null ? String(row.gmv30d).trim() : '';
+      var lt = row.listingTime != null ? String(row.listingTime).trim() : '';
+      var ls = row.liveSessionCount != null ? String(row.liveSessionCount).trim() : '';
+      if (g || lt || ls) return true;
+    }
+    return false;
+  }
+
+  /**
+   * Split New/Hot imports: enriched rows merge into pool immediately; PID-only stubs join collecting queue.
+   * @returns {{ mergedCount: number, queuedCount: number, newQueueTasks: object[] }}
+   */
+  function lprodApplyNewHotImport(state, rows, poolKind) {
+    var bKey = poolKind === 'hot' ? 'hotItems' : 'newItems';
+    var targetPool = poolKind === 'hot' ? 'best' : 'new';
+    var toMerge = [];
+    var newQueueTasks = [];
+    var batchQueuedPids = {};
+    var ri;
+    for (ri = 0; ri < rows.length; ri++) {
+      var row = rows[ri];
+      if (!row) continue;
+      if (lprodRowHasCollectedPayload(row)) {
+        toMerge.push(row);
+        continue;
+      }
+      var pid = row.pid != null ? String(row.pid).trim() : '';
+      if (!pid) {
+        toMerge.push(row);
+        continue;
+      }
+      var pk = lprodPidKey(pid);
+      var batchKey = targetPool + '\n' + pk;
+      if (batchQueuedPids[batchKey]) continue;
+      batchQueuedPids[batchKey] = true;
+
+      state.collecting = (state.collecting || []).filter(function (t) {
+        if (t.targetPool !== targetPool) return true;
+        return lprodPidKey(t.pid) !== pk;
+      });
+      var titleRaw = row.title != null ? String(row.title).trim() : '';
+      var task = {
+        id: lprodMakeOpsId('col'),
+        pid: pid,
+        title: titleRaw && titleRaw !== pid && titleRaw !== '—' ? titleRaw : '',
+        productLink: row.productLink != null ? String(row.productLink).trim() : '',
+        image: row.image != null ? String(row.image).trim() : '',
+        targetPool: targetPool,
+        status: 'collecting',
+        errorMessage: '',
+        startedAt: new Date().toISOString()
+      };
+      newQueueTasks.push(task);
+    }
+    if (toMerge.length) {
+      if (!state[bKey]) state[bKey] = [];
+      state[bKey] = lprodMergeRowsIntoList(state[bKey], toMerge);
+    }
+    if (!Array.isArray(state.collecting)) state.collecting = [];
+    newQueueTasks.forEach(function (t) {
+      state.collecting.push(t);
+    });
+    return {
+      mergedCount: toMerge.length,
+      queuedCount: newQueueTasks.length,
+      newQueueTasks: newQueueTasks
+    };
+  }
+
+  function apsPoolStatusLabel(key) {
+    if (key === 'potential') return t('aps.pool_status_potential');
+    if (key === 'testing') return t('aps.pool_status_testing');
+    return t('aps.pool_status_new');
+  }
+
+  function apsWinnerLevelLabel(key) {
+    if (key === 'stable') return t('aps.level_stable');
+    if (key === 'revival') return t('aps.level_revival');
+    return t('aps.level_scaling');
+  }
+
+  function apsPoolEnrichBadgeHtml(row) {
+    if (row.enrichStatus === 'pending') {
+      return '<span class="aps-badge aps-badge--warn">' + apsEscape(t('aps.pool_enrich_pending')) + '</span>';
+    }
+    if (row.enrichStatus === 'error') {
+      return '<span class="aps-badge aps-badge--bad">' + apsEscape(t('aps.pool_enrich_err')) + '</span>';
+    }
+    return '<span class="aps-badge aps-badge--ok">' + apsEscape(t('aps.pool_enrich_ok')) + '</span>';
+  }
+
+  function apsPoolDomIds(prefix) {
+    return {
+      tbodyNew: prefix + 'PoolTbodyNew',
+      tbodyBest: prefix + 'PoolTbodyBest',
+      search: prefix + 'PoolSearch',
+      cat: prefix + 'PoolCat',
+      pmin: prefix + 'PoolPriceMin',
+      pmax: prefix + 'PoolPriceMax'
+    };
+  }
+
+  function apsPopulatePoolCategoryFilter(which, prefix) {
+    var up = which === 'new' ? apsRuntime.uploadNew : apsRuntime.uploadBest;
+    var ids = apsPoolDomIds(prefix);
+    var selCat = document.getElementById(ids.cat);
+    if (!selCat) return;
+    var prev = selCat.value;
+    var cats = {};
+    if (up && up.rows) {
+      up.rows.forEach(function (r) {
+        if (r.category) cats[r.category] = true;
+      });
+    }
+    var keys = Object.keys(cats).sort();
+    selCat.innerHTML =
+      '<option value="">' + apsEscape(t('aps.pool_filter_all_cat')) + '</option>' +
+      keys
+        .map(function (c) {
+          return '<option value="' + apsEscape(c) + '">' + apsEscape(c) + '</option>';
+        })
+        .join('');
+    if (prev && keys.indexOf(prev) !== -1) selCat.value = prev;
+  }
+
+  function apsPaintPoolTable(which, prefix) {
+    var ids = apsPoolDomIds(prefix);
+    var tbody = document.getElementById(which === 'new' ? ids.tbodyNew : ids.tbodyBest);
+    if (!tbody) return;
+    var up = which === 'new' ? apsRuntime.uploadNew : apsRuntime.uploadBest;
+    if (!up || !up.rows || !up.rows.length) {
+      tbody.innerHTML =
+        '<tr><td colspan="11" class="aps-pool-empty">' + apsEscape(t('aps.upload_status_idle')) + '</td></tr>';
+      apsPopulatePoolCategoryFilter(which, prefix);
+      return;
+    }
+    var pq = document.getElementById(ids.search);
+    var pcat = document.getElementById(ids.cat);
+    var pminEl = document.getElementById(ids.pmin);
+    var pmaxEl = document.getElementById(ids.pmax);
+    var fq = String((pq && pq.value) || '')
+      .trim()
+      .toLowerCase();
+    var fcat = (pcat && pcat.value) || '';
+    var fpMin = pminEl && pminEl.value !== '' ? parseFloat(pminEl.value) : NaN;
+    var fpMax = pmaxEl && pmaxEl.value !== '' ? parseFloat(pmaxEl.value) : NaN;
+    var rows = up.rows.filter(function (r) {
+      if (fq) {
+        var blob = ((r.title || '') + ' ' + (r.pid || '') + ' ' + (r.category || '')).toLowerCase();
+        if (blob.indexOf(fq) === -1) return false;
+      }
+      if (fcat && r.category !== fcat) return false;
+      if (!isNaN(fpMin) && r.price != null && Number(r.price) < fpMin) return false;
+      if (!isNaN(fpMax) && r.price != null && Number(r.price) > fpMax) return false;
+      return true;
+    });
+    function linkShort(u) {
+      var s = String(u || '');
+      return s.replace(/^https?:\/\/(www\.)?/, '');
+    }
+    var html = rows
+      .map(function (row) {
+        var shortL = linkShort(row.link);
+        var linkCell =
+          '<a href="' +
+          apsEscape(row.link || '#') +
+          '" target="_blank" rel="noopener noreferrer" class="aps-pool-link">' +
+          apsEscape(shortL.length > 30 ? shortL.slice(0, 28) + '…' : shortL) +
+          '</a>';
+        if (which === 'new') {
+          return (
+            '<tr data-row="' +
+            apsEscape(row.rowId) +
+            '">' +
+            '<td><div class="aps-pool-thumb" aria-hidden="true"></div></td>' +
+            '<td>' +
+            (row.title ? lsEscHtml(row.title) : '—') +
+            '<div class="aps-pool-sub">' +
+            apsPoolEnrichBadgeHtml(row) +
+            '</div></td>' +
+            '<td>' +
+            lsEscHtml(row.category || '—') +
+            '</td>' +
+            '<td>' +
+            (row.price != null ? '$' + Number(row.price).toFixed(2) : '—') +
+            '</td>' +
+            '<td>' +
+            (row.stock != null ? lsEscHtml(String(row.stock)) : '—') +
+            '</td>' +
+            '<td>' +
+            (row.ctr != null ? row.ctr.toFixed(1) + '%' : '—') +
+            '</td>' +
+            '<td>' +
+            (row.atc != null ? row.atc.toFixed(1) + '%' : '—') +
+            '</td>' +
+            '<td>' +
+            (row.cvr != null ? row.cvr.toFixed(1) + '%' : '—') +
+            '</td>' +
+            '<td class="aps-td-muted">' +
+            lsEscHtml(row.tags || '—') +
+            '</td>' +
+            '<td>' +
+            (row.poolStatus
+              ? '<span class="aps-badge aps-badge--ghost">' + apsEscape(apsPoolStatusLabel(row.poolStatus)) + '</span>'
+              : '—') +
+            '</td>' +
+            '<td>' +
+            linkCell +
+            '</td>' +
+            '</tr>'
+          );
+        }
+        return (
+          '<tr data-row="' +
+          apsEscape(row.rowId) +
+          '">' +
+          '<td><div class="aps-pool-thumb" aria-hidden="true"></div></td>' +
+          '<td>' +
+          (row.title ? lsEscHtml(row.title) : '—') +
+          '<div class="aps-pool-sub">' +
+          apsPoolEnrichBadgeHtml(row) +
+          '</div></td>' +
+          '<td>' +
+          lsEscHtml(row.category || '—') +
+          '</td>' +
+          '<td>' +
+          (row.price != null ? '$' + Number(row.price).toFixed(2) : '—') +
+          '</td>' +
+          '<td>' +
+          (row.stock != null ? lsEscHtml(String(row.stock)) : '—') +
+          '</td>' +
+          '<td>' +
+          (row.gmv != null ? '$' + row.gmv.toLocaleString() : '$0') +
+          '</td>' +
+          '<td>' +
+          (row.ctr != null ? row.ctr.toFixed(1) + '%' : '—') +
+          '</td>' +
+          '<td>' +
+          (row.atc != null ? row.atc.toFixed(1) + '%' : '—') +
+          '</td>' +
+          '<td>' +
+          (row.cvr != null ? row.cvr.toFixed(1) + '%' : '—') +
+          '</td>' +
+          '<td>' +
+          (row.winnerLevel
+            ? '<span class="aps-badge aps-badge--best">' + apsEscape(apsWinnerLevelLabel(row.winnerLevel)) + '</span>'
+            : '—') +
+          '</td>' +
+          '<td>' +
+          linkCell +
+          '</td>' +
+          '</tr>'
+        );
+      })
+      .join('');
+    tbody.innerHTML = html || '<tr><td colspan="11" class="aps-pool-empty">—</td></tr>';
+    apsPopulatePoolCategoryFilter(which, prefix);
+  }
+
+  function apsPaintBothPoolTables(prefix) {
+    apsPaintPoolTable('new', prefix);
+    apsPaintPoolTable('best', prefix);
+  }
+
+  /** optional syncGenFn: e.g. smart-select page generate button guard */
+  function apsRunPoolEnrichmentTimers(which, prefix, syncGenFn) {
+    var rkey = which === 'new' ? 'uploadNew' : 'uploadBest';
+    var up = apsRuntime[rkey];
+    if (!up || !up.rows) return;
+    up.rows.forEach(function (row, idx) {
+      if (row.enrichStatus === 'ok') return;
+      window.setTimeout(function () {
+        var pack = apsRuntime[rkey];
+        if (!pack || !pack.rows) return;
+        var cur = pack.rows.filter(function (r) {
+          return r.rowId === row.rowId;
+        })[0];
+        if (!cur) return;
+        if (cur.enrichStatus === 'ok') return;
+        apsMockEnrichApply(cur, which, idx);
+        apsPaintBothPoolTables(prefix);
+        apsCargoSave();
+        if (typeof syncGenFn === 'function') syncGenFn();
+      }, 420 + idx * 260);
+    });
+  }
+
+  function apsPaintUploadMeta(metaEl, state) {
+    if (!metaEl) return;
+    if (!state || !state.ok) {
+      metaEl.innerHTML = apsEscape(t('aps.upload_status_idle'));
+      return;
+    }
+    var cnt = state.rows && state.rows.length ? state.rows.length : state.count != null ? state.count : 0;
+    metaEl.innerHTML =
+      '<span class="aps-upload-filename" title="' + lsEscHtml(state.fileName) + '"><strong>' +
+      lsEscHtml(state.fileName) +
+      '</strong></span><span class="aps-upload-meta-tail"> · ' +
+      String(t('aps.upload_products')).replace(/\{\{n\}\}/g, String(cnt)) +
+      ' · <span class="aps-badge aps-badge--ok">' +
+      lsEscHtml(t('aps.upload_status_ready')) +
+      '</span></span>';
+  }
+
+  function apsPad2(n) {
+    n = parseInt(n, 10) || 0;
+    return n < 10 ? '0' + n : String(n);
+  }
+
+  function apsListingDateFromDaysAgo(days) {
+    var d = new Date(2026, 3, 28);
+    d.setDate(d.getDate() - (parseInt(days, 10) || 0));
+    return d.getFullYear() + '-' + apsPad2(d.getMonth() + 1) + '-' + apsPad2(d.getDate());
+  }
+
+  function apsRangeFieldLabel(k) {
+    return t('aps.range_field_' + k);
+  }
+
+  function apsSanitizeRangeObj(raw, preset, keys) {
+    var out = {};
+    (keys || []).forEach(function (k) {
+      var d = preset[k];
+      if (!d) return;
+      if (k === 'listing') {
+        var s = raw && raw[k] && raw[k].start ? String(raw[k].start) : d.start;
+        var e = raw && raw[k] && raw[k].end ? String(raw[k].end) : d.end;
+        if (s > e) {
+          var tmp = s;
+          s = e;
+          e = tmp;
+        }
+        out[k] = { start: s, end: e };
+        return;
+      }
+      var lo =
+        raw && raw[k] && raw[k].min != null && !isNaN(Number(raw[k].min))
+          ? Number(raw[k].min)
+          : d.min;
+      var hi =
+        raw && raw[k] && raw[k].max != null && !isNaN(Number(raw[k].max))
+          ? Number(raw[k].max)
+          : d.max;
+      if (lo > hi) {
+        var t = lo;
+        lo = hi;
+        hi = t;
+      }
+      out[k] = { min: lo, max: hi };
+    });
+    return out;
+  }
+
+  function apsPullRangesFromDom() {
+    function readPool(preset, idPre, keys) {
+      var raw = {};
+      keys.forEach(function (k) {
+        if (k === 'listing') {
+          var sa = document.getElementById(idPre + '_listing_start');
+          var sb = document.getElementById(idPre + '_listing_end');
+          raw[k] = {
+            start: sa && sa.value ? sa.value : null,
+            end: sb && sb.value ? sb.value : null
+          };
+          return;
+        }
+        var mn = document.getElementById(idPre + '_' + k + '_min');
+        var mx = document.getElementById(idPre + '_' + k + '_max');
+        raw[k] = {
+          min: mn && mn.value !== '' ? parseFloat(mn.value) : null,
+          max: mx && mx.value !== '' ? parseFloat(mx.value) : null
+        };
+      });
+      return apsSanitizeRangeObj(raw, preset, keys);
+    }
+    return {
+      new: readPool(APS_RANGE_PRESETS.new, 'apsRngNew', APS_RANGE_KEYS_NEW),
+      best: readPool(APS_RANGE_PRESETS.best, 'apsRngBest', APS_RANGE_KEYS_BEST)
+    };
+  }
+
+  function apsApplyRangesToDom(rn, rb) {
+    if (!rn || !rb) return;
+    APS_RANGE_KEYS_NEW.forEach(function (k) {
+      if (k === 'listing') {
+        var sa = document.getElementById('apsRngNew_listing_start');
+        var sb = document.getElementById('apsRngNew_listing_end');
+        if (sa && rn[k]) sa.value = rn[k].start || '';
+        if (sb && rn[k]) sb.value = rn[k].end || '';
+        return;
+      }
+      var mn = document.getElementById('apsRngNew_' + k + '_min');
+      var mx = document.getElementById('apsRngNew_' + k + '_max');
+      if (mn && rn[k]) mn.value = String(rn[k].min);
+      if (mx && rn[k]) mx.value = String(rn[k].max);
+    });
+    APS_RANGE_KEYS_BEST.forEach(function (k) {
+      var mn = document.getElementById('apsRngBest_' + k + '_min');
+      var mx = document.getElementById('apsRngBest_' + k + '_max');
+      if (mn && rb[k]) mn.value = String(rb[k].min);
+      if (mx && rb[k]) mx.value = String(rb[k].max);
+    });
+  }
+
+  function apsDimsMatchingRanges(p, ranges, keys) {
+    var n = 0;
+    (keys || []).forEach(function (k) {
+      var r = ranges[k];
+      if (!r) return;
+      if (k === 'listing') {
+        var pd = p.listingDate || '';
+        if (pd && r.start && r.end && pd >= r.start && pd <= r.end) n++;
+        return;
+      }
+      var lo = Number(r.min);
+      var hi = Number(r.max);
+      if (lo > hi) {
+        var t = lo;
+        lo = hi;
+        hi = t;
+      }
+      var v;
+      if (k === 'stock') v = parseInt(p.stock, 10) || 0;
+      else if (k === 'price') v = parseFloat(p.price) || 0;
+      else if (k === 'flashDiscount') v = (parseFloat(p.flashDiscount) || 0) * 100;
+      else if (k === 'liveShare') v = (parseFloat(p.liveShare) || 0) * 100;
+      else if (k === 'ctr') v = (parseFloat(p.ctr) || 0) * 100;
+      else if (k === 'cvr') v = (parseFloat(p.cvr) || 0) * 100;
+      else return;
+      if (v >= lo && v <= hi) n++;
+    });
+    return n;
+  }
+
+  function apsSortProductsByRangeMatch(products, rn, rb) {
+    var sn = apsSanitizeRangeObj(rn, APS_RANGE_PRESETS.new, APS_RANGE_KEYS_NEW);
+    var sb = apsSanitizeRangeObj(rb, APS_RANGE_PRESETS.best, APS_RANGE_KEYS_BEST);
+    var newArr = products.filter(function (p) { return p.pool === 'new'; });
+    var bestArr = products.filter(function (p) { return p.pool === 'best'; });
+    function cmp(a, b, ranges, keyList) {
+      var ca = apsDimsMatchingRanges(a, ranges, keyList);
+      var cb = apsDimsMatchingRanges(b, ranges, keyList);
+      if (ca !== cb) return cb - ca;
+      var sa = parseFloat(a.score) || 0;
+      var sb2 = parseFloat(b.score) || 0;
+      if (sa !== sb2) return sb2 - sa;
+      return String(a.sku || '').localeCompare(String(b.sku || ''));
+    }
+    newArr.sort(function (a, b) { return cmp(a, b, sn, APS_RANGE_KEYS_NEW); });
+    bestArr.sort(function (a, b) { return cmp(a, b, sb, APS_RANGE_KEYS_BEST); });
+    return newArr.concat(bestArr);
+  }
+
+  function apsFormatRangeLinePool(r, keys) {
+    if (!r) return '';
+    return keys
+      .map(function (k) {
+        var x = r[k];
+        if (!x) return '';
+        if (k === 'listing') return apsRangeFieldLabel(k) + ' ' + x.start + '–' + x.end;
+        if (k === 'flashDiscount' || k === 'liveShare' || k === 'ctr' || k === 'cvr')
+          return apsRangeFieldLabel(k) + ' ' + x.min + '–' + x.max + '%';
+        return apsRangeFieldLabel(k) + ' ' + x.min + '–' + x.max;
+      })
+      .filter(function (s) { return s; })
+      .join(t('aps.range_dim_sep'));
+  }
+
+  function apsScoreBand(score, reasonIfLow) {
+    if (reasonIfLow === void 0) reasonIfLow = '';
+    var n = typeof score === 'number' ? score : parseFloat(score);
+    if (isNaN(n)) n = 0;
+    if (n >= 90) return { labelKey: 'aps.score_strong', cls: 'aps-badge--ok' };
+    if (n >= 75) return { labelKey: 'aps.score_good', cls: 'aps-badge--mid' };
+    if (n >= 60) return { labelKey: 'aps.score_test', cls: 'aps-badge--try' };
+    return { labelKey: 'aps.score_weak', cls: 'aps-badge--low' };
+  }
+
+  function apsMulberryPick(arr, n, seed) {
+    var a = arr.slice();
+    var s = typeof seed === 'number' ? seed : Date.now();
+    for (var i = a.length - 1; i > 0; i--) {
+      s = (s * 1103515245 + 12345) & 2147483647;
+      var j = s % (i + 1);
+      var tmp = a[i];
+      a[i] = a[j];
+      a[j] = tmp;
+    }
+    return a.slice(0, Math.min(n, a.length));
+  }
+
+  function apsWeightedScore(base, pool, host, liveGmvOn) {
+    var score = 70 + Math.min(22, Math.round((parseFloat(base.cvr) || 0) * 800));
+    score += (parseFloat(base.ctr) || 0) * 120;
+    if (pool === 'new') score += -4 + (Math.random() * 6 - 3);
+    else score += 2 + Math.random() * 8;
+    if ((parseInt(base.stock, 10) || 0) < 35) score -= 6;
+    if ((parseFloat(base.price) || 0) > 70) score -= 4;
+    if (host.categoryBias && host.categoryBias.length && host.categoryBias.indexOf(base.category) >= 0) score += 14;
+    else if (host.tags && host.tags.length) {
+      var blobLc = (base.name + ' ' + base.category + ' ' + (base.tags || '')).toLowerCase();
+      var hitTag = host.tags.some(function (tg) {
+        var x = String(tg || '')
+          .toLowerCase()
+          .replace(/^@/, '');
+        return x.length >= 2 && blobLc.indexOf(x) >= 0;
+      });
+      if (hitTag) score += 8;
+    }
+    if (liveGmvOn) {
+      var gmv = parseFloat(base.histGmv) || 0;
+      score += Math.min(8, Math.round(gmv / 6000));
+      if (pool === 'best') score += Math.min(4, Math.round((parseFloat(base.liveShare) || 0) * 10));
+    }
+    score = Math.round(Math.min(98, Math.max(52, score + Math.random() * 5)));
+    return score;
+  }
+
+  function apsBuildReason(base, pool, host, score) {
+    var parts = [];
+    parts.push(pool === 'new' ? 'Pool: new introductions for controlled tests.' : 'Pool: bestseller historical GMV and conversion support.');
+    if (host.preference) parts.push('Host:' + host.preference.substring(0, 90) + (host.preference.length > 90 ? '…' : ''));
+    parts.push('Performance: CTR ' + (base.ctr != null ? (base.ctr * 100).toFixed(1) : '–') + '%, GMV baseline $' + (base.histGmv != null ? base.histGmv.toLocaleString() : '–') + '.');
+    if ((parseInt(base.stock, 10) || 0) < 40) parts.push('Stock profile: tighter inventory pushes urgency framing.');
+    if ((parseFloat(base.price) || 0) > 65) parts.push('Price band: premium side for this lineup—explain value early.');
+    if (score < 72) parts.push('Model note: flagged as exploratory—short highlight blocks recommended.');
+    return parts.join(' ');
+  }
+
+  function apsSummarizeCats(products) {
+    var m = {};
+    products.forEach(function (p) {
+      var k = p.category || 'General';
+      m[k] = (m[k] || 0) + 1;
+    });
+    return Object.keys(m)
+      .sort(function (a, b) { return m[b] - m[a]; })
+      .slice(0, 3);
+  }
+
+  function apsRunGeneration() {
+    apsRuntime.runSalt++;
+    var host = apsGetSmartHostById(apsRuntime.hostId);
+    if (!host) return null;
+    var un = apsRuntime.uploadNew;
+    var ub = apsRuntime.uploadBest;
+    var hasNewPool = !!(un && un.rows && un.rows.length);
+    var hasBestPool = !!(ub && ub.rows && ub.rows.length);
+    var total = parseInt(String(apsRuntime.totalCount), 10);
+    var ratio = Math.min(100, Math.max(0, parseInt(String(apsRuntime.newRatio), 10)));
+    var nNew;
+    var nBest;
+    if (hasNewPool && hasBestPool) {
+      nNew = Math.round((total * ratio) / 100);
+      nBest = Math.max(0, total - nNew);
+    } else if (hasNewPool) {
+      nNew = total;
+      nBest = 0;
+    } else if (hasBestPool) {
+      nNew = 0;
+      nBest = total;
+    } else {
+      nNew = Math.round((total * ratio) / 100);
+      nBest = Math.max(0, total - nNew);
+    }
+    if (!(total > 0)) return null;
+
+    var liveGmvOn = false;
+    var liveGmvScope = {
+      enabled: false,
+      days: Math.min(365, Math.max(1, parseInt(String(apsRuntime.liveGmvDays), 10) || 30)),
+      liveAccountId: ''
+    };
+
+    var newRowsOk = hasNewPool
+      ? un.rows.filter(function (r) {
+          return r.enrichStatus === 'ok';
+        })
+      : [];
+    var bestRowsOk = hasBestPool
+      ? ub.rows.filter(function (r) {
+          return r.enrichStatus === 'ok';
+        })
+      : [];
+
+    var refPidMap =
+      apsRuntime.referenceHostId
+        ? apsTenantSamplePidNormMapForSmartHostId(String(apsRuntime.referenceHostId).trim())
+        : null;
+    if (refPidMap) {
+      newRowsOk = newRowsOk.filter(function (r) {
+        var k = String(r.pid || '')
+          .trim()
+          .toLowerCase();
+        return k && refPidMap[k];
+      });
+      bestRowsOk = bestRowsOk.filter(function (r) {
+        var k = String(r.pid || '')
+          .trim()
+          .toLowerCase();
+        return k && refPidMap[k];
+      });
+    }
+
+    function rowToBase(r) {
+      var tagStr = r.tags != null ? String(r.tags).trim() : '';
+      var shopStr = r.shopName != null ? String(r.shopName).trim() : '';
+      return {
+        id: String(r.pid),
+        name: r.title,
+        category: r.category,
+        price: r.price,
+        stock: r.stock,
+        ctr: (r.ctr || 0) / 100,
+        cvr: (r.cvr || 0) / 100,
+        atcRate: (r.atc || 0) / 100,
+        histGmv: r.gmv || 0,
+        listingDaysAgo: r.listingDaysAgo != null ? parseInt(String(r.listingDaysAgo), 10) || 0 : 28,
+        flashDiscount: 0.22,
+        commission: 0.16,
+        liveShare: 0.33,
+        tags: r.tags || '',
+        shopRating: r.shopRating != null ? r.shopRating : 4.5,
+        image:
+          r.image != null && /^https?:\/\//i.test(String(r.image).trim())
+            ? String(r.image).trim()
+            : '',
+        shopName: shopStr || (tagStr ? tagStr.slice(0, 120) : ''),
+        listingTimeLabel: r.listingTime != null ? String(r.listingTime).trim() : '',
+        variantLabel: r.variantSizesDisplay != null ? String(r.variantSizesDisplay).trim() : '',
+        liveSessionLabel: r.liveSessionCount != null ? String(r.liveSessionCount).trim() : '',
+        liveStreamerLabel: r.liveStreamerCount != null ? String(r.liveStreamerCount).trim() : '',
+        gmv30dLabel: r.gmv30d != null ? String(r.gmv30d).trim() : ''
+      };
+    }
+
+    /**
+     * 运营商品池：按策略 bonus + 基础分排序选股；去重 PID。
+     * @returns {{ base: object, pool: string, stratMeta: object }[]}
+     */
+    function operationalPickRanked(candidates, opposing, nPick, poolKindStr, stratProfile) {
+      if (!nPick || !candidates.length) return [];
+      var ranked = candidates.map(function (rAps) {
+        var sr = apsStrategyHitsForRow(rAps, poolKindStr, host, stratProfile, opposing);
+        var base = rowToBase(rAps);
+        var wScore = apsWeightedScore(base, poolKindStr, host, liveGmvOn);
+        var finalScore = Math.min(98, Math.max(46, Math.round(wScore + sr.bonus)));
+        var simMeta =
+          poolKindStr === 'new' && opposing && opposing.length
+            ? apsBestSimilarHotMeta(rAps, opposing)
+            : { pid: '—', image: '', pct: 0 };
+        return {
+          pidKey: String(rAps.pid || ''),
+          base: base,
+          poolKind: poolKindStr,
+          stratMeta: {
+            labels: sr.labels,
+            hits: sr.hitKeys,
+            bonus: sr.bonus,
+            score: finalScore,
+            similarHotMeta: simMeta
+          }
+        };
+      });
+      ranked.sort(function (a, b) {
+        if (b.stratMeta.score !== a.stratMeta.score) return b.stratMeta.score - a.stratMeta.score;
+        return apsStablePidHash(a.pidKey + poolKindStr) - apsStablePidHash(b.pidKey + poolKindStr);
+      });
+      var out = [];
+      var seenPid = {};
+      ranked.forEach(function (row) {
+        if (out.length >= nPick) return;
+        if (!row.pidKey || seenPid[row.pidKey]) return;
+        seenPid[row.pidKey] = true;
+        out.push({
+          base: row.base,
+          pool: row.poolKind,
+          stratMeta: row.stratMeta
+        });
+      });
+      return out;
+    }
+
+    var stratProfile =
+      document.getElementById('apsStratNewSimHot') && typeof apsPullStrategyProfileFromDom === 'function'
+        ? apsPullStrategyProfileFromDom()
+        : apsLoadStrategyProfile();
+
+    var newFromOps = newRowsOk.some(function (r) {
+      return r.opsSourceId;
+    });
+    var bestFromOps = bestRowsOk.some(function (r) {
+      return r.opsSourceId;
+    });
+
+    /** 任一池来自运营库时不高斯模板凑数：按可用行数收窄配额 */
+    if (hasNewPool && newFromOps) {
+      nNew = Math.min(nNew, newRowsOk.length);
+    }
+    if (hasBestPool && bestFromOps) {
+      nBest = Math.min(nBest, bestRowsOk.length);
+    }
+
+    var poolPicks = [];
+    var usePools = hasNewPool || hasBestPool;
+    var opsBacked = usePools && (newFromOps || bestFromOps);
+
+    if (opsBacked) {
+      var newPicked = operationalPickRanked(newRowsOk, bestRowsOk, nNew, 'new', stratProfile);
+      var bestPicked = operationalPickRanked(bestRowsOk, newRowsOk, nBest, 'best', stratProfile);
+      poolPicks = newPicked.concat(bestPicked);
+      nNew = newPicked.length;
+      nBest = bestPicked.length;
+    } else if (usePools) {
+      var picked = [];
+      var i;
+      for (i = 0; i < nNew; i++) {
+        if (!newRowsOk.length) break;
+        picked.push(rowToBase(newRowsOk[i % newRowsOk.length]));
+      }
+      for (i = 0; i < nBest; i++) {
+        if (!bestRowsOk.length) break;
+        picked.push(rowToBase(bestRowsOk[i % bestRowsOk.length]));
+      }
+      while (picked.length < total) {
+        var filler = APS_PRODUCT_TEMPLATES[picked.length % APS_PRODUCT_TEMPLATES.length];
+        picked.push(
+          Object.assign({}, filler, {
+            id: String(filler.id) + 'f' + picked.length,
+            shopRating: 4.3
+          })
+        );
+      }
+      picked = picked.slice(0, total);
+      if (liveGmvOn) {
+        picked.sort(function (a, b) {
+          var ga = parseFloat(a.histGmv) || 0;
+          var gb = parseFloat(b.histGmv) || 0;
+          if (gb !== ga) return gb - ga;
+          return (parseFloat(b.ctr) || 0) - (parseFloat(a.ctr) || 0);
+        });
+      }
+      poolPicks = picked.map(function (base, idx) {
+        var pool = idx < nNew ? 'new' : 'best';
+        var sc = apsWeightedScore(base, pool, host, liveGmvOn);
+        return { base: base, pool: pool, stratMeta: { labels: [], hits: [], score: sc } };
+      });
+    } else {
+      var pickedTpl = apsMulberryPick(
+        APS_PRODUCT_TEMPLATES,
+        Math.min(total, APS_PRODUCT_TEMPLATES.length),
+        host.id.charCodeAt(0) + apsRuntime.runSalt * 997
+      );
+      while (pickedTpl.length < total) {
+        var baseF = APS_PRODUCT_TEMPLATES[pickedTpl.length % APS_PRODUCT_TEMPLATES.length];
+        pickedTpl.push(
+          Object.assign({}, baseF, {
+            id: String(baseF.id) + String(1000 + pickedTpl.length).slice(-3),
+            shopRating: 4.4
+          })
+        );
+      }
+      pickedTpl = pickedTpl.slice(0, total).map(function (row) {
+        return Object.assign({}, row);
+      });
+      if (liveGmvOn) {
+        pickedTpl.sort(function (a, b) {
+          var ga = parseFloat(a.histGmv) || 0;
+          var gb = parseFloat(b.histGmv) || 0;
+          if (gb !== ga) return gb - ga;
+          var la = parseFloat(a.liveShare) || 0;
+          var lb = parseFloat(b.liveShare) || 0;
+          return lb - la;
+        });
+      }
+      var nNewTpl = Math.round((total * ratio) / 100);
+      poolPicks = pickedTpl.map(function (base, idx) {
+        var pool = idx < nNewTpl ? 'new' : 'best';
+        var sc = apsWeightedScore(base, pool, host, liveGmvOn);
+        return { base: base, pool: pool, stratMeta: { labels: [], hits: [], score: sc } };
+      });
+      nNew = poolPicks.filter(function (x) {
+        return x.pool === 'new';
+      }).length;
+      nBest = poolPicks.length - nNew;
+    }
+
+    var products = poolPicks.map(function (item) {
+      var base = item.base;
+      var pool = item.pool;
+      var score = item.stratMeta && item.stratMeta.score != null ? item.stratMeta.score : apsWeightedScore(base, pool, host, liveGmvOn);
+      var stratLabelsArr =
+        item.stratMeta && item.stratMeta.labels && item.stratMeta.labels.length
+          ? item.stratMeta.labels.slice()
+          : [];
+      var stratLine = stratLabelsArr.length ? stratLabelsArr.join(' · ') : t('aps.strat_none');
+      var reasonCore = apsReasonShort(base, pool, host, score);
+      var reason = reasonCore;
+      var imgRaw = base.image != null ? String(base.image).trim() : '';
+      var imageUrl =
+        imgRaw && /^https?:\/\//i.test(imgRaw)
+          ? imgRaw
+          : 'https://picsum.photos/seed/apsrp' +
+            String(base.id || 'x').replace(/[^a-z0-9_-]/gi, '') +
+            '/96/96';
+      var roll = apsPseudoRollup(base.id);
+      var hitKeys =
+        item.stratMeta && item.stratMeta.hits && item.stratMeta.hits.length
+          ? item.stratMeta.hits.slice()
+          : [];
+      var simH =
+        item.stratMeta && item.stratMeta.similarHotMeta
+          ? item.stratMeta.similarHotMeta
+          : pool === 'new' && hasBestPool && bestRowsOk.length
+            ? apsBestSimilarHotMeta(
+                { title: base.name, pid: base.id, image: base.image },
+                bestRowsOk
+              )
+            : { pid: '—', image: '', pct: 0 };
+      var shopDisp =
+        base.shopName && String(base.shopName).trim() ? String(base.shopName).trim() : '—';
+      var shopRt = base.shopRating != null ? Number(base.shopRating) : 4.5;
+      if (isNaN(shopRt)) shopRt = 4.5;
+      var variantDisp =
+        base.variantLabel && String(base.variantLabel).trim()
+          ? String(base.variantLabel).trim()
+          : '—';
+      var listingDisp =
+        base.listingTimeLabel && String(base.listingTimeLabel).trim()
+          ? String(base.listingTimeLabel).trim()
+          : apsListingDateFromDaysAgo(base.listingDaysAgo);
+      var liveSess =
+        base.liveSessionLabel && String(base.liveSessionLabel).trim()
+          ? String(base.liveSessionLabel).trim()
+          : String(roll.liveSessions);
+      var liveHost =
+        base.liveStreamerLabel && String(base.liveStreamerLabel).trim()
+          ? String(base.liveStreamerLabel).trim()
+          : String(roll.liveStreamers);
+      var histG = parseFloat(base.histGmv) || 0;
+      var gmvDisp =
+        base.gmv30dLabel && String(base.gmv30dLabel).trim()
+          ? String(base.gmv30dLabel).trim()
+          : histG > 0
+            ? '$' + histG.toLocaleString('en-US')
+            : '—';
+      var atcDec = parseFloat(base.atcRate);
+      if (isNaN(atcDec)) atcDec = 0;
+      var coDec = parseFloat(base.cvr);
+      if (isNaN(coDec)) coDec = 0;
+      return {
+        sku: base.id,
+        name: base.name,
+        image: imageUrl,
+        category: base.category,
+        price: Number(base.price).toFixed(2),
+        stock: base.stock,
+        commission: parseFloat(base.commission) || 0,
+        flashDiscount: parseFloat(base.flashDiscount) || 0,
+        listingDaysAgo: parseInt(base.listingDaysAgo, 10) || 0,
+        listingDate: apsListingDateFromDaysAgo(base.listingDaysAgo),
+        liveShare: parseFloat(base.liveShare) || 0,
+        ctr: parseFloat(base.ctr) || 0,
+        cvr: parseFloat(base.cvr) || 0,
+        pool: pool,
+        score: score,
+        reason: reason,
+        strategiesLine: stratLine,
+        strategyLabels: stratLabelsArr,
+        strategyHitKeys: hitKeys,
+        similarHotMeta: simH,
+        shopNameDisplay: shopDisp,
+        shopRatingNum: shopRt,
+        variantDisplay: variantDisp,
+        listingTimeDisplay: listingDisp,
+        liveSessionsDisplay: liveSess,
+        liveStreamersDisplay: liveHost,
+        gmv30dDisplay: gmvDisp,
+        avgImpression: roll.impressions,
+        atcPctDisplay: (atcDec * 100).toFixed(1),
+        coPctDisplay: (coDec * 100).toFixed(1)
+      };
+    });
+
+    var pulled = apsPullRangesFromDom();
+    apsRuntime.rangeNew = pulled.new;
+    apsRuntime.rangeBest = pulled.best;
+    products = apsSortProductsByRangeMatch(products, pulled.new, pulled.best);
+
+    var cats = apsSummarizeCats(products);
+    var hero = products.slice(0, Math.min(5, products.length));
+
+    return {
+      host: host,
+      totalProducts: products.length,
+      countNew: nNew,
+      countBest: nBest,
+      categories: cats,
+      rangeNew: JSON.parse(JSON.stringify(pulled.new)),
+      rangeBest: JSON.parse(JSON.stringify(pulled.best)),
+      liveGmvScope: JSON.parse(JSON.stringify(liveGmvScope)),
+      hero: hero,
+      products: products
+    };
+  }
+
+  function apsReasonShort(base, pool, host, score) {
+    var r = apsBuildReason(base, pool, host, score);
+    if (r.length > 340) return r.substring(0, 337) + '…';
+    return r;
+  }
+
+  function apsEscape(s) {
+    return lsEscHtml(s);
+  }
+
+  function apsHtmlHostOpts() {
+    return (
+      '<option value="">' + apsEscape(t('aps.host_placeholder')) + '</option>' +
+      apsHostsForSmartSelection().map(function (h) {
+        return '<option value="' + apsEscape(h.id) + '">' + apsEscape(h.name) + '</option>';
+      }).join('')
+    );
+  }
+
+  /** 与「主播」同源：租户中心启用中的合作主播 / 达人列表。 */
+  function apsHtmlReferenceHostOpts() {
+    return (
+      '<option value="">' + apsEscape(t('aps.reference_host_placeholder')) + '</option>' +
+      apsHostsForSmartSelection().map(function (h) {
+        return '<option value="' + apsEscape(h.id) + '">' + apsEscape(h.name) + '</option>';
+      }).join('')
+    );
+  }
+
+  function apsRangeGridHeadHtml() {
+    return (
+      '<div class="aps-range-grid-head" aria-hidden="true">' +
+      '<span class="aps-range-grid-head-fill"></span>' +
+      '<span class="aps-range-grid-head-lo">' +
+      apsEscape(t('aps.range_col_lo')) +
+      '</span>' +
+      '<span class="aps-range-grid-head-mid"></span>' +
+      '<span class="aps-range-grid-head-hi">' +
+      apsEscape(t('aps.range_col_hi')) +
+      '</span>' +
+      '</div>'
+    );
+  }
+
+  function apsRangeRowsHtml(pool) {
+    var keys = pool === 'new' ? APS_RANGE_KEYS_NEW : APS_RANGE_KEYS_BEST;
+    var pref = pool === 'new' ? APS_RANGE_PRESETS.new : APS_RANGE_PRESETS.best;
+    var idPre = pool === 'new' ? 'apsRngNew' : 'apsRngBest';
+    return keys
+      .map(function (k) {
+        var label = apsEscape(apsRangeFieldLabel(k));
+        var d = pref[k];
+        if (k === 'listing') {
+          return (
+            '<div class="aps-range-row">' +
+            '<span class="aps-range-dim">' +
+            label +
+            '</span>' +
+            '<div class="aps-range-inputs">' +
+            '<input type="date" class="aps-input aps-range-input aps-range-input--date aps-strategy-range-input" id="' +
+            idPre +
+            '_listing_start" value="' +
+            apsEscape(d.start) +
+            '" />' +
+            '<span class="aps-range-sep" aria-hidden="true">–</span>' +
+            '<input type="date" class="aps-input aps-range-input aps-range-input--date aps-strategy-range-input" id="' +
+            idPre +
+            '_listing_end" value="' +
+            apsEscape(d.end) +
+            '" />' +
+            '</div></div>'
+          );
+        }
+        return (
+          '<div class="aps-range-row">' +
+          '<span class="aps-range-dim">' +
+          label +
+          '</span>' +
+          '<div class="aps-range-inputs">' +
+          '<input type="number" step="any" inputmode="decimal" class="aps-input aps-range-input aps-strategy-range-input" id="' +
+          idPre +
+          '_' +
+          k +
+          '_min" value="' +
+          d.min +
+          '" />' +
+          '<span class="aps-range-sep" aria-hidden="true">–</span>' +
+          '<input type="number" step="any" inputmode="decimal" class="aps-input aps-range-input aps-strategy-range-input" id="' +
+          idPre +
+          '_' +
+          k +
+          '_max" value="' +
+          d.max +
+          '" />' +
+          '</div></div>'
+        );
+      })
+      .join('');
+  }
+
+  function apsCardStepHtml(stepNum) {
+    return (
+      '<span class="aps-card__step" aria-hidden="true"><span class="aps-card__step-num">' +
+      String(stepNum) +
+      '</span></span>'
+    );
+  }
+
+  function apsFlowStepsHtml() {
+    var labels = [
+      t('aps.flow_step_host'),
+      t('aps.flow_step_pools'),
+      t('aps.flow_step_strategy'),
+      t('aps.flow_step_run')
+    ];
+    var lis = labels
+      .map(function (label, i) {
+        return (
+          '<li class="aps__flow-item">' +
+          '<span class="aps__flow-ix">' +
+          String(i + 1) +
+          '</span>' +
+          '<span class="aps__flow-label">' +
+          apsEscape(label) +
+          '</span>' +
+          '</li>'
+        );
+      })
+      .join('');
+    return (
+      '<nav class="aps__flow" aria-label="' +
+      apsEscape(t('aps.flow_steps_aria')) +
+      '">' +
+      '<ol class="aps__flow-list">' +
+      lis +
+      '</ol>' +
+      '</nav>'
+    );
+  }
+
+  function renderLiveSettingsApsBlock(isStandalone) {
+    var shellCls = isStandalone ? 'aps aps--standalone aps-workspace' : 'aps aps-workspace';
+    return (
+      '<section class="' + shellCls + '" id="liveSettingsAps" aria-labelledby="aps-title">' +
+      '<div class="aps__header aps-workspace__header">' +
+      '<h2 id="aps-title" class="aps__title">' +
+      apsEscape(t('aps.title')) +
+      '</h2>' +
+      '<p class="aps__subtitle">' + apsEscape(t('aps.workspace_subtitle')) + '</p>' +
+      '<p class="aps-page-notice" role="note"><i class="fas fa-circle-info" aria-hidden="true"></i> ' + apsEscape(t('aps.page_notice')) + '</p>' +
+      '</div>' +
+      '<div class="aps-workspace__grid aps-workspace__grid--simplified">' +
+      '<aside class="aps-ws-col aps-ws-col--left">' +
+      '<div class="aps-card aps-ws-card">' +
+      '<div class="aps-card__hd"><h3 class="aps-card__title"><i class="fas fa-user" aria-hidden="true"></i> ' + apsEscape(t('aps.host_card_title')) + '</h3></div>' +
+      '<div class="aps-card__bd">' +
+      '<label class="aps-field-label" for="apsHostSelect">' + apsEscape(t('aps.host_label')) + '</label>' +
+      '<select class="aps-select" id="apsHostSelect" name="apsHost">' + apsHtmlHostOpts() + '</select>' +
+      '<div id="apsHostBlock" class="aps-host-block"></div>' +
+      '<div class="aps-field aps-reference-host-field">' +
+      '<label class="aps-field-label" for="apsReferenceHostSelect">' +
+      apsEscape(t('aps.reference_host_label')) +
+      '</label>' +
+      '<select class="aps-select" id="apsReferenceHostSelect" name="apsReferenceHost">' +
+      apsHtmlReferenceHostOpts() +
+      '</select>' +
+      '<p class="aps-field-help">' + apsEscape(t('aps.reference_host_help')) + '</p>' +
+      '</div>' +
+      '</div></div></aside>' +
+      '<div class="aps-ws-col aps-ws-col--right">' +
+      '<div class="aps-card aps-ws-card">' +
+      '<div class="aps-card__hd"><h3 class="aps-card__title"><i class="fas fa-sliders" aria-hidden="true"></i> ' + apsEscape(t('aps.pack_section_title')) + '</h3></div>' +
+      '<div class="aps-card__bd">' +
+      '<div class="aps-strategy-section aps-strategy-section--mix">' +
+      '<div class="aps-strategy-section-eyebrow">' + apsEscape(t('aps.strategy_section_mix')) + '</div>' +
+      '<div class="aps-strategy-row">' +
+      '<div class="aps-strategy-field"><label class="aps-field-label" for="apsTotalInput">' + apsEscape(t('aps.total_label')) + '</label>' +
+      '<input id="apsTotalInput" type="number" min="1" max="999" step="1" value="20" class="aps-input" /></div>' +
+      '<div class="aps-strategy-field aps-strategy-field--grow">' +
+      '<div id="apsStrategyMixRatioWrap" class="aps-hide">' +
+      '<div class="aps-strategy-label-row">' +
+      '<label class="aps-ratio-manual" for="apsNewRatioInput">' +
+      '<span class="aps-inline-stat aps-inline-stat--ratio">' + apsEscape(t('aps.new_ratio_label')) + '</span>' +
+      '<input id="apsNewRatioInput" type="number" min="0" max="100" step="1" value="30" class="aps-input aps-input--ratio" inputmode="numeric" />' +
+      '<span class="aps-ratio-suffix" aria-hidden="true">%</span></label>' +
+      '<span class="aps-inline-stat aps-inline-stat--ratio">' + apsEscape(t('aps.best_ratio_label')) + ': <strong id="apsBestRatioVal">70</strong>%</span>' +
+      '</div>' +
+      '<label class="sr-only" for="apsNewRatio">' + apsEscape(t('aps.new_ratio_label')) + '</label>' +
+      '<input type="range" id="apsNewRatio" min="0" max="100" value="30" class="aps-range" />' +
+      '</div>' +
+      '<p id="apsStrategyMixSingleNote" class="aps-field-help aps-mix-single-note aps-hide"></p>' +
+      '</div></div>' +
+      '<div id="apsCountSummary" class="aps-count-chip aps-count-chip--strategy">' +
+      String(t('aps.count_summary')).replace(/\{\{t\}\}/g, '20').replace(/\{\{n\}\}/g, '6').replace(/\{\{b\}\}/g, '14') +
+      '</div>' +
+      '</div>' +
+      '<div class="aps-strategy-engine-wrap">' +
+      apsStrategyProfileFormHtml() +
+      '</div>' +
+      '<div class="aps-actions-row aps-actions-row--right">' +
+      '<button type="button" id="apsBtnGenerate" class="btn btn-primary" disabled>' +
+      '<i class="fas fa-wand-magic-sparkles" aria-hidden="true"></i> <span id="apsGenLabel">' + apsEscape(t('aps.generate')) + '</span></button>' +
+      '<p id="apsGenHint" class="aps-muted-inline aps-gen-hint"></p>' +
+      '</div></div></div></div>' +
+      '<div id="apsResultCard" class="aps-card aps-ws-card aps-result-shell aps-result-span-row">' +
+      '<div class="aps-card__hd"><h3 class="aps-card__title"><i class="fas fa-clipboard-list" aria-hidden="true"></i> ' + apsEscape(t('aps.ai_result')) + '</h3></div>' +
+      '<div class="aps-card__bd">' +
+      '<div id="apsEmptyState" class="aps-result-empty">' +
+      '<div class="aps-empty-icon"><i class="fas fa-diagram-project" aria-hidden="true"></i></div>' +
+      '<p>' + apsEscape(t('aps.empty_state')) + '</p></div>' +
+      '<div id="apsFilledState" class="aps-result-filled aps-hide"><div id="apsResultDynamic"></div></div>' +
+      '</div></div>' +
+      '</div>' +
+      '</section>'
+    );
+  }
+
+  function bindLiveSettingsApsEvents() {
+    var root = document.getElementById('liveSettingsAps');
+    if (!root) return;
+
+    apsHydrateRuntimePoolsPreferOps();
+
+    var sel = document.getElementById('apsHostSelect');
+    var hostBlock = document.getElementById('apsHostBlock');
+    var refSel = document.getElementById('apsReferenceHostSelect');
+    var totalEl = document.getElementById('apsTotalInput');
+    var rng = document.getElementById('apsNewRatio');
+    var newRatioInput = document.getElementById('apsNewRatioInput');
+    var bestLbl = document.getElementById('apsBestRatioVal');
+    var countSummary = document.getElementById('apsCountSummary');
+    var btn = document.getElementById('apsBtnGenerate');
+    var lab = document.getElementById('apsGenLabel');
+    var genHint = document.getElementById('apsGenHint');
+    var filled = document.getElementById('apsFilledState');
+    var emptySt = document.getElementById('apsEmptyState');
+    var dynamic = document.getElementById('apsResultDynamic');
+    function pullLiveGmvScope() {
+      apsRuntime.liveGmvScopeEnabled = false;
+      apsRuntime.liveAccountId = '';
+    }
+
+    function syncRuntimeRangesFromDom() {
+      var p = apsPullRangesFromDom();
+      apsRuntime.rangeNew = p.new;
+      apsRuntime.rangeBest = p.best;
+    }
+
+    var stratEngineRoot = root.querySelector('.aps-strategy-engine-details');
+    if (stratEngineRoot) {
+      stratEngineRoot.addEventListener('change', function () {
+        apsSyncStrategyCheckboxBoundInputs(stratEngineRoot);
+        apsPullStrategyProfileFromDom();
+      });
+      stratEngineRoot.addEventListener('input', function (ev) {
+        if (
+          ev.target &&
+          typeof ev.target.closest === 'function' &&
+          ev.target.closest('.aps-strategy-grid')
+        ) {
+          apsPullStrategyProfileFromDom();
+        }
+      });
+      apsSyncStrategyCheckboxBoundInputs(stratEngineRoot);
+    }
+
+    function clampRatio01to100(raw) {
+      if (raw === '' || raw == null) return null;
+      var n = parseInt(String(raw), 10);
+      if (isNaN(n)) return null;
+      return Math.min(100, Math.max(0, n));
+    }
+
+    function computeCounts() {
+      var tt = parseInt(totalEl && totalEl.value, 10) || 0;
+      var rr = parseInt(rng && rng.value, 10);
+      rr = Math.min(100, Math.max(0, isNaN(rr) ? 30 : rr));
+      var hasN = !!(apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length);
+      var hasB = !!(apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length);
+      var nNew;
+      var nBest;
+      if (hasN && hasB) {
+        nNew = tt > 0 ? Math.round((tt * rr) / 100) : 0;
+        nBest = Math.max(0, tt - nNew);
+      } else if (hasN && !hasB) {
+        nNew = tt;
+        nBest = 0;
+      } else if (!hasN && hasB) {
+        nNew = 0;
+        nBest = tt;
+      } else {
+        nNew = tt > 0 ? Math.round((tt * rr) / 100) : 0;
+        nBest = Math.max(0, tt - nNew);
+      }
+      var effRatio = rr;
+      if (hasN && !hasB) effRatio = 100;
+      else if (!hasN && hasB) effRatio = 0;
+      return { total: tt, newN: nNew, bestN: nBest, ratio: rr, effRatio: effRatio };
+    }
+
+    function syncMixRatioVisibility() {
+      var wrap = document.getElementById('apsStrategyMixRatioWrap');
+      var note = document.getElementById('apsStrategyMixSingleNote');
+      var hasN = !!(apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length);
+      var hasB = !!(apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length);
+      var bothPools = hasN && hasB;
+      var singlePool = (hasN && !hasB) || (!hasN && hasB);
+      if (wrap) wrap.classList.toggle('aps-hide', !bothPools);
+      if (note) {
+        note.classList.toggle('aps-hide', !singlePool);
+        if (singlePool) note.textContent = t(hasN ? 'aps.mix_ratio_note_new_only' : 'aps.mix_ratio_note_best_only');
+        else note.textContent = '';
+      }
+    }
+
+    function updateCountUi() {
+      var c = computeCounts();
+      var hasN = !!(apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length);
+      var hasB = !!(apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length);
+      if (hasN && hasB) {
+        if (newRatioInput) newRatioInput.value = String(c.ratio);
+        if (bestLbl) bestLbl.textContent = String(Math.max(0, 100 - c.ratio));
+      }
+      if (countSummary) {
+        countSummary.textContent =
+          String(t('aps.count_summary'))
+            .replace(/\{\{t\}\}/g, String(c.total))
+            .replace(/\{\{n\}\}/g, String(c.newN))
+            .replace(/\{\{b\}\}/g, String(c.bestN));
+      }
+      apsRuntime.totalCount = c.total;
+      apsRuntime.newRatio = c.effRatio;
+      syncMixRatioVisibility();
+    }
+
+
+    function renderHostPanel() {
+      if (!hostBlock) return;
+      var id = sel && sel.value;
+      apsRuntime.hostId = id || '';
+      var h = apsGetSmartHostById(id);
+      if (!h) {
+        hostBlock.innerHTML =
+          '<p class="aps-muted-block">' + apsEscape(t('aps.host_tags_select_hint')) + '</p>';
+        return;
+      }
+      var tagsHtml = !h.tags || !h.tags.length
+        ? '<span class="aps-tag aps-tag--muted">' + apsEscape(t('aps.tags_none')) + '</span>'
+        : h.tags
+            .map(function (x) {
+              return '<span class="aps-tag">' + apsEscape(x) + '</span>';
+            })
+            .join('');
+      hostBlock.innerHTML =
+        '<div class="aps-mini-title">' +
+        apsEscape(t('aps.host_tags_title')) +
+        '</div><div class="aps-tag-row">' +
+        tagsHtml +
+        '</div>';
+    }
+
+    function syncReferenceHostFromDom() {
+      apsRuntime.referenceHostId =
+        refSel && refSel.value ? String(refSel.value).trim() : '';
+    }
+
+    function canGenerate() {
+      pullLiveGmvScope();
+      var okHost = !!(sel && sel.value);
+      syncReferenceHostFromDom();
+      var okPools = !!(
+        (apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length) ||
+        (apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length)
+      );
+      var c = computeCounts();
+      var okEnrich =
+        (function () {
+          return apsPoolRowsAllOk(apsRuntime.uploadNew) && apsPoolRowsAllOk(apsRuntime.uploadBest);
+        })();
+      var refOk =
+        !apsRuntime.referenceHostId ||
+        !apsTenantSamplePidNormMapForSmartHostId(apsRuntime.referenceHostId) ||
+        apsReferenceHasPoolOverlap(apsRuntime, apsRuntime.referenceHostId);
+      return okHost && okPools && okEnrich && c.total > 0 && !apsRuntime.loading && refOk;
+    }
+
+    function syncGenButton() {
+      if (btn) btn.disabled = !canGenerate();
+      if (!genHint) return;
+      if (apsRuntime.loading) {
+        genHint.textContent = '';
+        genHint.classList.remove('aps-gen-hint--warn');
+        return;
+      }
+      if (canGenerate()) {
+        genHint.textContent = '';
+        genHint.classList.remove('aps-gen-hint--warn');
+        return;
+      }
+      var msg = '';
+      if (!(sel && sel.value)) msg = t('aps.gen_hint_host');
+      if (
+        !msg &&
+        apsRuntime.referenceHostId &&
+        apsTenantSamplePidNormMapForSmartHostId(apsRuntime.referenceHostId) &&
+        !apsReferenceHasPoolOverlap(apsRuntime, apsRuntime.referenceHostId)
+      ) {
+        msg = t('aps.gen_hint_reference_overlap');
+      }
+      if (!msg && !(apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length) && !(apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length)) {
+        msg = t('aps.gen_hint_pool_either');
+      } else if (
+        !msg &&
+        ((apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length) ||
+          (apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length)) &&
+        !(apsPoolRowsAllOk(apsRuntime.uploadNew) && apsPoolRowsAllOk(apsRuntime.uploadBest))
+      ) {
+        msg = t('aps.gen_hint_enrich');
+      } else if (!msg && computeCounts().total <= 0) msg = t('aps.gen_hint_total');
+      genHint.textContent = msg;
+      genHint.classList.toggle('aps-gen-hint--warn', !!msg);
+    }
+
+    function updateCargoSnapshot() {}
+
+    function openFilled() {
+      if (emptySt) emptySt.classList.add('aps-hide');
+      if (filled) filled.classList.remove('aps-hide');
+    }
+
+    function scrollApsResultIntoView() {
+      var card = document.getElementById('apsResultCard');
+      if (!card || typeof card.scrollIntoView !== 'function') return;
+      window.requestAnimationFrame(function () {
+        card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      });
+    }
+
+    function renderResultHtml(meta) {
+      var heroCols = '';
+      meta.hero.forEach(function (hp) {
+        var band = apsScoreBand(hp.score);
+        heroCols +=
+          '<article class="aps-hero">' +
+          '<header class="aps-hero-name">' +
+          lsEscHtml(hp.name) +
+          '</header>' +
+          '<span class="aps-badge ' +
+          band.cls +
+          '">' +
+          lsEscHtml(t(band.labelKey)) +
+          ' · ' +
+          hp.score +
+          '</span>' +
+          '<p class="aps-hero-cat">' +
+          lsEscHtml(hp.category) +
+          ' · ' +
+          (hp.pool === 'new' ? t('aps.pool_new') : t('aps.pool_best')) +
+          '</p>' +
+          '<p class="aps-hero-reason">' +
+          lsEscHtml(hp.reason) +
+          '</p>' +
+          (hp.strategiesLine && hp.strategiesLine !== t('aps.strat_none')
+            ? '<p class="aps-hero-strategies">' + lsEscHtml(hp.strategiesLine) + '</p>'
+            : '') +
+          '</article>';
+      });
+
+      var tableRows = '';
+      meta.products.forEach(function (row) {
+        var band = apsScoreBand(row.score);
+        var pid = row.sku != null ? String(row.sku) : '';
+        var imgUrl = row.image != null && /^https?:\/\//i.test(String(row.image).trim()) ? String(row.image).trim() : '';
+        if (!imgUrl) {
+          imgUrl =
+            'https://picsum.photos/seed/apsrp' +
+            pid.replace(/[^a-z0-9_-]/gi, '') +
+            '/96/96';
+        }
+        var stratLabels =
+          Array.isArray(row.strategyLabels) && row.strategyLabels.length
+            ? row.strategyLabels
+            : row.strategiesLine && row.strategiesLine !== t('aps.strat_none')
+              ? String(row.strategiesLine)
+                  .split(/\s*·\s*/)
+                  .map(function (s) {
+                    return s.trim();
+                  })
+                  .filter(Boolean)
+              : [];
+        var stratCells =
+          stratLabels.length > 0
+            ? '<div class="aps-strategy-hit-tags">' +
+              stratLabels
+                .map(function (lbl) {
+                  return '<span class="aps-badge aps-badge--strat-hit">' + lsEscHtml(lbl) + '</span>';
+                })
+                .join('') +
+              '</div>'
+            : '<span class="aps-badge aps-badge--strat-hit-none" aria-hidden="true">—</span>';
+        tableRows +=
+          '<tr>' +
+          '<td class="aps-pack-detail-cb-cell">' +
+          '<input type="checkbox" class="aps-result-pid-cb" data-pid="' +
+          lsEscHtml(pid) +
+          '" checked aria-label="' +
+          lsEscHtml(pid) +
+          '" />' +
+          '</td>' +
+          '<td class="aps-td-result-product">' +
+          '<div class="aps-result-product-cell">' +
+          '<div class="aps-result-product-thumb">' +
+          '<img src="' +
+          lsEscHtml(imgUrl) +
+          '" alt="" loading="lazy" />' +
+          '</div>' +
+          '<div class="aps-result-product-text">' +
+          '<span class="aps-result-product-pid">' +
+          lsEscHtml(pid) +
+          '</span>' +
+          '<span class="aps-result-product-name">' +
+          lsEscHtml(row.name) +
+          '</span>' +
+          '</div></div></td>' +
+          '<td><span class="aps-badge ' +
+          (row.pool === 'new' ? 'aps-badge--pool-new' : 'aps-badge--pool-best') +
+          '">' +
+          lsEscHtml(row.pool === 'new' ? t('aps.pool_new') : t('aps.pool_best')) +
+          '</span></td>' +
+          '<td>$' +
+          row.price +
+          '</td>' +
+          '<td>' +
+          lsEscHtml(String(row.stock)) +
+          '</td>' +
+          '<td><strong>' +
+          row.score +
+          '</strong><br/><span class="aps-badge ' +
+          band.cls +
+          '">' +
+          lsEscHtml(t(band.labelKey)) +
+          '</span></td>' +
+          '<td class="aps-td-muted">' +
+          lsEscHtml(row.reason) +
+          '</td>' +
+          '<td class="aps-td-strategies">' +
+          stratCells +
+          '</td>' +
+          '</tr>';
+      });
+
+      return (
+        '<div class="aps-result-inner">' +
+        '<section class="aps-summary">' +
+        '<div class="aps-summary-cards">' +
+        '<div><span class="aps-summary-k">' +
+        lsEscHtml(t('aps.summary_total')) +
+        '</span><strong>' +
+        meta.products.length +
+        '</strong></div>' +
+        '<div><span class="aps-summary-k">' +
+        lsEscHtml(t('aps.summary_new')) +
+        '</span><strong>' +
+        meta.countNew +
+        '</strong></div>' +
+        '<div><span class="aps-summary-k">' +
+        lsEscHtml(t('aps.summary_best')) +
+        '</span><strong>' +
+        meta.countBest +
+        '</strong></div>' +
+        '</div>' +
+        '</section>' +
+        '<section class="aps-block">' +
+        '<h4>' +
+        lsEscHtml(t('aps.hero_title')) +
+        '</h4>' +
+        '<div class="aps-hero-grid">' +
+        heroCols +
+        '</div></section>' +
+        '<section class="aps-table-wrap">' +
+        '<div class="aps-table-caption">' +
+        lsEscHtml(t('aps.table_title')) +
+        '</div>' +
+        '<div class="aps-pack-detail-toolbar aps-result-pid-toolbar">' +
+        '<label class="aps-pack-detail-select-all">' +
+        '<input type="checkbox" id="apsResultPidSelectAll" checked /> ' +
+        lsEscHtml(t('aps.pack_detail_select_all')) +
+        '</label>' +
+        '<div class="aps-pack-detail-toolbar-actions">' +
+        '<button type="button" class="btn btn-secondary btn-sm" id="apsResultCopySelectedPid">' +
+        '<i class="fas fa-copy" aria-hidden="true"></i> ' +
+        lsEscHtml(t('aps.pack_detail_copy_selected')) +
+        '</button>' +
+        '</div>' +
+        '<p class="aps-pack-detail-copy-hint">' +
+        lsEscHtml(String(t('aps.pack_detail_copy_limit_hint')).replace(/\{\{max\}\}/g, String(APS_PID_COPY_MAX))) +
+        '</p>' +
+        '</div>' +
+        '<div class="aps-table-inner">' +
+        '<table class="aps-table">' +
+        '<thead><tr>' +
+        '<th class="aps-pack-detail-th-cb" aria-hidden="true"></th>' +
+        '<th class="aps-th-result-product">' +
+        lsEscHtml(t('aps.col_pid_name_media')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('aps.col_pool')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('aps.col_price')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('aps.col_stock')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('aps.col_score')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('aps.col_reason')) +
+        '</th>' +
+        '<th>' +
+        lsEscHtml(t('aps.col_strategies')) +
+        '</th>' +
+        '</tr></thead>' +
+        '<tbody id="apsTbody">' +
+        tableRows +
+        '</tbody></table></div></section>' +
+        '<footer class="aps-footer-actions">' +
+        '<button type="button" id="apsRegen" class="btn btn-secondary">' +
+        lsEscHtml(t('aps.action_regenerate')) +
+        '</button>' +
+        '<button type="button" id="apsExport" class="btn btn-secondary">' +
+        lsEscHtml(t('aps.action_export')) +
+        '</button>' +
+        '</footer>' +
+        '</div>'
+      );
+    }
+
+    function bindRows() {
+      var selAll = document.getElementById('apsResultPidSelectAll');
+      function cbs() {
+        return document.querySelectorAll('.aps-result-pid-cb');
+      }
+      if (selAll) {
+        selAll.addEventListener('change', function () {
+          var on = selAll.checked;
+          cbs().forEach(function (cb) {
+            cb.checked = on;
+          });
+        });
+      }
+      function toastPidCopyResult(n, capped) {
+        var maxN = APS_PID_COPY_MAX;
+        if (capped) {
+          showToast(
+            String(t('aps.pack_detail_toast_capped'))
+              .replace(/\{\{n\}\}/g, String(n))
+              .replace(/\{\{max\}\}/g, String(maxN)),
+            'success'
+          );
+        } else {
+          showToast(String(t('aps.pack_detail_toast_copied')).replace(/\{\{n\}\}/g, String(n)), 'success');
+        }
+      }
+      var btnCopy = document.getElementById('apsResultCopySelectedPid');
+      if (btnCopy) {
+        btnCopy.addEventListener('click', function () {
+          var out = [];
+          cbs().forEach(function (cb) {
+            if (cb.checked) {
+              var pid = cb.getAttribute('data-pid');
+              if (pid) out.push(pid);
+            }
+          });
+          var cap = apsApplyPidCopyCap(out);
+          if (!cap.pids.length) {
+            showToast(t('aps.pack_detail_toast_none'), 'warn');
+            return;
+          }
+          var text = cap.pids.join('\n');
+          apsCopyPlainTextToClipboard(text)
+            .then(function () {
+              toastPidCopyResult(cap.pids.length, cap.capped);
+            })
+            .catch(function () {
+              showToast(t('aps.pack_detail_toast_none'), 'warn');
+            });
+        });
+      }
+    }
+    function fixMetaCounters(m) {
+      var nProd = (m.products || []).filter(function (p) {
+        return p.pool === 'new';
+      }).length;
+      var bProd = m.products.length - nProd;
+      m.countNew = nProd;
+      m.countBest = bProd;
+      m.hero = m.products.slice(0, Math.min(5, m.products.length));
+      var cats = m.categories && m.categories.length ? m.categories : apsSummarizeCats(m.products);
+      m.categories = cats;
+    }
+
+    function runGenerate(isRegen) {
+      if (!canGenerate()) return;
+      apsRuntime.loading = true;
+      syncGenButton();
+      if (lab) lab.textContent = t('aps.generating');
+
+      window.setTimeout(function () {
+        apsRuntime.meta = apsRunGeneration();
+        apsRuntime.loading = false;
+        if (lab) lab.textContent = t('aps.generate');
+        if (apsRuntime.meta) fixMetaCounters(apsRuntime.meta);
+        if (!apsRuntime.meta || !dynamic) {
+          syncGenButton();
+          return;
+        }
+        dynamic.innerHTML = renderResultHtml(apsRuntime.meta);
+        bindRows();
+        wireResultFooters();
+        openFilled();
+        scrollApsResultIntoView();
+        syncGenButton();
+      }, 1500);
+    }
+
+    if (sel) sel.addEventListener('change', function () {
+      renderHostPanel();
+      syncGenButton();
+    });
+    if (refSel)
+      refSel.addEventListener('change', function () {
+        syncReferenceHostFromDom();
+        syncGenButton();
+      });
+    renderHostPanel();
+    syncReferenceHostFromDom();
+
+    pullLiveGmvScope();
+
+    ['input', 'change'].forEach(function (ev) {
+      if (rng) rng.addEventListener(ev, updateCountUi);
+      if (totalEl) totalEl.addEventListener(ev, function () {
+        updateCountUi();
+        syncGenButton();
+      });
+    });
+    if (newRatioInput) {
+      newRatioInput.addEventListener('input', function () {
+        var r = clampRatio01to100(newRatioInput.value);
+        if (r !== null) {
+          if (rng) rng.value = String(r);
+          updateCountUi();
+        }
+      });
+      newRatioInput.addEventListener('blur', function () {
+        var r = clampRatio01to100(newRatioInput.value);
+        if (r === null) {
+          r = parseInt(rng && rng.value, 10);
+          r = Math.min(100, Math.max(0, isNaN(r) ? 30 : r));
+        } else {
+          r = Math.min(100, Math.max(0, r));
+        }
+        if (rng) rng.value = String(r);
+        newRatioInput.value = String(r);
+        updateCountUi();
+      });
+    }
+    updateCountUi();
+
+    if (btn) btn.addEventListener('click', function () {
+      runGenerate(false);
+    });
+
+    syncRuntimeRangesFromDom();
+    updateCargoSnapshot();
+
+    (function apsTryRestorePackFromSession() {
+      var raw = sessionStorage.getItem(APS_RESTORE_SESSION_KEY);
+      if (!raw) return;
+      sessionStorage.removeItem(APS_RESTORE_SESSION_KEY);
+      var data;
+      try {
+        data = JSON.parse(raw);
+      } catch (er) {
+        return;
+      }
+      if (!data || !data.packId) return;
+      var pack = apsFindPackById(data.packId);
+      if (!pack || !pack.meta) return;
+      if (apsPackTapSynced(pack)) {
+        showToast(t('aps.pack_restore_skipped_synced'), 'warn');
+        return;
+      }
+      if (sel && pack.hostId) sel.value = pack.hostId;
+      apsRuntime.hostId = pack.hostId || '';
+      var refHostEl = document.getElementById('apsReferenceHostSelect');
+      if (refHostEl) {
+        var refId = pack.strategy && pack.strategy.referenceHostId ? String(pack.strategy.referenceHostId) : '';
+        refHostEl.value = refId;
+        apsRuntime.referenceHostId = refId.trim();
+      }
+      if (pack.strategy) {
+        if (totalEl && pack.strategy.totalCount != null) totalEl.value = String(pack.strategy.totalCount);
+        if (rng && pack.strategy.newRatio != null) rng.value = String(pack.strategy.newRatio);
+        if (pack.strategy.rangeNew) {
+          apsRuntime.rangeNew = apsSanitizeRangeObj(pack.strategy.rangeNew, APS_RANGE_PRESETS.new, APS_RANGE_KEYS_NEW);
+        }
+        if (pack.strategy.rangeBest) {
+          apsRuntime.rangeBest = apsSanitizeRangeObj(pack.strategy.rangeBest, APS_RANGE_PRESETS.best, APS_RANGE_KEYS_BEST);
+        }
+      }
+      pullLiveGmvScope();
+      apsRuntime.uploadNew = pack.strategy && pack.strategy.uploadNew ? pack.strategy.uploadNew : null;
+      apsRuntime.uploadBest = pack.strategy && pack.strategy.uploadBest ? pack.strategy.uploadBest : null;
+      apsRuntime.meta = apsCloneMeta(pack.meta);
+      if (apsRuntime.meta && apsRuntime.meta.rangeNew && !(pack.strategy && pack.strategy.rangeNew)) {
+        apsRuntime.rangeNew = apsSanitizeRangeObj(apsRuntime.meta.rangeNew, APS_RANGE_PRESETS.new, APS_RANGE_KEYS_NEW);
+      }
+      if (apsRuntime.meta && apsRuntime.meta.rangeBest && !(pack.strategy && pack.strategy.rangeBest)) {
+        apsRuntime.rangeBest = apsSanitizeRangeObj(apsRuntime.meta.rangeBest, APS_RANGE_PRESETS.best, APS_RANGE_KEYS_BEST);
+      }
+      if (apsRuntime.meta) fixMetaCounters(apsRuntime.meta);
+      updateCountUi();
+      apsApplyRangesToDom(apsRuntime.rangeNew, apsRuntime.rangeBest);
+      if (dynamic && apsRuntime.meta) {
+        dynamic.innerHTML = renderResultHtml(apsRuntime.meta);
+        bindRows();
+        wireResultFooters();
+        openFilled();
+        scrollApsResultIntoView();
+      }
+      renderHostPanel();
+      updateCargoSnapshot();
+      showToast(t('aps.pack_opened'));
+    })();
+
+    syncGenButton();
+  }
+
+  function bindLiveSettingsCargoPoolsEvents() {
+    var root = document.getElementById('liveSettingsCargoPools');
+    if (!root) return;
+
+    apsHydrateRuntimeFromCargo();
+
+    var CG_PREFIX = 'cg';
+    var fNew = document.getElementById('cgFileNew');
+    var fBest = document.getElementById('cgFileBest');
+    var metaN = document.getElementById('cgNewMeta');
+    var metaB = document.getElementById('cgBestMeta');
+
+    function syncCgUploadChrome() {
+      var bn = document.getElementById('cgClearNew');
+      var bb = document.getElementById('cgClearBest');
+      var n = !!(apsRuntime.uploadNew && apsRuntime.uploadNew.rows && apsRuntime.uploadNew.rows.length);
+      var b = !!(apsRuntime.uploadBest && apsRuntime.uploadBest.rows && apsRuntime.uploadBest.rows.length);
+      if (bn) bn.classList.toggle('aps-hide', !n);
+      if (bb) bb.classList.toggle('aps-hide', !b);
+    }
+
+    function finishCgUpload(poolKey, fileName, rows, metaEl, assignKey) {
+      if (!rows || !rows.length) {
+        showToast(t('aps.upload_parse_empty'), 'warn');
+        if (metaEl) metaEl.innerHTML = apsEscape(t('aps.upload_status_idle'));
+        return;
+      }
+      apsRuntime[assignKey] = { fileName: fileName, rows: rows, ok: true, count: rows.length };
+      apsPaintUploadMeta(metaEl, apsRuntime[assignKey]);
+      apsRunPoolEnrichmentTimers(poolKey, CG_PREFIX, null);
+      apsPaintBothPoolTables(CG_PREFIX);
+      apsCargoSave();
+      syncCgUploadChrome();
+    }
+
+    function parseCgUploadFile(fileEl, metaEl, poolKey, ev) {
+      var f = fileEl && fileEl.files && fileEl.files[0];
+      if (!f) return;
+      var assignKey = poolKey === 'new' ? 'uploadNew' : 'uploadBest';
+      var name = f.name || 'upload';
+      metaEl.innerHTML =
+        '<span class="aps-upload-spin"><i class="fas fa-spinner fa-spin"></i> </span>';
+      if (/\.csv$/i.test(name) || /\.txt$/i.test(name)) {
+        var reader = new FileReader();
+        reader.onload = function () {
+          var links = apsParseCsvLinks(String(reader.result || ''));
+          if (!links.length) {
+            showToast(t('aps.upload_parse_empty'), 'warn');
+            metaEl.innerHTML = apsEscape(t('aps.upload_status_idle'));
+            return;
+          }
+          var rows = apsCreatePoolRowsFromLinks(links, poolKey);
+          finishCgUpload(poolKey, name, rows, metaEl, assignKey);
+        };
+        reader.onerror = function () {
+          metaEl.innerHTML = apsEscape(t('aps.upload_status_idle'));
+          showToast(t('aps.upload_parse_empty'), 'warn');
+        };
+        reader.readAsText(f);
+      } else {
+        window.setTimeout(function () {
+          var mockCount = 10;
+          var links = [];
+          var i;
+          for (i = 0; i < mockCount; i++) {
+            links.push('https://www.tiktok.com/t/ZP8' + poolKey + 'demo' + i + '/');
+          }
+          var rows = apsCreatePoolRowsFromLinks(links, poolKey);
+          finishCgUpload(poolKey, name, rows, metaEl, assignKey);
+        }, 480);
+      }
+      if (ev && ev.target) ev.target.value = '';
+    }
+
+    function clearCgUpload(which) {
+      if (which === 'new') {
+        apsRuntime.uploadNew = null;
+        if (fNew) fNew.value = '';
+        if (metaN) metaN.innerHTML = apsEscape(t('aps.upload_status_idle'));
+      } else if (which === 'best') {
+        apsRuntime.uploadBest = null;
+        if (fBest) fBest.value = '';
+        if (metaB) metaB.innerHTML = apsEscape(t('aps.upload_status_idle'));
+      }
+      apsPaintBothPoolTables(CG_PREFIX);
+      syncCgUploadChrome();
+      apsCargoSave();
+    }
+
+    function setCgPoolTab(which) {
+      apsRuntime.activePoolTab = which;
+      var b1 = document.getElementById('cgTabNew');
+      var b2 = document.getElementById('cgTabBest');
+      var p1 = document.getElementById('cgPoolPaneNew');
+      var p2 = document.getElementById('cgPoolPaneBest');
+      if (b1 && b2 && p1 && p2) {
+        b1.classList.toggle('aps-pool-tab--active', which === 'new');
+        b2.classList.toggle('aps-pool-tab--active', which === 'best');
+        b1.setAttribute('aria-selected', which === 'new' ? 'true' : 'false');
+        b2.setAttribute('aria-selected', which === 'best' ? 'true' : 'false');
+        p1.classList.toggle('aps-hide', which !== 'new');
+        p2.classList.toggle('aps-hide', which !== 'best');
+      }
+    }
+
+    var tabNewEl = document.getElementById('cgTabNew');
+    var tabBestEl = document.getElementById('cgTabBest');
+    if (tabNewEl) tabNewEl.addEventListener('click', function () { setCgPoolTab('new'); });
+    if (tabBestEl) tabBestEl.addEventListener('click', function () { setCgPoolTab('best'); });
+    setCgPoolTab(apsRuntime.activePoolTab || 'new');
+
+    ['input', 'change'].forEach(function (evN) {
+      ['cgPoolSearch', 'cgPoolCat', 'cgPoolPriceMin', 'cgPoolPriceMax'].forEach(function (id) {
+        var el = document.getElementById(id);
+        if (el) el.addEventListener(evN, function () { apsPaintBothPoolTables(CG_PREFIX); });
+      });
+    });
+
+    var refBtn = document.getElementById('cgPoolRefreshEnrich');
+    if (refBtn) {
+      refBtn.addEventListener('click', function () {
+        ['new', 'best'].forEach(function (pk) {
+          var rk = pk === 'new' ? 'uploadNew' : 'uploadBest';
+          var up = apsRuntime[rk];
+          if (!up || !up.rows) return;
+          up.rows.forEach(function (row) {
+            if (row.enrichStatus !== 'ok') row.enrichStatus = 'pending';
+          });
+          apsRunPoolEnrichmentTimers(pk, CG_PREFIX, null);
+        });
+        apsPaintBothPoolTables(CG_PREFIX);
+        apsCargoSave();
+      });
+    }
+
+    if (fNew) fNew.addEventListener('change', function (e) { parseCgUploadFile(fNew, metaN, 'new', e); });
+    if (fBest) fBest.addEventListener('change', function (e) { parseCgUploadFile(fBest, metaB, 'best', e); });
+
+    var clrN = document.getElementById('cgClearNew');
+    var clrB = document.getElementById('cgClearBest');
+    if (clrN) clrN.addEventListener('click', function () { clearCgUpload('new'); });
+    if (clrB) clrB.addEventListener('click', function () { clearCgUpload('best'); });
+
+    apsPaintUploadMeta(metaN, apsRuntime.uploadNew);
+    apsPaintUploadMeta(metaB, apsRuntime.uploadBest);
+    apsPaintBothPoolTables(CG_PREFIX);
+    syncCgUploadChrome();
+  }
+
+  function renderApsThresholdsPage(backHref) {
+    var th = apsLoadThresholds();
+    var back = String(backHref || '#/live/products/smart-selection');
+    return (
+      '<div class="live-settings-detail-page live-settings-detail-page--aps aps-threshold-shell">' +
+      '<div class="live-settings-detail-top">' +
+      '<a class="live-settings-back" href="' +
+      lsEscHtml(back) +
+      '"><i class="fas fa-arrow-left"></i><span>' +
+      lsEscHtml(t('aps.threshold_back')) +
+      '</span></a>' +
+      '</div>' +
+      '<div class="aps-threshold-page">' +
+      '<h1 class="page-title">' +
+      lsEscHtml(t('aps.threshold_page_title')) +
+      '</h1>' +
+      '<p class="aps-threshold-lead">' +
+      lsEscHtml(t('aps.threshold_page_sub')) +
+      '</p>' +
+      '<div class="aps-card aps-threshold-card">' +
+      '<div class="aps-threshold-grid">' +
+      '<div class="aps-th-field">' +
+      '<label class="aps-field-label" for="apsThNewCtr">' +
+      lsEscHtml(t('aps.range_field_ctr')) +
+      ' (新品·Min %)</label>' +
+      '<input type="number" step="0.1" class="aps-input" id="apsThNewCtr" value="' +
+      String(th.newMinCtrPct) +
+      '" />' +
+      '</div>' +
+      '<div class="aps-th-field">' +
+      '<label class="aps-field-label" for="apsThNewAtc">ATC (新品·Min %)</label>' +
+      '<input type="number" step="0.1" class="aps-input" id="apsThNewAtc" value="' +
+      String(th.newMinAtcPct) +
+      '" />' +
+      '</div>' +
+      '<div class="aps-th-field">' +
+      '<label class="aps-field-label" for="apsThBestGmv">GMV (爆款·Min)</label>' +
+      '<input type="number" step="1" class="aps-input" id="apsThBestGmv" value="' +
+      String(th.bestMinGmv) +
+      '" />' +
+      '</div>' +
+      '<div class="aps-th-field">' +
+      '<label class="aps-field-label" for="apsThShop">' +
+      lsEscHtml(t('aps.threshold_shop_rating_label')) +
+      '</label>' +
+      '<input type="number" step="0.1" class="aps-input" id="apsThShop" value="' +
+      String(th.riskShopRatingMin) +
+      '" />' +
+      '</div>' +
+      '</div>' +
+      '<button type="button" class="btn btn-primary" id="apsThSave">' +
+      lsEscHtml(t('aps.threshold_save')) +
+      '</button>' +
+      '</div></div></div>'
+    );
+  }
+
+  function renderLiveProductsSmartSelectionThresholds() {
+    return renderApsThresholdsPage('#/live/products/smart-selection');
+  }
+
+  function bindLiveSettingsApsThresholdsEvents() {
+    var btn = document.getElementById('apsThSave');
+    if (btn) {
+      btn.addEventListener('click', function () {
+        var o = {
+          newMinCtrPct: parseFloat(String(document.getElementById('apsThNewCtr') && document.getElementById('apsThNewCtr').value)),
+          newMinAtcPct: parseFloat(String(document.getElementById('apsThNewAtc') && document.getElementById('apsThNewAtc').value)),
+          bestMinGmv: parseFloat(String(document.getElementById('apsThBestGmv') && document.getElementById('apsThBestGmv').value)),
+          riskShopRatingMin: parseFloat(String(document.getElementById('apsThShop') && document.getElementById('apsThShop').value))
+        };
+        Object.keys(o).forEach(function (k) {
+          if (isNaN(o[k])) delete o[k];
+        });
+        apsSaveThresholds(Object.assign(apsLoadThresholds(), o));
+        showToast(t('aps.threshold_saved'), 'success');
+      });
+    }
+  }
+
+  function renderLiveProductsSmartSelection() {
+    return (
+      '<div class="live-settings-detail-page live-settings-detail-page--aps">' +
+        '<div class="live-settings-detail-top live-settings-detail-top--aps">' +
+        '<a class="live-settings-back" href="#/live/products/operational"><i class="fas fa-arrow-left"></i><span>' +
+        lsEscHtml(t('lprod.back_ops_from_smart')) +
+        '</span></a>' +
+        '</div>' +
+        '<div class="aps-page-shell">' +
+        renderLiveSettingsApsBlock(true) +
+        '</div>' +
+      '</div>'
+    );
+  }
+
+  function renderLiveSettingsCargoPools() {
+    return (
+      '<div class="live-settings-detail-page live-settings-detail-page--aps live-settings-detail-page--cargo">' +
+      '<div class="live-settings-detail-top live-settings-detail-top--cargo">' +
+      '<a class="live-settings-back" href="#/live/settings"><i class="fas fa-arrow-left"></i><span>' + t('live_settings.back') + '</span></a>' +
+      '</div>' +
+      '<div class="aps-page-shell aps-cargo-page-shell">' +
+      '<header class="aps-cargo-page-intro">' +
+      '<h1 class="page-title">' + lsEscHtml(t('live_settings.cargo_card_title')) + '</h1>' +
+      '<p class="aps-field-help aps-cargo-page-lead">' + lsEscHtml(t('aps.cargo_page_lead')) + '</p>' +
+      '</header>' +
+      '<section class="aps aps-workspace aps-cargo-workspace" id="liveSettingsCargoPools" aria-labelledby="cg-pools-title">' +
+      '<div class="aps-card aps-ws-card">' +
+      '<div class="aps-card__hd">' +
+      '<h3 id="cg-pools-title" class="aps-card__title"><i class="fas fa-layer-group" aria-hidden="true"></i> ' +
+      apsEscape(t('aps.mid_pools_title')) +
+      '</h3></div>' +
+      '<div class="aps-card__bd">' +
+      '<div class="aps-pool-tabs" role="tablist">' +
+      '<button type="button" class="aps-pool-tab aps-pool-tab--active" role="tab" id="cgTabNew" data-cg-tab="new" aria-selected="true">' +
+      apsEscape(t('aps.tab_pool_new')) +
+      '</button>' +
+      '<button type="button" class="aps-pool-tab" role="tab" id="cgTabBest" data-cg-tab="best" aria-selected="false">' +
+      apsEscape(t('aps.tab_pool_best')) +
+      '</button>' +
+      '</div>' +
+      '<div class="aps-pool-toolbar">' +
+      '<input type="search" id="cgPoolSearch" class="aps-input aps-pool-search" placeholder="' + apsEscape(t('aps.pool_filter_search')) + '" />' +
+      '<select id="cgPoolCat" class="aps-select"><option value="">' + apsEscape(t('aps.pool_filter_all_cat')) + '</option></select>' +
+      '<span class="aps-pool-price-label">' + apsEscape(t('common.min')) + '</span>' +
+      '<input type="number" id="cgPoolPriceMin" class="aps-input aps-input--price" min="0" step="1" />' +
+      '<span class="aps-pool-price-label">' + apsEscape(t('common.max')) + '</span>' +
+      '<input type="number" id="cgPoolPriceMax" class="aps-input aps-input--price" min="0" step="1" />' +
+      '<button type="button" class="btn btn-secondary btn-sm" id="cgPoolRefreshEnrich">' + apsEscape(t('aps.pool_refresh_enrich')) + '</button>' +
+      '</div>' +
+      '<div id="cgPoolPaneNew" class="aps-pool-pane" data-pane="new">' +
+      '<p class="aps-upload-hint">' + apsEscape(t('aps.pool_upload_hint_link')) + '</p>' +
+      '<div class="aps-dropzone aps-dropzone--inline">' +
+      '<label class="aps-upload-btn">' +
+      '<input type="file" id="cgFileNew" class="sr-only" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />' +
+      '<i class="fas fa-cloud-arrow-up" aria-hidden="true"></i> ' + apsEscape(t('aps.upload_btn')) + ' · ' + apsEscape(t('aps.upload_new_title')) +
+      '</label>' +
+      '<div class="aps-upload-meta-row">' +
+      '<div id="cgNewMeta" class="aps-upload-meta">' + apsEscape(t('aps.upload_status_idle')) + '</div>' +
+      '<button type="button" id="cgClearNew" class="btn btn-secondary btn-xs aps-upload-clear aps-hide">' + apsEscape(t('aps.upload_remove')) + '</button></div></div>' +
+      '<div class="aps-table-scroll">' +
+      '<table class="aps-table aps-pool-table"><thead><tr>' +
+      '<th>' + apsEscape(t('aps.pool_col_img')) + '</th>' +
+      '<th>' + apsEscape(t('aps.col_name')) + '</th><th>' + apsEscape(t('aps.col_cat')) + '</th>' +
+      '<th>' + apsEscape(t('aps.col_price')) + '</th><th>' + apsEscape(t('aps.col_stock')) + '</th>' +
+      '<th>' + apsEscape(t('aps.range_field_ctr')) + '</th><th>' + apsEscape(t('aps.pool_col_atc')) + '</th><th>' + apsEscape(t('aps.range_field_cvr')) + '</th>' +
+      '<th>' + apsEscape(t('aps.pool_col_tags')) + '</th><th>' + apsEscape(t('aps.pool_col_status')) + '</th><th>' + apsEscape(t('aps.pool_col_link')) + '</th>' +
+      '</tr></thead><tbody id="cgPoolTbodyNew"><tr><td colspan="11" class="aps-pool-empty">' + apsEscape(t('aps.upload_status_idle')) + '</td></tr></tbody></table></div></div>' +
+      '<div id="cgPoolPaneBest" class="aps-pool-pane aps-hide" data-pane="best">' +
+      '<p class="aps-upload-hint">' + apsEscape(t('aps.pool_upload_hint_link')) + '</p>' +
+      '<div class="aps-dropzone aps-dropzone--inline">' +
+      '<label class="aps-upload-btn">' +
+      '<input type="file" id="cgFileBest" class="sr-only" accept=".csv,.xlsx,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />' +
+      '<i class="fas fa-cloud-arrow-up" aria-hidden="true"></i> ' + apsEscape(t('aps.upload_btn')) + ' · ' + apsEscape(t('aps.upload_best_title')) +
+      '</label>' +
+      '<div class="aps-upload-meta-row">' +
+      '<div id="cgBestMeta" class="aps-upload-meta">' + apsEscape(t('aps.upload_status_idle')) + '</div>' +
+      '<button type="button" id="cgClearBest" class="btn btn-secondary btn-xs aps-upload-clear aps-hide">' + apsEscape(t('aps.upload_remove')) + '</button></div></div>' +
+      '<div class="aps-table-scroll">' +
+      '<table class="aps-table aps-pool-table"><thead><tr>' +
+      '<th>' + apsEscape(t('aps.pool_col_img')) + '</th>' +
+      '<th>' + apsEscape(t('aps.col_name')) + '</th><th>' + apsEscape(t('aps.col_cat')) + '</th>' +
+      '<th>' + apsEscape(t('aps.col_price')) + '</th><th>' + apsEscape(t('aps.col_stock')) + '</th>' +
+      '<th>' + apsEscape(t('aps.pool_col_gmv')) + '</th>' +
+      '<th>' + apsEscape(t('aps.range_field_ctr')) + '</th><th>' + apsEscape(t('aps.pool_col_atc')) + '</th><th>' + apsEscape(t('aps.range_field_cvr')) + '</th>' +
+      '<th>' + apsEscape(t('aps.pool_col_level')) + '</th><th>' + apsEscape(t('aps.pool_col_link')) + '</th>' +
+      '</tr></thead><tbody id="cgPoolTbodyBest"><tr><td colspan="11" class="aps-pool-empty">' + apsEscape(t('aps.upload_status_idle')) + '</td></tr></tbody></table></div></div>' +
+      '</div></div></section></div></div>'
+    );
+  }
+
+  function renderLiveSettingsProductPacks() {
+    return (
+      '<div class="live-settings-detail-page live-settings-detail-page--packs">' +
+      '<div class="live-settings-detail-top">' +
+      '<a class="live-settings-back" href="#/live/settings"><i class="fas fa-arrow-left"></i><span>' +
+      t('live_settings.back') +
+      '</span></a></div>' +
+      '<div class="aps-packs-migrated">' +
+      '<h1 class="page-title">' +
+      lsEscHtml(t('live_settings.packs_title')) +
+      '</h1>' +
+      '<p class="aps-packs-migrated-desc">' +
+      lsEscHtml(t('aps.packs_migrated_hint')) +
+      '</p>' +
+      '<a class="btn btn-primary" href="#/live/products/operational">' +
+      lsEscHtml(t('lprod.card_ops_title')) +
+      '</a></div></div>'
+    );
+  }
+
+  function renderLiveSettingsPackDetail() {
+    return (
+      '<div class="live-settings-detail-page live-settings-detail-page--pack-detail">' +
+      '<div class="live-settings-detail-top">' +
+      '<a class="live-settings-back" href="#/live/products/operational"><i class="fas fa-arrow-left"></i><span>' +
+      lsEscHtml(t('lprod.back_ops_from_smart')) +
+      '</span></a></div>' +
+      '<div class="aps-pack-detail-empty" style="padding:24px 0">' +
+      '<p class="aps-pack-detail-empty-msg">' +
+      lsEscHtml(t('aps.pack_detail_not_found')) +
+      '</p>' +
+      '<a class="btn btn-primary" href="#/live/products/operational">' +
+      lsEscHtml(t('lprod.card_ops_title')) +
+      '</a></div></div>'
+    );
+  }
+
+  function bindLiveSettingsPackDetailEvents() {
+    var openEd = document.getElementById('apsPackOpenEditorBtn');
+    if (openEd) {
+      openEd.addEventListener('click', function () {
+        var pid = openEd.getAttribute('data-pack-id');
+        if (!pid) return;
+        try {
+          sessionStorage.setItem(APS_RESTORE_SESSION_KEY, JSON.stringify({ packId: pid }));
+        } catch (e) {}
+        window.location.hash = '#/live/products/smart-selection';
+      });
+    }
+    var selAll = document.getElementById('apsPackPidSelectAll');
+    var cbs = function () {
+      return document.querySelectorAll('.aps-pack-pid-cb');
+    };
+    if (selAll) {
+      selAll.addEventListener('change', function () {
+        var on = selAll.checked;
+        cbs().forEach(function (cb) {
+          cb.checked = on;
+        });
+      });
+    }
+    function gatherCheckedPids() {
+      var out = [];
+      cbs().forEach(function (cb) {
+        if (cb.checked) {
+          var p = cb.getAttribute('data-pid');
+          if (p) out.push(p);
+        }
+      });
+      return out;
+    }
+    function toastPidCopyResult(n, capped) {
+      var maxN = APS_PID_COPY_MAX;
+      if (capped) {
+        showToast(
+          String(t('aps.pack_detail_toast_capped'))
+            .replace(/\{\{n\}\}/g, String(n))
+            .replace(/\{\{max\}\}/g, String(maxN)),
+          'success'
+        );
+      } else {
+        showToast(String(t('aps.pack_detail_toast_copied')).replace(/\{\{n\}\}/g, String(n)), 'success');
+      }
+    }
+    var btnSel = document.getElementById('apsPackCopySelectedPid');
+    if (btnSel) {
+      btnSel.addEventListener('click', function () {
+        var list = gatherCheckedPids();
+        var cap = apsApplyPidCopyCap(list);
+        if (!cap.pids.length) {
+          showToast(t('aps.pack_detail_toast_none'), 'warn');
+          return;
+        }
+        var text = cap.pids.join('\n');
+        apsCopyPlainTextToClipboard(text)
+          .then(function () {
+            toastPidCopyResult(cap.pids.length, cap.capped);
+          })
+          .catch(function () {
+            showToast(t('aps.pack_detail_toast_none'), 'warn');
+          });
+      });
+    }
+  }
+
+  function bindLiveSettingsProductPacksEvents() {
+    document.querySelectorAll('.packs-delete-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pid = btn.getAttribute('data-pack-id');
+        if (!pid || !window.confirm(t('aps.pack_delete_confirm'))) return;
+        apsDeletePackById(pid);
+        var app = document.getElementById('app');
+        if (app) {
+          app.innerHTML = renderLiveSettingsProductPacks();
+          bindLiveSettingsProductPacksEvents();
+        }
+      });
+    });
+    document.querySelectorAll('.packs-open-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pid = btn.getAttribute('data-pack-id');
+        if (!pid) return;
+        window.location.hash = '#/live/settings/pack/' + encodeURIComponent(pid);
+      });
+    });
+    document.querySelectorAll('.packs-sync-tap-btn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var pid = btn.getAttribute('data-pack-id');
+        if (!pid) return;
+        if (!window.confirm(t('aps.pack_sync_tap_confirm'))) return;
+        if (apsMarkPackSyncedToTap(pid)) {
+          showToast(t('aps.pack_sync_tap_done'), 'success');
+          var appRoot = document.getElementById('app');
+          if (appRoot) {
+            appRoot.innerHTML = renderLiveSettingsProductPacks();
+            bindLiveSettingsProductPacksEvents();
+          }
+        }
+      });
+    });
+  }
+
   function renderLiveSettings() {
     return (
       '<div class="live-settings-page">' +
@@ -13135,6 +19500,14 @@
             '</div>' +
             '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
           '</a>' +
+          '<a class="live-settings-card" href="#/live/settings/product-cargo-pools">' +
+            '<div class="live-settings-card__icon"><i class="fas fa-database"></i></div>' +
+            '<div class="live-settings-card__content">' +
+              '<h2>' + t('live_settings.cargo_card_title') + '</h2>' +
+              '<p>' + t('live_settings.cargo_card_desc') + '</p>' +
+            '</div>' +
+            '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+          '</a>' +
           '<div class="live-settings-card live-settings-card--disabled">' +
             '<div class="live-settings-card__icon"><i class="fas fa-comments"></i></div>' +
             '<div class="live-settings-card__content">' +
@@ -13156,6 +19529,2648 @@
         '</div>' +
       '</div>'
     );
+  }
+
+  function renderLiveProductsHub() {
+    var libBadge = lsEscHtml(t('lprod.card_library_badge'));
+    return (
+      '<div class="live-prod-hub">' +
+      '<header class="live-prod-hub__hd">' +
+      '<h1 class="page-title">' +
+      lsEscHtml(t('lprod.hub_title')) +
+      '</h1>' +
+      '<p class="live-prod-hub__intro">' +
+      lsEscHtml(t('lprod.hub_intro')) +
+      '</p>' +
+      '</header>' +
+      '<div class="live-settings-grid live-prod-hub__grid">' +
+      '<div class="live-settings-card live-settings-card--disabled">' +
+      '<div class="live-settings-card__icon"><i class="fas fa-boxes-stacked"></i></div>' +
+      '<div class="live-settings-card__content">' +
+      '<h2>' +
+      lsEscHtml(t('lprod.card_library_title')) +
+      '</h2>' +
+      '<p>' +
+      lsEscHtml(t('lprod.card_library_desc')) +
+      '</p>' +
+      '<span class="live-settings-card__badge">' +
+      libBadge +
+      '</span>' +
+      '</div>' +
+      '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+      '</div>' +
+      '<a class="live-settings-card" href="#/live/products/operational">' +
+      '<div class="live-settings-card__icon"><i class="fas fa-database"></i></div>' +
+      '<div class="live-settings-card__content">' +
+      '<h2>' +
+      lsEscHtml(t('lprod.card_ops_title')) +
+      '</h2>' +
+      '<p>' +
+      lsEscHtml(t('lprod.card_ops_desc')) +
+      '</p>' +
+      '</div>' +
+      '<div class="live-settings-card__arrow"><i class="fas fa-chevron-right"></i></div>' +
+      '</a>' +
+      '</div></div>'
+    );
+  }
+
+  function renderLiveProductsOperational() {
+    function th(label, thClass) {
+      var tc = thClass ? ' class="' + lsEscHtml(thClass) + '"' : '';
+      return '<th' + tc + '>' + lsEscHtml(label) + '</th>';
+    }
+    function sortableTh(bucketKey, sortKey, labelKey, thClassExtra) {
+      var thComb =
+        'lp-ops-th-sortable' + (thClassExtra ? ' ' + String(thClassExtra).trim() : '');
+      return (
+        '<th class="' +
+        lsEscHtml(thComb) +
+        '" scope="col" data-lp-sort-th="' +
+        lsEscHtml(sortKey) +
+        '">' +
+        '<button type="button" class="lp-ops-th-sort" data-lp-sku-sort="' +
+        lsEscHtml(sortKey) +
+        '" data-lp-sku-sort-bucket="' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        '<span class="lp-ops-th-sort__text">' +
+        lsEscHtml(t(labelKey)) +
+        '</span>' +
+        '<span class="lp-ops-th-sort__icon" aria-hidden="true"><i class="fas fa-sort"></i></span>' +
+        '</button></th>'
+      );
+    }
+    function skuTheadForBucket(mainBucket) {
+      var showListing = mainBucket !== 'hotItems';
+      return (
+        '<thead><tr>' +
+        '<th class="lp-ops-th-check">' +
+        '<span class="sr-only">' +
+        lsEscHtml(t('lprod.col_select')) +
+        '</span>' +
+        '<input type="checkbox" class="lp-ops-check-all" data-lp-check-all="' +
+        lsEscHtml(mainBucket) +
+        '" aria-label="' +
+        apsEscape(t('lprod.select_page')) +
+        '" />' +
+        '</th>' +
+        th(t('lprod.col_product')) +
+        sortableTh(mainBucket, 'price', 'lprod.col_price_sale', 'lp-ops-th-num') +
+        th(t('lprod.col_variants')) +
+        th(t('lprod.col_shop')) +
+        (showListing ? th(t('lprod.col_listing')) : '') +
+        sortableTh(mainBucket, 'sess', 'lprod.col_sess', 'lp-ops-th-num') +
+        sortableTh(mainBucket, 'hosts', 'lprod.col_hosts', 'lp-ops-th-num') +
+        th(t('lprod.col_avg_impression'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_atc_co'), 'lp-ops-th-num') +
+        sortableTh(mainBucket, 'gmv', 'lprod.col_gmv30', 'lp-ops-th-num') +
+        th(t('lprod.col_uploader')) +
+        th(t('lprod.col_actions')) +
+        '</tr></thead>'
+      );
+    }
+    function newSkuStratSimilarThead() {
+      return (
+        '<thead><tr>' +
+        '<th class="lp-ops-th-check">' +
+        '<span class="sr-only">' +
+        lsEscHtml(t('lprod.col_select')) +
+        '</span>' +
+        '<input type="checkbox" class="lp-ops-check-all" data-lp-check-all="newItems" aria-label="' +
+        apsEscape(t('lprod.select_page')) +
+        '" />' +
+        '</th>' +
+        th(t('lprod.col_product')) +
+        th(t('lprod.col_price_sale'), 'lp-ops-th-num') +
+        th(t('lprod.col_similar_hot_ref')) +
+        th(t('lprod.col_variants')) +
+        th(t('lprod.col_shop')) +
+        th(t('lprod.col_listing')) +
+        th(t('lprod.col_sess'), 'lp-ops-th-num') +
+        th(t('lprod.col_hosts'), 'lp-ops-th-num') +
+        th(t('lprod.col_gmv30'), 'lp-ops-th-num') +
+        th(t('lprod.col_actions')) +
+        '</tr></thead>'
+      );
+    }
+    function newSkuStratMetricsThead() {
+      return (
+        '<thead><tr>' +
+        '<th class="lp-ops-th-check">' +
+        '<span class="sr-only">' +
+        lsEscHtml(t('lprod.col_select')) +
+        '</span>' +
+        '<input type="checkbox" class="lp-ops-check-all" data-lp-check-all="newItems" aria-label="' +
+        apsEscape(t('lprod.select_page')) +
+        '" />' +
+        '</th>' +
+        th(t('lprod.col_product')) +
+        th(t('lprod.col_price_sale'), 'lp-ops-th-num') +
+        th(t('lprod.col_variants')) +
+        th(t('lprod.col_shop')) +
+        th(t('lprod.col_listing')) +
+        th(t('lprod.col_sess'), 'lp-ops-th-num') +
+        th(t('lprod.col_hosts'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_impression'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_atc_co'), 'lp-ops-th-num') +
+        th(t('lprod.col_gmv30'), 'lp-ops-th-num') +
+        th(t('lprod.col_actions')) +
+        '</tr></thead>'
+      );
+    }
+    function hotSkuStratSimilarThead() {
+      return (
+        '<thead><tr>' +
+        '<th class="lp-ops-th-check">' +
+        '<span class="sr-only">' +
+        lsEscHtml(t('lprod.col_select')) +
+        '</span>' +
+        '<input type="checkbox" class="lp-ops-check-all" data-lp-check-all="hotItems" aria-label="' +
+        apsEscape(t('lprod.select_page')) +
+        '" />' +
+        '</th>' +
+        th(t('lprod.col_product')) +
+        th(t('lprod.col_price_sale'), 'lp-ops-th-num') +
+        th(t('lprod.col_similar_new_ref')) +
+        th(t('lprod.col_variants')) +
+        th(t('lprod.col_shop')) +
+        th(t('lprod.col_sess'), 'lp-ops-th-num') +
+        th(t('lprod.col_hosts'), 'lp-ops-th-num') +
+        th(t('lprod.col_gmv30'), 'lp-ops-th-num') +
+        th(t('lprod.col_actions')) +
+        '</tr></thead>'
+      );
+    }
+    function hotSkuStratScaleThead() {
+      return (
+        '<thead><tr>' +
+        '<th class="lp-ops-th-check">' +
+        '<span class="sr-only">' +
+        lsEscHtml(t('lprod.col_select')) +
+        '</span>' +
+        '<input type="checkbox" class="lp-ops-check-all" data-lp-check-all="hotItems" aria-label="' +
+        apsEscape(t('lprod.select_page')) +
+        '" />' +
+        '</th>' +
+        th(t('lprod.col_product')) +
+        th(t('lprod.col_price_sale'), 'lp-ops-th-num') +
+        th(t('lprod.col_variants')) +
+        th(t('lprod.col_shop')) +
+        th(t('lprod.col_sess'), 'lp-ops-th-num') +
+        th(t('lprod.col_hosts'), 'lp-ops-th-num') +
+        th(t('lprod.col_ctr'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_atc_co'), 'lp-ops-th-num') +
+        th(t('lprod.col_gmv30'), 'lp-ops-th-num') +
+        th(t('lprod.col_actions')) +
+        '</tr></thead>'
+      );
+    }
+    function lpOpsSkuToolbarBlock(bucketKey, uploadLabelKey, fileInputId) {
+      return (
+        '<div class="lp-ops-toolbar lp-ops-toolbar--sku">' +
+        '<div class="lp-ops-filter-section">' +
+        '<div class="lp-ops-filter-section-head">' +
+        lsEscHtml(t('lprod.filter_section_title')) +
+        '</div>' +
+        '<div class="lp-ops-filter-bar" data-lp-filter-bucket="' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        '<div class="lp-ops-filter-field lp-ops-filter-field--search">' +
+        '<label class="lp-ops-filter-label">' +
+        lsEscHtml(t('lprod.filter_keyword')) +
+        '</label>' +
+        '<input type="search" class="lp-ops-filter-input" data-lp-sku-filter="q" placeholder="' +
+        apsEscape(t('lprod.filter_keyword_ph')) +
+        '" autocomplete="off" />' +
+        '</div>' +
+        '<div class="lp-ops-filter-field lp-ops-filter-field--price-range">' +
+        '<label class="lp-ops-filter-label">' +
+        lsEscHtml(t('lprod.filter_price')) +
+        '</label>' +
+        '<div class="lp-ops-filter-range">' +
+        '<input type="number" class="lp-ops-filter-input lp-ops-filter-input--num" data-lp-sku-filter="priceMin" min="0" step="0.01" placeholder="' +
+        apsEscape(t('common.min')) +
+        '" />' +
+        '<span class="lp-ops-filter-range-sep" aria-hidden="true">' +
+        '–' +
+        '</span>' +
+        '<input type="number" class="lp-ops-filter-input lp-ops-filter-input--num" data-lp-sku-filter="priceMax" min="0" step="0.01" placeholder="' +
+        apsEscape(t('common.max')) +
+        '" />' +
+        '</div></div>' +
+        '<div class="lp-ops-filter-field">' +
+        '<label class="lp-ops-filter-label">' +
+        lsEscHtml(t('lprod.filter_min_sess')) +
+        '</label>' +
+        '<input type="number" class="lp-ops-filter-input lp-ops-filter-input--num" data-lp-sku-filter="minSess" min="0" step="1" placeholder="" />' +
+        '</div>' +
+        '<div class="lp-ops-filter-field">' +
+        '<label class="lp-ops-filter-label">' +
+        lsEscHtml(t('lprod.filter_min_gmv')) +
+        '</label>' +
+        '<input type="number" class="lp-ops-filter-input lp-ops-filter-input--num" data-lp-sku-filter="minGmv" min="0" step="1" placeholder="" />' +
+        '</div>' +
+        '<div class="lp-ops-filter-field lp-ops-filter-field--hosts">' +
+        '<label class="lp-ops-filter-label" for="lpHostSearch_' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        lsEscHtml(t('lprod.filter_hosts')) +
+        '</label>' +
+        '<div class="ms-wrap lp-ops-host-multi" data-lp-host-multi-bucket="' +
+        lsEscHtml(bucketKey) +
+        '" data-lp-host-multi-box tabindex="0" role="group" aria-label="' +
+        apsEscape(t('lprod.filter_hosts')) +
+        '" aria-expanded="false" aria-controls="lpHostDdList_' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        '<div class="ms-selected" data-lp-host-multi-tags aria-live="polite"></div>' +
+        '<input type="text" id="lpHostSearch_' +
+        lsEscHtml(bucketKey) +
+        '" class="ms-input" data-lp-host-multi-search autocomplete="off" aria-autocomplete="list" placeholder="' +
+        apsEscape(t('lprod.filter_hosts_search_ph')) +
+        '" />' +
+        '<button type="button" class="lp-ops-host-ms-clear" data-lp-host-multi-clear aria-label="' +
+        apsEscape(t('lprod.filter_hosts_clear_all')) +
+        '" title="' +
+        apsEscape(t('lprod.filter_hosts_clear_all')) +
+        '">' +
+        '<i class="fas fa-times-circle" aria-hidden="true"></i>' +
+        '</button>' +
+        '<div class="ms-dropdown ms-dropdown--hidden" data-lp-host-multi-dd="1">' +
+        '<div id="lpHostDdList_' +
+        lsEscHtml(bucketKey) +
+        '" class="lp-ops-host-ms-list" data-lp-host-multi-dd-inner="1" role="listbox"></div>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="lp-ops-filter-actions">' +
+        '<button type="button" class="btn btn-primary btn-sm lp-ops-filter-search" data-lp-sku-filter-search="' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        lsEscHtml(t('lprod.filter_search_btn')) +
+        '</button>' +
+        '<button type="button" class="btn btn-ghost btn-sm lp-ops-filter-reset" data-lp-sku-filter-reset="' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        lsEscHtml(t('lprod.filter_reset')) +
+        '</button>' +
+        '</div>' +
+        '</div>' +
+        '</div>' +
+        '<div class="lp-ops-toolbar__row lp-ops-toolbar__row--primary">' +
+        '<label class="btn btn-primary btn-sm lp-ops-file-btn">' +
+        '<i class="fas fa-file-excel" aria-hidden="true"></i> ' +
+        lsEscHtml(t(uploadLabelKey)) +
+        '<input type="file" id="' +
+        fileInputId +
+        '" class="sr-only" accept=".xlsx,.xls,.csv,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" />' +
+        '</label>' +
+        '<div class="lp-ops-toolbar__bulk">' +
+        '<span class="lp-ops-bulk-meta" data-lp-bulk-meta="' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        String(t('lprod.bulk_selected_meta')).replace(/\{\{n\}\}/g, '0').replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX)) +
+        '</span>' +
+        '<button type="button" class="btn btn-secondary btn-sm" data-lp-bulk-copy="' +
+        lsEscHtml(bucketKey) +
+        '" disabled>' +
+        '<i class="fas fa-copy" aria-hidden="true"></i> ' +
+        lsEscHtml(t('lprod.bulk_copy_pid')) +
+        '</button>' +
+        '</div></div></div>'
+      );
+    }
+    function lpOpsAbBulkToolbar(bucketKey) {
+      return (
+        '<div class="lp-ops-toolbar lp-ops-toolbar--ab-bulk">' +
+        '<div class="lp-ops-toolbar__bulk">' +
+        '<span class="lp-ops-bulk-meta" data-lp-ab-bulk-meta="' +
+        lsEscHtml(bucketKey) +
+        '">' +
+        String(t('lprod.ab_bulk_selected_meta'))
+          .replace(/\{\{n\}\}/g, '0')
+          .replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX)) +
+        '</span>' +
+        '<button type="button" class="btn btn-secondary btn-sm" data-lp-ab-bulk-remove="' +
+        lsEscHtml(bucketKey) +
+        '" disabled>' +
+        '<i class="fas fa-trash-alt" aria-hidden="true"></i> ' +
+        lsEscHtml(t('lprod.bulk_remove_selected')) +
+        '</button>' +
+        '</div></div>'
+      );
+    }
+    function abnormalTheadFor(bucketKey) {
+      return (
+        '<thead><tr>' +
+        '<th class="lp-ops-th-check">' +
+        '<span class="sr-only">' +
+        lsEscHtml(t('lprod.col_select')) +
+        '</span>' +
+        '<input type="checkbox" class="lp-ops-check-all-ab" data-lp-check-all-ab="' +
+        lsEscHtml(bucketKey) +
+        '" aria-label="' +
+        apsEscape(t('lprod.select_page')) +
+        '" />' +
+        '</th>' +
+        th(t('lprod.col_reason')) +
+        th(t('lprod.col_thumb')) +
+        th(t('lprod.col_name')) +
+        th(t('aps.col_pid')) +
+        th(t('lprod.col_shop')) +
+        th(t('lprod.col_sess')) +
+        th(t('lprod.col_uploader')) +
+        th(t('lprod.col_actions')) +
+        '</tr></thead>'
+      );
+    }
+    var abElimThead = abnormalTheadFor('eliminate');
+    var abExcThead = abnormalTheadFor('exclude');
+    var pagerFrag = function (idSuffix, bucket) {
+      return (
+        '<div class="lp-ops-pagination"' +
+          ' id="lpOpsPager' +
+          idSuffix +
+          '"' +
+          ' role="navigation"' +
+        ' aria-label="' +
+        apsEscape(t('lprod.pagination_label')) +
+        '">' +
+        '<div class="lp-ops-pagination__inner">' +
+        '<button type="button" class="btn btn-secondary btn-sm lp-ops-page-btn" data-lp-page-turn="prev" data-lp-page-bucket="' +
+        lsEscHtml(bucket) +
+        '">' +
+        '<i class="fas fa-chevron-left" aria-hidden="true"></i><span>' +
+        lsEscHtml(t('lprod.page_prev')) +
+        '</span></button>' +
+        '<span class="lp-ops-page-meta" data-lp-page-meta="' +
+        lsEscHtml(bucket) +
+        '"></span>' +
+        '<button type="button" class="btn btn-secondary btn-sm lp-ops-page-btn" data-lp-page-turn="next" data-lp-page-bucket="' +
+        lsEscHtml(bucket) +
+        '">' +
+        '<span>' +
+        lsEscHtml(t('lprod.page_next')) +
+        '</span><i class="fas fa-chevron-right" aria-hidden="true"></i></button>' +
+        '</div></div>'
+      );
+    };
+    return (
+      '<div class="live-prod-ops" id="liveProdOps">' +
+      '<div class="live-prod-ops__top">' +
+      '<a class="live-settings-back" href="#/live/products">' +
+      '<i class="fas fa-arrow-left"></i><span>' +
+      lsEscHtml(t('lprod.back_hub')) +
+      '</span></a>' +
+      '<div class="live-prod-ops__actions">' +
+      '<a class="btn btn-primary lp-ops-hub-cta lp-ops-hub-cta--featured" href="#/live/products/smart-selection">' +
+      '<span class="lp-ops-hub-cta__spark" aria-hidden="true"><i class="fas fa-wand-magic-sparkles"></i></span>' +
+      '<span class="lp-ops-hub-cta__copy">' +
+      '<span class="lp-ops-hub-cta__title">' +
+      lsEscHtml(t('lprod.open_smart_selection')) +
+      '</span>' +
+      '<span class="lp-ops-hub-cta__value">' +
+      lsEscHtml(t('lprod.open_smart_selection_sub')) +
+      '</span>' +
+      '</span></a>' +
+      '</div>' +
+      '</div>' +
+      '<header class="live-prod-ops__header">' +
+      '<h1 class="page-title live-prod-ops__title">' +
+      lsEscHtml(t('lprod.ops_title')) +
+      '</h1>' +
+      '<p class="live-prod-ops__lead">' +
+      lsEscHtml(t('lprod.ops_lead')) +
+      '</p>' +
+      '</header>' +
+      '<nav class="lp-ops-main-tabs lp-ops-tabs-segmented" role="tablist" aria-label="' +
+      lsEscHtml(t('lprod.tabs_nav_a11y')) +
+      '">' +
+      '<button type="button" class="lp-ops-main-tab lp-ops-main-tab--active" data-lp-main-tab="new" aria-selected="true">' +
+      lsEscHtml(t('lprod.tab_new')) +
+      '<span class="lp-ops-tab-count" data-lp-count-for="newItems">0</span></button>' +
+      '<button type="button" class="lp-ops-main-tab" data-lp-main-tab="hot" aria-selected="false">' +
+      lsEscHtml(t('lprod.tab_hot')) +
+      '<span class="lp-ops-tab-count" data-lp-count-for="hotItems">0</span></button>' +
+      '<button type="button" class="lp-ops-main-tab" data-lp-main-tab="collecting" aria-selected="false">' +
+      lsEscHtml(t('lprod.tab_collecting')) +
+      '<span class="lp-ops-tab-count" data-lp-count-for="collecting">0</span></button>' +
+      '<button type="button" class="lp-ops-main-tab" data-lp-main-tab="abnormal" aria-selected="false">' +
+      lsEscHtml(t('lprod.tab_abnormal')) +
+      '<span class="lp-ops-tab-count" data-lp-count-for="abnormal">0</span></button>' +
+      '</nav>' +
+
+      '<section class="lp-ops-main-pane" data-lp-pane="new">' +
+      '<div class="lp-ops-surface">' +
+      lpOpsSkuToolbarBlock('newItems', 'lprod.upload_excel_new', 'lpFileNew') +
+      '<nav class="lp-ops-subtabs lp-ops-tabs-segmented" role="tablist" aria-label="' +
+      lsEscHtml(t('lprod.tabs_new_strat_nav_a11y')) +
+      '">' +
+      '<button type="button" class="lp-ops-subtab lp-ops-subtab--active" data-lp-new-subtab="all" aria-selected="true">' +
+      lsEscHtml(t('lprod.sub_new_all')) +
+      '<span class="lp-ops-subtab-count" data-lp-new-strat-count="all">0</span></button>' +
+      '<button type="button" class="lp-ops-subtab" data-lp-new-subtab="similar_hot" aria-selected="false">' +
+      lsEscHtml(t('lprod.sub_new_similar')) +
+      '<span class="lp-ops-subtab-count" data-lp-new-strat-count="similar_hot">0</span></button>' +
+      '<button type="button" class="lp-ops-subtab" data-lp-new-subtab="high_potential" aria-selected="false">' +
+      lsEscHtml(t('lprod.sub_new_highpot')) +
+      '<span class="lp-ops-subtab-count" data-lp-new-strat-count="high_potential">0</span></button>' +
+      '<button type="button" class="lp-ops-subtab" data-lp-new-subtab="new_scale" aria-selected="false">' +
+      lsEscHtml(t('lprod.sub_new_scale')) +
+      '<span class="lp-ops-subtab-count" data-lp-new-strat-count="new_scale">0</span></button>' +
+      '</nav>' +
+      '<div class="lp-ops-new-strat-pane" data-lp-new-strat-pane="all">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--sku">' +
+      skuTheadForBucket('newItems') +
+      '<tbody id="lpOpsTbodyNew"></tbody></table></div>' +
+      pagerFrag('New', 'newItems') +
+      '</div>' +
+      '<div class="lp-ops-new-strat-pane lp-ops-hide" data-lp-new-strat-pane="similar_hot">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--new-strat">' +
+      newSkuStratSimilarThead() +
+      '<tbody id="lpOpsTbodyNewSimilar"></tbody></table></div>' +
+      pagerFrag('NewSim', 'newItemsSim') +
+      '</div>' +
+      '<div class="lp-ops-new-strat-pane lp-ops-hide" data-lp-new-strat-pane="high_potential">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--new-strat">' +
+      newSkuStratMetricsThead() +
+      '<tbody id="lpOpsTbodyNewHp"></tbody></table></div>' +
+      pagerFrag('NewHp', 'newItemsHp') +
+      '</div>' +
+      '<div class="lp-ops-new-strat-pane lp-ops-hide" data-lp-new-strat-pane="new_scale">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--new-strat">' +
+      newSkuStratMetricsThead() +
+      '<tbody id="lpOpsTbodyNewScale"></tbody></table></div>' +
+      pagerFrag('NewScale', 'newItemsScale') +
+      '</div>' +
+      '</div></section>' +
+
+      '<section class="lp-ops-main-pane lp-ops-hide" data-lp-pane="hot">' +
+      '<div class="lp-ops-surface">' +
+      lpOpsSkuToolbarBlock('hotItems', 'lprod.upload_excel_hot', 'lpFileHot') +
+      '<nav class="lp-ops-subtabs lp-ops-tabs-segmented" role="tablist" aria-label="' +
+      lsEscHtml(t('lprod.tabs_hot_strat_nav_a11y')) +
+      '">' +
+      '<button type="button" class="lp-ops-subtab lp-ops-subtab--active" data-lp-hot-subtab="all" aria-selected="true">' +
+      lsEscHtml(t('lprod.sub_hot_all')) +
+      '<span class="lp-ops-subtab-count" data-lp-hot-strat-count="all">0</span></button>' +
+      '<button type="button" class="lp-ops-subtab" data-lp-hot-subtab="similar_new_link" aria-selected="false">' +
+      lsEscHtml(t('lprod.sub_hot_similar_new')) +
+      '<span class="lp-ops-subtab-count" data-lp-hot-strat-count="similar_new_link">0</span></button>' +
+      '<button type="button" class="lp-ops-subtab" data-lp-hot-subtab="hot_scale" aria-selected="false">' +
+      lsEscHtml(t('lprod.sub_hot_scale')) +
+      '<span class="lp-ops-subtab-count" data-lp-hot-strat-count="hot_scale">0</span></button>' +
+      '</nav>' +
+      '<div class="lp-ops-hot-strat-pane" data-lp-hot-strat-pane="all">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--sku">' +
+      skuTheadForBucket('hotItems') +
+      '<tbody id="lpOpsTbodyHot"></tbody></table></div>' +
+      pagerFrag('Hot', 'hotItems') +
+      '</div>' +
+      '<div class="lp-ops-hot-strat-pane lp-ops-hide" data-lp-hot-strat-pane="similar_new_link">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--new-strat">' +
+      hotSkuStratSimilarThead() +
+      '<tbody id="lpOpsTbodyHotSimilar"></tbody></table></div>' +
+      pagerFrag('HotSim', 'hotItemsSim') +
+      '</div>' +
+      '<div class="lp-ops-hot-strat-pane lp-ops-hide" data-lp-hot-strat-pane="hot_scale">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--new-strat">' +
+      hotSkuStratScaleThead() +
+      '<tbody id="lpOpsTbodyHotScale"></tbody></table></div>' +
+      pagerFrag('HotScale', 'hotItemsScale') +
+      '</div>' +
+      '</div></section>' +
+
+      '<section class="lp-ops-main-pane lp-ops-hide" data-lp-pane="collecting">' +
+      '<div class="lp-ops-surface">' +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table lp-ops-table--collect">' +
+      '<thead><tr>' +
+      th(t('lprod.col_product')) +
+      th(t('lprod.col_target_pool')) +
+      th(t('lprod.col_collect_status')) +
+      th(t('lprod.col_actions')) +
+      '</tr></thead>' +
+      '<tbody id="lpOpsTbodyCollect"></tbody></table></div>' +
+      pagerFrag('Collect', 'collecting') +
+      '</div></section>' +
+
+      '<section class="lp-ops-main-pane lp-ops-hide" data-lp-pane="abnormal">' +
+      '<nav class="lp-ops-subtabs lp-ops-tabs-segmented" role="tablist" aria-label="' +
+      lsEscHtml(t('lprod.tabs_ab_nav_a11y')) +
+      '">' +
+      '<button type="button" class="lp-ops-subtab lp-ops-subtab--active" data-lp-ab-tab="elim" aria-selected="true">' +
+      lsEscHtml(t('lprod.sub_eliminate')) +
+      '<span class="lp-ops-subtab-count" data-lp-count-for="eliminate">0</span></button>' +
+      '<button type="button" class="lp-ops-subtab" data-lp-ab-tab="exc" aria-selected="false">' +
+      lsEscHtml(t('lprod.sub_exclude')) +
+      '<span class="lp-ops-subtab-count" data-lp-count-for="exclude">0</span></button>' +
+      '</nav>' +
+
+      '<div class="lp-ops-ab-pane" data-lp-ab-pane="elim">' +
+      '<div class="lp-ops-surface">' +
+      lpOpsAbBulkToolbar('eliminate') +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table">' +
+      abElimThead +
+      '<tbody id="lpOpsTbodyElim"></tbody></table></div>' +
+      pagerFrag('Elim', 'eliminate') +
+      '</div></div>' +
+
+      '<div class="lp-ops-ab-pane lp-ops-hide" data-lp-ab-pane="exc">' +
+      '<div class="lp-ops-surface">' +
+      lpOpsAbBulkToolbar('exclude') +
+      '<div class="lp-ops-table-wrap">' +
+      '<table class="aps-table lp-ops-table">' +
+      abExcThead +
+      '<tbody id="lpOpsTbodyExc"></tbody></table></div>' +
+      pagerFrag('Exc', 'exclude') +
+      '</div></div>' +
+
+      '</section></div>'
+    );
+  }
+
+  function bindLiveProductsOperationalEvents() {
+    var root = document.getElementById('liveProdOps');
+    if (!root) return;
+
+    window._lpOpsBindGen = (window._lpOpsBindGen || 0) + 1;
+    var lpBindGen = window._lpOpsBindGen;
+    if (!window._lpOpsCollectTimerById) window._lpOpsCollectTimerById = {};
+    Object.keys(window._lpOpsCollectTimerById).forEach(function (kid) {
+      clearTimeout(window._lpOpsCollectTimerById[kid]);
+      delete window._lpOpsCollectTimerById[kid];
+    });
+
+    var state = lprodLoadOps();
+    var demoInjected = lprodHydrateDemoIfEmptyInto(state);
+    var stratDemoMerged = lprodMergeStrategyDemonstrationSkusInto(state);
+    var demoSkuCapped = lprodCapDemoOperationalSkuBuckets(state, LPROD_OPS_DEMO_SKU_CAP);
+    var demoAbnormal = false;
+    if (!demoInjected) {
+      demoAbnormal = lprodHydrateDemoAbnormalIfBothPoolsEmptyInto(state);
+    }
+    var backfilled = lprodApplyOperationalSkuDisplayBackfill(state);
+    if (demoInjected || demoAbnormal || backfilled || stratDemoMerged || demoSkuCapped) {
+      lprodSaveOpsPayload(state);
+    }
+    var demoUser = (typeof currentUser !== 'undefined' && currentUser && currentUser.name) ? currentUser.name : 'Ops';
+
+    var pageByBucket = {
+      newItems: 1,
+      newItemsSim: 1,
+      newItemsHp: 1,
+      newItemsScale: 1,
+      hotItems: 1,
+      hotItemsSim: 1,
+      hotItemsScale: 1,
+      collecting: 1,
+      eliminate: 1,
+      exclude: 1
+    };
+
+    function lprodSkuFilterDefaults() {
+      return { q: '', priceMin: '', priceMax: '', minSess: '', minGmv: '', hostIds: [] };
+    }
+    var skuFilters = {
+      newItems: lprodSkuFilterDefaults(),
+      hotItems: lprodSkuFilterDefaults()
+    };
+    var skuSort = {
+      newItems: { key: '', dir: 'asc' },
+      hotItems: { key: '', dir: 'asc' }
+    };
+    var bulkSelByBucket = {
+      newItems: Object.create(null),
+      hotItems: Object.create(null),
+      eliminate: Object.create(null),
+      exclude: Object.create(null)
+    };
+
+    function lpOpsHostMultiHostsArr() {
+      return typeof apsHostsForSmartSelection === 'function' ? apsHostsForSmartSelection() : [];
+    }
+    function lpOpsHostMultiHostById(hostId) {
+      var hh = lpOpsHostMultiHostsArr();
+      for (var i = 0; i < hh.length; i++) {
+        if (hh[i].id === hostId) return hh[i];
+      }
+      return null;
+    }
+    function lpOpsHostMultiSyncUI(barEl, bucketKey) {
+      if (!barEl || (bucketKey !== 'newItems' && bucketKey !== 'hotItems') || !skuFilters[bucketKey]) return;
+      var wrap = barEl.querySelector('.lp-ops-host-multi[data-lp-host-multi-bucket="' + bucketKey + '"]');
+      if (!wrap) return;
+      var tagsEl = wrap.querySelector('[data-lp-host-multi-tags]');
+      var searchInp = wrap.querySelector('[data-lp-host-multi-search]');
+      var inner = wrap.querySelector('[data-lp-host-multi-dd-inner]');
+      if (!tagsEl || !inner) return;
+      var ids = skuFilters[bucketKey].hostIds || [];
+      tagsEl.innerHTML = ids
+        .map(function (hid) {
+          var hrow = lpOpsHostMultiHostById(hid);
+          var numId =
+            hrow && hrow.hostNumericId != null && String(hrow.hostNumericId).trim() !== ''
+              ? String(hrow.hostNumericId).trim()
+              : '';
+          var tagText =
+            hrow ? hrow.name + (numId ? ': ' + numId : '') : hid;
+          return (
+            '<span class="ms-tag">' +
+            lsEscHtml(tagText) +
+            '<i class="fas fa-times ms-tag-remove" role="button" tabindex="0" data-lp-host-multi-remove="' +
+            lsEscHtml(hid) +
+            '" aria-label="' +
+            apsEscape(String(t('lprod.filter_hosts_remove_chip')).replace(/\{\{name\}\}/g, tagText)) +
+            '"></i></span>'
+          );
+        })
+        .join('');
+      var q = searchInp ? String(searchInp.value).trim().toLowerCase() : '';
+      var selMap = Object.create(null);
+      ids.forEach(function (xid) {
+        selMap[xid] = true;
+      });
+      var hh2 = lpOpsHostMultiHostsArr();
+      var listHtml = hh2
+        .map(function (h) {
+          var blob =
+            ((h.name != null ? String(h.name) : '') + ' ' + (h.hostNumericId != null ? String(h.hostNumericId) : '')).trim().toLowerCase();
+          if (q && blob.indexOf(q) === -1) return '';
+          var on = !!selMap[h.id];
+          var numDisp =
+            h.hostNumericId != null && String(h.hostNumericId).trim() !== '' ? String(h.hostNumericId).trim() : '—';
+          return (
+            '<button type="button" role="option" class="lp-ops-host-dd-item' +
+            (on ? ' lp-ops-host-dd-item--selected' : '') +
+            '" data-lp-host-multi-pick="' +
+            lsEscHtml(h.id) +
+            '" aria-selected="' +
+            (on ? 'true' : 'false') +
+            '">' +
+            '<span class="lp-ops-host-dd-item__name">' +
+            lsEscHtml(h.name) +
+            '</span>' +
+            '<span class="lp-ops-host-dd-item__tail">' +
+            '<span class="lp-ops-host-dd-item__id">' +
+            lsEscHtml(numDisp) +
+            '</span>' +
+            (on ? '<i class="fas fa-check lp-ops-host-dd-item__chk" aria-hidden="true"></i>' : '') +
+            '</span></button>'
+          );
+        })
+        .join('');
+      inner.innerHTML =
+        listHtml ||
+        '<div class="ms-no-result" role="presentation">' +
+        lsEscHtml(t('lprod.filter_hosts_empty')) +
+        '</div>';
+      var clrBtn = wrap.querySelector('[data-lp-host-multi-clear]');
+      if (clrBtn) clrBtn.disabled = ids.length < 1;
+    }
+    function lpOpsHostMultiCloseDropdowns() {
+      root.querySelectorAll('.lp-ops-host-multi').forEach(function (w) {
+        var dd = w.querySelector('[data-lp-host-multi-dd]');
+        if (dd) {
+          dd.classList.add('ms-dropdown--hidden');
+        }
+        w.classList.remove('lp-ops-ms-dropdown-open');
+        if (w.hasAttribute('data-lp-host-multi-box')) {
+          w.setAttribute('aria-expanded', 'false');
+        }
+      });
+    }
+    function lpOpsHostMultiOpenDropdown(wrap) {
+      lpOpsHostMultiCloseDropdowns();
+      if (!wrap) return;
+      var bk = wrap.getAttribute('data-lp-host-multi-bucket') || '';
+      var dd = wrap.querySelector('[data-lp-host-multi-dd]');
+      var barEl = wrap.closest('.lp-ops-filter-bar');
+      lpOpsHostMultiSyncUI(barEl, bk);
+      if (dd) dd.classList.remove('ms-dropdown--hidden');
+      wrap.classList.add('lp-ops-ms-dropdown-open');
+      if (wrap.hasAttribute('data-lp-host-multi-box')) {
+        wrap.setAttribute('aria-expanded', 'true');
+      }
+      var inp = wrap.querySelector('[data-lp-host-multi-search]');
+      if (inp && document.activeElement !== inp) setTimeout(function () { inp.focus(); }, 0);
+    }
+
+    function lpOpsEmptyRow(colspan, titleKey, hintKey) {
+      return (
+        '<tr><td colspan="' +
+        colspan +
+        '" class="lp-ops-empty-cell">' +
+        '<div class="lp-ops-empty" role="status">' +
+        '<div class="lp-ops-empty__icon" aria-hidden="true"><i class="fas fa-inbox"></i></div>' +
+        '<p class="lp-ops-empty__title">' +
+        lsEscHtml(t(titleKey)) +
+        '</p>' +
+        '<p class="lp-ops-empty__hint">' +
+        lsEscHtml(t(hintKey)) +
+        '</p>' +
+        '</div></td></tr>'
+      );
+    }
+
+    function shopCell(row) {
+      var sn = row.shopName || '—';
+      var sr = row.shopRating != null && row.shopRating !== '' ? row.shopRating : '—';
+      return lsEscHtml(sn) + '<div class="lp-ops-submuted">' + lsEscHtml(String(sr)) + '</div>';
+    }
+
+    function lpOpsFmtUploadedAt(raw) {
+      if (raw == null || raw === '') return '—';
+      var s = String(raw).trim();
+      var d = new Date(s);
+      if (!isNaN(d.getTime())) {
+        try {
+          return d.toLocaleString(typeof getLang === 'function' && getLang() === 'zh' ? 'zh-CN' : 'en-US', {
+            year: 'numeric',
+            month: '2-digit',
+            day: '2-digit',
+            hour: '2-digit',
+            minute: '2-digit'
+          });
+        } catch (err) {}
+      }
+      return s.length > 24 ? s.slice(0, 24) + '…' : s;
+    }
+
+    function uploadCell(row) {
+      var u = row.uploader || '—';
+      var atDisp = row.uploadedAt ? lpOpsFmtUploadedAt(row.uploadedAt) : '—';
+      return (
+        lsEscHtml(u) +
+        '<div class="lp-ops-submuted lp-ops-upload-at">' +
+        lsEscHtml(atDisp) +
+        '</div>'
+      );
+    }
+
+    function thumbCell(row) {
+      if (row.image && /^https?:\/\//i.test(row.image)) {
+        return (
+          '<img class="lp-ops-thumb-img" src="' +
+          lsEscHtml(row.image) +
+          '" alt="" loading="lazy" />'
+        );
+      }
+      return '<div class="lp-ops-thumb-ph" aria-hidden="true"><i class="fas fa-image"></i></div>';
+    }
+
+    function skuMainThumb(row) {
+      if (row.image && /^https?:\/\//i.test(row.image)) {
+        return (
+          '<img class="lp-ops-p-mainimg" src="' +
+          lsEscHtml(row.image) +
+          '" alt="" loading="lazy" />'
+        );
+      }
+      return '<div class="lp-ops-p-mainph" aria-hidden="true"><i class="fas fa-image"></i></div>';
+    }
+
+    function skuProductCell(row) {
+      var title = '<div class="lp-ops-p-title">' + lsEscHtml(row.title || '—') + '</div>';
+      var prRaw =
+        row.productRating != null && String(row.productRating).trim() !== ''
+          ? row.productRating
+          : row.product_rating;
+      var prDisp =
+        prRaw != null && String(prRaw).trim() !== '' ? String(prRaw).trim() : '—';
+      var ratingRow =
+        '<div class="lp-ops-p-rating">' +
+        '<span class="lp-ops-p-rating__lbl">' +
+        lsEscHtml(t('lprod.col_product_rating')) +
+        '</span>' +
+        '<span class="lp-ops-p-rating__val">' +
+        lsEscHtml(prDisp) +
+        '</span>' +
+        '</div>';
+      var desc = '';
+      var dtxt = row.description ? String(row.description).trim() : '';
+      var link = row.productLink ? String(row.productLink).trim() : '';
+      if (dtxt && !lprodSkuDescriptionIsPoolOrSystemHint(dtxt)) {
+        if (link && /^https?:\/\//i.test(link)) {
+          desc =
+            '<a class="lp-ops-p-desc lp-ops-p-desc--link" href="' +
+            lsEscHtml(link) +
+            '" target="_blank" rel="noopener noreferrer">' +
+            lsEscHtml(dtxt) +
+            '</a>';
+        } else {
+          desc = '<div class="lp-ops-p-desc">' + lsEscHtml(dtxt) + '</div>';
+        }
+      }
+      var idRow = '';
+      if (row.pid) {
+        idRow =
+          '<div class="lp-ops-p-idrow"><span class="lp-ops-id-pill">' +
+          lsEscHtml(String(row.pid)) +
+          '</span></div>';
+      }
+      return (
+        '<div class="lp-ops-p-stack">' +
+        '<div class="lp-ops-p-thumb">' +
+        skuMainThumb(row) +
+        '</div>' +
+        '<div class="lp-ops-p-body">' +
+        title +
+        ratingRow +
+        desc +
+        idRow +
+        '</div></div>'
+      );
+    }
+
+    function skuPriceCell(row) {
+      var raw = row.salePrice != null ? String(row.salePrice).trim() : '';
+      if (!raw) {
+        return '<div class="lp-ops-price-cell"><span class="lp-ops-dash">—</span></div>';
+      }
+      var n = parseFloat(raw.replace(/,/g, ''));
+      var lbl = lsEscHtml(t('lprod.sale_price_label'));
+      var line =
+        lbl +
+        ' $' +
+        (!isNaN(n) ? n.toFixed(2) : lsEscHtml(raw));
+      return '<div class="lp-ops-price-cell"><span class="lp-ops-price-line">' + line + '</span></div>';
+    }
+
+    function skuVariantImageList(row) {
+      if (Array.isArray(row.variantImages)) {
+        return row.variantImages
+          .map(function (u) {
+            return String(u || '').trim();
+          })
+          .filter(Boolean);
+      }
+      if (typeof row.variantImages === 'string') {
+        return lprodSplitHttpsUrls(row.variantImages);
+      }
+      return [];
+    }
+
+    function skuVariantsCell(row) {
+      var imgs = skuVariantImageList(row);
+      var grid = '';
+      if (imgs.length) {
+        grid =
+          '<div class="lp-ops-variant-grid">' +
+          imgs
+            .slice(0, 40)
+            .map(function (u) {
+              return (
+                '<span class="lp-ops-variant-item"><img src="' +
+                lsEscHtml(u) +
+                '" class="lp-ops-variant-img" loading="lazy" alt="" /></span>'
+              );
+            })
+            .join('') +
+          '</div>';
+      }
+      var st = row.variantSizesDisplay != null ? String(row.variantSizesDisplay).trim() : '';
+      var sizesHtml = st ? '<div class="lp-ops-variant-sizes">' + lsEscHtml(st) + '</div>' : '';
+      var empty = !grid && !sizesHtml;
+      return (
+        '<div class="lp-ops-variants-cell">' +
+        grid +
+        sizesHtml +
+        (empty ? '<span class="lp-ops-dash">—</span>' : '') +
+        '</div>'
+      );
+    }
+
+    function lpOpsParseSalePriceN(row) {
+      var raw = row.salePrice != null ? String(row.salePrice).trim() : '';
+      if (!raw) return NaN;
+      var n = parseFloat(raw.replace(/,/g, ''));
+      return isNaN(n) ? NaN : n;
+    }
+
+    function lpOpsParseSessionsN(row) {
+      var s = row.liveSessionCount != null ? String(row.liveSessionCount).trim() : '';
+      if (!s || s === '—') return NaN;
+      var n = parseInt(s, 10);
+      return isNaN(n) ? NaN : n;
+    }
+
+    function lpOpsParseGmvN(row) {
+      var s = row.gmv30d != null ? String(row.gmv30d).trim() : '';
+      if (!s || s === '—') return NaN;
+      var n = parseFloat(s.replace(/[$,\s]/g, ''));
+      return isNaN(n) ? NaN : n;
+    }
+
+    function lpOpsParseHostsN(row) {
+      var s = row.liveStreamerCount != null ? String(row.liveStreamerCount).trim() : '';
+      if (!s || s === '—') return NaN;
+      var n = parseInt(s, 10);
+      return isNaN(n) ? NaN : n;
+    }
+
+    function lpOpsFormatRollupImpressions(n) {
+      if (n == null || isNaN(n)) return '—';
+      var v = Number(n);
+      if (v >= 1000) {
+        var k = v / 1000;
+        var s = k >= 10 ? String(Math.round(k)) : k.toFixed(1).replace(/\.0$/, '');
+        return s + 'k';
+      }
+      return String(Math.round(v));
+    }
+
+    function compareSkuSortable(a, b, dir) {
+      var aNaN = isNaN(a);
+      var bNaN = isNaN(b);
+      if (aNaN && bNaN) return 0;
+      if (aNaN) return 1;
+      if (bNaN) return -1;
+      if (a < b) return dir === 'asc' ? -1 : 1;
+      if (a > b) return dir === 'asc' ? 1 : -1;
+      return 0;
+    }
+
+    function sortSkuFilteredRows(rows, bucketKey) {
+      var cfg = skuSort[bucketKey];
+      if (!cfg || !cfg.key) return rows.slice();
+      var dir = cfg.dir === 'desc' ? 'desc' : 'asc';
+      var getter;
+      if (cfg.key === 'price') getter = lpOpsParseSalePriceN;
+      else if (cfg.key === 'sess') getter = lpOpsParseSessionsN;
+      else if (cfg.key === 'hosts') getter = lpOpsParseHostsN;
+      else if (cfg.key === 'gmv') getter = lpOpsParseGmvN;
+      else return rows.slice();
+      var out = rows.slice();
+      out.sort(function (ra, rb) {
+        return compareSkuSortable(getter(ra), getter(rb), dir);
+      });
+      return out;
+    }
+
+    function syncSkuSortUi() {
+      var sortLabelKey = {
+        price: 'lprod.col_price_sale',
+        sess: 'lprod.col_sess',
+        hosts: 'lprod.col_hosts',
+        gmv: 'lprod.col_gmv30'
+      };
+      function paintSortForTable(table, bk) {
+        if (!table) return;
+        var cfg = skuSort[bk];
+        table.querySelectorAll('.lp-ops-th-sortable').forEach(function (thEl) {
+          var sk = thEl.getAttribute('data-lp-sort-th') || '';
+          var btn = thEl.querySelector('.lp-ops-th-sort');
+          var icon = thEl.querySelector('.lp-ops-th-sort__icon i');
+          if (!btn) return;
+          thEl.removeAttribute('aria-sort');
+          btn.classList.remove('lp-ops-th-sort--asc', 'lp-ops-th-sort--desc');
+          if (icon) icon.className = 'fas fa-sort';
+          if (cfg.key === sk) {
+            thEl.setAttribute('aria-sort', cfg.dir === 'asc' ? 'ascending' : 'descending');
+            btn.classList.add(cfg.dir === 'asc' ? 'lp-ops-th-sort--asc' : 'lp-ops-th-sort--desc');
+            if (icon) icon.className = 'fas fa-sort-' + (cfg.dir === 'asc' ? 'up' : 'down');
+            var colLbl = t(sortLabelKey[sk] || 'lprod.col_product');
+            var dirLbl = t(cfg.dir === 'asc' ? 'lprod.sort_dir_asc' : 'lprod.sort_dir_desc');
+            btn.setAttribute(
+              'aria-label',
+              String(t('lprod.sort_aria')).replace(/\{\{col\}\}/g, colLbl).replace(/\{\{dir\}\}/g, dirLbl)
+            );
+          } else {
+            var colIdle = t(sortLabelKey[sk] || 'lprod.col_product');
+            btn.setAttribute('aria-label', String(t('lprod.sort_aria_idle')).replace(/\{\{col\}\}/g, colIdle));
+          }
+        });
+      }
+      var newAll = root.querySelector(
+        '.lp-ops-new-strat-pane[data-lp-new-strat-pane="all"] table.lp-ops-table--sku'
+      );
+      paintSortForTable(newAll, 'newItems');
+      var hotSub = root.dataset.lpHotStratTab || 'all';
+      var hotT = root.querySelector(
+        '.lp-ops-hot-strat-pane[data-lp-hot-strat-pane="' + hotSub + '"] table.lp-ops-table--sku'
+      );
+      paintSortForTable(hotT, 'hotItems');
+    }
+
+    function applySkuFilters(rows, f) {
+      if (!f) return rows || [];
+      var q = (f.q && String(f.q).trim().toLowerCase()) || '';
+      return (rows || []).filter(function (row) {
+        if (q) {
+          var blob = [row.title, row.pid, row.shopName, row.description, row.productLink]
+            .map(function (x) {
+              return x != null ? String(x).toLowerCase() : '';
+            })
+            .join(' ');
+          if (blob.indexOf(q) === -1) return false;
+        }
+        var pm = f.priceMin != null ? String(f.priceMin).trim() : '';
+        var px = f.priceMax != null ? String(f.priceMax).trim() : '';
+        var pLo = pm === '' ? NaN : parseFloat(pm);
+        var pHi = px === '' ? NaN : parseFloat(px);
+        var hasLo = !isNaN(pLo);
+        var hasHi = !isNaN(pHi);
+        if (hasLo || hasHi) {
+          var sale = lpOpsParseSalePriceN(row);
+          if (isNaN(sale)) return false;
+          if (hasLo && hasHi && pLo > pHi) {
+            var tmp = pLo;
+            pLo = pHi;
+            pHi = tmp;
+          }
+          if (hasLo && sale < pLo) return false;
+          if (hasHi && sale > pHi) return false;
+        }
+        var minSessStr = f.minSess != null ? String(f.minSess).trim() : '';
+        if (minSessStr !== '') {
+          var minS = parseInt(minSessStr, 10);
+          if (!isNaN(minS) && minS > 0) {
+            var sess = lpOpsParseSessionsN(row);
+            if (isNaN(sess) || sess < minS) return false;
+          }
+        }
+        var minGmvStr = f.minGmv != null ? String(f.minGmv).trim() : '';
+        if (minGmvStr !== '') {
+          var minG = parseFloat(minGmvStr);
+          if (!isNaN(minG) && minG > 0) {
+            var gv = lpOpsParseGmvN(row);
+            if (isNaN(gv) || gv < minG) return false;
+          }
+        }
+        var hostSelRaw = Array.isArray(f.hostIds)
+          ? f.hostIds.filter(function (x) {
+              return x != null && String(x).trim() !== '';
+            })
+          : [];
+        if (hostSelRaw.length) {
+          var unionPid = {};
+          var hostFilterTight = false;
+          var hix;
+          for (hix = 0; hix < hostSelRaw.length; hix++) {
+            var pmapH = apsTenantSamplePidNormMapForSmartHostId(hostSelRaw[hix]);
+            if (!pmapH) continue;
+            hostFilterTight = true;
+            Object.keys(pmapH).forEach(function (kk) {
+              unionPid[kk] = true;
+            });
+          }
+          if (hostFilterTight) {
+            var rk = String(row.pid || '').trim().toLowerCase();
+            if (!rk || !unionPid[rk]) return false;
+          }
+        }
+        return true;
+      });
+    }
+
+    function lpOpsNewStratCtx() {
+      var hosts = typeof apsHostsForSmartSelection === 'function' ? apsHostsForSmartSelection() : [];
+      var host0 = hosts[0] || { id: 'demo', name: '', tags: [] };
+      var strat0 =
+        typeof apsLoadStrategyProfile === 'function'
+          ? apsLoadStrategyProfile()
+          : Object.assign({}, APS_STRATEGY_DEFAULTS);
+      var opposing0 = (state.hotItems || []).map(function (hr, hi) {
+        return lprodOpsRowToApsPoolRow(hr, 'best', hi);
+      });
+      return { host: host0, strat: strat0, opposing: opposing0 };
+    }
+
+    function lpOpsHotStratCtx() {
+      var hostsH = typeof apsHostsForSmartSelection === 'function' ? apsHostsForSmartSelection() : [];
+      var hostH = hostsH[0] || { id: 'demo', name: '', tags: [] };
+      var stratH =
+        typeof apsLoadStrategyProfile === 'function'
+          ? apsLoadStrategyProfile()
+          : Object.assign({}, APS_STRATEGY_DEFAULTS);
+      var opposingNew = (state.newItems || []).map(function (nr, ni) {
+        return lprodOpsRowToApsPoolRow(nr, 'new', ni);
+      });
+      return { host: hostH, strat: stratH, opposing: opposingNew };
+    }
+
+    function lpOpsNewRowIndex(row) {
+      var ix = (state.newItems || []).indexOf(row);
+      return ix < 0 ? 0 : ix;
+    }
+
+    function lpOpsHotRowIndex(row) {
+      var ixH = (state.hotItems || []).indexOf(row);
+      return ixH < 0 ? 0 : ixH;
+    }
+
+    function skuOpsAvgMetricsTds(row, bucketKey) {
+      var poolKind = bucketKey === 'hotItems' ? 'best' : 'new';
+      var ixM = bucketKey === 'hotItems' ? lpOpsHotRowIndex(row) : lpOpsNewRowIndex(row);
+      var rApsM = lprodOpsRowToApsPoolRow(row, poolKind, ixM);
+      var rollM = apsPseudoRollup(rApsM.pid);
+      var atcPctM = (parseFloat(rApsM.atc) || 0).toFixed(1);
+      var coPctM = (parseFloat(rApsM.cvr) || 0).toFixed(1);
+      var impStrM = lpOpsFormatRollupImpressions(rollM.impressions);
+      return (
+        '<td class="lp-ops-td-muted lp-ops-td-num">' +
+        lsEscHtml(impStrM) +
+        '</td>' +
+        '<td class="lp-ops-td-muted lp-ops-td-num"><div class="lp-ops-metric-split"><span>ATC ' +
+        lsEscHtml(atcPctM) +
+        '%</span><span>CO ' +
+        lsEscHtml(coPctM) +
+        '%</span></div></td>'
+      );
+    }
+
+    /**
+     * 演示行 id：策略命中依赖 localStorage 中的「相似」开关及标题相似算法；勾选关闭或阈值/对池不匹配时会算不出命中。
+     * 仍纳入当前筛选的前提下，放行固定演示 id，便于本地预览不致整表为零。
+     */
+    function lpOpsDemoSkuStratBypass(row, wantHitKey) {
+      if (!row || row.id == null) return false;
+      var sid = String(row.id);
+      if (wantHitKey === 'similar_hot' && /^demo_strat_simhot_\d+$/.test(sid)) return true;
+      if (wantHitKey === 'similar_new_link' && /^demo_strat_hot_like_new_/.test(sid)) return true;
+      return false;
+    }
+
+    function lprodListForBucket(bucketKey) {
+      if (bucketKey === 'newItemsSim' || bucketKey === 'newItemsHp' || bucketKey === 'newItemsScale') {
+        var base = sortSkuFilteredRows(
+          applySkuFilters(state.newItems || [], skuFilters.newItems),
+          'newItems'
+        );
+        var ctx = lpOpsNewStratCtx();
+        var want =
+          bucketKey === 'newItemsSim'
+            ? 'similar_hot'
+            : bucketKey === 'newItemsHp'
+              ? 'high_potential'
+              : 'new_scale';
+        return base.filter(function (row) {
+          if (lpOpsDemoSkuStratBypass(row, want)) return true;
+          var ix = lpOpsNewRowIndex(row);
+          var rAps = lprodOpsRowToApsPoolRow(row, 'new', ix);
+          var hits = apsStrategyHitsForRow(rAps, 'new', ctx.host, ctx.strat, ctx.opposing).hitKeys;
+          return hits.indexOf(want) >= 0;
+        });
+      }
+      if (bucketKey === 'hotItemsSim' || bucketKey === 'hotItemsScale') {
+        var baseH = sortSkuFilteredRows(
+          applySkuFilters(state.hotItems || [], skuFilters.hotItems),
+          'hotItems'
+        );
+        var ctxH = lpOpsHotStratCtx();
+        var wantH = bucketKey === 'hotItemsSim' ? 'similar_new_link' : 'hot_scale';
+        return baseH.filter(function (row) {
+          if (lpOpsDemoSkuStratBypass(row, wantH)) return true;
+          var ixh = lpOpsHotRowIndex(row);
+          var rApsH = lprodOpsRowToApsPoolRow(row, 'best', ixh);
+          var hitsH = apsStrategyHitsForRow(rApsH, 'best', ctxH.host, ctxH.strat, ctxH.opposing).hitKeys;
+          return hitsH.indexOf(wantH) >= 0;
+        });
+      }
+      var raw = state[bucketKey] || [];
+      if (bucketKey === 'newItems' || bucketKey === 'hotItems') {
+        return sortSkuFilteredRows(applySkuFilters(raw, skuFilters[bucketKey]), bucketKey);
+      }
+      return raw;
+    }
+
+    function pruneBulkSelections(bucketKey) {
+      if (bucketKey === 'newItems' || bucketKey === 'hotItems') {
+        var valid = Object.create(null);
+        (state[bucketKey] || []).forEach(function (r) {
+          if (r && r.pid != null && String(r.pid).trim()) valid[String(r.pid).trim()] = true;
+        });
+        var sel = bulkSelByBucket[bucketKey];
+        Object.keys(sel).forEach(function (p) {
+          if (!valid[p]) delete sel[p];
+        });
+        return;
+      }
+      if (bucketKey === 'eliminate' || bucketKey === 'exclude') {
+        var validId = Object.create(null);
+        (state[bucketKey] || []).forEach(function (r) {
+          if (r && r.id != null && String(r.id).trim()) validId[String(r.id).trim()] = true;
+        });
+        var selAb = bulkSelByBucket[bucketKey];
+        Object.keys(selAb).forEach(function (id) {
+          if (!validId[id]) delete selAb[id];
+        });
+      }
+    }
+
+    function updateBulkCopyBar(bucketKey) {
+      if (bucketKey !== 'newItems' && bucketKey !== 'hotItems') return;
+      var n = Object.keys(bulkSelByBucket[bucketKey]).length;
+      var meta = root.querySelector('[data-lp-bulk-meta="' + bucketKey + '"]');
+      var btn = root.querySelector('[data-lp-bulk-copy="' + bucketKey + '"]');
+      if (meta) {
+        meta.textContent = String(t('lprod.bulk_selected_meta'))
+          .replace(/\{\{n\}\}/g, String(n))
+          .replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX));
+      }
+      if (btn) btn.disabled = n < 1;
+    }
+
+    function updateAbBulkBar(bucketKey) {
+      if (bucketKey !== 'eliminate' && bucketKey !== 'exclude') return;
+      var nAb = Object.keys(bulkSelByBucket[bucketKey]).length;
+      var metaAb = root.querySelector('[data-lp-ab-bulk-meta="' + bucketKey + '"]');
+      var btnAb = root.querySelector('[data-lp-ab-bulk-remove="' + bucketKey + '"]');
+      if (metaAb) {
+        metaAb.textContent = String(t('lprod.ab_bulk_selected_meta'))
+          .replace(/\{\{n\}\}/g, String(nAb))
+          .replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX));
+      }
+      if (btnAb) btnAb.disabled = nAb < 1;
+    }
+
+    function readSkuFiltersFromDom(bucketKey) {
+      var bar = root.querySelector('.lp-ops-filter-bar[data-lp-filter-bucket="' + bucketKey + '"]');
+      if (!bar) return;
+      var f = skuFilters[bucketKey];
+      var iq = bar.querySelector('[data-lp-sku-filter="q"]');
+      var ipLo = bar.querySelector('[data-lp-sku-filter="priceMin"]');
+      var ipHi = bar.querySelector('[data-lp-sku-filter="priceMax"]');
+      var isess = bar.querySelector('[data-lp-sku-filter="minSess"]');
+      var igmv = bar.querySelector('[data-lp-sku-filter="minGmv"]');
+      if (iq) f.q = iq.value;
+      if (ipLo) f.priceMin = ipLo.value;
+      if (ipHi) f.priceMax = ipHi.value;
+      if (isess) f.minSess = isess.value;
+      if (igmv) f.minGmv = igmv.value;
+    }
+
+    function applySkuFiltersForBucket(bkF) {
+      if (bkF !== 'newItems' && bkF !== 'hotItems') return;
+      readSkuFiltersFromDom(bkF);
+      pageByBucket[bkF] = 1;
+      if (bkF === 'newItems') {
+        pageByBucket.newItemsSim = 1;
+        pageByBucket.newItemsHp = 1;
+        pageByBucket.newItemsScale = 1;
+      } else if (bkF === 'hotItems') {
+        pageByBucket.hotItemsSim = 1;
+        pageByBucket.hotItemsScale = 1;
+      }
+      refreshTables();
+    }
+
+    function syncSkuCheckAll(bucketKey) {
+      if (bucketKey !== 'newItems' && bucketKey !== 'hotItems') return;
+      var table;
+      if (bucketKey === 'newItems') {
+        var sub = root.dataset.lpNewStratTab || 'all';
+        table = root.querySelector(
+          '.lp-ops-new-strat-pane[data-lp-new-strat-pane="' + sub + '"] table.lp-ops-table'
+        );
+      } else {
+        var subH = root.dataset.lpHotStratTab || 'all';
+        table = root.querySelector(
+          '.lp-ops-hot-strat-pane[data-lp-hot-strat-pane="' + subH + '"] table.lp-ops-table'
+        );
+      }
+      if (!table) return;
+      var master = table.querySelector('thead [data-lp-check-all]');
+      if (!master) return;
+      var sliceKey = bucketKey;
+      if (bucketKey === 'newItems') {
+        if (sub === 'similar_hot') sliceKey = 'newItemsSim';
+        else if (sub === 'high_potential') sliceKey = 'newItemsHp';
+        else if (sub === 'new_scale') sliceKey = 'newItemsScale';
+        else sliceKey = 'newItems';
+      } else if (bucketKey === 'hotItems') {
+        if (subH === 'similar_new_link') sliceKey = 'hotItemsSim';
+        else if (subH === 'hot_scale') sliceKey = 'hotItemsScale';
+        else sliceKey = 'hotItems';
+      }
+      var pageRows = lpOpsSliceFor(sliceKey);
+      var pids = [];
+      pageRows.forEach(function (row) {
+        if (row.pid != null && String(row.pid).trim()) pids.push(String(row.pid).trim());
+      });
+      var sel = bulkSelByBucket[bucketKey];
+      var hit = 0;
+      var i;
+      for (i = 0; i < pids.length; i++) {
+        if (sel[pids[i]]) hit++;
+      }
+      master.checked = pids.length > 0 && hit === pids.length;
+      master.indeterminate = hit > 0 && hit < pids.length;
+    }
+
+    function syncAbCheckAll(bucketKey) {
+      if (bucketKey !== 'eliminate' && bucketKey !== 'exclude') return;
+      var tbodyAb =
+        bucketKey === 'eliminate'
+          ? document.getElementById('lpOpsTbodyElim')
+          : document.getElementById('lpOpsTbodyExc');
+      if (!tbodyAb) return;
+      var tableAb = tbodyAb.closest('table');
+      if (!tableAb) return;
+      var masterAb = tableAb.querySelector('[data-lp-check-all-ab]');
+      if (!masterAb) return;
+      var pageRowsAb = lpOpsSliceFor(bucketKey);
+      var selAb = bulkSelByBucket[bucketKey];
+      var hitAb = 0;
+      var totalAb = 0;
+      var ia;
+      for (ia = 0; ia < pageRowsAb.length; ia++) {
+        var rab = pageRowsAb[ia];
+        var ida = rab && rab.id != null ? String(rab.id).trim() : '';
+        if (!ida) continue;
+        totalAb++;
+        if (selAb[ida]) hitAb++;
+      }
+      masterAb.checked = totalAb > 0 && hitAb === totalAb;
+      masterAb.indeterminate = hitAb > 0 && hitAb < totalAb;
+    }
+
+    function paintSkuRows(tbody, list, bucketKey) {
+      if (!tbody) return;
+      var colCount = bucketKey === 'hotItems' ? 12 : 13;
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(colCount, 'lprod.empty_sku_title', 'lprod.empty_sku_hint');
+        return;
+      }
+      tbody.innerHTML = list
+        .map(function (row) {
+          var pidStr = row.pid != null ? String(row.pid).trim() : '';
+          var isSel = !!(pidStr && bulkSelByBucket[bucketKey][pidStr]);
+          var chk =
+            '<td class="lp-ops-td-check">' +
+            '<label class="lp-ops-row-check-label">' +
+            '<input type="checkbox" class="lp-ops-row-check" data-lp-bucket="' +
+            lsEscHtml(bucketKey) +
+            '" data-lp-pid="' +
+            lsEscHtml(pidStr) +
+            '" ' +
+            (!pidStr ? 'disabled ' : '') +
+            (isSel ? 'checked ' : '') +
+            '/>' +
+            '</label></td>';
+          var listingTd =
+            bucketKey === 'hotItems'
+              ? ''
+              : '<td>' + lsEscHtml(row.listingTime || '—') + '</td>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            chk +
+            '<td class="lp-ops-td-product">' +
+            skuProductCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-price lp-ops-td-num">' +
+            skuPriceCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-variants">' +
+            skuVariantsCell(row) +
+            '</td>' +
+            '<td>' +
+            shopCell(row) +
+            '</td>' +
+            listingTd +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveSessionCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveStreamerCount || '—') +
+            '</td>' +
+            skuOpsAvgMetricsTds(row, bucketKey) +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.gmv30d || '—') +
+            '</td>' +
+            '<td>' +
+            uploadCell(row) +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            '<div class="lp-ops-row-actions" role="group" aria-label="' +
+            lsEscHtml(t('lprod.row_actions_a11y')) +
+            '">' +
+            '<button type="button" class="btn btn-ghost btn-sm lp-ops-icon-btn" data-lp-copy="' +
+            lsEscHtml(row.pid || '') +
+            '"><i class="fas fa-copy" aria-hidden="true"></i><span>' +
+            lsEscHtml(t('lprod.copy_pid')) +
+            '</span></button>' +
+            '<button type="button" class="lp-ops-remove" data-lp-remove="' +
+            lsEscHtml(row.id) +
+            '" data-lp-bucket="' +
+            lsEscHtml(bucketKey) +
+            '">' +
+            lsEscHtml(t('lprod.remove_row')) +
+            '</button></div></td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function paintNewStratSimilarRows(tbody, list) {
+      if (!tbody) return;
+      var colCount = 11;
+      var ctx = lpOpsNewStratCtx();
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(colCount, 'lprod.empty_sku_title', 'lprod.empty_new_strat_hint');
+        return;
+      }
+      var bk = 'newItems';
+      tbody.innerHTML = list
+        .map(function (row) {
+          var pidStr = row.pid != null ? String(row.pid).trim() : '';
+          var isSel = !!(pidStr && bulkSelByBucket[bk][pidStr]);
+          var chk =
+            '<td class="lp-ops-td-check">' +
+            '<label class="lp-ops-row-check-label">' +
+            '<input type="checkbox" class="lp-ops-row-check" data-lp-bucket="' +
+            lsEscHtml(bk) +
+            '" data-lp-pid="' +
+            lsEscHtml(pidStr) +
+            '" ' +
+            (!pidStr ? 'disabled ' : '') +
+            (isSel ? 'checked ' : '') +
+            '/>' +
+            '</label></td>';
+          var ix = lpOpsNewRowIndex(row);
+          var rAps = lprodOpsRowToApsPoolRow(row, 'new', ix);
+          var sim = apsBestSimilarHotMeta(rAps, ctx.opposing);
+          var hotPid = sim.pid != null ? String(sim.pid) : '—';
+          var hotImg =
+            sim.image && /^https?:\/\//i.test(String(sim.image).trim())
+              ? String(sim.image).trim()
+              : 'https://picsum.photos/seed/lpsim' +
+                hotPid.replace(/[^a-z0-9_-]/gi, '') +
+                '/64/64';
+          var pct = sim.pct != null ? String(sim.pct) : '0';
+          var simTd =
+            '<td class="lp-ops-td-simhot"><div class="lp-ops-simhot-ref-cell">' +
+            '<div class="lp-ops-simhot-thumb"><img src="' +
+            lsEscHtml(hotImg) +
+            '" alt="" loading="lazy" /></div>' +
+            '<div class="lp-ops-simhot-meta"><span class="lp-ops-id-pill">' +
+            lsEscHtml(hotPid) +
+            '</span>' +
+            '<span class="lp-ops-simhot-pct">' +
+            lsEscHtml(pct) +
+            '%</span></div></div></td>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            chk +
+            '<td class="lp-ops-td-product">' +
+            skuProductCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-price lp-ops-td-num">' +
+            skuPriceCell(row) +
+            '</td>' +
+            simTd +
+            '<td class="lp-ops-td-variants">' +
+            skuVariantsCell(row) +
+            '</td>' +
+            '<td>' +
+            shopCell(row) +
+            '</td>' +
+            '<td>' +
+            lsEscHtml(row.listingTime || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveSessionCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveStreamerCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.gmv30d || '—') +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            '<div class="lp-ops-row-actions" role="group" aria-label="' +
+            lsEscHtml(t('lprod.row_actions_a11y')) +
+            '">' +
+            '<button type="button" class="btn btn-ghost btn-sm lp-ops-icon-btn" data-lp-copy="' +
+            lsEscHtml(row.pid || '') +
+            '"><i class="fas fa-copy" aria-hidden="true"></i><span>' +
+            lsEscHtml(t('lprod.copy_pid')) +
+            '</span></button>' +
+            '<button type="button" class="lp-ops-remove" data-lp-remove="' +
+            lsEscHtml(row.id) +
+            '" data-lp-bucket="' +
+            lsEscHtml(bk) +
+            '">' +
+            lsEscHtml(t('lprod.remove_row')) +
+            '</button></div></td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function paintNewStratMetricsRows(tbody, list) {
+      if (!tbody) return;
+      var colCount = 12;
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(colCount, 'lprod.empty_sku_title', 'lprod.empty_new_strat_hint');
+        return;
+      }
+      var bk = 'newItems';
+      tbody.innerHTML = list
+        .map(function (row) {
+          var pidStr = row.pid != null ? String(row.pid).trim() : '';
+          var isSel = !!(pidStr && bulkSelByBucket[bk][pidStr]);
+          var chk =
+            '<td class="lp-ops-td-check">' +
+            '<label class="lp-ops-row-check-label">' +
+            '<input type="checkbox" class="lp-ops-row-check" data-lp-bucket="' +
+            lsEscHtml(bk) +
+            '" data-lp-pid="' +
+            lsEscHtml(pidStr) +
+            '" ' +
+            (!pidStr ? 'disabled ' : '') +
+            (isSel ? 'checked ' : '') +
+            '/>' +
+            '</label></td>';
+          var ix = lpOpsNewRowIndex(row);
+          var rAps = lprodOpsRowToApsPoolRow(row, 'new', ix);
+          var roll = apsPseudoRollup(rAps.pid);
+          var atcPct = (parseFloat(rAps.atc) || 0).toFixed(1);
+          var coPct = (parseFloat(rAps.cvr) || 0).toFixed(1);
+          var metTd =
+            '<td class="lp-ops-td-muted lp-ops-td-num"><div class="lp-ops-metric-split"><span>ATC ' +
+            lsEscHtml(atcPct) +
+            '%</span><span>CO ' +
+            lsEscHtml(coPct) +
+            '%</span></div></td>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            chk +
+            '<td class="lp-ops-td-product">' +
+            skuProductCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-price lp-ops-td-num">' +
+            skuPriceCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-variants">' +
+            skuVariantsCell(row) +
+            '</td>' +
+            '<td>' +
+            shopCell(row) +
+            '</td>' +
+            '<td>' +
+            lsEscHtml(row.listingTime || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveSessionCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveStreamerCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-muted lp-ops-td-num">' +
+            lsEscHtml(lpOpsFormatRollupImpressions(roll.impressions)) +
+            '</td>' +
+            metTd +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.gmv30d || '—') +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            '<div class="lp-ops-row-actions" role="group" aria-label="' +
+            lsEscHtml(t('lprod.row_actions_a11y')) +
+            '">' +
+            '<button type="button" class="btn btn-ghost btn-sm lp-ops-icon-btn" data-lp-copy="' +
+            lsEscHtml(row.pid || '') +
+            '"><i class="fas fa-copy" aria-hidden="true"></i><span>' +
+            lsEscHtml(t('lprod.copy_pid')) +
+            '</span></button>' +
+            '<button type="button" class="lp-ops-remove" data-lp-remove="' +
+            lsEscHtml(row.id) +
+            '" data-lp-bucket="' +
+            lsEscHtml(bk) +
+            '">' +
+            lsEscHtml(t('lprod.remove_row')) +
+            '</button></div></td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function paintHotStratSimilarRows(tbody, list) {
+      if (!tbody) return;
+      var colCountH = 10;
+      var ctxHs = lpOpsHotStratCtx();
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(colCountH, 'lprod.empty_sku_title', 'lprod.empty_hot_strat_hint');
+        return;
+      }
+      var bkH = 'hotItems';
+      tbody.innerHTML = list
+        .map(function (row) {
+          var pidStrH = row.pid != null ? String(row.pid).trim() : '';
+          var isSelH = !!(pidStrH && bulkSelByBucket[bkH][pidStrH]);
+          var chkH =
+            '<td class="lp-ops-td-check">' +
+            '<label class="lp-ops-row-check-label">' +
+            '<input type="checkbox" class="lp-ops-row-check" data-lp-bucket="' +
+            lsEscHtml(bkH) +
+            '" data-lp-pid="' +
+            lsEscHtml(pidStrH) +
+            '" ' +
+            (!pidStrH ? 'disabled ' : '') +
+            (isSelH ? 'checked ' : '') +
+            '/>' +
+            '</label></td>';
+          var ixH = lpOpsHotRowIndex(row);
+          var rApsHs = lprodOpsRowToApsPoolRow(row, 'best', ixH);
+          var simN = apsBestSimilarHotMeta(rApsHs, ctxHs.opposing);
+          var newPid = simN.pid != null ? String(simN.pid) : '—';
+          var newImg =
+            simN.image && /^https?:\/\//i.test(String(simN.image).trim())
+              ? String(simN.image).trim()
+              : 'https://picsum.photos/seed/lpnew' +
+                newPid.replace(/[^a-z0-9_-]/gi, '') +
+                '/64/64';
+          var pctN = simN.pct != null ? String(simN.pct) : '0';
+          var simTdH =
+            '<td class="lp-ops-td-simhot"><div class="lp-ops-simhot-ref-cell">' +
+            '<div class="lp-ops-simhot-thumb"><img src="' +
+            lsEscHtml(newImg) +
+            '" alt="" loading="lazy" /></div>' +
+            '<div class="lp-ops-simhot-meta"><span class="lp-ops-id-pill">' +
+            lsEscHtml(newPid) +
+            '</span>' +
+            '<span class="lp-ops-simhot-pct">' +
+            lsEscHtml(pctN) +
+            '%</span></div></div></td>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            chkH +
+            '<td class="lp-ops-td-product">' +
+            skuProductCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-price lp-ops-td-num">' +
+            skuPriceCell(row) +
+            '</td>' +
+            simTdH +
+            '<td class="lp-ops-td-variants">' +
+            skuVariantsCell(row) +
+            '</td>' +
+            '<td>' +
+            shopCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveSessionCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveStreamerCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.gmv30d || '—') +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            '<div class="lp-ops-row-actions" role="group" aria-label="' +
+            lsEscHtml(t('lprod.row_actions_a11y')) +
+            '">' +
+            '<button type="button" class="btn btn-ghost btn-sm lp-ops-icon-btn" data-lp-copy="' +
+            lsEscHtml(row.pid || '') +
+            '"><i class="fas fa-copy" aria-hidden="true"></i><span>' +
+            lsEscHtml(t('lprod.copy_pid')) +
+            '</span></button>' +
+            '<button type="button" class="lp-ops-remove" data-lp-remove="' +
+            lsEscHtml(row.id) +
+            '" data-lp-bucket="' +
+            lsEscHtml(bkH) +
+            '">' +
+            lsEscHtml(t('lprod.remove_row')) +
+            '</button></div></td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function paintHotStratScaleRows(tbody, list) {
+      if (!tbody) return;
+      var colSc = 11;
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(colSc, 'lprod.empty_sku_title', 'lprod.empty_hot_strat_hint');
+        return;
+      }
+      var bkSc = 'hotItems';
+      tbody.innerHTML = list
+        .map(function (row) {
+          var pidSc = row.pid != null ? String(row.pid).trim() : '';
+          var isSelSc = !!(pidSc && bulkSelByBucket[bkSc][pidSc]);
+          var chkSc =
+            '<td class="lp-ops-td-check">' +
+            '<label class="lp-ops-row-check-label">' +
+            '<input type="checkbox" class="lp-ops-row-check" data-lp-bucket="' +
+            lsEscHtml(bkSc) +
+            '" data-lp-pid="' +
+            lsEscHtml(pidSc) +
+            '" ' +
+            (!pidSc ? 'disabled ' : '') +
+            (isSelSc ? 'checked ' : '') +
+            '/>' +
+            '</label></td>';
+          var ixSc = lpOpsHotRowIndex(row);
+          var rSc = lprodOpsRowToApsPoolRow(row, 'best', ixSc);
+          var ctrStr = (parseFloat(rSc.ctr) || 0).toFixed(1);
+          var atcStr = (parseFloat(rSc.atc) || 0).toFixed(1);
+          var coStr = (parseFloat(rSc.cvr) || 0).toFixed(1);
+          var ctrTd = '<td class="lp-ops-td-num">' + lsEscHtml(ctrStr) + '%</td>';
+          var atcCoTd =
+            '<td class="lp-ops-td-muted lp-ops-td-num"><div class="lp-ops-metric-split"><span>ATC ' +
+            lsEscHtml(atcStr) +
+            '%</span><span>CO ' +
+            lsEscHtml(coStr) +
+            '%</span></div></td>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            chkSc +
+            '<td class="lp-ops-td-product">' +
+            skuProductCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-price lp-ops-td-num">' +
+            skuPriceCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-variants">' +
+            skuVariantsCell(row) +
+            '</td>' +
+            '<td>' +
+            shopCell(row) +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveSessionCount || '—') +
+            '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.liveStreamerCount || '—') +
+            '</td>' +
+            ctrTd +
+            atcCoTd +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(row.gmv30d || '—') +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            '<div class="lp-ops-row-actions" role="group" aria-label="' +
+            lsEscHtml(t('lprod.row_actions_a11y')) +
+            '">' +
+            '<button type="button" class="btn btn-ghost btn-sm lp-ops-icon-btn" data-lp-copy="' +
+            lsEscHtml(row.pid || '') +
+            '"><i class="fas fa-copy" aria-hidden="true"></i><span>' +
+            lsEscHtml(t('lprod.copy_pid')) +
+            '</span></button>' +
+            '<button type="button" class="lp-ops-remove" data-lp-remove="' +
+            lsEscHtml(row.id) +
+            '" data-lp-bucket="' +
+            lsEscHtml(bkSc) +
+            '">' +
+            lsEscHtml(t('lprod.remove_row')) +
+            '</button></div></td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function paintAbRows(tbody, list, bucketKey) {
+      if (!tbody) return;
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(9, 'lprod.empty_ab_title', 'lprod.empty_ab_hint');
+        return;
+      }
+      tbody.innerHTML = list
+        .map(function (row) {
+          var rid = row.id != null ? String(row.id).trim() : '';
+          var isAbSel = !!(rid && bulkSelByBucket[bucketKey][rid]);
+          var chkAb =
+            '<td class="lp-ops-td-check">' +
+            '<label class="lp-ops-row-check-label">' +
+            '<input type="checkbox" class="lp-ops-ab-row-check" data-lp-bucket="' +
+            lsEscHtml(bucketKey) +
+            '" data-lp-row-id="' +
+            lsEscHtml(rid) +
+            '" ' +
+            (!rid ? 'disabled ' : '') +
+            (isAbSel ? 'checked ' : '') +
+            '/>' +
+            '</label></td>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            chkAb +
+            '<td class="lp-ops-td-reason">' +
+            lsEscHtml(row.reason || '—') +
+            '</td>' +
+            '<td>' +
+            thumbCell(row) +
+            '</td>' +
+            '<td>' +
+            lsEscHtml(row.title || '—') +
+            '</td>' +
+            '<td>' +
+            lsEscHtml(row.pid || '—') +
+            '</td>' +
+            '<td>' +
+            shopCell(row) +
+            '</td>' +
+            '<td>' +
+            lsEscHtml(row.liveSessionCount || '—') +
+            '</td>' +
+            '<td>' +
+            uploadCell(row) +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            '<div class="lp-ops-row-actions" role="group" aria-label="' +
+            lsEscHtml(t('lprod.row_actions_a11y')) +
+            '">' +
+            '<button type="button" class="btn btn-ghost btn-sm lp-ops-icon-btn" data-lp-copy="' +
+            lsEscHtml(row.pid || '') +
+            '"><i class="fas fa-copy" aria-hidden="true"></i><span>' +
+            lsEscHtml(t('lprod.copy_pid')) +
+            '</span></button>' +
+            '<button type="button" class="lp-ops-remove" data-lp-remove="' +
+            lsEscHtml(row.id) +
+            '" data-lp-bucket="' +
+            lsEscHtml(bucketKey) +
+            '">' +
+            lsEscHtml(t('lprod.remove_row')) +
+            '</button></div></td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function collectProductCell(row) {
+      var stub = {
+        title: row.title || '',
+        description: '',
+        productLink: row.productLink || '',
+        pid: row.pid || '',
+        image: row.image || ''
+      };
+      if (!stub.title && stub.pid) stub.title = 'PID ' + stub.pid;
+      return skuProductCell(stub);
+    }
+
+    function paintCollectingRows(tbody, list) {
+      if (!tbody) return;
+      if (!list.length) {
+        tbody.innerHTML = lpOpsEmptyRow(4, 'lprod.empty_collect_title', 'lprod.empty_collect_hint');
+        return;
+      }
+      tbody.innerHTML = list
+        .map(function (row) {
+          var poolLabel =
+            row.targetPool === 'best' ? t('lprod.target_pool_hot') : t('lprod.target_pool_new');
+          var badgeCls =
+            row.status === 'failed' ? 'lp-ops-badge lp-ops-badge--fail' : 'lp-ops-badge lp-ops-badge--run';
+          var stLabel =
+            row.status === 'failed' ? t('lprod.status_failed') : t('lprod.status_collecting');
+          var spin =
+            row.status === 'collecting'
+              ? '<span class="lp-ops-collect-spin" aria-hidden="true"><i class="fas fa-spinner fa-spin"></i></span> '
+              : '';
+          var err =
+            row.errorMessage && row.status === 'failed'
+              ? '<div class="lp-ops-submuted">' + lsEscHtml(row.errorMessage) + '</div>'
+              : '';
+          var retryBtn =
+            row.status === 'failed'
+              ? '<button type="button" class="btn btn-secondary btn-sm lp-ops-retry-btn" data-lp-retry-collect="' +
+                lsEscHtml(row.id) +
+                '">' +
+                lsEscHtml(t('lprod.retry_collect')) +
+                '</button>'
+              : '<span class="lp-ops-dash">—</span>';
+          return (
+            '<tr data-id="' +
+            lsEscHtml(row.id) +
+            '">' +
+            '<td class="lp-ops-td-product">' +
+            collectProductCell(row) +
+            '</td>' +
+            '<td><span class="lp-ops-pool-pill">' +
+            lsEscHtml(poolLabel) +
+            '</span></td>' +
+            '<td><span class="' +
+            badgeCls +
+            '">' +
+            spin +
+            lsEscHtml(stLabel) +
+            '</span>' +
+            err +
+            '</td>' +
+            '<td class="lp-ops-actions-cell">' +
+            retryBtn +
+            '</td>' +
+            '</tr>'
+          );
+        })
+        .join('');
+    }
+
+    function scheduleCollectForRow(row) {
+      if (!row || row.status !== 'collecting') return;
+      if (window._lpOpsCollectTimerById[row.id]) {
+        clearTimeout(window._lpOpsCollectTimerById[row.id]);
+      }
+      var delay = 2200 + Math.floor(Math.random() * 2600);
+      window._lpOpsCollectTimerById[row.id] = window.setTimeout(function () {
+        finishCollectRow(row.id);
+      }, delay);
+    }
+
+    function finishCollectRow(taskId) {
+      if (lpBindGen !== window._lpOpsBindGen) return;
+      if (window._lpOpsCollectTimerById[taskId]) {
+        delete window._lpOpsCollectTimerById[taskId];
+      }
+      var row = null;
+      var ci;
+      for (ci = 0; ci < state.collecting.length; ci++) {
+        if (state.collecting[ci].id === taskId) {
+          row = state.collecting[ci];
+          break;
+        }
+      }
+      if (!row || row.status !== 'collecting') return;
+      var okRoll = Math.random() > 0.18;
+      if (okRoll) {
+        var built = lprodRowFromCollectTask(row);
+        var bKey = row.targetPool === 'best' ? 'hotItems' : 'newItems';
+        if (!state[bKey]) state[bKey] = [];
+        state[bKey] = lprodMergeRowsIntoList(state[bKey], [built]);
+        state.collecting = state.collecting.filter(function (r) {
+          return r.id !== taskId;
+        });
+        var poolName = row.targetPool === 'best' ? t('lprod.tab_hot') : t('lprod.tab_new');
+        showToast(String(t('lprod.collect_done')).replace(/\{\{pool\}\}/g, poolName), 'success');
+      } else {
+        row.status = 'failed';
+        row.errorMessage = t('lprod.collect_fail_hint');
+        showToast(t('lprod.collect_fail_hint'), 'warn');
+      }
+      persist();
+    }
+
+    function clampPageBucket(bucketKey) {
+      var len = lprodListForBucket(bucketKey).length;
+      var pages = len <= 0 ? 1 : Math.max(1, Math.ceil(len / LIVE_OPS_PAGE_SIZE));
+      var p = pageByBucket[bucketKey];
+      if (p == null || p < 1) pageByBucket[bucketKey] = 1;
+      else pageByBucket[bucketKey] = p;
+      if (pageByBucket[bucketKey] > pages) pageByBucket[bucketKey] = pages;
+    }
+
+    function lpOpsSliceFor(bucketKey) {
+      var list = lprodListForBucket(bucketKey);
+      clampPageBucket(bucketKey);
+      var pg = pageByBucket[bucketKey];
+      var start = (pg - 1) * LIVE_OPS_PAGE_SIZE;
+      return list.slice(start, start + LIVE_OPS_PAGE_SIZE);
+    }
+
+    function syncTabCounts() {
+      root.querySelectorAll('[data-lp-count-for]').forEach(function (el) {
+        var key = el.getAttribute('data-lp-count-for') || '';
+        var n =
+          key === 'abnormal'
+            ? (state.eliminate || []).length + (state.exclude || []).length
+            : (state[key] || []).length;
+        el.textContent = String(n);
+      });
+      root.querySelectorAll('[data-lp-new-strat-count]').forEach(function (el) {
+        var k = el.getAttribute('data-lp-new-strat-count') || '';
+        var n = 0;
+        if (k === 'all') n = lprodListForBucket('newItems').length;
+        else if (k === 'similar_hot') n = lprodListForBucket('newItemsSim').length;
+        else if (k === 'high_potential') n = lprodListForBucket('newItemsHp').length;
+        else if (k === 'new_scale') n = lprodListForBucket('newItemsScale').length;
+        el.textContent = String(n);
+      });
+      root.querySelectorAll('[data-lp-hot-strat-count]').forEach(function (el2) {
+        var kh = el2.getAttribute('data-lp-hot-strat-count') || '';
+        var nh = 0;
+        if (kh === 'all') nh = lprodListForBucket('hotItems').length;
+        else if (kh === 'similar_new_link') nh = lprodListForBucket('hotItemsSim').length;
+        else if (kh === 'hot_scale') nh = lprodListForBucket('hotItemsScale').length;
+        el2.textContent = String(nh);
+      });
+    }
+
+    function paintPaginationBar(barId, bucketKey, len) {
+      var bar = document.getElementById(barId);
+      if (!bar) return;
+      if (!len) {
+        bar.classList.remove('lp-ops-pagination--visible');
+        return;
+      }
+      bar.classList.add('lp-ops-pagination--visible');
+      clampPageBucket(bucketKey);
+      var pg = pageByBucket[bucketKey];
+      var pages = Math.max(1, Math.ceil(len / LIVE_OPS_PAGE_SIZE));
+      var startIdx = (pg - 1) * LIVE_OPS_PAGE_SIZE + 1;
+      var endIdx = Math.min(len, pg * LIVE_OPS_PAGE_SIZE);
+      var meta = bar.querySelector('[data-lp-page-meta]');
+      if (meta) {
+        meta.textContent = String(t('lprod.page_status'))
+          .replace(/\{\{start\}\}/g, String(startIdx))
+          .replace(/\{\{end\}\}/g, String(endIdx))
+          .replace(/\{\{total\}\}/g, String(len));
+      }
+      var prev = bar.querySelector('[data-lp-page-turn="prev"]');
+      var next = bar.querySelector('[data-lp-page-turn="next"]');
+      if (prev) prev.disabled = pg <= 1;
+      if (next) next.disabled = pg >= pages;
+    }
+
+    function refreshTables() {
+      syncTabCounts();
+      pruneBulkSelections('newItems');
+      pruneBulkSelections('hotItems');
+      pruneBulkSelections('eliminate');
+      pruneBulkSelections('exclude');
+      paintSkuRows(document.getElementById('lpOpsTbodyNew'), lpOpsSliceFor('newItems'), 'newItems');
+      paintNewStratSimilarRows(
+        document.getElementById('lpOpsTbodyNewSimilar'),
+        lpOpsSliceFor('newItemsSim')
+      );
+      paintNewStratMetricsRows(document.getElementById('lpOpsTbodyNewHp'), lpOpsSliceFor('newItemsHp'));
+      paintNewStratMetricsRows(
+        document.getElementById('lpOpsTbodyNewScale'),
+        lpOpsSliceFor('newItemsScale')
+      );
+      syncSkuCheckAll('newItems');
+      updateBulkCopyBar('newItems');
+      paintPaginationBar('lpOpsPagerNew', 'newItems', lprodListForBucket('newItems').length);
+      paintPaginationBar('lpOpsPagerNewSim', 'newItemsSim', lprodListForBucket('newItemsSim').length);
+      paintPaginationBar('lpOpsPagerNewHp', 'newItemsHp', lprodListForBucket('newItemsHp').length);
+      paintPaginationBar(
+        'lpOpsPagerNewScale',
+        'newItemsScale',
+        lprodListForBucket('newItemsScale').length
+      );
+      paintSkuRows(document.getElementById('lpOpsTbodyHot'), lpOpsSliceFor('hotItems'), 'hotItems');
+      paintHotStratSimilarRows(
+        document.getElementById('lpOpsTbodyHotSimilar'),
+        lpOpsSliceFor('hotItemsSim')
+      );
+      paintHotStratScaleRows(document.getElementById('lpOpsTbodyHotScale'), lpOpsSliceFor('hotItemsScale'));
+      syncSkuCheckAll('hotItems');
+      updateBulkCopyBar('hotItems');
+      paintPaginationBar('lpOpsPagerHot', 'hotItems', lprodListForBucket('hotItems').length);
+      paintPaginationBar('lpOpsPagerHotSim', 'hotItemsSim', lprodListForBucket('hotItemsSim').length);
+      paintPaginationBar('lpOpsPagerHotScale', 'hotItemsScale', lprodListForBucket('hotItemsScale').length);
+      var coll = state.collecting || [];
+      paintCollectingRows(document.getElementById('lpOpsTbodyCollect'), lpOpsSliceFor('collecting'));
+      paintPaginationBar('lpOpsPagerCollect', 'collecting', coll.length);
+      var elimArr = state.eliminate || [];
+      paintAbRows(document.getElementById('lpOpsTbodyElim'), lpOpsSliceFor('eliminate'), 'eliminate');
+      syncAbCheckAll('eliminate');
+      updateAbBulkBar('eliminate');
+      paintPaginationBar('lpOpsPagerElim', 'eliminate', elimArr.length);
+      var excArr = state.exclude || [];
+      paintAbRows(document.getElementById('lpOpsTbodyExc'), lpOpsSliceFor('exclude'), 'exclude');
+      syncAbCheckAll('exclude');
+      updateAbBulkBar('exclude');
+      paintPaginationBar('lpOpsPagerExc', 'exclude', excArr.length);
+      syncSkuSortUi();
+    }
+
+    function persist() {
+      lprodSaveOpsPayload(state);
+      refreshTables();
+    }
+
+    function setMainTab(which) {
+      root.querySelectorAll('.lp-ops-main-tab').forEach(function (b) {
+        var on = b.getAttribute('data-lp-main-tab') === which;
+        b.classList.toggle('lp-ops-main-tab--active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      root.querySelectorAll('.lp-ops-main-pane').forEach(function (p) {
+        p.classList.toggle('lp-ops-hide', p.getAttribute('data-lp-pane') !== which);
+      });
+    }
+
+    function setAbTab(which) {
+      root.querySelectorAll('.lp-ops-subtab[data-lp-ab-tab]').forEach(function (b) {
+        var on = b.getAttribute('data-lp-ab-tab') === which;
+        b.classList.toggle('lp-ops-subtab--active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      root.querySelectorAll('.lp-ops-ab-pane').forEach(function (p) {
+        p.classList.toggle('lp-ops-hide', p.getAttribute('data-lp-ab-pane') !== which);
+      });
+    }
+
+    function bucketKeyFromKind(kind) {
+      if (kind === 'new') return 'newItems';
+      if (kind === 'hot') return 'hotItems';
+      if (kind === 'eliminate') return 'eliminate';
+      if (kind === 'exclude') return 'exclude';
+      return '';
+    }
+
+    function wireFile(inputId, kind) {
+      var inp = document.getElementById(inputId);
+      if (!inp) return;
+      inp.addEventListener('change', function () {
+        var f = inp.files && inp.files[0];
+        if (!f) return;
+        lprodMatrixFromFile(f, function (err, matrix) {
+          inp.value = '';
+          if (err === 'no_xlsx') {
+            showToast(t('lprod.parser_missing'), 'warn');
+            return;
+          }
+          if (err || !matrix || matrix.length < 2) {
+            showToast(t('lprod.parse_failed'), 'warn');
+            return;
+          }
+          var rows = lprodParseOpsMatrix(matrix, kind, demoUser);
+          if (!rows.length) {
+            showToast(t('lprod.parse_failed'), 'warn');
+            return;
+          }
+          var bKey = bucketKeyFromKind(kind);
+          if (!bKey || state[bKey] === undefined) return;
+          if (kind === 'new' || kind === 'hot') {
+            var poolKind = kind === 'hot' ? 'hot' : 'new';
+            var res = lprodApplyNewHotImport(state, rows, poolKind);
+            persist();
+            (res.newQueueTasks || []).forEach(function (t) {
+              scheduleCollectForRow(t);
+            });
+            var toastMsg = '';
+            if (res.mergedCount > 0 && res.queuedCount > 0) {
+              toastMsg = String(t('lprod.import_merge_and_queue'))
+                .replace(/\{\{m\}\}/g, String(res.mergedCount))
+                .replace(/\{\{q\}\}/g, String(res.queuedCount));
+            } else if (res.queuedCount > 0 && res.mergedCount === 0) {
+              toastMsg = String(t('lprod.import_queued_only')).replace(/\{\{q\}\}/g, String(res.queuedCount));
+            } else {
+              toastMsg = String(t('lprod.import_merged')).replace(/\{\{n\}\}/g, String(res.mergedCount));
+            }
+            showToast(toastMsg, 'success');
+            return;
+          }
+          state[bKey] = lprodMergeRowsIntoList(state[bKey], rows);
+          persist();
+          showToast(String(t('lprod.import_merged')).replace(/\{\{n\}\}/g, String(rows.length)), 'success');
+        });
+      });
+    }
+
+    root.querySelectorAll('.lp-ops-main-tab').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setMainTab(btn.getAttribute('data-lp-main-tab') || 'new');
+      });
+    });
+    root.querySelectorAll('.lp-ops-subtab[data-lp-ab-tab]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        setAbTab(btn.getAttribute('data-lp-ab-tab') || 'elim');
+      });
+    });
+    root.dataset.lpNewStratTab = root.dataset.lpNewStratTab || 'all';
+    function setNewStratTab(which) {
+      var w = which || 'all';
+      if (
+        w !== 'all' &&
+        w !== 'similar_hot' &&
+        w !== 'high_potential' &&
+        w !== 'new_scale'
+      ) {
+        w = 'all';
+      }
+      root.dataset.lpNewStratTab = w;
+      root.querySelectorAll('[data-lp-new-subtab]').forEach(function (b) {
+        var on = b.getAttribute('data-lp-new-subtab') === w;
+        b.classList.toggle('lp-ops-subtab--active', on);
+        b.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+      root.querySelectorAll('.lp-ops-new-strat-pane').forEach(function (p) {
+        p.classList.toggle('lp-ops-hide', p.getAttribute('data-lp-new-strat-pane') !== w);
+      });
+      syncSkuCheckAll('newItems');
+      syncSkuSortUi();
+    }
+    root.querySelectorAll('[data-lp-new-subtab]').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var w = btn.getAttribute('data-lp-new-subtab') || 'all';
+        if (w === root.dataset.lpNewStratTab) return;
+        setNewStratTab(w);
+      });
+    });
+
+    root.dataset.lpHotStratTab = root.dataset.lpHotStratTab || 'all';
+    function setHotStratTab(which) {
+      var wh = which || 'all';
+      if (wh !== 'all' && wh !== 'similar_new_link' && wh !== 'hot_scale') {
+        wh = 'all';
+      }
+      root.dataset.lpHotStratTab = wh;
+      root.querySelectorAll('[data-lp-hot-subtab]').forEach(function (b) {
+        var onH = b.getAttribute('data-lp-hot-subtab') === wh;
+        b.classList.toggle('lp-ops-subtab--active', onH);
+        b.setAttribute('aria-selected', onH ? 'true' : 'false');
+      });
+      root.querySelectorAll('.lp-ops-hot-strat-pane').forEach(function (p) {
+        p.classList.toggle('lp-ops-hide', p.getAttribute('data-lp-hot-strat-pane') !== wh);
+      });
+      syncSkuCheckAll('hotItems');
+      syncSkuSortUi();
+    }
+    root.querySelectorAll('[data-lp-hot-subtab]').forEach(function (btnH) {
+      btnH.addEventListener('click', function () {
+        var wh2 = btnH.getAttribute('data-lp-hot-subtab') || 'all';
+        if (wh2 === root.dataset.lpHotStratTab) return;
+        setHotStratTab(wh2);
+      });
+    });
+
+    wireFile('lpFileNew', 'new');
+    wireFile('lpFileHot', 'hot');
+
+    var lpOpsHostMultiDocMs = function (ev) {
+      if (lpBindGen !== window._lpOpsBindGen) return;
+      if (!root || !root.isConnected) return;
+      var tDm = ev.target;
+      if (!(tDm instanceof Element)) return;
+      if (!root.contains(tDm)) return;
+      if (tDm.closest('.lp-ops-host-multi')) return;
+      lpOpsHostMultiCloseDropdowns();
+    };
+    if (window._lpOpsHostMultiDocMsPrev)
+      document.removeEventListener('mousedown', window._lpOpsHostMultiDocMsPrev, true);
+    window._lpOpsHostMultiDocMsPrev = lpOpsHostMultiDocMs;
+    document.addEventListener('mousedown', lpOpsHostMultiDocMs, true);
+
+    root.addEventListener('input', function (ev) {
+      var tin = ev.target;
+      if (!tin || !tin.closest || tin.getAttribute('data-lp-host-multi-search') == null || !root.contains(tin)) return;
+      var wrapIn = tin.closest('.lp-ops-host-multi');
+      if (!wrapIn) return;
+      var bkin = wrapIn.getAttribute('data-lp-host-multi-bucket') || '';
+      if (bkin !== 'newItems' && bkin !== 'hotItems') return;
+      lpOpsHostMultiSyncUI(wrapIn.closest('.lp-ops-filter-bar'), bkin);
+    });
+
+    root.addEventListener('focusin', function (ev) {
+      var tfin = ev.target;
+      if (!tfin || !tfin.closest || tfin.getAttribute('data-lp-host-multi-search') == null || !root.contains(tfin)) return;
+      lpOpsHostMultiOpenDropdown(tfin.closest('.lp-ops-host-multi'));
+    });
+
+    root.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Escape') return;
+      if (!ev.target.closest || !ev.target.closest('.lp-ops-host-multi')) return;
+      lpOpsHostMultiCloseDropdowns();
+    });
+
+    root.addEventListener('keydown', function (ev) {
+      if (ev.key !== 'Enter') return;
+      var t = ev.target;
+      if (!t || !t.closest || !t.closest('.lp-ops-filter-bar')) return;
+      if (t.tagName === 'BUTTON') return;
+      var bar = t.closest('.lp-ops-filter-bar');
+      var bkF = bar.getAttribute('data-lp-filter-bucket') || '';
+      if (bkF !== 'newItems' && bkF !== 'hotItems') return;
+      ev.preventDefault();
+      applySkuFiltersForBucket(bkF);
+    });
+
+    root.addEventListener('change', function (ev) {
+      var tgt = ev.target;
+      if (tgt && tgt.classList && tgt.classList.contains('lp-ops-row-check')) {
+        var bkk = tgt.getAttribute('data-lp-bucket') || '';
+        var pid = tgt.getAttribute('data-lp-pid') || '';
+        if (!bkk || !pid) return;
+        if (tgt.checked) {
+          var cnt = Object.keys(bulkSelByBucket[bkk]).length;
+          if (!bulkSelByBucket[bkk][pid] && cnt >= LIVE_OPS_BULK_PID_MAX) {
+            tgt.checked = false;
+            showToast(
+              String(t('lprod.bulk_limit_toast')).replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX)),
+              'warn'
+            );
+            return;
+          }
+          bulkSelByBucket[bkk][pid] = true;
+        } else {
+          delete bulkSelByBucket[bkk][pid];
+        }
+        syncSkuCheckAll(bkk);
+        updateBulkCopyBar(bkk);
+        return;
+      }
+      if (tgt && tgt.classList && tgt.classList.contains('lp-ops-ab-row-check')) {
+        var bkAb = tgt.getAttribute('data-lp-bucket') || '';
+        var rowId = tgt.getAttribute('data-lp-row-id') || '';
+        if ((bkAb !== 'eliminate' && bkAb !== 'exclude') || !rowId) return;
+        if (tgt.checked) {
+          var cntAb = Object.keys(bulkSelByBucket[bkAb]).length;
+          if (!bulkSelByBucket[bkAb][rowId] && cntAb >= LIVE_OPS_BULK_PID_MAX) {
+            tgt.checked = false;
+            showToast(
+              String(t('lprod.bulk_limit_toast')).replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX)),
+              'warn'
+            );
+            return;
+          }
+          bulkSelByBucket[bkAb][rowId] = true;
+        } else {
+          delete bulkSelByBucket[bkAb][rowId];
+        }
+        syncAbCheckAll(bkAb);
+        updateAbBulkBar(bkAb);
+        return;
+      }
+      if (tgt && tgt.classList && tgt.classList.contains('lp-ops-check-all-ab')) {
+        var bkAllAb = tgt.getAttribute('data-lp-check-all-ab') || '';
+        if (bkAllAb !== 'eliminate' && bkAllAb !== 'exclude') return;
+        var wantAllAb = tgt.checked;
+        lpOpsSliceFor(bkAllAb).forEach(function (row) {
+          var idAb = row.id != null ? String(row.id).trim() : '';
+          if (!idAb) return;
+          if (wantAllAb) {
+            var cAb = Object.keys(bulkSelByBucket[bkAllAb]).length;
+            if (!bulkSelByBucket[bkAllAb][idAb] && cAb >= LIVE_OPS_BULK_PID_MAX) return;
+            bulkSelByBucket[bkAllAb][idAb] = true;
+          } else {
+            delete bulkSelByBucket[bkAllAb][idAb];
+          }
+        });
+        if (wantAllAb) {
+          var cCap = Object.keys(bulkSelByBucket[bkAllAb]).length;
+          if (cCap >= LIVE_OPS_BULK_PID_MAX) {
+            showToast(
+              String(t('lprod.bulk_limit_toast')).replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX)),
+              'warn'
+            );
+          }
+        }
+        refreshTables();
+        return;
+      }
+      if (tgt && tgt.classList && tgt.classList.contains('lp-ops-check-all')) {
+        var bkA = tgt.getAttribute('data-lp-check-all') || '';
+        if (bkA !== 'newItems' && bkA !== 'hotItems') return;
+        var wantAll = tgt.checked;
+        var sliceKeyA = bkA;
+        if (bkA === 'newItems') {
+          var subA = root.dataset.lpNewStratTab || 'all';
+          if (subA === 'similar_hot') sliceKeyA = 'newItemsSim';
+          else if (subA === 'high_potential') sliceKeyA = 'newItemsHp';
+          else if (subA === 'new_scale') sliceKeyA = 'newItemsScale';
+          else sliceKeyA = 'newItems';
+        } else if (bkA === 'hotItems') {
+          var subAH = root.dataset.lpHotStratTab || 'all';
+          if (subAH === 'similar_new_link') sliceKeyA = 'hotItemsSim';
+          else if (subAH === 'hot_scale') sliceKeyA = 'hotItemsScale';
+          else sliceKeyA = 'hotItems';
+        }
+        lpOpsSliceFor(sliceKeyA).forEach(function (row) {
+          var p = row.pid != null ? String(row.pid).trim() : '';
+          if (!p) return;
+          if (wantAll) {
+            var c2 = Object.keys(bulkSelByBucket[bkA]).length;
+            if (!bulkSelByBucket[bkA][p] && c2 >= LIVE_OPS_BULK_PID_MAX) return;
+            bulkSelByBucket[bkA][p] = true;
+          } else {
+            delete bulkSelByBucket[bkA][p];
+          }
+        });
+        if (wantAll) {
+          var c3 = Object.keys(bulkSelByBucket[bkA]).length;
+          if (c3 >= LIVE_OPS_BULK_PID_MAX) {
+            showToast(
+              String(t('lprod.bulk_limit_toast')).replace(/\{\{max\}\}/g, String(LIVE_OPS_BULK_PID_MAX)),
+              'warn'
+            );
+          }
+        }
+        refreshTables();
+      }
+    });
+
+    root.addEventListener('click', function (ev) {
+      var hmPick = ev.target.closest('[data-lp-host-multi-pick]');
+      if (hmPick && root.contains(hmPick)) {
+        ev.preventDefault();
+        var hidPick = hmPick.getAttribute('data-lp-host-multi-pick') || '';
+        var wrapPick = hmPick.closest('[data-lp-host-multi-bucket]');
+        var bkPick = (wrapPick && wrapPick.getAttribute('data-lp-host-multi-bucket')) || '';
+        if ((bkPick !== 'newItems' && bkPick !== 'hotItems') || !hidPick) return;
+        var idsPick = skuFilters[bkPick].hostIds || (skuFilters[bkPick].hostIds = []);
+        var ij = idsPick.indexOf(hidPick);
+        if (ij >= 0) idsPick.splice(ij, 1);
+        else idsPick.push(hidPick);
+        lpOpsHostMultiSyncUI(wrapPick.closest('.lp-ops-filter-bar'), bkPick);
+        return;
+      }
+      var hmRm = ev.target.closest('[data-lp-host-multi-remove]');
+      if (hmRm && root.contains(hmRm)) {
+        ev.preventDefault();
+        var hidRm = hmRm.getAttribute('data-lp-host-multi-remove') || '';
+        var wrapRm = hmRm.closest('[data-lp-host-multi-bucket]');
+        var bkRm = (wrapRm && wrapRm.getAttribute('data-lp-host-multi-bucket')) || '';
+        if (!hidRm || (bkRm !== 'newItems' && bkRm !== 'hotItems')) return;
+        skuFilters[bkRm].hostIds = (skuFilters[bkRm].hostIds || []).filter(function (idOne) {
+          return idOne !== hidRm;
+        });
+        lpOpsHostMultiSyncUI(wrapRm.closest('.lp-ops-filter-bar'), bkRm);
+        return;
+      }
+      var hmClr = ev.target.closest('[data-lp-host-multi-clear]');
+      if (hmClr && root.contains(hmClr)) {
+        ev.preventDefault();
+        var wrapClr = hmClr.closest('[data-lp-host-multi-bucket]');
+        var bkClr = (wrapClr && wrapClr.getAttribute('data-lp-host-multi-bucket')) || '';
+        if (bkClr !== 'newItems' && bkClr !== 'hotItems') return;
+        skuFilters[bkClr].hostIds = [];
+        var siClr = wrapClr.querySelector('[data-lp-host-multi-search]');
+        if (siClr) siClr.value = '';
+        lpOpsHostMultiSyncUI(wrapClr.closest('.lp-ops-filter-bar'), bkClr);
+        return;
+      }
+      var hmBox = ev.target.closest('[data-lp-host-multi-box]');
+      if (hmBox && root.contains(hmBox)) {
+        if (ev.target.closest('[data-lp-host-multi-clear]') || ev.target.closest('[data-lp-host-multi-remove]'))
+          return;
+        lpOpsHostMultiOpenDropdown(hmBox);
+        return;
+      }
+
+      var sortHit = ev.target.closest('[data-lp-sku-sort]');
+      if (sortHit && root.contains(sortHit)) {
+        var sortKey = sortHit.getAttribute('data-lp-sku-sort') || '';
+        var bkS = sortHit.getAttribute('data-lp-sku-sort-bucket') || '';
+        if (sortKey && (bkS === 'newItems' || bkS === 'hotItems')) {
+          ev.preventDefault();
+          var cur = skuSort[bkS];
+          if (cur.key === sortKey) {
+            cur.dir = cur.dir === 'asc' ? 'desc' : 'asc';
+          } else {
+            cur.key = sortKey;
+            cur.dir = 'asc';
+          }
+          pageByBucket[bkS] = 1;
+          if (bkS === 'newItems') {
+            pageByBucket.newItemsSim = 1;
+            pageByBucket.newItemsHp = 1;
+            pageByBucket.newItemsScale = 1;
+          } else if (bkS === 'hotItems') {
+            pageByBucket.hotItemsSim = 1;
+            pageByBucket.hotItemsScale = 1;
+          }
+          refreshTables();
+          return;
+        }
+      }
+      var turn = ev.target.closest('[data-lp-page-turn]');
+      if (turn) {
+        var bk = turn.getAttribute('data-lp-page-bucket') || '';
+        if (!bk || pageByBucket[bk] === undefined) return;
+        ev.preventDefault();
+        var dir = turn.getAttribute('data-lp-page-turn') || '';
+        var lenTurn = lprodListForBucket(bk).length;
+        var pages = lenTurn <= 0 ? 1 : Math.max(1, Math.ceil(lenTurn / LIVE_OPS_PAGE_SIZE));
+        clampPageBucket(bk);
+        if (dir === 'prev') pageByBucket[bk] = Math.max(1, pageByBucket[bk] - 1);
+        else if (dir === 'next') pageByBucket[bk] = Math.min(pages, pageByBucket[bk] + 1);
+        refreshTables();
+        return;
+      }
+      var retry = ev.target.closest('[data-lp-retry-collect]');
+      if (retry) {
+        var tid = retry.getAttribute('data-lp-retry-collect') || '';
+        var crow = (state.collecting || []).filter(function (r) {
+          return r.id === tid;
+        })[0];
+        if (!crow) return;
+        crow.status = 'collecting';
+        crow.errorMessage = '';
+        crow.startedAt = new Date().toISOString();
+        persist();
+        scheduleCollectForRow(crow);
+        return;
+      }
+      var rm = ev.target.closest('[data-lp-remove]');
+      if (rm) {
+        var rid = rm.getAttribute('data-lp-remove') || '';
+        var bucket = rm.getAttribute('data-lp-bucket') || '';
+        if (!rid || !bucket || !Array.isArray(state[bucket])) return;
+        state[bucket] = state[bucket].filter(function (r) {
+          return r.id !== rid;
+        });
+        persist();
+        return;
+      }
+      var searchF = ev.target.closest('[data-lp-sku-filter-search]');
+      if (searchF) {
+        var sbk = searchF.getAttribute('data-lp-sku-filter-search') || '';
+        if (sbk === 'newItems' || sbk === 'hotItems') applySkuFiltersForBucket(sbk);
+        return;
+      }
+      var rst = ev.target.closest('[data-lp-sku-filter-reset]');
+      if (rst) {
+        var rbk = rst.getAttribute('data-lp-sku-filter-reset') || '';
+        if (rbk === 'newItems' || rbk === 'hotItems') {
+          skuFilters[rbk] = lprodSkuFilterDefaults();
+          var barEl = root.querySelector('.lp-ops-filter-bar[data-lp-filter-bucket="' + rbk + '"]');
+          if (barEl) {
+            barEl.querySelectorAll('input[data-lp-sku-filter]').forEach(function (el) {
+              el.value = '';
+            });
+            barEl.querySelectorAll('[data-lp-host-multi-search]').forEach(function (el) {
+              el.value = '';
+            });
+            lpOpsHostMultiSyncUI(barEl, rbk);
+          }
+          pageByBucket[rbk] = 1;
+          if (rbk === 'newItems') {
+            pageByBucket.newItemsSim = 1;
+            pageByBucket.newItemsHp = 1;
+            pageByBucket.newItemsScale = 1;
+          } else if (rbk === 'hotItems') {
+            pageByBucket.hotItemsSim = 1;
+            pageByBucket.hotItemsScale = 1;
+          }
+          refreshTables();
+        }
+        return;
+      }
+      var bulkAbRm = ev.target.closest('[data-lp-ab-bulk-remove]');
+      if (bulkAbRm && !bulkAbRm.disabled) {
+        var bRm = bulkAbRm.getAttribute('data-lp-ab-bulk-remove') || '';
+        if (bRm !== 'eliminate' && bRm !== 'exclude') return;
+        var idKeys = Object.keys(bulkSelByBucket[bRm] || {});
+        if (!idKeys.length) return;
+        var idSet = Object.create(null);
+        idKeys.forEach(function (k) {
+          idSet[k] = true;
+        });
+        state[bRm] = (state[bRm] || []).filter(function (r) {
+          return !r.id || !idSet[String(r.id)];
+        });
+        bulkSelByBucket[bRm] = Object.create(null);
+        persist();
+        showToast(
+          String(t('lprod.bulk_removed_toast')).replace(/\{\{n\}\}/g, String(idKeys.length)),
+          'success'
+        );
+        return;
+      }
+      var bulkCopy = ev.target.closest('[data-lp-bulk-copy]');
+      if (bulkCopy && !bulkCopy.disabled) {
+        var bbk = bulkCopy.getAttribute('data-lp-bulk-copy') || '';
+        var keys = Object.keys(bulkSelByBucket[bbk] || {});
+        if (!keys.length) return;
+        var blob = keys.join('\n');
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(blob).then(function () {
+            showToast(t('lprod.copied'), 'success');
+          }).catch(function () {});
+        }
+        return;
+      }
+      var copyBtn = ev.target.closest('[data-lp-copy]');
+      if (!copyBtn) return;
+      var pid = copyBtn.getAttribute('data-lp-copy') || '';
+      if (!pid) return;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(pid).then(function () {
+          showToast(t('lprod.copied'));
+        }).catch(function () {});
+      }
+    });
+
+    ;['newItems', 'hotItems'].forEach(function (bkHm) {
+      var belHm = root.querySelector('.lp-ops-filter-bar[data-lp-filter-bucket="' + bkHm + '"]');
+      if (belHm) lpOpsHostMultiSyncUI(belHm, bkHm);
+    });
+
+    refreshTables();
+    (state.collecting || []).forEach(function (r) {
+      if (r.status === 'collecting') scheduleCollectForRow(r);
+    });
   }
 
   function renderLiveSettingsFlashSale() {
@@ -13185,8 +22200,17 @@
     else if (routeId === 'analytics') app.innerHTML = renderAnalytics();
     else if (routeId === 'live_calendar') app.innerHTML = renderLiveScheduleCalendarPage();
     else if (routeId === 'live_schedule') app.innerHTML = renderLiveSchedule();
+    else if (routeId === 'live_products') app.innerHTML = renderLiveProductsHub();
+    else if (routeId === 'live_products_operational') app.innerHTML = renderLiveProductsOperational();
+    else if (routeId === 'live_products_smart_selection') app.innerHTML = renderLiveProductsSmartSelection();
+    else if (routeId === 'live_products_smart_selection_thresholds') app.innerHTML = renderLiveProductsSmartSelectionThresholds();
     else if (routeId === 'live_settings') app.innerHTML = renderLiveSettings();
     else if (routeId === 'live_settings_flash_sale') app.innerHTML = renderLiveSettingsFlashSale();
+    else if (routeId === 'live_settings_ai_product_selection') app.innerHTML = renderLiveProductsSmartSelection();
+    else if (routeId === 'live_settings_aps_thresholds') app.innerHTML = renderLiveProductsSmartSelectionThresholds();
+    else if (routeId === 'live_settings_product_cargo_pools') app.innerHTML = renderLiveSettingsCargoPools();
+    else if (routeId === 'live_settings_product_packs') app.innerHTML = renderLiveSettingsProductPacks();
+    else if (routeId === 'live_settings_pack_detail') app.innerHTML = renderLiveSettingsPackDetail();
     else if (routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy') {
       app.innerHTML = renderLiveSettingsFieldControlForRoute(routeId);
     }
@@ -13227,6 +22251,24 @@
     }
     if (routeId === 'live_schedule') {
       bindLiveScheduleEvents();
+    }
+    if (routeId === 'live_products_operational') {
+      bindLiveProductsOperationalEvents();
+    }
+    if (routeId === 'live_products_smart_selection' || routeId === 'live_settings_ai_product_selection') {
+      bindLiveSettingsApsEvents();
+    }
+    if (routeId === 'live_products_smart_selection_thresholds' || routeId === 'live_settings_aps_thresholds') {
+      bindLiveSettingsApsThresholdsEvents();
+    }
+    if (routeId === 'live_settings_product_cargo_pools') {
+      bindLiveSettingsCargoPoolsEvents();
+    }
+    if (routeId === 'live_settings_product_packs') {
+      bindLiveSettingsProductPacksEvents();
+    }
+    if (routeId === 'live_settings_pack_detail') {
+      bindLiveSettingsPackDetailEvents();
     }
     if (routeId === 'live_settings_field_control_models' || routeId === 'live_settings_field_control_accounts' || routeId === 'live_settings_field_control_model_copy') {
       bindFieldControlPageEvents();
