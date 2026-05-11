@@ -83,6 +83,8 @@
       'lprod.sub_hot_similar_new': 'Similar new link',
       'lprod.sub_hot_scale': 'Diffusion & scale',
       'lprod.col_similar_new_ref': 'Similar new (ref.)',
+      'lprod.col_hot_strat_similar_sku_th': 'Similar new-link SKU',
+      'lprod.col_hot_strat_similar_ref_burst_th': 'Established bestseller (ref.)',
       'lprod.col_ctr': 'CTR',
       'lprod.col_stock': 'Stock',
       'lprod.empty_hot_strat_hint': 'No rows match this hot-pool strategy under current filters.',
@@ -1594,6 +1596,8 @@
       'lprod.sub_hot_similar_new': '相似新链',
       'lprod.sub_hot_scale': '扩散 & 放量',
       'lprod.col_similar_new_ref': '相似新品（参考）',
+      'lprod.col_hot_strat_similar_sku_th': '相似新链',
+      'lprod.col_hot_strat_similar_ref_burst_th': '老链爆品',
       'lprod.col_ctr': 'CTR',
       'lprod.col_stock': '库存',
       'lprod.empty_hot_strat_hint': '在当前筛选与新品池语境下暂无符合该爆品策略的行。',
@@ -19690,9 +19694,9 @@
         apsEscape(t('lprod.select_page')) +
         '" />' +
         '</th>' +
-        th(t('lprod.col_product')) +
+        th(t('lprod.col_hot_strat_similar_sku_th')) +
         th(t('lprod.col_price_sale'), 'lp-ops-th-num') +
-        th(t('lprod.col_similar_new_ref')) +
+        th(t('lprod.col_hot_strat_similar_ref_burst_th')) +
         th(t('lprod.col_variants')) +
         th(t('lprod.col_shop')) +
         th(t('lprod.col_sess'), 'lp-ops-th-num') +
