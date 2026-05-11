@@ -76,6 +76,7 @@
       'lprod.sub_new_scale': 'Diffusion & scale',
       'lprod.col_similar_hot_ref': 'Similar hot (ref.)',
       'lprod.col_avg_impression': 'AVG.IMPRESSION',
+      'lprod.col_avg_ctr': 'AVG.CTR',
       'lprod.col_avg_atc_co': 'AVG.ATC% / AVG.CO',
       'lprod.empty_new_strat_hint': 'No rows match this strategy under current filters.',
       'lprod.tabs_hot_strat_nav_a11y': 'Switch hot-pool strategy lists',
@@ -1589,6 +1590,7 @@
       'lprod.sub_new_scale': '扩散 & 放量',
       'lprod.col_similar_hot_ref': '相似爆品',
       'lprod.col_avg_impression': 'AVG.IMPRESSION',
+      'lprod.col_avg_ctr': 'AVG.CTR',
       'lprod.col_avg_atc_co': 'AVG.ATC% / AVG.CO',
       'lprod.empty_new_strat_hint': '在当前筛选与爆品池语境下暂无符合该策略的行。',
       'lprod.tabs_hot_strat_nav_a11y': '切换爆品策略分层',
@@ -19627,6 +19629,7 @@
         sortableTh(mainBucket, 'sess', 'lprod.col_sess', 'lp-ops-th-num') +
         sortableTh(mainBucket, 'hosts', 'lprod.col_hosts', 'lp-ops-th-num') +
         th(t('lprod.col_avg_impression'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_ctr'), 'lp-ops-th-num') +
         th(t('lprod.col_avg_atc_co'), 'lp-ops-th-num') +
         sortableTh(mainBucket, 'gmv', 'lprod.col_gmv30', 'lp-ops-th-num') +
         th(t('lprod.col_uploader')) +
@@ -19677,6 +19680,7 @@
         th(t('lprod.col_sess'), 'lp-ops-th-num') +
         th(t('lprod.col_hosts'), 'lp-ops-th-num') +
         th(t('lprod.col_avg_impression'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_ctr'), 'lp-ops-th-num') +
         th(t('lprod.col_avg_atc_co'), 'lp-ops-th-num') +
         th(t('lprod.col_gmv30'), 'lp-ops-th-num') +
         th(t('lprod.col_actions')) +
@@ -19723,7 +19727,7 @@
         th(t('lprod.col_shop')) +
         th(t('lprod.col_sess'), 'lp-ops-th-num') +
         th(t('lprod.col_hosts'), 'lp-ops-th-num') +
-        th(t('lprod.col_ctr'), 'lp-ops-th-num') +
+        th(t('lprod.col_avg_ctr'), 'lp-ops-th-num') +
         th(t('lprod.col_avg_atc_co'), 'lp-ops-th-num') +
         th(t('lprod.col_gmv30'), 'lp-ops-th-num') +
         th(t('lprod.col_actions')) +
@@ -20680,11 +20684,15 @@
       var rollM = apsPseudoRollup(rApsM.pid);
       var atcPctM = (parseFloat(rApsM.atc) || 0).toFixed(1);
       var coPctM = (parseFloat(rApsM.cvr) || 0).toFixed(1);
+      var ctrPctM = (parseFloat(rApsM.ctr) || 0).toFixed(1);
       var impStrM = lpOpsFormatRollupImpressions(rollM.impressions);
       return (
         '<td class="lp-ops-td-muted lp-ops-td-num">' +
         lsEscHtml(impStrM) +
         '</td>' +
+        '<td class="lp-ops-td-num">' +
+        lsEscHtml(ctrPctM) +
+        '%</td>' +
         '<td class="lp-ops-td-muted lp-ops-td-num"><div class="lp-ops-metric-split"><span>ATC ' +
         lsEscHtml(atcPctM) +
         '%</span><span>CO ' +
@@ -20901,7 +20909,7 @@
 
     function paintSkuRows(tbody, list, bucketKey) {
       if (!tbody) return;
-      var colCount = bucketKey === 'hotItems' ? 12 : 13;
+      var colCount = bucketKey === 'hotItems' ? 13 : 14;
       if (!list.length) {
         tbody.innerHTML = lpOpsEmptyRow(colCount, 'lprod.empty_sku_title', 'lprod.empty_sku_hint');
         return;
@@ -21080,7 +21088,7 @@
 
     function paintNewStratMetricsRows(tbody, list) {
       if (!tbody) return;
-      var colCount = 12;
+      var colCount = 13;
       if (!list.length) {
         tbody.innerHTML = lpOpsEmptyRow(colCount, 'lprod.empty_sku_title', 'lprod.empty_new_strat_hint');
         return;
@@ -21107,6 +21115,7 @@
           var roll = apsPseudoRollup(rAps.pid);
           var atcPct = (parseFloat(rAps.atc) || 0).toFixed(1);
           var coPct = (parseFloat(rAps.cvr) || 0).toFixed(1);
+          var ctrPctNew = (parseFloat(rAps.ctr) || 0).toFixed(1);
           var metTd =
             '<td class="lp-ops-td-muted lp-ops-td-num"><div class="lp-ops-metric-split"><span>ATC ' +
             lsEscHtml(atcPct) +
@@ -21142,6 +21151,9 @@
             '<td class="lp-ops-td-muted lp-ops-td-num">' +
             lsEscHtml(lpOpsFormatRollupImpressions(roll.impressions)) +
             '</td>' +
+            '<td class="lp-ops-td-num">' +
+            lsEscHtml(ctrPctNew) +
+            '%</td>' +
             metTd +
             '<td class="lp-ops-td-num">' +
             lsEscHtml(row.gmv30d || '—') +
