@@ -441,6 +441,7 @@
       'aps.pack_detail_toast_capped': 'Copied {{n}} PIDs (max {{max}} per copy).',
       'aps.pack_detail_copy_limit_hint': 'Up to {{max}} PIDs per copy.',
       'aps.pack_detail_toast_none': 'Select at least one row to copy.',
+      'aps.gen_failed': 'Could not display results. Refresh the page or check the browser console for details.',
       'aps.pack_detail_badge_synced': 'Synced to TAP',
       'aps.pack_restore_skipped_synced': 'This Pack is synced to TAP and can’t be opened in the editor.',
       'aps.workspace_subtitle':
@@ -1470,6 +1471,7 @@
       'aps.pack_detail_toast_capped': '已复制 {{n}} 个 PID（单次最多 {{max}} 个）。',
       'aps.pack_detail_copy_limit_hint': '每次复制最多 {{max}} 个 PID。',
       'aps.pack_detail_toast_none': '请先勾选要复制的商品。',
+      'aps.gen_failed': '无法展示推荐结果。请刷新页面，或在浏览器控制台查看报错。',
       'aps.pack_detail_badge_synced': '已同步至 TAP',
       'aps.pack_restore_skipped_synced': '该 Pack 已同步至 TAP，无法在选品编辑器中打开。',
       'aps.workspace_subtitle':
@@ -18400,6 +18402,7 @@
     var root = document.getElementById('liveSettingsAps');
     if (!root) return;
 
+    lprodBootstrapOperationalDemoIfNeeded();
     apsHydrateRuntimePoolsPreferOps();
 
     var sel = document.getElementById('apsHostSelect');
@@ -18882,27 +18885,80 @@
       m.categories = cats;
     }
 
+    function wireResultFooters() {
+      var regenBtn = document.getElementById('apsRegen');
+      var exportBtn = document.getElementById('apsExport');
+      if (regenBtn) {
+        regenBtn.addEventListener('click', function () {
+          runGenerate(false);
+        });
+      }
+      if (exportBtn) {
+        exportBtn.addEventListener('click', function () {
+          var mExp = apsRuntime.meta;
+          if (!mExp || !mExp.products || !mExp.products.length) {
+            showToast(t('aps.pack_detail_toast_none'), 'warn');
+            return;
+          }
+          var escCsv = function (s) {
+            return '"' + String(s != null ? s : '').replace(/"/g, '""') + '"';
+          };
+          var csvLines = [escCsv('pid') + ',' + escCsv('name') + ',' + escCsv('pool') + ',' + escCsv('price') + ',' + escCsv('score')];
+          mExp.products.forEach(function (p) {
+            var poolLbl = p.pool === 'new' ? 'new' : 'best';
+            csvLines.push(
+              escCsv(p.sku) +
+                ',' +
+                escCsv(p.name) +
+                ',' +
+                escCsv(poolLbl) +
+                ',' +
+                escCsv(p.price) +
+                ',' +
+                escCsv(p.score)
+            );
+          });
+          var blob = new Blob(['\ufeff' + csvLines.join('\n')], { type: 'text/csv;charset=utf-8' });
+          var url = URL.createObjectURL(blob);
+          var a = document.createElement('a');
+          a.href = url;
+          a.download = 'smart_selection_products_' + new Date().toISOString().slice(0, 10) + '.csv';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+          URL.revokeObjectURL(url);
+          showToast(t('aps.toast_export'), 'success');
+        });
+      }
+    }
+
     function runGenerate(isRegen) {
       if (!canGenerate()) return;
+      void isRegen;
       apsRuntime.loading = true;
       syncGenButton();
       if (lab) lab.textContent = t('aps.generating');
 
       window.setTimeout(function () {
-        apsRuntime.meta = apsRunGeneration();
-        apsRuntime.loading = false;
-        if (lab) lab.textContent = t('aps.generate');
-        if (apsRuntime.meta) fixMetaCounters(apsRuntime.meta);
-        if (!apsRuntime.meta || !dynamic) {
+        try {
+          apsRuntime.meta = apsRunGeneration();
+          if (apsRuntime.meta) fixMetaCounters(apsRuntime.meta);
+          if (!apsRuntime.meta || !dynamic) {
+            return;
+          }
+          dynamic.innerHTML = renderResultHtml(apsRuntime.meta);
+          bindRows();
+          wireResultFooters();
+          openFilled();
+          scrollApsResultIntoView();
+        } catch (eApsUi) {
+          if (typeof console !== 'undefined' && console.error) console.error(eApsUi);
+          showToast(t('aps.gen_failed'), 'warn');
+        } finally {
+          apsRuntime.loading = false;
+          if (lab) lab.textContent = t('aps.generate');
           syncGenButton();
-          return;
         }
-        dynamic.innerHTML = renderResultHtml(apsRuntime.meta);
-        bindRows();
-        wireResultFooters();
-        openFilled();
-        scrollApsResultIntoView();
-        syncGenButton();
       }, 1500);
     }
 
@@ -20107,18 +20163,8 @@
     );
   }
 
-  function bindLiveProductsOperationalEvents() {
-    var root = document.getElementById('liveProdOps');
-    if (!root) return;
-
-    window._lpOpsBindGen = (window._lpOpsBindGen || 0) + 1;
-    var lpBindGen = window._lpOpsBindGen;
-    if (!window._lpOpsCollectTimerById) window._lpOpsCollectTimerById = {};
-    Object.keys(window._lpOpsCollectTimerById).forEach(function (kid) {
-      clearTimeout(window._lpOpsCollectTimerById[kid]);
-      delete window._lpOpsCollectTimerById[kid];
-    });
-
+  /** 与打开「运营选品池」时相同：在全空等条件下灌入演示 SKU 并写回 localStorage，便于直接进「智能选品」也能生成推荐。 */
+  function lprodBootstrapOperationalDemoIfNeeded() {
     var state = lprodLoadOps();
     var demoInjected = lprodHydrateDemoIfEmptyInto(state);
     var stratDemoMerged = lprodMergeStrategyDemonstrationSkusInto(state);
@@ -20131,6 +20177,22 @@
     if (demoInjected || demoAbnormal || backfilled || stratDemoMerged || demoSkuCapped) {
       lprodSaveOpsPayload(state);
     }
+  }
+
+  function bindLiveProductsOperationalEvents() {
+    var root = document.getElementById('liveProdOps');
+    if (!root) return;
+
+    window._lpOpsBindGen = (window._lpOpsBindGen || 0) + 1;
+    var lpBindGen = window._lpOpsBindGen;
+    if (!window._lpOpsCollectTimerById) window._lpOpsCollectTimerById = {};
+    Object.keys(window._lpOpsCollectTimerById).forEach(function (kid) {
+      clearTimeout(window._lpOpsCollectTimerById[kid]);
+      delete window._lpOpsCollectTimerById[kid];
+    });
+
+    lprodBootstrapOperationalDemoIfNeeded();
+    var state = lprodLoadOps();
     var demoUser = (typeof currentUser !== 'undefined' && currentUser && currentUser.name) ? currentUser.name : 'Ops';
 
     var pageByBucket = {
